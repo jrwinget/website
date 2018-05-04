@@ -1,0 +1,134 @@
+---
+title: Descriptive statistics in R, part III
+author: J. Winget
+date: '2018-05-03'
+slug: 2018-05-03_descriptive-statistics-in-r-part-iii
+categories: []
+tags: ["statistics", "R"]
+header:
+  caption: ''
+  image: ''
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating [how to calculate frequencies and create data tables](https://jeremyrwinget.netlify.com/post/descriptives-part-i/) and then covered some [common functions in base R and other packages that provide more detailed descriptive statistics](https://jeremyrwinget.netlify.com/post/descriptives-part-ii/). In today's post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.
+
+In my most recent post, I said I would use the ```gapminder``` dataset as a common example for both parts II and III. Turns out, I lied. I am actually going to create some fake data in this post. While this fake dataset may not be as interesting of an example as the ```gapminder``` data, it does have the added benefit of containing both discrete and continuous data as well as missing values. Thus, my fake dataset will illustrate how the descriptive methods here handle missing data.
+
+```{r}
+# Create some fake data
+employee <- c("Mary", "John", "Peter", "Jolie") # create employee variable
+salary <- c(21000, NA, 23400, 26800) # create salary variable
+department <- c("1", "1", "2", "2") # create department variable
+startdate <- as.Date(c("2015-11-1", "2018-1-25", "2007-3-14", "2011-08-10")) # create start date variable
+company <- data.frame(employee, salary, department, startdate) # create dataframe containing variables
+str(company)
+```
+
+# ggpairs, from the [GGally](https://cran.r-project.org/web/packages/GGally/GGally.pdf) package
+
+The ```ggpairs``` function is a unique method of summarizing data. It does not tell you the frequency, central tendency, variation or any other single-number descriptive statistic. It also does not provide any information on missing data. At this point, you may be wondering how the hell this function even ended up in a blog post about descriptive statistics. Well, the approach ```ggpairs``` takes to summarizing data is to provide a pairs plot, which shows the interactions of each variable in a dataset with each of the other variables. For example:
+
+```{r}
+library(GGally)
+ggpairs(company)
+```
+
+```ggpairs``` is sensitive to whether the data are discrete or continuous, so it is capable of automatically finding the appropriate visualization to display the data. But, this can be tweaked if you want something other than what the defaults provide (see documentation link in section header for details).
+
+The diagonal from the upper left to lower right of the matrix provides univariate information on those variables. Again, because ```ggpairs``` is sensitive to data type, it will automatically display histograms for categorical variables and density plots for continuous data. This can be very helpful for spotting unusual distributions (e.g., bimodal distribution) or outliers. However, it does seem to force dates (written in ISO format "2018-01-01") as continuous data rather than as a separate date type.
+
+To compare descriptive statistics by group, you can pass ```ggplot2``` aesthetics through ```ggpairs```. This means you could compare groups by assigning them to different colors (or other aesthetics). In my opinion, this seems to force a lot of information out of an already complex figure. Plus, if you have more than a few groups that you want to summarize by, you could end up with quite the color spectrum in your figure. Instead, I would find another way to summarize my data. Then, after I have an idea of what the data look like, I would use ```ggpairs``` as a way of visualizing the dataset (or subset of variables). This function is great for getting an overview of the relationship between any two variables in a dataset quickly and efficiently.
+
+# CreateTableOne, from the [tableone](https://cran.r-project.org/web/packages/tableone/tableone.pdf) package
+
+With the ```CreateTableOne``` function, you need to specify the data argument before you can execute the command.
+
+```{r}
+library(tableone)
+CreateTableOne(data = company)
+```
+
+The output is minimal, and it clearly displays counts for each variable. Like ```ggpairs```, ```CreateTableOne``` automatically differentiates between discrete and continuous variables. However, the output is very sparse for numeric data (i.e., salary), providing only a mean and SD. Despite this shortcoming, the categorical data are accompanied by the percentage breakdown, which can be very useful.
+
+A warning message is displayed at the top of the output that states the "startdate" variable was dropped, so this function gives a clear indication of which (if any) variables are not displayed. While these messages are very appreciated, the output does not really provide any information on missing data.
+
+However, you can use our old friend ```summary``` from [part II](https://jeremyrwinget.netlify.com/post/descriptives-part-ii/) to get an output that displays more information. To do this, simply wrap the ```CreateTableOne``` function in the ```summary``` function:
+
+```{r}
+summary(CreateTableOne(data = company))
+```
+
+This tells us what data are missing as well as a variety of descriptive statistics. Additionally, if you specify the "strata" argument in ```CreateTableOne```, you can summarize by group.
+
+```{r}
+CreateTableOne(strata = "department", data = company)
+```
+
+Not only does the output display descriptive statistics by group, it also automatically calculates p-values from a hypothesis test examining whether the groups differ from one another. By default, these are either ANOVA (for continuous variables) or chi-squared (for categorical variables) analyses. You can also alter the default statistic tests (e.g., use exact tests) should you need to.
+
+# desctable, from the [desctable](https://cran.r-project.org/web/packages/desctable/desctable.pdf) package
+
+```desctable``` provides many of the same functions as ```CreateTableOne```, but it is much more flexible. By default, its output is in tabular format, making it tidy enough to pass onto other functions in the ```tidyverse```. It can handle all data types and automatically displays the appropriate descriptive statistic. For instance:
+
+```{r}
+library(desctable)
+desctable(company)
+```
+
+The output is unique (at least to me) such that some fields (e.g., department) are hierarchical. This could get confusing with a large dataset, especially if you are not expecting it. There is also no overall summary count of missing data, which can be a major limitation in some cases.
+
+Since the output is tidy, you can easily use the ```group_by``` function from the ```dplyr``` package to summarize the data by group. 
+
+```{r}
+library(dplyr)
+group_by(company, department) %>% 
+  desctable()
+```
+
+The output is not very intuitive because it is so spread out. This can make it a bit difficult to compare summary statistics across groups (especially if you have more groups than I am using in this example). However, the nice thing about the output is that it includes a statistical test comparing differences across the groups.
+
+The ```desctable``` function is also extremely customizable. For example, if I wanted to display more descriptive statistics than the default output provided, I could do something like this:
+
+```{r}
+desctable(company, stats = list("N" = length,
+                                "Mean" = mean,
+                                "SD" = sd,
+                                "Median" = median,
+                                "IQR" = IQR,
+                                "Min" = min,
+                                "Max" = max))
+```
+
+You can also customize the statistical tests that are conducted or add conditional formulas. This function is so customizable that you may be able to create a summary output that fits your needs for virtually any situation. See the documentation (link in section header) for more details.
+
+# stat.desc, from the [pastecs](https://cran.r-project.org/web/packages/pastecs/pastecs.pdf) package
+
+```{r}
+library(pastecs)
+stat.desc(company)
+```
+
+Much like the ```ds_summary_stats``` function, a potential limitation of the ```stat.desc``` function is that it cannot handle categorical data. As the output shows, categorical data are treated as NA with this function. However, it does display all the major descriptive statistics and missing data information for numeric data. 
+
+One of the nice features about ```stat.desc``` is that it provides measures of uncertainty (e.g., confidence intervals, standard errors). This is great information to know about the data, and something not often provided in other summary functions. Moreover, with other arguments, you can apply tests of normality to the data.
+
+The output is rather tidy, but you may have to do a little manipulation depending on your needs. There is not group-by comparison function, but you can use the ```by``` function (covered in a [part II](https://jeremyrwinget.netlify.com/post/descriptives-part-ii/)) with it. This yields a list that contains a copy of the output for each group, which can be useful when examining the summary of a particular group but difficult when comparing a summary statistic across groups.
+
+# Summary
+
+And, that is it for this series on descriptive statistics in R! In this post, I covered five additional packages for summarizing data.
+
+1. ```ggpairs``` in the ```GGally``` package
+2. ```CreateTableOne``` in the ```tableone``` package
+3. ```desctable``` in the ```desctable``` package
+4. ```stat.desc``` in the ```pastecs``` package 
+
+Out of these four methods of summarizing data, I find the ```desctable``` function to be one of the more power approaches. It can provide more informative summaries compared to the other functions discussed in this post, and with a few simple tweaks, it is likely be useful in almost any situation that calls for summary statistics. I also like the data visualization approach that ```ggpairs``` takes. Descriptive statistics are very useful, and in many circumstances, we need a lot of data to be summarized with a single number. However, these numbers can sometimes be very misleading. ```ggpairs``` helps to minimize this illusion by visually presenting the data in a quick and intuitive manner. 
+
+That being said, I think a combination of functions from each post is probably the most practical and useful approach for summarizing data. For example, you may want to start with ```tabyl``` from the ```janitor``` package or ```skim``` from the ```skimr``` package to get an understanding of your overall dataset. Then, you may want to use ```ggpairs``` from the ```GGally``` package to visually inspect the distribution of the data. You might want to even take this further by utilizing the strength of tidy data and pipe the output from one function into another (e.g, the output from ```skim``` into ```dplyr``` into ```ggplot2```). Then again, you may just need some simple, bare-bones summary statistics. In these cases, utilizing ```summary``` and ```table``` in base R make be sufficient.
+
+Across this three-part series, I have tried to cover as much as possible but while also balancing the detail given to each approach. As you can see, R does indeed make some simple tasks (e.g., summarizing a dataset) complicated. Despite my best efforts, parts I, II, and III only scratch the surface of all the ways R can summarize data. [CRAN](https://cran.r-project.org/web/packages/) *literally* has thousands of available packages, and I have only mentioned methods/packages that I am familiar with. Undoubtedly, there are other (and probably more efficient) methods of calculating descriptive statistics with R. I am always open to new ideas, so if anyone has any suggestions, please feel free to comment or contact me!

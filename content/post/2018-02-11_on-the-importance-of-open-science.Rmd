@@ -1,0 +1,60 @@
+---
+title: On the importance of Open Science
+author: J. Winget
+date: '2018-02-11'
+slug: on-the-importance-of-open-science
+categories: []
+tags: ["open science", "methods", "replication", "reproducibility", "QRP", "scientific integrity"]
+---
+In my last post, I refrained from standing on my Open Science soapbox; that's not the case in this one. However, before I dig into why Open Science is near and dear to my heart, I want to take some time to cover some basic concepts. After all, it seems like the terms "Open Science" and "QRPs" are becoming buzz words in many contexts, at least from my perspective as a graduate student. Perhaps it's because the Open Science movement is starting to gain real momentum, but in my experience, many graduate students are not explicitly made aware of QRPs (questionable research practices) or many of the issues Open Science seeks to correct. So, I want to first highlight some of these terms to showcase their importance in psychological research (and science in general).
+
+Broadly speaking, science is the process by which we collect, analyze, publish, critique, and reanalyze/reinterpret data to explain a particular phenomenon. Currently, there are many issues with the way we are disseminating scholarly information and knowledge. For example, there are financial paywalls by for-profit research publishers, restrictions on data usage by publishers, poor formatting of data, the use of proprietary software that makes data difficult to reproduce, and cultural reluctance to publish null findings or results typically deemed "uninteresting". And, this barely scratches the surface.
+
+#QRPs
+
+The term "QRP"" was popularized in an article by [John, Loewenstein, and Prelec (2012)](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.727.5139&rep=rep1&type=pdf). These authors distinguish between fraud and QRPs: fraud is often limited to situations in which the researchers create fabricated data whereas QRPs typically involve the exclusion of data that are inconsistent with a hypothesis. QRPs are distinct from fraud because they can sometimes be used in a legitimate way. For example, an error in data entry could yield an outlier that produces a non-significant finding when all the data are included; however, these results may be significant if the outlier is removed. Indeed, many statistical textbooks recommend excluding outliers for this very reason. However, when outliers are selectively removed from a dataset (e.g., removed if doing so produces a significant result but not removed if it produces a non-significant result), this becomes a QRP.
+
+The use of QRPs is problematic because published results provide false impressions about the replicability of empirical results and misleading evidence about the size of the effect. Below is a (brief) list of QRPs:
+
+- Selective reporting of variables, especially dependent variables
+- Deciding whether to collect more data after looking to see whether the results are significant
+- Failing to disclose all experimental conditions
+- Selectively reporting studies that worked
+- Rounding off a p-value just about .054 to claim it is below .05
+- Reporting an unexpected finding as having been predicted from the start
+- Claiming results are unaffected by demographic variables when one is actually unsure (or knows they do)
+
+This list is, by no means, exhaustive. In the future, I'm sure I'll write an entire post(s) devoted specifically to QRPs. My point here is simply to illuminate the many ways that researchers can (perhaps innocently) misrepresent their research findings. One solution to the problem of QRPs is to implement Open Science practices.
+
+#Open Science
+
+The term "open science" does not have a fixed operational definition. Instead, it is used as more of an umbrella term that captures a series of principles that aim to foster scientific growth and its access to the public. Essentially, Open Science is about removing the barriers for sharing any kind of output, resources, methods, or tools at any stage of the research process. As such, open access to publications, open research data, open source software, open collaboration, open peer review, open notebooks, open educational resources, open monographs, citizen science, or research crowdfunding, fall into the boundaries of Open Science. 
+
+These principles are not exactly new since the tradition of openness itself is at the roots of science. Philosophically, it's thought that in the long run, the adjective "Open"" should not be necessary, and I agree with this. By adopting these practices, science will become open by default, and it would be simply named "Science".
+
+In an effort to give a fair shake to both sides of the Open Science dialog, I want to point out that there are some who argue against Open Science. Such concerns tend to include the potential for scholars to capitalize on data other researchers worked to collect, the potential for less qualified individuals to misuse open data, and that novel data are more critical than reproducing or replicating older findings. However, I do not buy into these arguments as a case against Open Science, especially when considering the benefits Open Science offers outweigh the costs of the current problems we face in psychological research (e.g., QRPs, increasing replication and reproducibility, etc.). 
+
+Instead, Open Science is a valuable tool we can leverage to improve the quality of research. It can improve the transparency and validity of research, increase public ownership of and accessibility to science, increase public dialog in science (which in turn can generate more avenues for future research), allow for more rigorous peer-review, have greater impact than research stuck behind paywalls, make the research system accessible without discrimination, and may even be able to help answer uniquely complex questions.
+
+Evidence shows there is bias in the ways research results are reported. Positive results are deemed more exciting, which makes them more publishable, and negative results are deemed boring and/or disappointing, which makes them more likely to be left in the file drawer (or in today's world, some obscure folder on a hard drive that is hardly ever looked at again). However, negative data is *incredibly* valuable for getting to important solutions faster, for making evidence-based decisions about what not to invest in next, and for informative meta-analyses. Failing to share negative data fuels tragic cycles of dead-end research investments.
+
+The lack of reporting negative results is not the only issue here. The pressures for finding positive results produce additional problems for the content and credibility of research that does get reported. What researchers observe is often different than what they report. Evidence suggests that excessive (albeit unintentional) selection bias produces reported findings that are much favorable than what researchers actually observed. For the policymakers, care providers, educators, medical professionals, and so many others who depend on published research to inform their choices and strategies, selective reporting yields false hope and ineffective action.
+
+Thankfully, technology has increased the ways by which we can make our data from research open. There are many sites that now allow researchers to host and share their research methods, material, data, and analyses. One such example is the Open Science Framework (OSF; https://osf.io). The OSF is a cloud-based management system for all of your projects (you can even use it to host your slides/posters from conferences). This allows one to keep all of one's files, data, and protocols in *one centralized location*. That means no more searching through emails to find files or scrambling from lost data. You can even control which parts of a project are public or private, which makes it easy to collaborate with the world or just one's lab. One other cool feature of OSF is the ability to connect third party services directly to the OSF. So, if you already incorporate GitHub or DropBox in your current workflow, adding them to the OSF only takes a couple of clicks!
+
+#Call to action
+
+To achieve the goals of Open Science, we must change the culture and incentives that drive researchers’ behavior, the infrastructure that supports their research, and the business models that dominate scholarly communication. This cultural change is not a light undertaking. It requires simultaneous action by institutions, researchers, and funders across national and disciplinary boundaries. Despite these challenges, the goals of Open Science are achievable because openness, integrity, and reproducibility are shared scientific values, the technological capacity is available, and alternative sustainable business models currently exist.
+
+More importantly, the alternative is not a sustainable option: **Closed science is an impediment to scientific progress.**  
+
+We can change the current landscape. To improve quality of life, advance more effective interventions, and more efficient solutions, we must build the means and create the incentives for scientists to appreciate and embrace two objectives:
+
+- Show your work 
+- Share your work
+
+While some will argue that increasing the scale of science will make verification of any discovery more difficult and that too much unsorted information will overwhelm scientists, I disagree. Scientists are smart: they will figure out what is reliable and what needs to be studied next. Open science is the key to reducing waste, accelerating meaningful solutions to the biggest problems faced by our communities, states, nations, business and civic institutions, and to save the lives of millions of people around the world who depend on science to survive.
+
+We can improve decisions and quality of life by making the content of research and the process of producing that content transparent, accessible, and reusable. Thus, I urge all my fellow graduate students and researchers to implement Open Science practices into their workflow. I, for one, plan to start posting my code on GitHub and my materials on OSF. While this will be a major change in my workflow (and I know how we all hate change), I know the payoffs will greatly outweigh this discomfort. My research will be of a higher quality, and the public will benefit from me making my research a public good rather than an exclusive product.
+
+If you are interested in taking further steps to increase the transparency of your own research, I suggest reading (an encourage you to sign) the Commitment to Research Transparency and Open Science: http://www.researchtransparency.org/

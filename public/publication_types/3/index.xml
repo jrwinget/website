@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3 on Jeremy R. Winget, M.A.</title>
+    <link>/publication_types/3/</link>
+    <description>Recent content in 3 on Jeremy R. Winget, M.A.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 31 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/publication_types/3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Are groups less ethical than individuals?</title>
+      <link>/publication/unethical-groups/</link>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/unethical-groups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stereotypic morality: The effects of group membership on moral foundations</title>
+      <link>/publication/stereotypic-morality/</link>
+      <pubDate>Thu, 29 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/stereotypic-morality/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

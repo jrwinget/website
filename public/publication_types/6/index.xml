@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>6 on Jeremy R. Winget, M.A.</title>
+    <link>/publication_types/6/</link>
+    <description>Recent content in 6 on Jeremy R. Winget, M.A.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 30 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/publication_types/6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deception in group contexts</title>
+      <link>/publication/group-deception/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/group-deception/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Group decision making</title>
+      <link>/publication/group-decision-making/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/group-decision-making/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning while deciding in groups</title>
+      <link>/publication/group-learning/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/group-learning/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
