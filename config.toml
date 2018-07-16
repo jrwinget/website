@@ -230,9 +230,9 @@ defaultContentLanguageInSubdir = false
     link = "//osf.io/x3gve/"
 
   [[params.social]]
-    icon = "github"
+    icon = "gitlab"
     icon_pack = "fa"
-    link = "//github.com/jrwinget"
+    link = "//gitlab.com/jrwinget"
   
   [[params.social]]
     icon = "google-scholar"
