@@ -15,4 +15,4 @@ weight = 65
 
 +++
 
-<iframe src="https://drive.google.com/file/d/1XCLv6LkoSiGDJcvQQrjMQouTRTntIIu8/view" width="640" height="480"></iframe>
+<iframe src="https://drive.google.com/file/d/1XCLv6LkoSiGDJcvQQrjMQouTRTntIIu8/view?usp=sharing" width="640" height="480"></iframe>
