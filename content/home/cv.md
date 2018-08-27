@@ -10,9 +10,9 @@ date = "2016-04-20T00:00:00"
 title = "CV"
 subtitle = ""
 
+<iframe src="https://drive.google.com/file/d/1XCLv6LkoSiGDJcvQQrjMQouTRTntIIu8/view?usp=sharing" width="640" height="480"></iframe>
+
 # Order that this section will appear in.
 weight = 65
 
 +++
-
-<iframe src="https://drive.google.com/file/d/1XCLv6LkoSiGDJcvQQrjMQouTRTntIIu8/view?usp=sharing" width="640" height="480"></iframe>
