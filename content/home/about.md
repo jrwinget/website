@@ -13,7 +13,8 @@ weight = 5
     "Group Dynamics",
     "Information Processing",
     "Social Influence",
-    "Political/Moral Psych"
+    "Political/Moral Psych",
+    "Data Science"
   ]
 
 # List your qualifications (such as academic degrees).
@@ -26,6 +27,7 @@ weight = 5
   course = "MA in Social Psychology"
   institution = "Loyola University Chicago"
   year = 2016
+  
 [[education.courses]]
   course = "BSc in Psychology/Criminal Justice"
   institution = "Grand Valley State University"
