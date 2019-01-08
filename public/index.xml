@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jeremy R. Winget, M.A. on Jeremy R. Winget, M.A.</title>
+    <title>Margins of Error on Margins of Error</title>
     <link>/</link>
-    <description>Recent content in Jeremy R. Winget, M.A. on Jeremy R. Winget, M.A.</description>
+    <description>Recent content in Margins of Error on Margins of Error</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -16,7 +16,10 @@
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-05-03_descriptive-statistics-in-r-part-iii/</guid>
-      <description>&lt;p&gt;In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;how to calculate frequencies and create data tables&lt;/a&gt; and then covered some &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-ii/&#34;&gt;common functions in base R and other packages that provide more detailed descriptive statistics&lt;/a&gt;. In today’s post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;how to calculate frequencies and create data tables&lt;/a&gt; and then covered some &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-ii/&#34;&gt;common functions in base R and other packages that provide more detailed descriptive statistics&lt;/a&gt;. In today’s post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.&lt;/p&gt;
 &lt;p&gt;In my most recent post, I said I would use the &lt;code&gt;gapminder&lt;/code&gt; dataset as a common example for both parts II and III. Turns out, I lied. I am actually going to create some fake data in this post. While this fake dataset may not be as interesting of an example as the &lt;code&gt;gapminder&lt;/code&gt; data, it does have the added benefit of containing both discrete and continuous data as well as missing values. Thus, my fake dataset will illustrate how the descriptive methods here handle missing data.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create some fake data
 employee &amp;lt;- c(&amp;quot;Mary&amp;quot;, &amp;quot;John&amp;quot;, &amp;quot;Peter&amp;quot;, &amp;quot;Jolie&amp;quot;) # create employee variable
@@ -299,7 +302,10 @@ stat.desc(company)
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/descriptives-part-ii/</guid>
-      <description>&lt;p&gt;Moving on from frequencies and tables, which were covered in &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;part I&lt;/a&gt;, let’s now focus on other ways to summarize our data (e.g., mean, standard deviation). There are a lot of ways to divide a topic like descriptive statistics, and R can further complicate this seemingly simple task. It’s been said R does a great job of making complex procedures simple, but it also has the tendency to make simple tasks complex. Because there are many methods of calculating descriptive statistics in R, and because some of these methods are more applicable in certain situations over others, there is a lot of material covered in this post. To keep the post length manageable, part II will cover some ways to calculate descriptive statistics in base R and some common functions in popular packages. In part III, we’ll focus on some other common approaches for obtaining descriptive statistics, and I’ll finish by discussing my thoughts on the packages between parts II and III overall.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Moving on from frequencies and tables, which were covered in &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;part I&lt;/a&gt;, let’s now focus on other ways to summarize our data (e.g., mean, standard deviation). There are a lot of ways to divide a topic like descriptive statistics, and R can further complicate this seemingly simple task. It’s been said R does a great job of making complex procedures simple, but it also has the tendency to make simple tasks complex. Because there are many methods of calculating descriptive statistics in R, and because some of these methods are more applicable in certain situations over others, there is a lot of material covered in this post. To keep the post length manageable, part II will cover some ways to calculate descriptive statistics in base R and some common functions in popular packages. In part III, we’ll focus on some other common approaches for obtaining descriptive statistics, and I’ll finish by discussing my thoughts on the packages between parts II and III overall.&lt;/p&gt;
 &lt;p&gt;For this post and the next, I will be using the &lt;code&gt;gapminder&lt;/code&gt; dataset in the &lt;code&gt;gapminder&lt;/code&gt; package. The dataframe contains data on life expectancy, GDP per capita, and population by country, continent, and year. It also contains 1704 observations and 6 variables. The data come from &lt;a href=&#34;https://www.gapminder.org&#34;&gt;Gapminder&lt;/a&gt;, which is an independent Swedish foundation with no political, religious, or economic affiliation.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)
 str(gapminder)
@@ -1046,7 +1052,10 @@ head(data)
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/descriptives-part-i/</guid>
-      <description>&lt;p&gt;Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.&lt;/p&gt;
 &lt;p&gt;In SPSS, you can get frequencies, means, SDs, and more at once with the FREQUENCIES command although you can also get means and other descriptive stats from the CONDESCRIPTIVE and EXAMINE commands. R can easily handle categorical and continuous variables together or separately. I’ll cover some functions that are fundamental to R, but I’ll also point out some functions that are most like SPSS.&lt;/p&gt;
 &lt;p&gt;I will be using the &lt;code&gt;airquality&lt;/code&gt; data frame from the &lt;code&gt;datasets&lt;/code&gt; package in base R for my examples. This data frame contains daily air quality measurements in New York from May to September in 1973. It contains 153 observations on 6 variables.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(airquality)
@@ -1698,7 +1707,10 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &amp;quot;dec&amp;quot;, 
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/on-the-importance-of-open-science/</guid>
-      <description>&lt;p&gt;In my last post, I refrained from standing on my Open Science soapbox; that’s not the case in this one. However, before I dig into why Open Science is near and dear to my heart, I want to take some time to cover some basic concepts. After all, it seems like the terms “Open Science” and “QRPs” are becoming buzz words in many contexts, at least from my perspective as a graduate student. Perhaps it’s because the Open Science movement is starting to gain real momentum, but in my experience, many graduate students are not explicitly made aware of QRPs (questionable research practices) or many of the issues Open Science seeks to correct. So, I want to first highlight some of these terms to showcase their importance in psychological research (and science in general).&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;In my last post, I refrained from standing on my Open Science soapbox; that’s not the case in this one. However, before I dig into why Open Science is near and dear to my heart, I want to take some time to cover some basic concepts. After all, it seems like the terms “Open Science” and “QRPs” are becoming buzz words in many contexts, at least from my perspective as a graduate student. Perhaps it’s because the Open Science movement is starting to gain real momentum, but in my experience, many graduate students are not explicitly made aware of QRPs (questionable research practices) or many of the issues Open Science seeks to correct. So, I want to first highlight some of these terms to showcase their importance in psychological research (and science in general).&lt;/p&gt;
 &lt;p&gt;Broadly speaking, science is the process by which we collect, analyze, publish, critique, and reanalyze/reinterpret data to explain a particular phenomenon. Currently, there are many issues with the way we are disseminating scholarly information and knowledge. For example, there are financial paywalls by for-profit research publishers, restrictions on data usage by publishers, poor formatting of data, the use of proprietary software that makes data difficult to reproduce, and cultural reluctance to publish null findings or results typically deemed “uninteresting”. And, this barely scratches the surface.&lt;/p&gt;
 &lt;div id=&#34;qrps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;QRPs&lt;/h1&gt;
@@ -1743,7 +1755,10 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &amp;quot;dec&amp;quot;, 
       <pubDate>Wed, 07 Feb 2018 19:04:00 +0000</pubDate>
       
       <guid>/post/2018-02-07_first-post/</guid>
-      <description>&lt;div id=&#34;hello-world&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;hello-world&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Hello, world!&lt;/h1&gt;
 &lt;p&gt;Thanks for taking the time to read my first blog post! While I am trained as a social psychologist, I’m a big proponent of leveraging data science tools to understand the world around us. Thus, I plan to discuss a mixture of data-driven topics and insights here. I hope to use this blog as a place to write about things that interest me, but focus will likely be on statistics, research methods, open science, social psychology, and data science. This will be a place for me to share my thoughts on a variety of topics, offer guidance on statistical/methodological topics for the social sciences, and hopefully generate a bit of discussion.&lt;/p&gt;
 &lt;p&gt;To tell you a little more about myself, I am currently a fourth year PhD student in applied social psychology and received my MA in applied social psychology from Loyola University Chicago in 2016. My research interests are realted to group dynamics, cooperation/conflict, social influence, and quantitative methods. I started conducting my data analysis in R about a year ago, and have been interested in the power of open source data science tools ever since. I believe one way to improve our current scientific system is to create and use good open source tools, and we also need to make these tools easy enough for all scientists to use. In other words, we need to make science more accessible.&lt;/p&gt;
