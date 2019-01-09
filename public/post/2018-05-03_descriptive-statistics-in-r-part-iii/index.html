@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.40.2" />
   <meta name="author" content="Jeremy R. Winget, M.A.">
 
   
@@ -358,10 +358,7 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      
-
-
-<p>In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating <a href="https://jeremyrwinget.netlify.com/post/descriptives-part-i/">how to calculate frequencies and create data tables</a> and then covered some <a href="https://jeremyrwinget.netlify.com/post/descriptives-part-ii/">common functions in base R and other packages that provide more detailed descriptive statistics</a>. In today’s post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.</p>
+      <p>In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating <a href="https://jeremyrwinget.netlify.com/post/descriptives-part-i/">how to calculate frequencies and create data tables</a> and then covered some <a href="https://jeremyrwinget.netlify.com/post/descriptives-part-ii/">common functions in base R and other packages that provide more detailed descriptive statistics</a>. In today’s post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.</p>
 <p>In my most recent post, I said I would use the <code>gapminder</code> dataset as a common example for both parts II and III. Turns out, I lied. I am actually going to create some fake data in this post. While this fake dataset may not be as interesting of an example as the <code>gapminder</code> data, it does have the added benefit of containing both discrete and continuous data as well as missing values. Thus, my fake dataset will illustrate how the descriptive methods here handle missing data.</p>
 <pre class="r"><code># Create some fake data
 employee &lt;- c(&quot;Mary&quot;, &quot;John&quot;, &quot;Peter&quot;, &quot;Jolie&quot;) # create employee variable
@@ -625,7 +622,7 @@ stat.desc(company)
     
 <section id="comments">
   <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     

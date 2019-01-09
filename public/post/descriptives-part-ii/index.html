@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.40.2" />
   <meta name="author" content="Jeremy R. Winget, M.A.">
 
   
@@ -358,10 +358,7 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      
-
-
-<p>Moving on from frequencies and tables, which were covered in <a href="https://jeremyrwinget.netlify.com/post/descriptives-part-i/">part I</a>, let’s now focus on other ways to summarize our data (e.g., mean, standard deviation). There are a lot of ways to divide a topic like descriptive statistics, and R can further complicate this seemingly simple task. It’s been said R does a great job of making complex procedures simple, but it also has the tendency to make simple tasks complex. Because there are many methods of calculating descriptive statistics in R, and because some of these methods are more applicable in certain situations over others, there is a lot of material covered in this post. To keep the post length manageable, part II will cover some ways to calculate descriptive statistics in base R and some common functions in popular packages. In part III, we’ll focus on some other common approaches for obtaining descriptive statistics, and I’ll finish by discussing my thoughts on the packages between parts II and III overall.</p>
+      <p>Moving on from frequencies and tables, which were covered in <a href="https://jeremyrwinget.netlify.com/post/descriptives-part-i/">part I</a>, let’s now focus on other ways to summarize our data (e.g., mean, standard deviation). There are a lot of ways to divide a topic like descriptive statistics, and R can further complicate this seemingly simple task. It’s been said R does a great job of making complex procedures simple, but it also has the tendency to make simple tasks complex. Because there are many methods of calculating descriptive statistics in R, and because some of these methods are more applicable in certain situations over others, there is a lot of material covered in this post. To keep the post length manageable, part II will cover some ways to calculate descriptive statistics in base R and some common functions in popular packages. In part III, we’ll focus on some other common approaches for obtaining descriptive statistics, and I’ll finish by discussing my thoughts on the packages between parts II and III overall.</p>
 <p>For this post and the next, I will be using the <code>gapminder</code> dataset in the <code>gapminder</code> package. The dataframe contains data on life expectancy, GDP per capita, and population by country, continent, and year. It also contains 1704 observations and 6 variables. The data come from <a href="https://www.gapminder.org">Gapminder</a>, which is an independent Swedish foundation with no political, religious, or economic affiliation.</p>
 <pre class="r"><code>library(gapminder)
 str(gapminder)
@@ -1136,7 +1133,7 @@ head(data)
     
 <section id="comments">
   <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     

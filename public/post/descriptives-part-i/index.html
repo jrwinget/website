@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.40.2" />
   <meta name="author" content="Jeremy R. Winget, M.A.">
 
   
@@ -358,10 +358,7 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      
-
-
-<p>Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.</p>
+      <p>Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.</p>
 <p>In SPSS, you can get frequencies, means, SDs, and more at once with the FREQUENCIES command although you can also get means and other descriptive stats from the CONDESCRIPTIVE and EXAMINE commands. R can easily handle categorical and continuous variables together or separately. I’ll cover some functions that are fundamental to R, but I’ll also point out some functions that are most like SPSS.</p>
 <p>I will be using the <code>airquality</code> data frame from the <code>datasets</code> package in base R for my examples. This data frame contains daily air quality measurements in New York from May to September in 1973. It contains 153 observations on 6 variables.</p>
 <pre class="r"><code>str(airquality)
@@ -928,7 +925,7 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &quot;dec&quot;, total = 
     
 <section id="comments">
   <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     

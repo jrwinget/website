@@ -11,24 +11,22 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>First #tidytuesday submission</title>
+      <title>First TidyTuesday submission</title>
       <link>/post/2019-01-08_tidy-tuesday/</link>
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-01-08_tidy-tuesday/</guid>
-      <description>
-
-
-&lt;p&gt;It’s been quite some time since I’ve written here, so I thought I would use one my of &lt;a href=&#34;https://twitter.com/_jwinget/status/1079437460357218304&#34;&gt;2019 #rstats goals&lt;/a&gt; as an excuse to brush off the dust.&lt;/p&gt;
-&lt;p&gt;In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my &lt;strong&gt;first&lt;/strong&gt; &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08&#34;&gt;#tidytuesday&lt;/a&gt; submission!&lt;/p&gt;
-&lt;p&gt;First, we have to load the packages and data&lt;/p&gt;
+      <description>&lt;p&gt;It’s been quite some time since I’ve written here, so I thought I would use one my of &lt;a href=&#34;https://twitter.com/_jwinget/status/1079437460357218304&#34;&gt;2019 #rstats goals&lt;/a&gt; as an excuse to brush off the dust.&lt;/p&gt;
+&lt;p&gt;In this post, I write about my &lt;strong&gt;first&lt;/strong&gt; &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08&#34;&gt;#tidytuesday&lt;/a&gt; submission of the Economist’s “TV’s golden age is real” data set (original #tidytuesday code &lt;a href=&#34;https://gitlab.com/jrwinget/tidy-tuesday/blob/master/2019-01-08_tv-golden-age.Rmd&#34;&gt;here&lt;/a&gt;). I also make a few improvements to some of the graphs and add tables with the &lt;code&gt;gt&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;Special thanks to &lt;a href=&#34;https://twitter.com/IsabellaGhement&#34;&gt;Isabella Ghement&lt;/a&gt; for providing &lt;a href=&#34;https://twitter.com/IsabellaGhement/status/1082831866523086849&#34;&gt;a few tips&lt;/a&gt; on how to improve the original graphs!&lt;/p&gt;
+&lt;p&gt;First, load the required packages and data:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
 ## ✔ readr   1.3.0     ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(lubridate)&lt;/code&gt;&lt;/pre&gt;
@@ -37,7 +35,12 @@
 &lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
 ## 
 ##     date&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tv_rating &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-08/IMDb_Economist_tv_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggpmisc)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## For news about &amp;#39;ggpmisc&amp;#39;, please, see https://www.r4photobiology.info/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## For on-line documentation see https://docs.r4photobiology.info/ggpmisc/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggrepel)
+library(gt)
+tv_rating &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-08/IMDb_Economist_tv_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Parsed with column specification:
 ## cols(
 ##   titleId = col_character(),
@@ -63,15 +66,21 @@
   aes(year, avg_rating) +
   geom_point() +
   geom_smooth(
+    formula = y ~ x,
     method = &amp;quot;lm&amp;quot;,
     se = FALSE,
     color = &amp;quot;red&amp;quot;
   ) +
   labs(
+    title = &amp;quot;Which years had the highest ratings?&amp;quot;,
     x = &amp;quot;Year&amp;quot;,
     y = &amp;quot;Average rating&amp;quot;
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+  ) +
+  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = &amp;quot;~~~~&amp;quot;)),
+    formula = y ~ x, color = &amp;quot;red&amp;quot;, parse = TRUE
+  ) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Looks like the newer the TV drama, the more likely it was to have a higher rating. Maybe some of this is variance is due to shows with multiple seasons. Let’s see how this changes when looking at individual shows and their respective run lengths.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;which-titles-had-the-highest-ratings-and-how-long-did-they-run&#34; class=&#34;section level3&#34;&gt;
@@ -101,14 +110,16 @@ titles %&amp;gt;%
     x = &amp;quot;TV Series Title&amp;quot;,
     y = &amp;quot;Number of years aired&amp;quot;
   ) +
-  theme_light()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+  theme_light() +
+  theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# highest rated titles rating over time
 titles %&amp;gt;%
   ggplot() +
   aes(yrs_aired, avg_rating) +
   geom_point() +
   geom_smooth(
+    formula = y ~ x,
     method = &amp;quot;lm&amp;quot;,
     se = FALSE,
     color = &amp;quot;red&amp;quot;
@@ -118,9 +129,12 @@ titles %&amp;gt;%
     x = &amp;quot;Number of years ran&amp;quot;,
     y = &amp;quot;Average rating&amp;quot;
   ) +
+  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = &amp;quot;~~~~&amp;quot;)),
+    formula = y ~ x, color = &amp;quot;red&amp;quot;, parse = TRUE
+  ) +
   theme_light()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;I haven’t seen all of these shows, but for the most part, their titles seem to describe suspenseful dramas (e.g., mystery, crime, maybe even thriller/horror). However, King of the Hill doesn’t really fit this description, so let’s take a look at the genre variable. Keep in mind, all of these shows are dramas, I’m conceptualizing these as sort of sub-genres of drama.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I haven’t seen all of these shows, but for the most part, their titles seem to describe suspenseful dramas (e.g., mystery, crime, maybe even thriller/horror). However, King of the Hill doesn’t really fit this description, so let’s take a look at the genre variable. Keeping in mind that all of these shows are dramas, I’m conceptualizing these as sub-genres of drama.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;which-sub-genres-are-most-popular&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Which sub-genres are most popular?&lt;/h3&gt;
@@ -137,29 +151,383 @@ titles %&amp;gt;%
 
 tv_rating %&amp;gt;%
   group_by(genres) %&amp;gt;%
-  top_ratings()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 18 x 4
-##    genres                      n avg_rating med_rating
-##    &amp;lt;chr&amp;gt;                   &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
-##  1 Drama,Fantasy,Horror       56       8.34       8.51
-##  2 Crime,Drama,Thriller       63       8.39       8.41
-##  3 Action,Crime,Drama        146       8.16       8.28
-##  4 Crime,Drama               107       8.27       8.27
-##  5 Drama,Thriller             27       8.03       8.19
-##  6 Drama,Fantasy,Mystery      32       8.14       8.16
-##  7 Drama                     168       8.00       8.16
-##  8 Adventure,Drama,Fantasy    27       8.11       8.14
-##  9 Drama,Mystery,Sci-Fi       58       8.06       8.11
-## 10 Comedy,Drama,Family        43       8.01       8.11
-## 11 Comedy,Crime,Drama         80       8.02       8.09
-## 12 Comedy,Drama              174       8.02       8.09
-## 13 Crime,Drama,Mystery       369       7.99       8.05
-## 14 Action,Adventure,Drama    112       8.02       7.98
-## 15 Comedy,Drama,Romance       76       7.97       7.96
-## 16 Action,Drama,Sci-Fi        28       8.05       7.94
-## 17 Animation,Comedy,Drama     28       8.04       7.92
-## 18 Drama,Romance              86       7.83       7.88&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;These results seems to confirm my initial impression: People give higher ratings to what seem like suspenseful dramas (e.g., crime, thriller, horror, mystery, action) the most. But, there’s not much variability between the values. This could be because many of the values in ‘genres’ are grouped together. Because of this, we could be missing some underlying patterns about the sub-genres. So, let’s split the genre variable up so each genre has its own row.&lt;/p&gt;
+  top_ratings() %&amp;gt;%
+  mutate(genres = str_replace_all(genres, &amp;quot;,&amp;quot;, &amp;quot;, &amp;quot;)) %&amp;gt;%
+  gt() %&amp;gt;%
+  tab_header(title = &amp;quot;Which drama sub-genres are most popular?&amp;quot;) %&amp;gt;%
+  fmt_number(
+    columns = vars(avg_rating, med_rating),
+    decimals = 3
+  ) %&amp;gt;%
+  cols_label(
+    genres = &amp;quot;Sub-genres&amp;quot;,
+    n = &amp;quot;Number of responses&amp;quot;,
+    avg_rating = &amp;quot;Average rating&amp;quot;,
+    med_rating = &amp;quot;Median rating&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#eerfwssjxf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#eerfwssjxf .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#eerfwssjxf .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#eerfwssjxf .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#eerfwssjxf .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#eerfwssjxf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#eerfwssjxf .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#eerfwssjxf .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#eerfwssjxf .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#eerfwssjxf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#eerfwssjxf .gt_striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#eerfwssjxf .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#eerfwssjxf .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#eerfwssjxf .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#eerfwssjxf .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#eerfwssjxf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#eerfwssjxf .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#eerfwssjxf .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#eerfwssjxf .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#eerfwssjxf .gt_center {
+  text-align: center;
+}
+
+#eerfwssjxf .gt_left {
+  text-align: left;
+}
+
+#eerfwssjxf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#eerfwssjxf .gt_font_normal {
+  font-weight: normal;
+}
+
+#eerfwssjxf .gt_font_bold {
+  font-weight: bold;
+}
+
+#eerfwssjxf .gt_font_italic {
+  font-style: italic;
+}
+
+#eerfwssjxf .gt_super {
+  font-size: 65%;
+}
+
+#eerfwssjxf .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;div id=&#34;eerfwssjxf&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;table class=&#39;gt_table&#39;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_title gt_font_normal gt_center&#39; colspan=&#39;4&#39;&gt;Which drama sub-genres are most popular?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border&#39; colspan=&#39;4&#39;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_col_heading gt_left&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Sub-genres&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Number of responses&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Average rating&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Median rating&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tbody class=&#39;gt_table_body gt_striped&#39;&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Fantasy, Horror&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;56&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.341&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.505&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime, Drama, Thriller&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;63&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.390&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.409&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action, Crime, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;146&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.156&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.282&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;107&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.267&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.268&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Thriller&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;27&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.028&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.192&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Fantasy, Mystery&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;32&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.143&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.162&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;168&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.001&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.160&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Adventure, Drama, Fantasy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;27&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.107&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.145&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Mystery, Sci-Fi&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;58&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.061&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.113&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Drama, Family&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;43&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.008&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.110&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Crime, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;80&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.022&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.094&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;174&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.021&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.087&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime, Drama, Mystery&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;369&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.991&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.049&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action, Adventure, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;112&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.020&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.975&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Drama, Romance&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;76&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.973&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.962&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action, Drama, Sci-Fi&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;28&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.046&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.943&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Animation, Comedy, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;28&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.040&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.918&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Romance&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;86&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.834&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.876&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--gt table end--&gt;
+&lt;/div&gt;
+&lt;p&gt;These results provide some evidence of my initial impression: People tend to give higher ratings to suspenseful-like dramas (e.g., crime, thriller, horror, mystery, action). But, there’s not much variability between the values. This might be because many of the values in ‘genres’ are grouped together. Combining genres like this could hide underlying patterns among the sub-genres, so let’s split the genres variable up such that each sub-genre has its own row.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split &amp;lt;- tv_rating %&amp;gt;%
   mutate(genres = str_split(genres, pattern = &amp;quot;,&amp;quot;)) %&amp;gt;%
   unnest()&lt;/code&gt;&lt;/pre&gt;
@@ -168,30 +536,378 @@ tv_rating %&amp;gt;%
 &lt;h3&gt;After splitting up ‘genres’, which sub-genres are most popular?&lt;/h3&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split %&amp;gt;%
   group_by(genres) %&amp;gt;%
-  top_ratings()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 17 x 4
-##    genres        n avg_rating med_rating
-##    &amp;lt;chr&amp;gt;     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
-##  1 Sport        29       8.34       8.38
-##  2 History      62       8.27       8.34
-##  3 Music        32       8.19       8.29
-##  4 Thriller    160       8.17       8.26
-##  5 Fantasy     223       8.20       8.21
-##  6 Horror      124       8.09       8.21
-##  7 Family       76       8.06       8.18
-##  8 Crime       822       8.10       8.14
-##  9 Drama      2266       8.06       8.11
-## 10 Mystery     558       8.02       8.10
-## 11 Action      387       8.09       8.10
-## 12 Comedy      516       8.04       8.07
-## 13 Biography    29       8.11       8.07
-## 14 Adventure   204       8.02       8.03
-## 15 Romance     235       7.98       8.00
-## 16 Sci-Fi      154       7.93       7.93
-## 17 Animation    36       8.00       7.89&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Still, very little variability between sub-genres. The overall difference between the the highest (‘Sport’) and lowest (‘Animation’) rating is 0.49. Nevertheless, these results paint a different picture than leaving all of the sub-genres grouped together.&lt;/p&gt;
-&lt;p&gt;Now, it seems sports, history, and music are the highest rated drama sub-genres; not the suspenseful ones (i.e., crime, thriller, and horror) we saw earlier. To be fair, these new sub-genres could very well be suspenseful, but they seem to be of a slightly different theme than the former ones.&lt;/p&gt;
-&lt;p&gt;This raises a good point: Within the drama category, there are different “types” of dramas, and these types could be valued for difference reasons. For example, comedy dramas might be valued for the positive connotations (e.g., laughter) associated with them whereas a crime drama might be valued for the negative connotations (e.g., fear) associated with it. So, perhaps there is a difference between comedies (defined as comedy and animation) and tragedies (defined as crime, horror, and thriller). Granted, these definitions could be debated/refined, but they should provide a descent snapshot of the idea.&lt;/p&gt;
+  top_ratings() %&amp;gt;%
+  gt() %&amp;gt;%
+  tab_header(title = &amp;quot;Which sub-genres are most popular?&amp;quot;) %&amp;gt;%
+  fmt_number(
+    columns = vars(avg_rating, med_rating),
+    decimals = 3
+  ) %&amp;gt;%
+  cols_label(
+    genres = &amp;quot;Sub-genres&amp;quot;,
+    n = &amp;quot;Number of responses&amp;quot;,
+    avg_rating = &amp;quot;Average rating&amp;quot;,
+    med_rating = &amp;quot;Median rating&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#lbiaptzndp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#lbiaptzndp .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#lbiaptzndp .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lbiaptzndp .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lbiaptzndp .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#lbiaptzndp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lbiaptzndp .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#lbiaptzndp .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#lbiaptzndp .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#lbiaptzndp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#lbiaptzndp .gt_striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#lbiaptzndp .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#lbiaptzndp .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#lbiaptzndp .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#lbiaptzndp .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#lbiaptzndp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#lbiaptzndp .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#lbiaptzndp .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#lbiaptzndp .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#lbiaptzndp .gt_center {
+  text-align: center;
+}
+
+#lbiaptzndp .gt_left {
+  text-align: left;
+}
+
+#lbiaptzndp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lbiaptzndp .gt_font_normal {
+  font-weight: normal;
+}
+
+#lbiaptzndp .gt_font_bold {
+  font-weight: bold;
+}
+
+#lbiaptzndp .gt_font_italic {
+  font-style: italic;
+}
+
+#lbiaptzndp .gt_super {
+  font-size: 65%;
+}
+
+#lbiaptzndp .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;div id=&#34;lbiaptzndp&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;table class=&#39;gt_table&#39;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_title gt_font_normal gt_center&#39; colspan=&#39;4&#39;&gt;Which sub-genres are most popular?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border&#39; colspan=&#39;4&#39;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_col_heading gt_left&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Sub-genres&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Number of responses&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Average rating&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Median rating&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tbody class=&#39;gt_table_body gt_striped&#39;&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Sport&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;29&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.339&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.381&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;History&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;62&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.274&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.343&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Music&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;32&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.186&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.291&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Thriller&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;160&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.169&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.256&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Fantasy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;223&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.197&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.212&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Horror&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;124&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.093&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.211&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Family&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;76&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.063&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.179&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;822&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.101&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.144&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;2266&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.061&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.115&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Mystery&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;558&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.020&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.099&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;387&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.085&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.099&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;516&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.040&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.074&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Biography&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;29&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.111&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.072&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Adventure&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;204&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.024&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.033&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Romance&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;235&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.976&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.997&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Sci-Fi&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;154&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.925&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.927&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Animation&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;36&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.002&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.891&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--gt table end--&gt;
+&lt;/div&gt;
+&lt;p&gt;Still, very little variability between sub-genres. The overall difference between the the highest (‘Sport’) and lowest (‘Animation’) rating is around 0.49. Nevertheless, these results paint a different picture than when all of the sub-genres were grouped together.&lt;/p&gt;
+&lt;p&gt;Now, it looks like sports, history, and music are the highest rated sub-genres, and not the suspenseful ones (i.e., crime, thriller, and horror) we saw earlier. To be fair, these new sub-genres could very well be suspenseful, but they seem to be of a slightly different “theme” than the former ones.&lt;/p&gt;
+&lt;p&gt;This raises a good point: Within the dramas, there are different types, and these types could be valued for different reasons. For example, comedy dramas might be valued for certain positive connotations (e.g., laughter), whereas a crime drama might be valued for certain negative connotations (e.g., fear). So, perhaps there is a difference between comedies (defined as comedy and animation) and tragedies (defined as crime, horror, and thriller). Granted, these definitions could be debated/refined, but they should provide a rough snapshot of the idea.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;is-there-a-difference-in-ratings-between-comedies-and-tragedies&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Is there a difference in ratings between comedies and tragedies?&lt;/h3&gt;
@@ -207,13 +923,313 @@ tv_rating %&amp;gt;%
   ) %&amp;gt;%
   filter(!is.na(com_trag)) %&amp;gt;%
   group_by(com_trag) %&amp;gt;%
-  top_ratings()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 4
-##   com_trag     n avg_rating med_rating
-##   &amp;lt;chr&amp;gt;    &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
-## 1 tragedy   1106       8.11       8.17
-## 2 comedy     552       8.04       8.07&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;So there is a difference, people tend to rate tragedies higher than comedies, but in the grand scheme of things, this difference quite small. The average distance between comedies and tragedies is only 0.07, and the median difference is 0.1.&lt;/p&gt;
+  top_ratings() %&amp;gt;%
+  mutate(com_trag = str_to_title(com_trag)) %&amp;gt;%
+  gt() %&amp;gt;%
+  tab_header(title = &amp;quot;Mean/median differences between comedies and tragedies&amp;quot;) %&amp;gt;%
+  fmt_number(
+    columns = vars(avg_rating, med_rating),
+    decimals = 3
+  ) %&amp;gt;%
+  cols_label(
+    com_trag = &amp;quot;Drama type&amp;quot;,
+    n = &amp;quot;Number of responses&amp;quot;,
+    avg_rating = &amp;quot;Average rating&amp;quot;,
+    med_rating = &amp;quot;Median rating&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#bxujwiwlde .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#bxujwiwlde .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#bxujwiwlde .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bxujwiwlde .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bxujwiwlde .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#bxujwiwlde .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bxujwiwlde .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#bxujwiwlde .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#bxujwiwlde .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#bxujwiwlde .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#bxujwiwlde .gt_striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#bxujwiwlde .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#bxujwiwlde .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#bxujwiwlde .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#bxujwiwlde .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#bxujwiwlde .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#bxujwiwlde .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#bxujwiwlde .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#bxujwiwlde .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#bxujwiwlde .gt_center {
+  text-align: center;
+}
+
+#bxujwiwlde .gt_left {
+  text-align: left;
+}
+
+#bxujwiwlde .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bxujwiwlde .gt_font_normal {
+  font-weight: normal;
+}
+
+#bxujwiwlde .gt_font_bold {
+  font-weight: bold;
+}
+
+#bxujwiwlde .gt_font_italic {
+  font-style: italic;
+}
+
+#bxujwiwlde .gt_super {
+  font-size: 65%;
+}
+
+#bxujwiwlde .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;div id=&#34;bxujwiwlde&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;table class=&#39;gt_table&#39;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_title gt_font_normal gt_center&#39; colspan=&#39;4&#39;&gt;Mean/median differences between comedies and tragedies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border&#39; colspan=&#39;4&#39;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_col_heading gt_left&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Drama type&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Number of responses&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Average rating&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Median rating&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tbody class=&#39;gt_table_body gt_striped&#39;&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Tragedy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;1106&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.110&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.168&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;552&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.038&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.071&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--gt table end--&gt;
+&lt;/div&gt;
+&lt;p&gt;So, there is a difference, people tend to rate tragedies higher than comedies, but in the grand scheme of things, this difference quite small. The average distance between comedies and tragedies is only 0.07, and the median difference is 0.1. Thus, it seems there’s not much difference in viewer ratings among sub-genres, at least not in our sample. But, this isn’t actually &lt;em&gt;that&lt;/em&gt; surprising: Our sample was already narrowed down to TV &lt;em&gt;drama&lt;/em&gt; titles. Since all of the titles share this common characteristic, what we’re probably seeing is the consistency of viewers to rate TV dramas in a similar fashion. In other words, people tend to rate all TV dramas similarly, regardless of the story line/sub-genre.&lt;/p&gt;
+&lt;p&gt;Since sub-genres didn’t bare much useful information, let’s take a look at the actual titles within the dataset. All of the top-rated shows aired for multiple seasons, but I doubt &lt;em&gt;every&lt;/em&gt; show that aired multiple seasons was popular. In fact, some earlier analyses showed a decline in ratings over time. So, let’s see what the data say.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-do-viewer-ratings-changes-over-time-by-tv-show-title&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How do viewer ratings changes over time by TV show title&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list most popular shows from earlier analysis (with extra picks of my own)
+shows &amp;lt;- c(&amp;quot;The X-Files&amp;quot;, &amp;quot;Law &amp;amp; Order&amp;quot;, &amp;quot;Midsomer Murders&amp;quot;, &amp;quot;Law &amp;amp; Order: Special Victims Unit&amp;quot;, &amp;quot;ER&amp;quot;, &amp;quot;Grey&amp;#39;s Anatomy&amp;quot;, &amp;quot;CSI: Crime Scene Investigation&amp;quot;, &amp;quot;Supernatural&amp;quot;, &amp;quot;King of the Hill&amp;quot;, &amp;quot;Doctor Who&amp;quot;, &amp;quot;Criminal Minds&amp;quot;, &amp;quot;Bones&amp;quot;, &amp;quot;Murdoch Mysteries&amp;quot;, &amp;quot;American Horror Story&amp;quot;, &amp;quot;Are you Afraid of the Dark?&amp;quot;, &amp;quot;Californication&amp;quot;, &amp;quot;Elementary&amp;quot;, &amp;quot;Lost&amp;quot;, &amp;quot;Numb3rs&amp;quot;, &amp;quot;Shameless&amp;quot;, &amp;quot;The Walking Dead&amp;quot;, &amp;quot;The Sopranos&amp;quot;, &amp;quot;Scrubs&amp;quot;, &amp;quot;Oz&amp;quot;, &amp;quot;House&amp;quot;, &amp;quot;Dexter&amp;quot;)
+
+tv_rating %&amp;gt;%
+  filter(title %in% shows) %&amp;gt;%
+  mutate(title = str_replace(title, &amp;quot;Special Victims Unit&amp;quot;, &amp;quot;SVU&amp;quot;)) %&amp;gt;%
+  group_by(title) %&amp;gt;%
+  add_tally() %&amp;gt;%
+  filter(n &amp;gt; 5) %&amp;gt;%
+  ggplot() +
+  aes(date, av_rating) +
+  facet_wrap(~title) +
+  geom_line() +
+  labs(
+    title = &amp;quot;Viewer ratings over time by TV show title&amp;quot;,
+    x = &amp;quot;Years aired&amp;quot;,
+    y = &amp;quot;Average rating&amp;quot;
+  ) +
+  theme_light() +
+  theme(axis.text.x = element_text(angle = 90))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Okay, now we have some interesting patterns to interpret. Overall, it looks like even the most popular shows experienced a decline in enthusiasm the longer they aired. However, there are notable exceptions to this trend: Criminal Minds and Murdoch Mysteries have really taken off in the last few years, both receiving the highest ratings out of any of the tiles in this sample. American Horror Story appears to be making a comeback as well recently. Noticeably, these exceptions all fit the suspenseful-like dramas noted earlier. It seems, then, the most successful TV dramas are ones with intense or striking elements (e.g., crime, murder, horror, etc.). I wonder if this says anything about the culture of the viewers…lookin’ at you America 🤔&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -224,10 +1240,7 @@ tv_rating %&amp;gt;%
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-05-03_descriptive-statistics-in-r-part-iii/</guid>
-      <description>
-
-
-&lt;p&gt;In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;how to calculate frequencies and create data tables&lt;/a&gt; and then covered some &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-ii/&#34;&gt;common functions in base R and other packages that provide more detailed descriptive statistics&lt;/a&gt;. In today’s post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.&lt;/p&gt;
+      <description>&lt;p&gt;In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;how to calculate frequencies and create data tables&lt;/a&gt; and then covered some &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-ii/&#34;&gt;common functions in base R and other packages that provide more detailed descriptive statistics&lt;/a&gt;. In today’s post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.&lt;/p&gt;
 &lt;p&gt;In my most recent post, I said I would use the &lt;code&gt;gapminder&lt;/code&gt; dataset as a common example for both parts II and III. Turns out, I lied. I am actually going to create some fake data in this post. While this fake dataset may not be as interesting of an example as the &lt;code&gt;gapminder&lt;/code&gt; data, it does have the added benefit of containing both discrete and continuous data as well as missing values. Thus, my fake dataset will illustrate how the descriptive methods here handle missing data.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create some fake data
 employee &amp;lt;- c(&amp;quot;Mary&amp;quot;, &amp;quot;John&amp;quot;, &amp;quot;Peter&amp;quot;, &amp;quot;Jolie&amp;quot;) # create employee variable
@@ -510,10 +1523,7 @@ stat.desc(company)
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/descriptives-part-ii/</guid>
-      <description>
-
-
-&lt;p&gt;Moving on from frequencies and tables, which were covered in &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;part I&lt;/a&gt;, let’s now focus on other ways to summarize our data (e.g., mean, standard deviation). There are a lot of ways to divide a topic like descriptive statistics, and R can further complicate this seemingly simple task. It’s been said R does a great job of making complex procedures simple, but it also has the tendency to make simple tasks complex. Because there are many methods of calculating descriptive statistics in R, and because some of these methods are more applicable in certain situations over others, there is a lot of material covered in this post. To keep the post length manageable, part II will cover some ways to calculate descriptive statistics in base R and some common functions in popular packages. In part III, we’ll focus on some other common approaches for obtaining descriptive statistics, and I’ll finish by discussing my thoughts on the packages between parts II and III overall.&lt;/p&gt;
+      <description>&lt;p&gt;Moving on from frequencies and tables, which were covered in &lt;a href=&#34;https://jeremyrwinget.netlify.com/post/descriptives-part-i/&#34;&gt;part I&lt;/a&gt;, let’s now focus on other ways to summarize our data (e.g., mean, standard deviation). There are a lot of ways to divide a topic like descriptive statistics, and R can further complicate this seemingly simple task. It’s been said R does a great job of making complex procedures simple, but it also has the tendency to make simple tasks complex. Because there are many methods of calculating descriptive statistics in R, and because some of these methods are more applicable in certain situations over others, there is a lot of material covered in this post. To keep the post length manageable, part II will cover some ways to calculate descriptive statistics in base R and some common functions in popular packages. In part III, we’ll focus on some other common approaches for obtaining descriptive statistics, and I’ll finish by discussing my thoughts on the packages between parts II and III overall.&lt;/p&gt;
 &lt;p&gt;For this post and the next, I will be using the &lt;code&gt;gapminder&lt;/code&gt; dataset in the &lt;code&gt;gapminder&lt;/code&gt; package. The dataframe contains data on life expectancy, GDP per capita, and population by country, continent, and year. It also contains 1704 observations and 6 variables. The data come from &lt;a href=&#34;https://www.gapminder.org&#34;&gt;Gapminder&lt;/a&gt;, which is an independent Swedish foundation with no political, religious, or economic affiliation.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)
 str(gapminder)
@@ -1260,10 +2270,7 @@ head(data)
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/descriptives-part-i/</guid>
-      <description>
-
-
-&lt;p&gt;Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.&lt;/p&gt;
+      <description>&lt;p&gt;Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.&lt;/p&gt;
 &lt;p&gt;In SPSS, you can get frequencies, means, SDs, and more at once with the FREQUENCIES command although you can also get means and other descriptive stats from the CONDESCRIPTIVE and EXAMINE commands. R can easily handle categorical and continuous variables together or separately. I’ll cover some functions that are fundamental to R, but I’ll also point out some functions that are most like SPSS.&lt;/p&gt;
 &lt;p&gt;I will be using the &lt;code&gt;airquality&lt;/code&gt; data frame from the &lt;code&gt;datasets&lt;/code&gt; package in base R for my examples. This data frame contains daily air quality measurements in New York from May to September in 1973. It contains 153 observations on 6 variables.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(airquality)
@@ -1915,10 +2922,7 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &amp;quot;dec&amp;quot;, 
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/on-the-importance-of-open-science/</guid>
-      <description>
-
-
-&lt;p&gt;In my last post, I refrained from standing on my Open Science soapbox; that’s not the case in this one. However, before I dig into why Open Science is near and dear to my heart, I want to take some time to cover some basic concepts. After all, it seems like the terms “Open Science” and “QRPs” are becoming buzz words in many contexts, at least from my perspective as a graduate student. Perhaps it’s because the Open Science movement is starting to gain real momentum, but in my experience, many graduate students are not explicitly made aware of QRPs (questionable research practices) or many of the issues Open Science seeks to correct. So, I want to first highlight some of these terms to showcase their importance in psychological research (and science in general).&lt;/p&gt;
+      <description>&lt;p&gt;In my last post, I refrained from standing on my Open Science soapbox; that’s not the case in this one. However, before I dig into why Open Science is near and dear to my heart, I want to take some time to cover some basic concepts. After all, it seems like the terms “Open Science” and “QRPs” are becoming buzz words in many contexts, at least from my perspective as a graduate student. Perhaps it’s because the Open Science movement is starting to gain real momentum, but in my experience, many graduate students are not explicitly made aware of QRPs (questionable research practices) or many of the issues Open Science seeks to correct. So, I want to first highlight some of these terms to showcase their importance in psychological research (and science in general).&lt;/p&gt;
 &lt;p&gt;Broadly speaking, science is the process by which we collect, analyze, publish, critique, and reanalyze/reinterpret data to explain a particular phenomenon. Currently, there are many issues with the way we are disseminating scholarly information and knowledge. For example, there are financial paywalls by for-profit research publishers, restrictions on data usage by publishers, poor formatting of data, the use of proprietary software that makes data difficult to reproduce, and cultural reluctance to publish null findings or results typically deemed “uninteresting”. And, this barely scratches the surface.&lt;/p&gt;
 &lt;div id=&#34;qrps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;QRPs&lt;/h1&gt;
@@ -1963,10 +2967,7 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &amp;quot;dec&amp;quot;, 
       <pubDate>Wed, 07 Feb 2018 19:04:00 +0000</pubDate>
       
       <guid>/post/2018-02-07_first-post/</guid>
-      <description>
-
-
-&lt;div id=&#34;hello-world&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;hello-world&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Hello, world!&lt;/h1&gt;
 &lt;p&gt;Thanks for taking the time to read my first blog post! While I am trained as a social psychologist, I’m a big proponent of leveraging data science tools to understand the world around us. Thus, I plan to discuss a mixture of data-driven topics and insights here. I hope to use this blog as a place to write about things that interest me, but focus will likely be on statistics, research methods, open science, social psychology, and data science. This will be a place for me to share my thoughts on a variety of topics, offer guidance on statistical/methodological topics for the social sciences, and hopefully generate a bit of discussion.&lt;/p&gt;
 &lt;p&gt;To tell you a little more about myself, I am currently a fourth year PhD student in applied social psychology and received my MA in applied social psychology from Loyola University Chicago in 2016. My research interests are realted to group dynamics, cooperation/conflict, social influence, and quantitative methods. I started conducting my data analysis in R about a year ago, and have been interested in the power of open source data science tools ever since. I believe one way to improve our current scientific system is to create and use good open source tools, and we also need to make these tools easy enough for all scientists to use. In other words, we need to make science more accessible.&lt;/p&gt;

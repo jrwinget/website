@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>#tidytuesday on Margins of Error</title>
+    <link>/tags/#tidytuesday/</link>
+    <description>Recent content in #tidytuesday on Margins of Error</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/#tidytuesday/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First #tidytuesday submission</title>
+      <link>/post/2019-01-08_tidy-tuesday/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-01-08_tidy-tuesday/</guid>
+      <description>It’s been quite some time since I’ve written here, so I thought I would use one my of 2019 #rstats goals as an excuse to brush off the dust.
+In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my first #tidytuesday submission!
+First, we have to load the packages and data
+library(tidyverse) ## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 3.</description>
+    </item>
+    
+  </channel>
+</rss>
