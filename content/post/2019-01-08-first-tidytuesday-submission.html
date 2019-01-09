@@ -15,7 +15,8 @@ header:
 
 
 
-<p>It’s been quite some time since I’ve written here, so I thought I would use one my of <a href="https://twitter.com/_jwinget/status/1079437460357218304">2019 #rstats goals</a> as an excuse to brush off the dust. In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my <strong>first</strong> <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08">#tidytuesday</a> submission!</p>
+<p>It’s been quite some time since I’ve written here, so I thought I would use one my of <a href="https://twitter.com/_jwinget/status/1079437460357218304">2019 #rstats goals</a> as an excuse to brush off the dust.</p>
+<p>In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my <strong>first</strong> <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08">#tidytuesday</a> submission!</p>
 <p>First, we have to load the packages and data</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
@@ -66,7 +67,7 @@ header:
     x = &quot;Year&quot;,
     y = &quot;Average rating&quot;
   )</code></pre>
-<p><img src="/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Looks like the newer the TV drama, the more likely it was to have a higher rating. Maybe some of this is variance is due to shows with multiple seasons. Let’s see how this changes when looking at individual shows and their respective run lengths.</p>
 </div>
 <div id="which-titles-had-the-highest-ratings-and-how-long-did-they-run" class="section level3">
@@ -88,7 +89,7 @@ header:
 titles %&gt;%
   mutate(title = fct_reorder(title, yrs_aired)) %&gt;%
   ggplot() +
-  aes(title, yrs_aired) +
+  aes(title, yrs_aired, fill = title) +
   geom_col() +
   coord_flip() +
   labs(
@@ -97,7 +98,7 @@ titles %&gt;%
     y = &quot;Number of years aired&quot;
   ) +
   theme_light()</code></pre>
-<p><img src="/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code># highest rated titles rating over time
 titles %&gt;%
   ggplot() +
@@ -114,7 +115,7 @@ titles %&gt;%
     y = &quot;Average rating&quot;
   ) +
   theme_light()</code></pre>
-<p><img src="/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p><img src="2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
 <p>I haven’t seen all of these shows, but for the most part, their titles seem to describe suspenseful dramas (e.g., mystery, crime, maybe even thriller/horror). However, King of the Hill doesn’t really fit this description, so let’s take a look at the genre variable. Keep in mind, all of these shows are dramas, I’m conceptualizing these as sort of sub-genres of drama.</p>
 </div>
 <div id="which-sub-genres-are-most-popular" class="section level3">

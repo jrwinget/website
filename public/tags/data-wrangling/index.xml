@@ -18,7 +18,8 @@
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-01-08_tidy-tuesday/</guid>
-      <description>It’s been quite some time since I’ve written here, so I thought I would use one my of 2019 #rstats goals as an excuse to brush off the dust. In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my first #tidytuesday submission!
+      <description>It’s been quite some time since I’ve written here, so I thought I would use one my of 2019 #rstats goals as an excuse to brush off the dust.
+In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my first #tidytuesday submission!
 First, we have to load the packages and data
 library(tidyverse) ## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 3.</description>
     </item>
