@@ -22,12 +22,12 @@ editor_options:
 <p>Special thanks to <a href="https://twitter.com/IsabellaGhement">Isabella Ghement</a> for providing <a href="https://twitter.com/IsabellaGhement/status/1082831866523086849">a few tips</a> on how to improve the original graphs!</p>
 <p>First, load the required packages and data:</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
 ## ✔ readr   1.3.0     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(lubridate)</code></pre>
@@ -77,7 +77,7 @@ tv_rating &lt;- read_csv(&quot;https://raw.githubusercontent.com/rfordatascience
     x = &quot;Year&quot;,
     y = &quot;Average rating&quot;
   ) +
-  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = &quot;~~~~&quot;)),
+  stat_poly_eq(aes(label = paste(&quot;atop(&quot;, ..eq.label.., &quot;,&quot;, ..adj.rr.label.., &quot;)&quot;)),
     formula = y ~ x, color = &quot;red&quot;, parse = TRUE
   ) +
   theme_light()</code></pre>
@@ -130,7 +130,7 @@ titles %&gt;%
     x = &quot;Number of years ran&quot;,
     y = &quot;Average rating&quot;
   ) +
-  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = &quot;~~~~&quot;)),
+  stat_poly_eq(aes(label = paste(&quot;atop(&quot;, ..eq.label.., &quot;,&quot;, ..adj.rr.label.., &quot;)&quot;)),
     formula = y ~ x, color = &quot;red&quot;, parse = TRUE
   ) +
   theme_light()</code></pre>
@@ -170,7 +170,7 @@ tv_rating %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#eerfwssjxf .gt_table {
+#vinmajnzwf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -189,13 +189,13 @@ tv_rating %&gt;%
   /* table.border.top.color */
 }
 
-#eerfwssjxf .gt_heading {
+#vinmajnzwf .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#eerfwssjxf .gt_title {
+#vinmajnzwf .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -206,7 +206,7 @@ tv_rating %&gt;%
   border-bottom-width: 0;
 }
 
-#eerfwssjxf .gt_subtitle {
+#vinmajnzwf .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -217,7 +217,7 @@ tv_rating %&gt;%
   border-top-width: 0;
 }
 
-#eerfwssjxf .gt_bottom_border {
+#vinmajnzwf .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -226,7 +226,7 @@ tv_rating %&gt;%
   /* heading.border.bottom.color */
 }
 
-#eerfwssjxf .gt_column_spanner {
+#vinmajnzwf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -234,7 +234,7 @@ tv_rating %&gt;%
   padding-bottom: 4px;
 }
 
-#eerfwssjxf .gt_col_heading {
+#vinmajnzwf .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -247,11 +247,11 @@ tv_rating %&gt;%
   margin: 10px;
 }
 
-#eerfwssjxf .gt_sep_right {
+#vinmajnzwf .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#eerfwssjxf .gt_group_heading {
+#vinmajnzwf .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -275,7 +275,7 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#eerfwssjxf .gt_empty_group_heading {
+#vinmajnzwf .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -299,29 +299,29 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#eerfwssjxf .gt_striped tr:nth-child(even) {
+#vinmajnzwf .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#eerfwssjxf .gt_row {
+#vinmajnzwf .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#eerfwssjxf .gt_stub {
+#vinmajnzwf .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#eerfwssjxf .gt_stub.gt_row {
+#vinmajnzwf .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#eerfwssjxf .gt_summary_row {
+#vinmajnzwf .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -330,13 +330,13 @@ tv_rating %&gt;%
   /* summary_row.text_transform */
 }
 
-#eerfwssjxf .gt_first_summary_row {
+#vinmajnzwf .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#eerfwssjxf .gt_table_body {
+#vinmajnzwf .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -351,55 +351,55 @@ tv_rating %&gt;%
   /* field.border.bottom.color */
 }
 
-#eerfwssjxf .gt_footnote {
+#vinmajnzwf .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#eerfwssjxf .gt_sourcenote {
+#vinmajnzwf .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#eerfwssjxf .gt_center {
+#vinmajnzwf .gt_center {
   text-align: center;
 }
 
-#eerfwssjxf .gt_left {
+#vinmajnzwf .gt_left {
   text-align: left;
 }
 
-#eerfwssjxf .gt_right {
+#vinmajnzwf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eerfwssjxf .gt_font_normal {
+#vinmajnzwf .gt_font_normal {
   font-weight: normal;
 }
 
-#eerfwssjxf .gt_font_bold {
+#vinmajnzwf .gt_font_bold {
   font-weight: bold;
 }
 
-#eerfwssjxf .gt_font_italic {
+#vinmajnzwf .gt_font_italic {
   font-style: italic;
 }
 
-#eerfwssjxf .gt_super {
+#vinmajnzwf .gt_super {
   font-size: 65%;
 }
 
-#eerfwssjxf .gt_footnote_glyph {
+#vinmajnzwf .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="eerfwssjxf" style="overflow-x:auto;"><!--gt table start-->
+<div id="vinmajnzwf" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -554,7 +554,7 @@ tv_rating %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lbiaptzndp .gt_table {
+#perwckartw .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -573,13 +573,13 @@ tv_rating %&gt;%
   /* table.border.top.color */
 }
 
-#lbiaptzndp .gt_heading {
+#perwckartw .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#lbiaptzndp .gt_title {
+#perwckartw .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -590,7 +590,7 @@ tv_rating %&gt;%
   border-bottom-width: 0;
 }
 
-#lbiaptzndp .gt_subtitle {
+#perwckartw .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -601,7 +601,7 @@ tv_rating %&gt;%
   border-top-width: 0;
 }
 
-#lbiaptzndp .gt_bottom_border {
+#perwckartw .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -610,7 +610,7 @@ tv_rating %&gt;%
   /* heading.border.bottom.color */
 }
 
-#lbiaptzndp .gt_column_spanner {
+#perwckartw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -618,7 +618,7 @@ tv_rating %&gt;%
   padding-bottom: 4px;
 }
 
-#lbiaptzndp .gt_col_heading {
+#perwckartw .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -631,11 +631,11 @@ tv_rating %&gt;%
   margin: 10px;
 }
 
-#lbiaptzndp .gt_sep_right {
+#perwckartw .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#lbiaptzndp .gt_group_heading {
+#perwckartw .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -659,7 +659,7 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#lbiaptzndp .gt_empty_group_heading {
+#perwckartw .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -683,29 +683,29 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#lbiaptzndp .gt_striped tr:nth-child(even) {
+#perwckartw .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#lbiaptzndp .gt_row {
+#perwckartw .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#lbiaptzndp .gt_stub {
+#perwckartw .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#lbiaptzndp .gt_stub.gt_row {
+#perwckartw .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#lbiaptzndp .gt_summary_row {
+#perwckartw .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -714,13 +714,13 @@ tv_rating %&gt;%
   /* summary_row.text_transform */
 }
 
-#lbiaptzndp .gt_first_summary_row {
+#perwckartw .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#lbiaptzndp .gt_table_body {
+#perwckartw .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -735,55 +735,55 @@ tv_rating %&gt;%
   /* field.border.bottom.color */
 }
 
-#lbiaptzndp .gt_footnote {
+#perwckartw .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#lbiaptzndp .gt_sourcenote {
+#perwckartw .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#lbiaptzndp .gt_center {
+#perwckartw .gt_center {
   text-align: center;
 }
 
-#lbiaptzndp .gt_left {
+#perwckartw .gt_left {
   text-align: left;
 }
 
-#lbiaptzndp .gt_right {
+#perwckartw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lbiaptzndp .gt_font_normal {
+#perwckartw .gt_font_normal {
   font-weight: normal;
 }
 
-#lbiaptzndp .gt_font_bold {
+#perwckartw .gt_font_bold {
   font-weight: bold;
 }
 
-#lbiaptzndp .gt_font_italic {
+#perwckartw .gt_font_italic {
   font-style: italic;
 }
 
-#lbiaptzndp .gt_super {
+#perwckartw .gt_super {
   font-size: 65%;
 }
 
-#lbiaptzndp .gt_footnote_glyph {
+#perwckartw .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="lbiaptzndp" style="overflow-x:auto;"><!--gt table start-->
+<div id="perwckartw" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -942,7 +942,7 @@ tv_rating %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#bxujwiwlde .gt_table {
+#ykwjbhzkkf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -961,13 +961,13 @@ tv_rating %&gt;%
   /* table.border.top.color */
 }
 
-#bxujwiwlde .gt_heading {
+#ykwjbhzkkf .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#bxujwiwlde .gt_title {
+#ykwjbhzkkf .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -978,7 +978,7 @@ tv_rating %&gt;%
   border-bottom-width: 0;
 }
 
-#bxujwiwlde .gt_subtitle {
+#ykwjbhzkkf .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -989,7 +989,7 @@ tv_rating %&gt;%
   border-top-width: 0;
 }
 
-#bxujwiwlde .gt_bottom_border {
+#ykwjbhzkkf .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -998,7 +998,7 @@ tv_rating %&gt;%
   /* heading.border.bottom.color */
 }
 
-#bxujwiwlde .gt_column_spanner {
+#ykwjbhzkkf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -1006,7 +1006,7 @@ tv_rating %&gt;%
   padding-bottom: 4px;
 }
 
-#bxujwiwlde .gt_col_heading {
+#ykwjbhzkkf .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -1019,11 +1019,11 @@ tv_rating %&gt;%
   margin: 10px;
 }
 
-#bxujwiwlde .gt_sep_right {
+#ykwjbhzkkf .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#bxujwiwlde .gt_group_heading {
+#ykwjbhzkkf .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1047,7 +1047,7 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#bxujwiwlde .gt_empty_group_heading {
+#ykwjbhzkkf .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1071,29 +1071,29 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#bxujwiwlde .gt_striped tr:nth-child(even) {
+#ykwjbhzkkf .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#bxujwiwlde .gt_row {
+#ykwjbhzkkf .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#bxujwiwlde .gt_stub {
+#ykwjbhzkkf .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#bxujwiwlde .gt_stub.gt_row {
+#ykwjbhzkkf .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#bxujwiwlde .gt_summary_row {
+#ykwjbhzkkf .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -1102,13 +1102,13 @@ tv_rating %&gt;%
   /* summary_row.text_transform */
 }
 
-#bxujwiwlde .gt_first_summary_row {
+#ykwjbhzkkf .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#bxujwiwlde .gt_table_body {
+#ykwjbhzkkf .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -1123,55 +1123,55 @@ tv_rating %&gt;%
   /* field.border.bottom.color */
 }
 
-#bxujwiwlde .gt_footnote {
+#ykwjbhzkkf .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#bxujwiwlde .gt_sourcenote {
+#ykwjbhzkkf .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#bxujwiwlde .gt_center {
+#ykwjbhzkkf .gt_center {
   text-align: center;
 }
 
-#bxujwiwlde .gt_left {
+#ykwjbhzkkf .gt_left {
   text-align: left;
 }
 
-#bxujwiwlde .gt_right {
+#ykwjbhzkkf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bxujwiwlde .gt_font_normal {
+#ykwjbhzkkf .gt_font_normal {
   font-weight: normal;
 }
 
-#bxujwiwlde .gt_font_bold {
+#ykwjbhzkkf .gt_font_bold {
   font-weight: bold;
 }
 
-#bxujwiwlde .gt_font_italic {
+#ykwjbhzkkf .gt_font_italic {
   font-style: italic;
 }
 
-#bxujwiwlde .gt_super {
+#ykwjbhzkkf .gt_super {
   font-size: 65%;
 }
 
-#bxujwiwlde .gt_footnote_glyph {
+#ykwjbhzkkf .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="bxujwiwlde" style="overflow-x:auto;"><!--gt table start-->
+<div id="ykwjbhzkkf" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>

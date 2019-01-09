@@ -62,7 +62,7 @@ tv_rating %>%
     x = "Year",
     y = "Average rating"
   ) +
-  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  stat_poly_eq(aes(label = paste("atop(", ..eq.label.., ",", ..adj.rr.label.., ")")),
     formula = y ~ x, color = "red", parse = TRUE
   ) +
   theme_light()
@@ -117,7 +117,7 @@ titles %>%
     x = "Number of years ran",
     y = "Average rating"
   ) +
-  stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  stat_poly_eq(aes(label = paste("atop(", ..eq.label.., ",", ..adj.rr.label.., ")")),
     formula = y ~ x, color = "red", parse = TRUE
   ) +
   theme_light()
