@@ -11,6 +11,213 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>First #tidytuesday submission</title>
+      <link>/post/2019-01-08_tidy-tuesday/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-01-08_tidy-tuesday/</guid>
+      <description>
+
+
+&lt;p&gt;It’s been quite some time since I’ve written here, so I thought I would use one my of &lt;a href=&#34;https://twitter.com/_jwinget/status/1079437460357218304&#34;&gt;2019 #rstats goals&lt;/a&gt; as an excuse to brush off the dust. In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my &lt;strong&gt;first&lt;/strong&gt; &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08&#34;&gt;#tidytuesday&lt;/a&gt; submission!&lt;/p&gt;
+&lt;p&gt;First, we have to load the packages and data&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.3.0     ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(lubridate)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;lubridate&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
+## 
+##     date&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tv_rating &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-08/IMDb_Economist_tv_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   titleId = col_character(),
+##   seasonNumber = col_double(),
+##   title = col_character(),
+##   date = col_date(format = &amp;quot;&amp;quot;),
+##   av_rating = col_double(),
+##   share = col_double(),
+##   genres = col_character()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;which-years-had-the-highest-ratings&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Which years had the highest ratings?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tv_rating %&amp;gt;%
+  mutate(year = year(date)) %&amp;gt;%
+  group_by(year) %&amp;gt;%
+  summarize(
+    n = n(),
+    avg_rating = mean(av_rating)
+  ) %&amp;gt;%
+  filter(n &amp;gt; 25) %&amp;gt;%
+  arrange(desc(avg_rating)) %&amp;gt;%
+  ggplot() +
+  aes(year, avg_rating) +
+  geom_point() +
+  geom_smooth(
+    method = &amp;quot;lm&amp;quot;,
+    se = FALSE,
+    color = &amp;quot;red&amp;quot;
+  ) +
+  labs(
+    x = &amp;quot;Year&amp;quot;,
+    y = &amp;quot;Average rating&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Looks like the newer the TV drama, the more likely it was to have a higher rating. Maybe some of this is variance is due to shows with multiple seasons. Let’s see how this changes when looking at individual shows and their respective run lengths.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;which-titles-had-the-highest-ratings-and-how-long-did-they-run&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Which titles had the highest ratings, and how long did they run?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;titles &amp;lt;- tv_rating %&amp;gt;%
+  group_by(title) %&amp;gt;%
+  summarize(
+    n = n(),
+    first_yr = min(year(date)),
+    last_yr = max(year(date)),
+    num_seasons = max(seasonNumber),
+    yrs_aired = (max(year(date) - min(year(date)))),
+    avg_rating = mean(av_rating)
+  ) %&amp;gt;%
+  filter(n &amp;gt; 10) %&amp;gt;% # not enough cases to filter by 25 ratings per title
+  arrange(desc(avg_rating))
+
+# highest rated titles&amp;#39; run lengths
+titles %&amp;gt;%
+  mutate(title = fct_reorder(title, yrs_aired)) %&amp;gt;%
+  ggplot() +
+  aes(title, yrs_aired) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = &amp;quot;Most popular series&amp;#39; run lengths&amp;quot;,
+    x = &amp;quot;TV Series Title&amp;quot;,
+    y = &amp;quot;Number of years aired&amp;quot;
+  ) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# highest rated titles rating over time
+titles %&amp;gt;%
+  ggplot() +
+  aes(yrs_aired, avg_rating) +
+  geom_point() +
+  geom_smooth(
+    method = &amp;quot;lm&amp;quot;,
+    se = FALSE,
+    color = &amp;quot;red&amp;quot;
+  ) +
+  labs(
+    title = &amp;quot;Most popular series&amp;#39; ratings over time&amp;quot;,
+    x = &amp;quot;Number of years ran&amp;quot;,
+    y = &amp;quot;Average rating&amp;quot;
+  ) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I haven’t seen all of these shows, but for the most part, their titles seem to describe suspenseful dramas (e.g., mystery, crime, maybe even thriller/horror). However, King of the Hill doesn’t really fit this description, so let’s take a look at the genre variable. Keep in mind, all of these shows are dramas, I’m conceptualizing these as sort of sub-genres of drama.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;which-sub-genres-are-most-popular&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Which sub-genres are most popular?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;top_ratings &amp;lt;- function(df, x) {
+  df %&amp;gt;%
+    summarize(
+      n = n(),
+      avg_rating = mean(av_rating),
+      med_rating = median(av_rating)
+    ) %&amp;gt;%
+    filter(n &amp;gt; 25) %&amp;gt;%
+    arrange(desc(med_rating))
+}
+
+tv_rating %&amp;gt;%
+  group_by(genres) %&amp;gt;%
+  top_ratings()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 18 x 4
+##    genres                      n avg_rating med_rating
+##    &amp;lt;chr&amp;gt;                   &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
+##  1 Drama,Fantasy,Horror       56       8.34       8.51
+##  2 Crime,Drama,Thriller       63       8.39       8.41
+##  3 Action,Crime,Drama        146       8.16       8.28
+##  4 Crime,Drama               107       8.27       8.27
+##  5 Drama,Thriller             27       8.03       8.19
+##  6 Drama,Fantasy,Mystery      32       8.14       8.16
+##  7 Drama                     168       8.00       8.16
+##  8 Adventure,Drama,Fantasy    27       8.11       8.14
+##  9 Drama,Mystery,Sci-Fi       58       8.06       8.11
+## 10 Comedy,Drama,Family        43       8.01       8.11
+## 11 Comedy,Crime,Drama         80       8.02       8.09
+## 12 Comedy,Drama              174       8.02       8.09
+## 13 Crime,Drama,Mystery       369       7.99       8.05
+## 14 Action,Adventure,Drama    112       8.02       7.98
+## 15 Comedy,Drama,Romance       76       7.97       7.96
+## 16 Action,Drama,Sci-Fi        28       8.05       7.94
+## 17 Animation,Comedy,Drama     28       8.04       7.92
+## 18 Drama,Romance              86       7.83       7.88&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These results seems to confirm my initial impression: People give higher ratings to what seem like suspenseful dramas (e.g., crime, thriller, horror, mystery, action) the most. But, there’s not much variability between the values. This could be because many of the values in ‘genres’ are grouped together. Because of this, we could be missing some underlying patterns about the sub-genres. So, let’s split the genre variable up so each genre has its own row.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split &amp;lt;- tv_rating %&amp;gt;%
+  mutate(genres = str_split(genres, pattern = &amp;quot;,&amp;quot;)) %&amp;gt;%
+  unnest()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;after-splitting-up-genres-which-sub-genres-are-most-popular&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;After splitting up ‘genres’, which sub-genres are most popular?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split %&amp;gt;%
+  group_by(genres) %&amp;gt;%
+  top_ratings()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 17 x 4
+##    genres        n avg_rating med_rating
+##    &amp;lt;chr&amp;gt;     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
+##  1 Sport        29       8.34       8.38
+##  2 History      62       8.27       8.34
+##  3 Music        32       8.19       8.29
+##  4 Thriller    160       8.17       8.26
+##  5 Fantasy     223       8.20       8.21
+##  6 Horror      124       8.09       8.21
+##  7 Family       76       8.06       8.18
+##  8 Crime       822       8.10       8.14
+##  9 Drama      2266       8.06       8.11
+## 10 Mystery     558       8.02       8.10
+## 11 Action      387       8.09       8.10
+## 12 Comedy      516       8.04       8.07
+## 13 Biography    29       8.11       8.07
+## 14 Adventure   204       8.02       8.03
+## 15 Romance     235       7.98       8.00
+## 16 Sci-Fi      154       7.93       7.93
+## 17 Animation    36       8.00       7.89&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Still, very little variability between sub-genres. The overall difference between the the highest (‘Sport’) and lowest (‘Animation’) rating is 0.49. Nevertheless, these results paint a different picture than leaving all of the sub-genres grouped together.&lt;/p&gt;
+&lt;p&gt;Now, it seems sports, history, and music are the highest rated drama sub-genres; not the suspenseful ones (i.e., crime, thriller, and horror) we saw earlier. To be fair, these new sub-genres could very well be suspenseful, but they seem to be of a slightly different theme than the former ones.&lt;/p&gt;
+&lt;p&gt;This raises a good point: Within the drama category, there are different “types” of dramas, and these types could be valued for difference reasons. For example, comedy dramas might be valued for the positive connotations (e.g., laughter) associated with them whereas a crime drama might be valued for the negative connotations (e.g., fear) associated with it. So, perhaps there is a difference between comedies (defined as comedy and animation) and tragedies (defined as crime, horror, and thriller). Granted, these definitions could be debated/refined, but they should provide a descent snapshot of the idea.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;is-there-a-difference-in-ratings-between-comedies-and-tragedies&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Is there a difference in ratings between comedies and tragedies?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split %&amp;gt;%
+  mutate(
+    com_trag = case_when(
+      genres == &amp;quot;Comedy&amp;quot; |
+        genres == &amp;quot;Animation&amp;quot; ~ &amp;quot;comedy&amp;quot;,
+      genres == &amp;quot;Crime&amp;quot; |
+        genres == &amp;quot;Horror&amp;quot; |
+        genres == &amp;quot;Thriller&amp;quot; ~ &amp;quot;tragedy&amp;quot;
+    )
+  ) %&amp;gt;%
+  filter(!is.na(com_trag)) %&amp;gt;%
+  group_by(com_trag) %&amp;gt;%
+  top_ratings()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 4
+##   com_trag     n avg_rating med_rating
+##   &amp;lt;chr&amp;gt;    &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
+## 1 tragedy   1106       8.11       8.17
+## 2 comedy     552       8.04       8.07&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So there is a difference, people tend to rate tragedies higher than comedies, but in the grand scheme of things, this difference quite small. The average distance between comedies and tragedies is only 0.07, and the median difference is 0.1.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Descriptive statistics in R, part III</title>
       <link>/post/2018-05-03_descriptive-statistics-in-r-part-iii/</link>
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
@@ -1834,15 +2041,6 @@ ggplot(mpg, aes(displ, hwy)) +
       <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>/publication/group-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Do groups make less ethical decisions than individuals?</title>
-      <link>/talk/unethical-group-talk/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
-      
-      <guid>/talk/unethical-group-talk/</guid>
       <description></description>
     </item>
     

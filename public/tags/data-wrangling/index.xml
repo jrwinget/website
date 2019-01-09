@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>data viz on Margins of Error</title>
-    <link>/tags/data-viz/</link>
-    <description>Recent content in data viz on Margins of Error</description>
+    <title>data wrangling on Margins of Error</title>
+    <link>/tags/data-wrangling/</link>
+    <description>Recent content in data wrangling on Margins of Error</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/data-viz/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/data-wrangling/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,15 +21,6 @@
       <description>It’s been quite some time since I’ve written here, so I thought I would use one my of 2019 #rstats goals as an excuse to brush off the dust. In this post, I analyze data from the Economist’s “TV’s golden age is real” data set for my first #tidytuesday submission!
 First, we have to load the packages and data
 library(tidyverse) ## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 3.</description>
-    </item>
-    
-    <item>
-      <title>First post!</title>
-      <link>/post/2018-02-07_first-post/</link>
-      <pubDate>Wed, 07 Feb 2018 19:04:00 +0000</pubDate>
-      
-      <guid>/post/2018-02-07_first-post/</guid>
-      <description>Hello, world! Thanks for taking the time to read my first blog post! While I am trained as a social psychologist, I’m a big proponent of leveraging data science tools to understand the world around us. Thus, I plan to discuss a mixture of data-driven topics and insights here. I hope to use this blog as a place to write about things that interest me, but focus will likely be on statistics, research methods, open science, social psychology, and data science.</description>
     </item>
     
   </channel>

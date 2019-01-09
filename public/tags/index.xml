@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>#tidytuesday</title>
+      <link>/tags/tidytuesday/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidytuesday/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>QRP</title>
       <link>/tags/qrp/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
@@ -60,9 +69,18 @@
     <item>
       <title>data viz</title>
       <link>/tags/data-viz/</link>
-      <pubDate>Wed, 07 Feb 2018 19:04:00 +0000</pubDate>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/data-viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data wrangling</title>
+      <link>/tags/data-wrangling/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-wrangling/</guid>
       <description></description>
     </item>
     
