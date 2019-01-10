@@ -14,7 +14,7 @@ weight = 5
     "Information Processing",
     "Social Influence",
     "Political/Moral Psych",
-    "Data Science"
+    "Data Science (with R)"
   ]
 
 # List your qualifications (such as academic degrees).
