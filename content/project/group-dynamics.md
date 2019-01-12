@@ -44,7 +44,7 @@ Our work focuses on the conditions that promote honest, ethical, and caring rela
 ### Representative publications
 
 * **Winget, J.R.** & Tindale, R.S. (2018). Deception in group contexts. In *Palgrave Handbook of Deceptive Communication*.
-* Space filler for dilemma study preprint...updating soon!
+* Group moral dilemma study preprint coming soon!
 
 ***
 ### Information sharing {#info-sharing}

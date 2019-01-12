@@ -1496,7 +1496,7 @@ stat.desc(company)
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Winget, J.R.&lt;/strong&gt; &amp;amp; Tindale, R.S. (2018). Deception in group contexts. In &lt;em&gt;Palgrave Handbook of Deceptive Communication&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Space filler for dilemma study preprint&amp;hellip;updating soon!&lt;/li&gt;
+&lt;li&gt;Group moral dilemma study preprint coming soon!&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -2835,7 +2835,7 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &amp;quot;dec&amp;quot;, 
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Winget, J.R.&lt;/strong&gt; &amp;amp; Tindale, R.S. (2018). Stereotypic morality: The effects of group membership on moral foundations. &lt;em&gt;Submitted for review&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Space filler for trolley foundation preprint&amp;hellip;updating soon!&lt;/li&gt;
+&lt;li&gt;Trolley moral foundations preprint coming soon!&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -2868,13 +2868,13 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &amp;quot;dec&amp;quot;, 
 
 &lt;h3 id=&#34;receptivity&#34;&gt;Receptivity&lt;/h3&gt;
 
-&lt;p&gt;Space filler&amp;hellip;for now!&lt;/p&gt;
+&lt;p&gt;Space filler&amp;hellip;updating soon!&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;h3 id=&#34;majority-minority&#34;&gt;Majority &amp;amp; minority influence&lt;/h3&gt;
 
-&lt;p&gt;Space filler&amp;hellip;for now!&lt;/p&gt;
+&lt;p&gt;Space filler&amp;hellip;updating soon!&lt;/p&gt;
 
 &lt;hr /&gt;
 </description>
@@ -3026,12 +3026,6 @@ ggplot(mpg, aes(displ, hwy)) +
 &lt;p&gt;Social psychological research often emphasizes directional bias in cognition. This includes attitude research that indicates cognition can be biased in the direction of prior attitudes (Eagly, Chen, Chaiken, &amp;amp; Shaw-Barnes, 1999; Fazio &amp;amp; Towles-Schwen, 1999; Petty &amp;amp; Cacioppo, 1986; Petty &amp;amp; Wegener, 1991); social cognition research that documents biases when perceivers select, encode, interpret, and retrieve information (e.g., Bodenhausen, 1988; Wyer &amp;amp; Srull, 1989); as well as research that focuses on motivated cognition (e.g., Jost, Glaser, Kruglanski, &amp;amp; Sulloway, 2003). We define open-minded cognition as directionally unbiased information processing; a tendency to select, interpret, retrieve, weigh, and elaborate upon information in a manner that is not biased by the individual&amp;rsquo;s prior opinion or expectation (Ottati, Wilson, &amp;amp; Price, 2015; Price, Ottati,Wilson, &amp;amp; Kim, 2015). Closed-minded or dogmatic cognition is defined as directionally biased; a tendency to process information in a manner that reinforces the individual&amp;rsquo;s prior opinion or expectation (Ottati et al., 2015; Price et al., 2015; see also Nickerson, 1998; Samuelson &amp;amp; Church, 2014a; Samuelson &amp;amp; Church, 2014b; Stanovich &amp;amp;West, 2007). Although cultural norms place a positive value on open-mindedness, open-minded cognition varies across individuals and situations (Ottati et al., 2015). For example, closed-mindedness is associated with a predisposition to experience psychological insecurity (Rokeach &amp;amp; Kemp, 1960; Tosi, Fagan, &amp;amp; Frumkin, 1968; see also Vail, Arndt, Motyl, &amp;amp; Pyszczynski, 2012), and increases when individuals encounter morally objectionable viewpoints (e.g., communications advocating discrimination; Ottati et al., 2015).&lt;/p&gt;
 
 &lt;p&gt;In examining the determinants of open-minded cognition, this line of research focuses on the role of group norms in open-minded cognition. Previous research has documented unethical behavior in and by groups (see Mannix, Neal, &amp;amp; Tenbrunsel, 2006, for a review). In situations where individuals behave cooperatively, groups often defect from such behavior to protect or enhance the group (Wildschut, Pinter, Vevea, Insko, &amp;amp; Schopler, 2003; Morgan &amp;amp; Tindale, 2002). Thus, groups are likely to use the group&amp;rsquo;s welfare to guide their moral compass and behave in ways consistent with their self-interest even when it violates typical norms of ethics (Cohen, Gunia, Kim-Jun, &amp;amp; Murnighan, 2009). We argue that this group tendency stems from the group enhancement/protection norm (Tindale, 2008), which leads groups to behave in ways that enhance/protect the group even when members may find such behavior ethically suspect. Thus, we expect group norms to have a mitigating role in open-minded cogition, particularly in situations involving outgroup members.&lt;/p&gt;
-
-&lt;h3 id=&#34;representative-publications&#34;&gt;Representative publications&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Space filler for OMC preprint&amp;hellip;updating soon!&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;hr /&gt;
 </description>

@@ -38,8 +38,4 @@ Social psychological research often emphasizes directional bias in cognition. Th
 
 In examining the determinants of open-minded cognition, this line of research focuses on the role of group norms in open-minded cognition. Previous research has documented unethical behavior in and by groups (see Mannix, Neal, & Tenbrunsel, 2006, for a review). In situations where individuals behave cooperatively, groups often defect from such behavior to protect or enhance the group (Wildschut, Pinter, Vevea, Insko, & Schopler, 2003; Morgan & Tindale, 2002). Thus, groups are likely to use the group's welfare to guide their moral compass and behave in ways consistent with their self-interest even when it violates typical norms of ethics (Cohen, Gunia, Kim-Jun, & Murnighan, 2009). We argue that this group tendency stems from the group enhancement/protection norm (Tindale, 2008), which leads groups to behave in ways that enhance/protect the group even when members may find such behavior ethically suspect. Thus, we expect group norms to have a mitigating role in open-minded cogition, particularly in situations involving outgroup members.
 
-### Representative publications
-
-* Space filler for OMC preprint...updating soon!
-
 ***

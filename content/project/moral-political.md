@@ -46,7 +46,7 @@ Findings suggest those who make utilitarian judgments in these dilemmas rely on 
 ### Representative publications
 
 * **Winget, J.R.** & Tindale, R.S. (2018). Stereotypic morality: The effects of group membership on moral foundations. *Submitted for review*.
-* Space filler for trolley foundation preprint...updating soon!
+* Trolley moral foundations preprint coming soon!
 
 ***
 ### Political extremism {#pol-extremism}

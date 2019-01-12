@@ -37,11 +37,11 @@ caption = ""
 ***
 ### Receptivity {#receptivity}
 
-Space filler...for now!
+Space filler...updating soon!
 
 ***
 ### Majority & minority influence {#majority-minority}
 
-Space filler...for now!
+Space filler...updating soon!
 
 ***
