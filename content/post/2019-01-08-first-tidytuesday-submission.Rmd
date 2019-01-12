@@ -236,8 +236,6 @@ tv_rating %>%
   filter(title %in% shows) %>%
   mutate(title = str_replace(title, "Special Victims Unit", "SVU")) %>%
   group_by(title) %>%
-  add_tally() %>%
-  filter(n > 5) %>%
   ggplot() +
   aes(date, av_rating) +
   facet_wrap(~title) +

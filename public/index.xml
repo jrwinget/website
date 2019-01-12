@@ -21,12 +21,12 @@
 &lt;p&gt;Special thanks to &lt;a href=&#34;https://twitter.com/IsabellaGhement&#34;&gt;Isabella Ghement&lt;/a&gt; for providing &lt;a href=&#34;https://twitter.com/IsabellaGhement/status/1082831866523086849&#34;&gt;a few tips&lt;/a&gt; on how to improve the original graphs!&lt;/p&gt;
 &lt;p&gt;First, load the required packages and data:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tibble  2.0.0     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
 ## ✔ readr   1.3.0     ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(lubridate)&lt;/code&gt;&lt;/pre&gt;
@@ -169,7 +169,7 @@ tv_rating %&amp;gt;%
   font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
 }
 
-#vinmajnzwf .gt_table {
+#glrexbkane .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -188,13 +188,13 @@ tv_rating %&amp;gt;%
   /* table.border.top.color */
 }
 
-#vinmajnzwf .gt_heading {
+#glrexbkane .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#vinmajnzwf .gt_title {
+#glrexbkane .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -205,7 +205,7 @@ tv_rating %&amp;gt;%
   border-bottom-width: 0;
 }
 
-#vinmajnzwf .gt_subtitle {
+#glrexbkane .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -216,7 +216,7 @@ tv_rating %&amp;gt;%
   border-top-width: 0;
 }
 
-#vinmajnzwf .gt_bottom_border {
+#glrexbkane .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -225,7 +225,7 @@ tv_rating %&amp;gt;%
   /* heading.border.bottom.color */
 }
 
-#vinmajnzwf .gt_column_spanner {
+#glrexbkane .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -233,7 +233,7 @@ tv_rating %&amp;gt;%
   padding-bottom: 4px;
 }
 
-#vinmajnzwf .gt_col_heading {
+#glrexbkane .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -246,11 +246,11 @@ tv_rating %&amp;gt;%
   margin: 10px;
 }
 
-#vinmajnzwf .gt_sep_right {
+#glrexbkane .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#vinmajnzwf .gt_group_heading {
+#glrexbkane .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -274,7 +274,7 @@ tv_rating %&amp;gt;%
   vertical-align: middle;
 }
 
-#vinmajnzwf .gt_empty_group_heading {
+#glrexbkane .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -298,29 +298,29 @@ tv_rating %&amp;gt;%
   vertical-align: middle;
 }
 
-#vinmajnzwf .gt_striped tr:nth-child(even) {
+#glrexbkane .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#vinmajnzwf .gt_row {
+#glrexbkane .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#vinmajnzwf .gt_stub {
+#glrexbkane .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#vinmajnzwf .gt_stub.gt_row {
+#glrexbkane .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#vinmajnzwf .gt_summary_row {
+#glrexbkane .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -329,13 +329,13 @@ tv_rating %&amp;gt;%
   /* summary_row.text_transform */
 }
 
-#vinmajnzwf .gt_first_summary_row {
+#glrexbkane .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#vinmajnzwf .gt_table_body {
+#glrexbkane .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -350,55 +350,55 @@ tv_rating %&amp;gt;%
   /* field.border.bottom.color */
 }
 
-#vinmajnzwf .gt_footnote {
+#glrexbkane .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#vinmajnzwf .gt_sourcenote {
+#glrexbkane .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#vinmajnzwf .gt_center {
+#glrexbkane .gt_center {
   text-align: center;
 }
 
-#vinmajnzwf .gt_left {
+#glrexbkane .gt_left {
   text-align: left;
 }
 
-#vinmajnzwf .gt_right {
+#glrexbkane .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vinmajnzwf .gt_font_normal {
+#glrexbkane .gt_font_normal {
   font-weight: normal;
 }
 
-#vinmajnzwf .gt_font_bold {
+#glrexbkane .gt_font_bold {
   font-weight: bold;
 }
 
-#vinmajnzwf .gt_font_italic {
+#glrexbkane .gt_font_italic {
   font-style: italic;
 }
 
-#vinmajnzwf .gt_super {
+#glrexbkane .gt_super {
   font-size: 65%;
 }
 
-#vinmajnzwf .gt_footnote_glyph {
+#glrexbkane .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 &lt;/style&gt;
-&lt;div id=&#34;vinmajnzwf&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;div id=&#34;glrexbkane&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
 &lt;table class=&#39;gt_table&#39;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -553,7 +553,7 @@ tv_rating %&amp;gt;%
   font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
 }
 
-#perwckartw .gt_table {
+#txehimqiua .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -572,13 +572,13 @@ tv_rating %&amp;gt;%
   /* table.border.top.color */
 }
 
-#perwckartw .gt_heading {
+#txehimqiua .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#perwckartw .gt_title {
+#txehimqiua .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -589,7 +589,7 @@ tv_rating %&amp;gt;%
   border-bottom-width: 0;
 }
 
-#perwckartw .gt_subtitle {
+#txehimqiua .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -600,7 +600,7 @@ tv_rating %&amp;gt;%
   border-top-width: 0;
 }
 
-#perwckartw .gt_bottom_border {
+#txehimqiua .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -609,7 +609,7 @@ tv_rating %&amp;gt;%
   /* heading.border.bottom.color */
 }
 
-#perwckartw .gt_column_spanner {
+#txehimqiua .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -617,7 +617,7 @@ tv_rating %&amp;gt;%
   padding-bottom: 4px;
 }
 
-#perwckartw .gt_col_heading {
+#txehimqiua .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -630,11 +630,11 @@ tv_rating %&amp;gt;%
   margin: 10px;
 }
 
-#perwckartw .gt_sep_right {
+#txehimqiua .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#perwckartw .gt_group_heading {
+#txehimqiua .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -658,7 +658,7 @@ tv_rating %&amp;gt;%
   vertical-align: middle;
 }
 
-#perwckartw .gt_empty_group_heading {
+#txehimqiua .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -682,29 +682,29 @@ tv_rating %&amp;gt;%
   vertical-align: middle;
 }
 
-#perwckartw .gt_striped tr:nth-child(even) {
+#txehimqiua .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#perwckartw .gt_row {
+#txehimqiua .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#perwckartw .gt_stub {
+#txehimqiua .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#perwckartw .gt_stub.gt_row {
+#txehimqiua .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#perwckartw .gt_summary_row {
+#txehimqiua .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -713,13 +713,13 @@ tv_rating %&amp;gt;%
   /* summary_row.text_transform */
 }
 
-#perwckartw .gt_first_summary_row {
+#txehimqiua .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#perwckartw .gt_table_body {
+#txehimqiua .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -734,55 +734,55 @@ tv_rating %&amp;gt;%
   /* field.border.bottom.color */
 }
 
-#perwckartw .gt_footnote {
+#txehimqiua .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#perwckartw .gt_sourcenote {
+#txehimqiua .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#perwckartw .gt_center {
+#txehimqiua .gt_center {
   text-align: center;
 }
 
-#perwckartw .gt_left {
+#txehimqiua .gt_left {
   text-align: left;
 }
 
-#perwckartw .gt_right {
+#txehimqiua .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#perwckartw .gt_font_normal {
+#txehimqiua .gt_font_normal {
   font-weight: normal;
 }
 
-#perwckartw .gt_font_bold {
+#txehimqiua .gt_font_bold {
   font-weight: bold;
 }
 
-#perwckartw .gt_font_italic {
+#txehimqiua .gt_font_italic {
   font-style: italic;
 }
 
-#perwckartw .gt_super {
+#txehimqiua .gt_super {
   font-size: 65%;
 }
 
-#perwckartw .gt_footnote_glyph {
+#txehimqiua .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 &lt;/style&gt;
-&lt;div id=&#34;perwckartw&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;div id=&#34;txehimqiua&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
 &lt;table class=&#39;gt_table&#39;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -941,7 +941,7 @@ tv_rating %&amp;gt;%
   font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
 }
 
-#ykwjbhzkkf .gt_table {
+#ukavyfjszw .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -960,13 +960,13 @@ tv_rating %&amp;gt;%
   /* table.border.top.color */
 }
 
-#ykwjbhzkkf .gt_heading {
+#ukavyfjszw .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#ykwjbhzkkf .gt_title {
+#ukavyfjszw .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -977,7 +977,7 @@ tv_rating %&amp;gt;%
   border-bottom-width: 0;
 }
 
-#ykwjbhzkkf .gt_subtitle {
+#ukavyfjszw .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -988,7 +988,7 @@ tv_rating %&amp;gt;%
   border-top-width: 0;
 }
 
-#ykwjbhzkkf .gt_bottom_border {
+#ukavyfjszw .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -997,7 +997,7 @@ tv_rating %&amp;gt;%
   /* heading.border.bottom.color */
 }
 
-#ykwjbhzkkf .gt_column_spanner {
+#ukavyfjszw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -1005,7 +1005,7 @@ tv_rating %&amp;gt;%
   padding-bottom: 4px;
 }
 
-#ykwjbhzkkf .gt_col_heading {
+#ukavyfjszw .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -1018,11 +1018,11 @@ tv_rating %&amp;gt;%
   margin: 10px;
 }
 
-#ykwjbhzkkf .gt_sep_right {
+#ukavyfjszw .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#ykwjbhzkkf .gt_group_heading {
+#ukavyfjszw .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1046,7 +1046,7 @@ tv_rating %&amp;gt;%
   vertical-align: middle;
 }
 
-#ykwjbhzkkf .gt_empty_group_heading {
+#ukavyfjszw .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1070,29 +1070,29 @@ tv_rating %&amp;gt;%
   vertical-align: middle;
 }
 
-#ykwjbhzkkf .gt_striped tr:nth-child(even) {
+#ukavyfjszw .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#ykwjbhzkkf .gt_row {
+#ukavyfjszw .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#ykwjbhzkkf .gt_stub {
+#ukavyfjszw .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#ykwjbhzkkf .gt_stub.gt_row {
+#ukavyfjszw .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#ykwjbhzkkf .gt_summary_row {
+#ukavyfjszw .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -1101,13 +1101,13 @@ tv_rating %&amp;gt;%
   /* summary_row.text_transform */
 }
 
-#ykwjbhzkkf .gt_first_summary_row {
+#ukavyfjszw .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#ykwjbhzkkf .gt_table_body {
+#ukavyfjszw .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -1122,55 +1122,55 @@ tv_rating %&amp;gt;%
   /* field.border.bottom.color */
 }
 
-#ykwjbhzkkf .gt_footnote {
+#ukavyfjszw .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#ykwjbhzkkf .gt_sourcenote {
+#ukavyfjszw .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#ykwjbhzkkf .gt_center {
+#ukavyfjszw .gt_center {
   text-align: center;
 }
 
-#ykwjbhzkkf .gt_left {
+#ukavyfjszw .gt_left {
   text-align: left;
 }
 
-#ykwjbhzkkf .gt_right {
+#ukavyfjszw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ykwjbhzkkf .gt_font_normal {
+#ukavyfjszw .gt_font_normal {
   font-weight: normal;
 }
 
-#ykwjbhzkkf .gt_font_bold {
+#ukavyfjszw .gt_font_bold {
   font-weight: bold;
 }
 
-#ykwjbhzkkf .gt_font_italic {
+#ukavyfjszw .gt_font_italic {
   font-style: italic;
 }
 
-#ykwjbhzkkf .gt_super {
+#ukavyfjszw .gt_super {
   font-size: 65%;
 }
 
-#ykwjbhzkkf .gt_footnote_glyph {
+#ukavyfjszw .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 &lt;/style&gt;
-&lt;div id=&#34;ykwjbhzkkf&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;div id=&#34;ukavyfjszw&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
 &lt;table class=&#39;gt_table&#39;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1215,8 +1215,6 @@ tv_rating %&amp;gt;%
   filter(title %in% shows) %&amp;gt;%
   mutate(title = str_replace(title, &amp;quot;Special Victims Unit&amp;quot;, &amp;quot;SVU&amp;quot;)) %&amp;gt;%
   group_by(title) %&amp;gt;%
-  add_tally() %&amp;gt;%
-  filter(n &amp;gt; 5) %&amp;gt;%
   ggplot() +
   aes(date, av_rating) +
   facet_wrap(~title) +
