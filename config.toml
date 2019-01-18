@@ -59,12 +59,12 @@ defaultContentLanguageInSubdir = false
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "headshot.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "jwinget@luc.edu"
+  #email = "jwinget@luc.edu"
   address = "Coffey Hall LL05, Loyola University Chicago, Illinois, 60613, USA"
   office_hours = "Office hours: jwinget.youcanbook.me"
-  phone = "773 508 3072"
-  skype = ""
-  telegram = ""
+  #phone = "773 508 3072"
+  #skype = ""
+  #telegram = ""
 
   # Enable Keybase in Contact widget by entering your keybase.io username.
   keybase = ""

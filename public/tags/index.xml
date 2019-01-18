@@ -22,78 +22,6 @@
     </item>
     
     <item>
-      <title>Blog</title>
-      <link>/tags/blog/</link>
-      <pubDate>Wed, 07 Feb 2018 19:04:00 +0000</pubDate>
-      
-      <guid>/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data viz</title>
-      <link>/tags/data-viz/</link>
-      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/data-viz/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data wrangling</title>
-      <link>/tags/data-wrangling/</link>
-      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/data-wrangling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Group dynamics</title>
-      <link>/tags/group-dynamics/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/group-dynamics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Information processing</title>
-      <link>/tags/information-processing/</link>
-      <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/information-processing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Methods</title>
-      <link>/tags/methods/</link>
-      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/methods/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Moral political</title>
-      <link>/tags/moral-political/</link>
-      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/moral-political/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Open science</title>
-      <link>/tags/open-science/</link>
-      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/open-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>QRP</title>
       <link>/tags/qrp/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
@@ -121,7 +49,88 @@
     </item>
     
     <item>
-      <title>Replication</title>
+      <title>TidyTuesday</title>
+      <link>/tags/tidytuesday/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidytuesday/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>/tags/blog/</link>
+      <pubDate>Wed, 07 Feb 2018 19:04:00 +0000</pubDate>
+      
+      <guid>/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data viz</title>
+      <link>/tags/data-viz/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data wrangling</title>
+      <link>/tags/data-wrangling/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>group dynamics</title>
+      <link>/tags/group-dynamics/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/group-dynamics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>information processing</title>
+      <link>/tags/information-processing/</link>
+      <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/information-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>methods</title>
+      <link>/tags/methods/</link>
+      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>moral political</title>
+      <link>/tags/moral-political/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/moral-political/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open science</title>
+      <link>/tags/open-science/</link>
+      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/open-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>replication</title>
       <link>/tags/replication/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
       
@@ -130,7 +139,7 @@
     </item>
     
     <item>
-      <title>Reproducibility</title>
+      <title>reproducibility</title>
       <link>/tags/reproducibility/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
       
@@ -139,7 +148,7 @@
     </item>
     
     <item>
-      <title>Scientific integrity</title>
+      <title>scientific integrity</title>
       <link>/tags/scientific-integrity/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
       
@@ -148,7 +157,7 @@
     </item>
     
     <item>
-      <title>Social influence</title>
+      <title>social influence</title>
       <link>/tags/social-influence/</link>
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
@@ -157,20 +166,11 @@
     </item>
     
     <item>
-      <title>Statistics</title>
+      <title>statistics</title>
       <link>/tags/statistics/</link>
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/statistics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TidyTuesday</title>
-      <link>/tags/tidytuesday/</link>
-      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tidytuesday/</guid>
       <description></description>
     </item>
     
