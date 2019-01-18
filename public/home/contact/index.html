@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.40.2" />
+  <meta name="generator" content="Hugo 0.53" />
   <meta name="author" content="Jeremy R. Winget, M.A.">
 
   
@@ -17,7 +17,8 @@
       
     
   
-  <meta name="description" content="">
+  <meta name="description" content="Your name:  Your email address:  Your message: 
+  ">
 
   
   <link rel="alternate" hreflang="en-us" href="/home/contact/">
@@ -92,7 +93,8 @@
   <meta property="og:site_name" content="Margins of Error">
   <meta property="og:url" content="/home/contact/">
   <meta property="og:title" content="Contact | Margins of Error">
-  <meta property="og:description" content="">
+  <meta property="og:description" content="Your name:  Your email address:  Your message: 
+  ">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2016-04-20T00:00:00&#43;00:00">
@@ -314,7 +316,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -374,7 +376,19 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      
+      <form action="https://formspree.io/jwinget@luc.edu" method="POST">
+  <label for="name">Your name: </label>
+  <input type="text" name="name" required="required" placeholder=""><br>
+  <label for="email">Your email address: </label>
+  <input type="email" name="_replyto" required="required" placeholder=""><br>
+  <label for="message">Your message: </label><br>
+  <textarea rows="4" name="message" id="message" required="required" class="form-control" placeholder=""></textarea>
+  <input type="hidden" name="_next" value="/html/thanks.html" />
+  <input type="submit" value="Send" name="submit" class="btn btn-primary btn-outline">
+  <input type="hidden" name="_subject" value="Website message" />
+  <input type="text" name="_gotcha" style="display:none" />
+</form>
+
     </div>
 
     
@@ -388,7 +402,7 @@
     
 <section id="comments">
   <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
