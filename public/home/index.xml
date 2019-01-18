@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Welcome!</title>
+      <link>/home/hero/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0500</pubDate>
+      
+      <guid>/home/hero/</guid>
+      <description>I&amp;rsquo;m Jeremy Winget, and you&amp;rsquo;ve reached my personal webpage. Here, you can find links to my previous work, current projects, and potential future directions. I also keep a (somewhat) active blog on this page where I ramble about methods/statistics, R, psychology, open science, and data science. Please, take some time to look around, and if you have any questions, don&amp;rsquo;t hesitate to contact me!</description>
+    </item>
     
     <item>
       <title></title>
@@ -31,12 +40,12 @@
     </item>
     
     <item>
-      <title>Welcome!</title>
-      <link>/home/hero/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 -0500</pubDate>
+      <title>Research Areas</title>
+      <link>/home/projects/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/home/hero/</guid>
-      <description>I&amp;rsquo;m Jeremy Winget, and you&amp;rsquo;ve reached my personal webpage. Here, you can find links to my previous work, current projects, and potential future directions. I also keep a (somewhat) active blog on this page where I ramble about methods/statistics, R, psychology, open science, and data science. Please, take some time to look around, and if you have any questions, don&amp;rsquo;t hesitate to contact me!</description>
+      <guid>/home/projects/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -49,20 +58,20 @@
     </item>
     
     <item>
+      <title>Recent Publications</title>
+      <link>/home/publications/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
+      
+      <guid>/home/publications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Recent &amp; Upcoming Talks</title>
       <link>/home/talks/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/talks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>/home/projects/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/home/projects/</guid>
       <description></description>
     </item>
     
@@ -103,15 +112,6 @@ I have a strong background in statistics and research methodology (both quantita
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/contact/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Recent Publications</title>
-      <link>/home/publications/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
-      
-      <guid>/home/publications/</guid>
       <description></description>
     </item>
     

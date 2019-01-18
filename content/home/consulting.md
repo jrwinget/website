@@ -11,7 +11,7 @@ title = "Consulting"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 8
+weight = 9
 
 +++
 
