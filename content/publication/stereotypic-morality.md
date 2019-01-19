@@ -1,6 +1,6 @@
 +++
 title = "Stereotypic morality: The effects of group membership on moral foundations"
-date = "2018-03-29"
+date = "2019-01-01"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["J.R. Winget", "R.S. Tindale"]
@@ -21,7 +21,7 @@ publication = "*Submitted for review*"
 publication_short = ""
 
 # Abstract and optional shortened version.
-abstract = "Previous research has started to map the moral domain for individual actors. In particular, moral foundations theory has extended the moral domain beyond the traditional notions of justice and rights concerns. However, excluding the political arena, there is little research on how these moral foundations operate within and between groups. Janoff-Bulman and Carnes (2013) have proposed a comprehensive model of the moral landscape that includes a group component; however, this model has received some criticism (e.g., Graham, 2013). The current study examined how moral foundations operate from a group perspective. Moreover, potential outgroup moderators of moral foundations were examined. Participants were placed into one of two conditions in which they rated the extent to which various concerns were relevant when making moral judgments about their ingroup and various outgroups. Two sets of three different outgroups conforming to the various quadrants of the stereotype content model were used. Results showed significant differences for the harm, fairness, and loyalty foundations between ingroups and outgroups. Moreover, the type of outgroup significantly influenced moral foundations scores. Taken together, these findings demonstrate the importance of considering moral foundations at the group level."
+abstract = "Today’s modern world affords many benefits, one of which is the ability to have near instantaneous interactions with groups and cultures other than our own. Though advantageous in many situations, one challenge for these groups is navigating what they perceive to be right and wrong in a cooperative manner despite having different modes of morality. Moral foundations theory holds all groups use the same moral foundations to guide their judgments and decision making, but there has been little research on how the perception of these foundations differ within and between groups. Thus, the current study examined how moral foundations operate from a group perspective, and potential outgroup moderators of moral foundations were examined. Participants were placed into one of two conditions in which they rated the extent to which various groups used moral foundations. Two sets of three different outgroups conforming to the various quadrants of the stereotype content model were used. Results showed significant differences for the harm, fairness, and loyalty foundations between ingroups and outgroups. Moreover, the type of outgroup significantly influenced moral foundations scores. Taken together, these findings demonstrate the importance of considering moral foundations at the group level."
 abstract_short = ""
 
 # Featured image thumbnail (optional)
@@ -35,11 +35,11 @@ selected = false
 projects = ""
 
 # Links (optional).
-url_pdf = ""
+#url_pdf = "https://web.tresorit.com/l#A-KID3ryYiB9b2qRimVboQ"
 url_preprint = ""
-url_code = ""
-url_dataset = ""
-url_project = ""
+#url_code = "https://gitlab.com/jrwinget/stereotypic-morality/tree/master/data/processing-and-analysis/command-files"
+#url_dataset = "https://gitlab.com/jrwinget/stereotypic-morality/tree/master/data/processing-and-analysis/importable-data"
+#url_project = "https://osf.io/mgxh4/"
 url_slides = ""
 url_video = ""
 url_poster = ""

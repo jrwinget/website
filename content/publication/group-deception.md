@@ -1,6 +1,6 @@
 +++
-title = "Deception in group contexts"
-date = "2018-03-30"
+title = "Deceptive communication in group contexts"
+date = "2019-01-01"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["J.R. Winget", "R.S. Tindale"]
@@ -17,7 +17,7 @@ authors = ["J.R. Winget", "R.S. Tindale"]
 publication_types = ["6"]
 
 # Publication name and optional abbreviated version.
-publication = "In *Palgrave Handbook of Deceptive Communication*. Submitted for review"
+publication = "In *Palgrave Handbook of Deceptive Communication*"
 publication_short = ""
 
 # Abstract and optional shortened version.
@@ -28,14 +28,14 @@ abstract_short = ""
 image_preview = ""
 
 # Is this a selected publication? (true/false)
-selected = false
+selected = true
 # Projects (optional).
 #   Associate this publication with one or more of your projects.
-#   Simply enter the filename (excluding '.md') of your project file in `content/project/`.
+#   Simply enter the filename (excluding '.md') of your project file in `content/project/moral-political`.
 projects = ""
 
 # Links (optional).
-url_pdf = ""
+url_pdf = "https://web.tresorit.com/l#qc08TlgTbe55BqG4W2s56A"
 url_preprint = ""
 url_code = ""
 url_dataset = ""
@@ -43,7 +43,7 @@ url_project = ""
 url_slides = ""
 url_video = ""
 url_poster = ""
-url_source = ""
+url_source = "https://www.palgrave.com/us/book/9783319963334#aboutBook"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.

@@ -24,4 +24,4 @@ weight = 1
   label = ''
 +++
 
-I'm Jeremy Winget, and you've reached my personal webpage. Here, you can find links to my previous work, current projects, and potential future directions. I also keep a (somewhat) active blog on this page where I ramble about methods/statistics, R, psychology, open science, and data science. Please, take some time to look around, and if you have any questions, don't hesitate to contact me!
+I'm Jeremy Winget, and you've reached my personal website. Here, you can find links to my previous work and current projects. I also host my blog on this page, which focuses broadly on methods/statistics, R, psychology, open science, and data science. Please, take some time to look around, and if you have any questions, don't hesitate to contact me!
