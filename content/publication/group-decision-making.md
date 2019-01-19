@@ -35,7 +35,7 @@ selected = false
 projects = ""
 
 # Links (optional).
-url_pdf = "https://web.tresorit.com/l#uGz4LRMH0plD5fWi28GOLg"
+url_pdf = "https://web.tresorit.com/l#xSbOLY3qEPKxXjuE-F99Iw"
 url_preprint = ""
 url_code = ""
 url_dataset = ""
