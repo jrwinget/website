@@ -35,7 +35,7 @@ caption = ""
 [Information sharing](#info-sharing)
 
 ***
-### Judgment & decision-making {judg-dec}
+### Judgment & decision-making {#judg-dec}
 
 Group decisions are ubiquitous in everyday life. Even when decisions are made individually, decision-makers often receive advice or suggestions from others. Thus, decisions are often social in nature and involve multiple group members. The ways group members combine their preferences to make a group decision generally falls along two dimensions: how much interaction or information exchange is allowed among the group members and how the final decision is made. On one end, group decisions can be made simply by aggregating member preferences or judgments without any interaction among members and where members have no control or say in the final judgment. One the other end, groups decisions can involve extensive member interaction and information exchanges and the final decision is reached by group consensus. In between these two endpoints, various other strategies are also possible, including prediction markets, Delphi groups, and judge-advisor systems.
 
