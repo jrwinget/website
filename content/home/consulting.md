@@ -30,4 +30,4 @@ I have a strong background in statistics and research methodology (both quantita
 
 While I mainly conduct my analyses in R, I am familiar with other statistical software (e.g., SPSS, LISREL, etc.) and can use Python in a pinch. I use R Markdown for document preparation and Git for version control. I also know a bit of programming, which I often apply to creating programs for experimental protocols. Please, see my CV for a full list of my skills and qualifications.
 
-If you have any questions or would like to discuss my services further, please email me at [jwinget@luc.edu](jwinget@luc.edu). It is better to set something up with me directly, rather than my Upwork profile, because we can almost always negotiate lower consultation fees.
+If you have any questions or would like to discuss my services further, please complete the form located in the Contact section below. It is better to set something up with me directly, rather than my Upwork profile, because we can almost always negotiate lower consultation fees.

@@ -28,13 +28,14 @@ abstract_short = ""
 image_preview = ""
 
 # Is this a selected publication? (true/false)
-selected = true# Projects (optional).
+selected = true
+# Projects (optional).
 #   Associate this publication with one or more of your projects.
 #   Simply enter the filename (excluding '.md') of your project file in `content/project/`.
 projects = ""
 
 # Links (optional).
-url_pdf = ""
+url_pdf = "https://web.tresorit.com/l#wjyHDUqr6AhzGDtkMgUCbA"
 url_preprint = ""
 url_code = ""
 url_dataset = ""
