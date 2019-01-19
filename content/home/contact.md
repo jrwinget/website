@@ -15,7 +15,7 @@ autolink = true
 
 +++
 
-<form action="https://formspree.io/jeremywinget@protonmail.ch" method="POST">
+<form action="https://formspree.io/jwinget@luc.edu" method="POST">
   <label for="name">Your name: </label>
   <input type="text" name="name" required="required" placeholder=""><br>
   <label for="email">Your email address: </label>
