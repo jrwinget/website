@@ -1,6 +1,6 @@
 +++
 title = "Group decision making"
-date = "2018-03-30"
+date = "2019-06-01"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["R.S. Tindale", "J.R. Winget"]
@@ -17,7 +17,7 @@ authors = ["R.S. Tindale", "J.R. Winget"]
 publication_types = ["6"]
 
 # Publication name and optional abbreviated version.
-publication = "In *Oxford Research Encyclopedia of Psychology*. Submitted for review"
+publication = "In *Oxford Research Encyclopedia of Psychology*"
 publication_short = ""
 
 # Abstract and optional shortened version.
@@ -35,7 +35,7 @@ selected = false
 projects = ""
 
 # Links (optional).
-url_pdf = ""
+url_pdf = "https://web.tresorit.com/l#uGz4LRMH0plD5fWi28GOLg"
 url_preprint = ""
 url_code = ""
 url_dataset = ""
