@@ -230,14 +230,19 @@ defaultContentLanguageInSubdir = false
     link = "//gitlab.com/jrwinget"
 
   [[params.social]]
-    icon = "orcid"
+    icon = "impactstory"
     icon_pack = "ai"
-    link = "//orcid.org/0000-0002-3783-4354"
+    link = "//profiles.impactstory.org/wizard/add-publications"
   
   [[params.social]]
     icon = "google-scholar"
     icon_pack = "ai"
-    link = "https://scholar.google.com/citations?user=gubjo54AAAAJ"
+    link = "//scholar.google.com/citations?user=gubjo54AAAAJ"
+    
+  [[params.social]]
+    icon = "orcid"
+    icon_pack = "ai"
+    link = "//orcid.org/0000-0002-3783-4354"
 
   [[params.social]]
     icon = "twitter"
