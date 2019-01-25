@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Margins of Error</title>
+    <link>/author/admin/</link>
+    <description>Recent content on Margins of Error</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
+    <lastBuildDate>Thu, 24 Jan 2019 20:23:41 -0600</lastBuildDate>
+    
+	<atom:link href="/author/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

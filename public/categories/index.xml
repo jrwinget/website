@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Margins of Error</title>
+    <title>Categories on Margins of Error</title>
     <link>/categories/</link>
-    <description>Recent content on Margins of Error</description>
+    <description>Recent content in Categories on Margins of Error</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Wed, 07 Feb 2018 19:04:00 +0000</lastBuildDate>
+    <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>First post!</title>
-      <link>/post/2018-02-07_first-post/</link>
-      <pubDate>Wed, 07 Feb 2018 19:04:00 +0000</pubDate>
-      
-      <guid>/post/2018-02-07_first-post/</guid>
-      <description>Hello, world! Thanks for taking the time to read my first blog post! While I am trained as a social psychologist, I’m a big proponent of leveraging data science tools to understand the world around us. Thus, I plan to discuss a mixture of data-driven topics and insights here. I hope to use this blog as a place to write about things that interest me, but focus will likely be on statistics, research methods, open science, social psychology, and data science.</description>
-    </item>
     
   </channel>
 </rss>

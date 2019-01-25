@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Consulting Services on Margins of Error</title>
+    <link>/consulting/</link>
+    <description>Recent content in Consulting Services on Margins of Error</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
+    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/consulting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Services: Methods</title>
+      <link>/consulting/methods/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/consulting/methods/</guid>
+      <description>In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:
+Tip 1 &amp;hellip;
+Tip 2 &amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Past Projects</title>
+      <link>/consulting/prev_proj/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/consulting/prev_proj/</guid>
+      <description> 2019 - Washington State Department of Social and Health Servies, Parole Division 2018 - Washington State Department of Social and Health Services  </description>
+    </item>
+    
+    <item>
+      <title>Services: Statistics</title>
+      <link>/consulting/stats/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/consulting/stats/</guid>
+      <description>In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:
+Tip 1 &amp;hellip;
+Tip 2 &amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Group dynamics on Margins of Error</title>
+    <title>group dynamics on Margins of Error</title>
     <link>/tags/group-dynamics/</link>
-    <description>Recent content in Group dynamics on Margins of Error</description>
+    <description>Recent content in group dynamics on Margins of Error</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019</copyright>
+    <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
     <lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/group-dynamics/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>Group Dynamics</title>
-      <link>/project/group-dynamics/</link>
+      <link>/projects/group-dynamics/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/project/group-dynamics/</guid>
+      <guid>/projects/group-dynamics/</guid>
       <description>Current Projects: Judgement &amp;amp; decision-making
 Information sharing
 Judgment &amp;amp; decision-making Group decisions are ubiquitous in everyday life. Even when decisions are made individually, decision-makers often receive advice or suggestions from others. Thus, decisions are often social in nature and involve multiple group members. The ways group members combine their preferences to make a group decision generally falls along two dimensions: how much interaction or information exchange is allowed among the group members and how the final decision is made.</description>

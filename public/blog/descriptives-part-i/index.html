@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.3.0">
+  <meta name="generator" content="Hugo 0.53" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Jeremy R. Winget">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/blog/descriptives-part-i/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-133161697-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Jeremy R. Winget">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Jeremy R. Winget">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/blog/descriptives-part-i/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@_jwinget">
+  <meta property="twitter:creator" content="@_jwinget">
+  
+  <meta property="og:site_name" content="Jeremy R. Winget">
+  <meta property="og:url" content="/blog/descriptives-part-i/">
+  <meta property="og:title" content="Descriptive statistics in R, part I | Jeremy R. Winget">
+  <meta property="og:description" content="Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-04-01T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-04-01T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Descriptive statistics in R, part I | Jeremy R. Winget</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Jeremy R. Winget</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications_featured">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Research</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorial/">
+            
+            <span>Tutorials</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://drive.google.com/file/d/1KE2p0RU_zQ5DKtBYwpJ7MDxEefBlEkEY/preview" target="_blank" rel="noopener">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Descriptive statistics in R, part I</h1>
+
+  
+
+  
+    
+
+
+<meta content="2018-04-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-04-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 1, 2018</time>
+  </span>
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    21 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/blog/descriptives-part-i/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Descriptive%20statistics%20in%20R%2c%20part%20I&amp;url=%2fblog%2fdescriptives-part-i%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fblog%2fdescriptives-part-i%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fblog%2fdescriptives-part-i%2f&amp;title=Descriptive%20statistics%20in%20R%2c%20part%20I"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fblog%2fdescriptives-part-i%2f&amp;title=Descriptive%20statistics%20in%20R%2c%20part%20I"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Descriptive%20statistics%20in%20R%2c%20part%20I&amp;body=%2fblog%2fdescriptives-part-i%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.</p>
+<p>In SPSS, you can get frequencies, means, SDs, and more at once with the FREQUENCIES command although you can also get means and other descriptive stats from the CONDESCRIPTIVE and EXAMINE commands. R can easily handle categorical and continuous variables together or separately. I’ll cover some functions that are fundamental to R, but I’ll also point out some functions that are most like SPSS.</p>
+<p>I will be using the <code>airquality</code> data frame from the <code>datasets</code> package in base R for my examples. This data frame contains daily air quality measurements in New York from May to September in 1973. It contains 153 observations on 6 variables.</p>
+<pre class="r"><code>str(airquality)
+## &#39;data.frame&#39;:    153 obs. of  6 variables:
+##  $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
+##  $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...
+##  $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+##  $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
+##  $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
+##  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
+<div id="options-in-base-r" class="section level1">
+<h1>Options in base R</h1>
+<p>R’s built-in function for frequency counts is the <code>table</code> function, but its output is pretty sparse.</p>
+<pre class="r"><code>table(airquality$Solar.R)
+## 
+##   7   8  13  14  19  20  24  25  27  31  36  37  44  47  48  49  51  59 
+##   1   1   1   1   1   1   2   1   1   1   1   1   1   1   1   1   1   1 
+##  64  65  66  71  77  78  81  82  83  91  92  95  98  99 101 112 115 118 
+##   1   1   1   1   1   1   1   1   1   1   2   1   1   1   1   1   1   1 
+## 120 127 131 135 137 138 139 145 148 149 150 153 157 167 175 183 186 187 
+##   1   2   1   1   2   1   2   1   1   1   1   1   1   1   3   1   1   1 
+## 188 189 190 191 192 193 194 197 201 203 207 212 213 215 220 222 223 224 
+##   1   1   2   2   1   1   1   1   1   1   1   1   1   1   3   1   3   1 
+## 225 229 230 236 237 238 242 244 248 250 252 253 254 255 256 258 259 260 
+##   1   1   1   2   2   4   1   1   1   2   2   1   1   2   1   1   4   1 
+## 264 266 267 269 272 273 274 275 276 279 284 285 286 287 290 291 294 295 
+##   2   1   1   1   1   2   2   1   1   1   1   1   1   1   1   2   1   1 
+## 299 307 313 314 320 322 323 332 334 
+##   1   1   1   1   1   2   1   1   1</code></pre>
+<p>It’s a very simple way to count up the number of times a particular level of solar radiation was recorded, but it doesn’t show percentages or any sort of cumulation. It displays only the frequencies. By default, it hasn’t highlighted that there are some cases with missing data, but it does have a <code>useNA</code> parameter that can call this information. This sparsity makes it very easy to use this output as input to other functions (e.g., <code>barplot</code>).</p>
+<pre class="r"><code>table(airquality$Solar.R, useNA = &quot;ifany&quot;)
+## 
+##    7    8   13   14   19   20   24   25   27   31   36   37   44   47   48 
+##    1    1    1    1    1    1    2    1    1    1    1    1    1    1    1 
+##   49   51   59   64   65   66   71   77   78   81   82   83   91   92   95 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    2    1 
+##   98   99  101  112  115  118  120  127  131  135  137  138  139  145  148 
+##    1    1    1    1    1    1    1    2    1    1    2    1    2    1    1 
+##  149  150  153  157  167  175  183  186  187  188  189  190  191  192  193 
+##    1    1    1    1    1    3    1    1    1    1    1    2    2    1    1 
+##  194  197  201  203  207  212  213  215  220  222  223  224  225  229  230 
+##    1    1    1    1    1    1    1    1    3    1    3    1    1    1    1 
+##  236  237  238  242  244  248  250  252  253  254  255  256  258  259  260 
+##    2    2    4    1    1    1    2    2    1    1    2    1    1    4    1 
+##  264  266  267  269  272  273  274  275  276  279  284  285  286  287  290 
+##    2    1    1    1    1    2    2    1    1    1    1    1    1    1    1 
+##  291  294  295  299  307  313  314  320  322  323  332  334 &lt;NA&gt; 
+##    2    1    1    1    1    1    1    1    2    1    1    1    7</code></pre>
+<p>But, the output isn’t tidy.</p>
+<p>We can, however, wrap the <code>table</code> function in the <code>prop.table</code> function to show proportions.</p>
+<pre class="r"><code>prop.table(table(airquality$Solar.R))
+## 
+##           7           8          13          14          19          20 
+## 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##          24          25          27          31          36          37 
+## 0.013698630 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##          44          47          48          49          51          59 
+## 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##          64          65          66          71          77          78 
+## 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##          81          82          83          91          92          95 
+## 0.006849315 0.006849315 0.006849315 0.006849315 0.013698630 0.006849315 
+##          98          99         101         112         115         118 
+## 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##         120         127         131         135         137         138 
+## 0.006849315 0.013698630 0.006849315 0.006849315 0.013698630 0.006849315 
+##         139         145         148         149         150         153 
+## 0.013698630 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##         157         167         175         183         186         187 
+## 0.006849315 0.006849315 0.020547945 0.006849315 0.006849315 0.006849315 
+##         188         189         190         191         192         193 
+## 0.006849315 0.006849315 0.013698630 0.013698630 0.006849315 0.006849315 
+##         194         197         201         203         207         212 
+## 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##         213         215         220         222         223         224 
+## 0.006849315 0.006849315 0.020547945 0.006849315 0.020547945 0.006849315 
+##         225         229         230         236         237         238 
+## 0.006849315 0.006849315 0.006849315 0.013698630 0.013698630 0.027397260 
+##         242         244         248         250         252         253 
+## 0.006849315 0.006849315 0.006849315 0.013698630 0.013698630 0.006849315 
+##         254         255         256         258         259         260 
+## 0.006849315 0.013698630 0.006849315 0.006849315 0.027397260 0.006849315 
+##         264         266         267         269         272         273 
+## 0.013698630 0.006849315 0.006849315 0.006849315 0.006849315 0.013698630 
+##         274         275         276         279         284         285 
+## 0.013698630 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 
+##         286         287         290         291         294         295 
+## 0.006849315 0.006849315 0.006849315 0.013698630 0.006849315 0.006849315 
+##         299         307         313         314         320         322 
+## 0.006849315 0.006849315 0.006849315 0.006849315 0.006849315 0.013698630 
+##         323         332         334 
+## 0.006849315 0.006849315 0.006849315</code></pre>
+<p>Converting that to percentages is just a matter of multiplying by 100.</p>
+<pre class="r"><code>100 * (prop.table(table(airquality$Solar.R)))
+## 
+##         7         8        13        14        19        20        24 
+## 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 1.3698630 
+##        25        27        31        36        37        44        47 
+## 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##        48        49        51        59        64        65        66 
+## 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##        71        77        78        81        82        83        91 
+## 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##        92        95        98        99       101       112       115 
+## 1.3698630 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##       118       120       127       131       135       137       138 
+## 0.6849315 0.6849315 1.3698630 0.6849315 0.6849315 1.3698630 0.6849315 
+##       139       145       148       149       150       153       157 
+## 1.3698630 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##       167       175       183       186       187       188       189 
+## 0.6849315 2.0547945 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##       190       191       192       193       194       197       201 
+## 1.3698630 1.3698630 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##       203       207       212       213       215       220       222 
+## 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 2.0547945 0.6849315 
+##       223       224       225       229       230       236       237 
+## 2.0547945 0.6849315 0.6849315 0.6849315 0.6849315 1.3698630 1.3698630 
+##       238       242       244       248       250       252       253 
+## 2.7397260 0.6849315 0.6849315 0.6849315 1.3698630 1.3698630 0.6849315 
+##       254       255       256       258       259       260       264 
+## 0.6849315 1.3698630 0.6849315 0.6849315 2.7397260 0.6849315 1.3698630 
+##       266       267       269       272       273       274       275 
+## 0.6849315 0.6849315 0.6849315 0.6849315 1.3698630 1.3698630 0.6849315 
+##       276       279       284       285       286       287       290 
+## 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##       291       294       295       299       307       313       314 
+## 1.3698630 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 0.6849315 
+##       320       322       323       332       334 
+## 0.6849315 1.3698630 0.6849315 0.6849315 0.6849315</code></pre>
+<p>But, you’d need to run both commands to understand the count and percentages, and the latter has many of the same limitations of the former.</p>
+</div>
+<div id="tabyl-from-the-janitor-package" class="section level1">
+<h1>tabyl, from the janitor package</h1>
+<p>Another great function for frequency tables is the <code>tabyl</code> function from the <code>janitor</code> package.</p>
+<pre class="r"><code>library(janitor)
+tabyl(airquality$Temp, sort = TRUE)
+##  airquality$Temp  n     percent
+##               56  1 0.006535948
+##               57  3 0.019607843
+##               58  2 0.013071895
+##               59  2 0.013071895
+##               61  3 0.019607843
+##               62  2 0.013071895
+##               63  1 0.006535948
+##               64  2 0.013071895
+##               65  2 0.013071895
+##               66  3 0.019607843
+##               67  4 0.026143791
+##               68  4 0.026143791
+##               69  3 0.019607843
+##               70  1 0.006535948
+##               71  3 0.019607843
+##               72  3 0.019607843
+##               73  5 0.032679739
+##               74  4 0.026143791
+##               75  4 0.026143791
+##               76  9 0.058823529
+##               77  7 0.045751634
+##               78  6 0.039215686
+##               79  6 0.039215686
+##               80  5 0.032679739
+##               81 11 0.071895425
+##               82  9 0.058823529
+##               83  4 0.026143791
+##               84  5 0.032679739
+##               85  5 0.032679739
+##               86  7 0.045751634
+##               87  5 0.032679739
+##               88  3 0.019607843
+##               89  2 0.013071895
+##               90  3 0.019607843
+##               91  2 0.013071895
+##               92  5 0.032679739
+##               93  3 0.019607843
+##               94  2 0.013071895
+##               96  1 0.006535948
+##               97  1 0.006535948</code></pre>
+<p>This output is a major improvement over base <code>table</code>! By default, it shows counts, percents, and percent of non-missing data. It can optionally sort in order of frequency. The output is tidy, and the only thing that seems to be missing is a cumulative percentage option.</p>
+</div>
+<div id="freq-from-the-summarytools-package" class="section level1">
+<h1>freq, from the summarytools package</h1>
+<pre class="r"><code>library(summarytools)
+summarytools::freq(airquality$Ozone, order = &quot;freq&quot;)
+## Frequencies   
+## Ozone     
+## Data frame: airquality   
+## Type: Numeric   
+## 
+##               Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
+## ----------- ------ --------- -------------- --------- --------------
+##          23      6      5.17           5.17      3.92           3.92
+##          13      4      3.45           8.62      2.61           6.54
+##          14      4      3.45          12.07      2.61           9.15
+##          16      4      3.45          15.52      2.61          11.76
+##          18      4      3.45          18.97      2.61          14.38
+##          20      4      3.45          22.41      2.61          16.99
+##          21      4      3.45          25.86      2.61          19.61
+##           7      3      2.59          28.45      1.96          21.57
+##           9      3      2.59          31.03      1.96          23.53
+##          11      3      2.59          33.62      1.96          25.49
+##          28      3      2.59          36.21      1.96          27.45
+##          32      3      2.59          38.79      1.96          29.41
+##          44      3      2.59          41.38      1.96          31.37
+##          12      2      1.72          43.10      1.31          32.68
+##          24      2      1.72          44.83      1.31          33.99
+##          30      2      1.72          46.55      1.31          35.29
+##          35      2      1.72          48.28      1.31          36.60
+##          36      2      1.72          50.00      1.31          37.91
+##          37      2      1.72          51.72      1.31          39.22
+##          39      2      1.72          53.45      1.31          40.52
+##          45      2      1.72          55.17      1.31          41.83
+##          59      2      1.72          56.90      1.31          43.14
+##          64      2      1.72          58.62      1.31          44.44
+##          73      2      1.72          60.34      1.31          45.75
+##          78      2      1.72          62.07      1.31          47.06
+##          85      2      1.72          63.79      1.31          48.37
+##          97      2      1.72          65.52      1.31          49.67
+##           1      1      0.86          66.38      0.65          50.33
+##           4      1      0.86          67.24      0.65          50.98
+##           6      1      0.86          68.10      0.65          51.63
+##           8      1      0.86          68.97      0.65          52.29
+##          10      1      0.86          69.83      0.65          52.94
+##          19      1      0.86          70.69      0.65          53.59
+##          22      1      0.86          71.55      0.65          54.25
+##          27      1      0.86          72.41      0.65          54.90
+##          29      1      0.86          73.28      0.65          55.56
+##          31      1      0.86          74.14      0.65          56.21
+##          34      1      0.86          75.00      0.65          56.86
+##          40      1      0.86          75.86      0.65          57.52
+##          41      1      0.86          76.72      0.65          58.17
+##          46      1      0.86          77.59      0.65          58.82
+##          47      1      0.86          78.45      0.65          59.48
+##          48      1      0.86          79.31      0.65          60.13
+##          49      1      0.86          80.17      0.65          60.78
+##          50      1      0.86          81.03      0.65          61.44
+##          52      1      0.86          81.90      0.65          62.09
+##          61      1      0.86          82.76      0.65          62.75
+##          63      1      0.86          83.62      0.65          63.40
+##          65      1      0.86          84.48      0.65          64.05
+##          66      1      0.86          85.34      0.65          64.71
+##          71      1      0.86          86.21      0.65          65.36
+##          76      1      0.86          87.07      0.65          66.01
+##          77      1      0.86          87.93      0.65          66.67
+##          79      1      0.86          88.79      0.65          67.32
+##          80      1      0.86          89.66      0.65          67.97
+##          82      1      0.86          90.52      0.65          68.63
+##          84      1      0.86          91.38      0.65          69.28
+##          89      1      0.86          92.24      0.65          69.93
+##          91      1      0.86          93.10      0.65          70.59
+##          96      1      0.86          93.97      0.65          71.24
+##         108      1      0.86          94.83      0.65          71.90
+##         110      1      0.86          95.69      0.65          72.55
+##         115      1      0.86          96.55      0.65          73.20
+##         118      1      0.86          97.41      0.65          73.86
+##         122      1      0.86          98.28      0.65          74.51
+##         135      1      0.86          99.14      0.65          75.16
+##         168      1      0.86         100.00      0.65          75.82
+##        &lt;NA&gt;     37                              24.18         100.00
+##       Total    153    100.00         100.00    100.00         100.00</code></pre>
+<p>This looks pretty great. Has all the variations of counts, percents, and missing-data output I tend to want. In the above output, the “% valid” column should be interpreted as “% of all non-missing”, and so far is one of the more intuitive outputs to read in the console.</p>
+  <p>It is almost tidy, although has a minor problem (by <code>tidyverse</code> standards) in that the output always includes the total row. It’s often important to know your totals, but if you’re piping your output to other tools or charts, you may have to use another command to filter that row out each time because there doesn’t seem to be a way to prevent it from being included with the rest of the dataset when running it directly.</p>
+</div>
+<div id="crosstable-from-the-gmodels-library" class="section level1">
+<h1>CrossTable, from the gmodels library</h1>
+<pre class="r"><code>library(gmodels)
+## 
+## Attaching package: &#39;gmodels&#39;
+## The following object is masked from &#39;package:epiDisplay&#39;:
+## 
+##     ci
+CrossTable(airquality$Ozone)
+## 
+##  
+##    Cell Contents
+## |-------------------------|
+## |                       N |
+## |         N / Table Total |
+## |-------------------------|
+## 
+##  
+## Total Observations in Table:  116 
+## 
+##  
+##           |         1 |         4 |         6 |         7 |         8 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         1 |         1 |         1 |         3 |         1 | 
+##           |     0.009 |     0.009 |     0.009 |     0.026 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |         9 |        10 |        11 |        12 |        13 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         3 |         1 |         3 |         2 |         4 | 
+##           |     0.026 |     0.009 |     0.026 |     0.017 |     0.034 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        14 |        16 |        18 |        19 |        20 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         4 |         4 |         4 |         1 |         4 | 
+##           |     0.034 |     0.034 |     0.034 |     0.009 |     0.034 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        21 |        22 |        23 |        24 |        27 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         4 |         1 |         6 |         2 |         1 | 
+##           |     0.034 |     0.009 |     0.052 |     0.017 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        28 |        29 |        30 |        31 |        32 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         3 |         1 |         2 |         1 |         3 | 
+##           |     0.026 |     0.009 |     0.017 |     0.009 |     0.026 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        34 |        35 |        36 |        37 |        39 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         1 |         2 |         2 |         2 |         2 | 
+##           |     0.009 |     0.017 |     0.017 |     0.017 |     0.017 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        40 |        41 |        44 |        45 |        46 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         1 |         1 |         3 |         2 |         1 | 
+##           |     0.009 |     0.009 |     0.026 |     0.017 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        47 |        48 |        49 |        50 |        52 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         1 |         1 |         1 |         1 |         1 | 
+##           |     0.009 |     0.009 |     0.009 |     0.009 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        59 |        61 |        63 |        64 |        65 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         2 |         1 |         1 |         2 |         1 | 
+##           |     0.017 |     0.009 |     0.009 |     0.017 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        66 |        71 |        73 |        76 |        77 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         1 |         1 |         2 |         1 |         1 | 
+##           |     0.009 |     0.009 |     0.017 |     0.009 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        78 |        79 |        80 |        82 |        84 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         2 |         1 |         1 |         1 |         1 | 
+##           |     0.017 |     0.009 |     0.009 |     0.009 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |        85 |        89 |        91 |        96 |        97 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         2 |         1 |         1 |         1 |         2 | 
+##           |     0.017 |     0.009 |     0.009 |     0.009 |     0.017 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |       108 |       110 |       115 |       118 |       122 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+##           |         1 |         1 |         1 |         1 |         1 | 
+##           |     0.009 |     0.009 |     0.009 |     0.009 |     0.009 | 
+##           |-----------|-----------|-----------|-----------|-----------|
+## 
+## 
+##           |       135 |       168 | 
+##           |-----------|-----------|
+##           |         1 |         1 | 
+##           |     0.009 |     0.009 | 
+##           |-----------|-----------|
+## 
+## 
+## 
+## </code></pre>
+<p>Here the results are displayed in a horizontal format, a bit like the base <code>table</code>. Unlike base <code>table</code>, however, the proportions are clearly shown in this output (minus a cumulative version). It doesn’t note there are missing values, and it isn’t tidy. You can get it to display a vertical version (add the parameter <code>max.width = 1</code>) which is visually distinctive, but untidy in the <code>tidyverse</code> sense.</p>
+<p>It’s not a great tool for my typical needs, and it’s not particularly designed for one-way frequency tables. If you are crosstabulating multiple dimensions, it may provide a powerful and visually accessible way to see counts, proportions, and potentially run hypothesis tests.</p>
+</div>
+<div id="freq-from-the-questionr-package" class="section level1">
+<h1>freq, from the questionr package</h1>
+<pre class="r"><code>library(questionr)
+## 
+## Attaching package: &#39;questionr&#39;
+## The following object is masked from &#39;package:summarytools&#39;:
+## 
+##     freq
+questionr::freq(airquality$Solar.R, cum = TRUE, sort = &quot;dec&quot;, total = TRUE)
+##         n     %  val%  %cum val%cum
+## 238     4   2.6   2.7   2.6     2.7
+## 259     4   2.6   2.7   5.2     5.5
+## 175     3   2.0   2.1   7.2     7.5
+## 220     3   2.0   2.1   9.2     9.6
+## 223     3   2.0   2.1  11.1    11.6
+## 24      2   1.3   1.4  12.4    13.0
+## 92      2   1.3   1.4  13.7    14.4
+## 127     2   1.3   1.4  15.0    15.8
+## 137     2   1.3   1.4  16.3    17.1
+## 139     2   1.3   1.4  17.6    18.5
+## 190     2   1.3   1.4  19.0    19.9
+## 191     2   1.3   1.4  20.3    21.2
+## 236     2   1.3   1.4  21.6    22.6
+## 237     2   1.3   1.4  22.9    24.0
+## 250     2   1.3   1.4  24.2    25.3
+## 252     2   1.3   1.4  25.5    26.7
+## 255     2   1.3   1.4  26.8    28.1
+## 264     2   1.3   1.4  28.1    29.5
+## 273     2   1.3   1.4  29.4    30.8
+## 274     2   1.3   1.4  30.7    32.2
+## 291     2   1.3   1.4  32.0    33.6
+## 322     2   1.3   1.4  33.3    34.9
+## 7       1   0.7   0.7  34.0    35.6
+## 8       1   0.7   0.7  34.6    36.3
+## 13      1   0.7   0.7  35.3    37.0
+## 14      1   0.7   0.7  35.9    37.7
+## 19      1   0.7   0.7  36.6    38.4
+## 20      1   0.7   0.7  37.3    39.0
+## 25      1   0.7   0.7  37.9    39.7
+## 27      1   0.7   0.7  38.6    40.4
+## 31      1   0.7   0.7  39.2    41.1
+## 36      1   0.7   0.7  39.9    41.8
+## 37      1   0.7   0.7  40.5    42.5
+## 44      1   0.7   0.7  41.2    43.2
+## 47      1   0.7   0.7  41.8    43.8
+## 48      1   0.7   0.7  42.5    44.5
+## 49      1   0.7   0.7  43.1    45.2
+## 51      1   0.7   0.7  43.8    45.9
+## 59      1   0.7   0.7  44.4    46.6
+## 64      1   0.7   0.7  45.1    47.3
+## 65      1   0.7   0.7  45.8    47.9
+## 66      1   0.7   0.7  46.4    48.6
+## 71      1   0.7   0.7  47.1    49.3
+## 77      1   0.7   0.7  47.7    50.0
+## 78      1   0.7   0.7  48.4    50.7
+## 81      1   0.7   0.7  49.0    51.4
+## 82      1   0.7   0.7  49.7    52.1
+## 83      1   0.7   0.7  50.3    52.7
+## 91      1   0.7   0.7  51.0    53.4
+## 95      1   0.7   0.7  51.6    54.1
+## 98      1   0.7   0.7  52.3    54.8
+## 99      1   0.7   0.7  52.9    55.5
+## 101     1   0.7   0.7  53.6    56.2
+## 112     1   0.7   0.7  54.2    56.8
+## 115     1   0.7   0.7  54.9    57.5
+## 118     1   0.7   0.7  55.6    58.2
+## 120     1   0.7   0.7  56.2    58.9
+## 131     1   0.7   0.7  56.9    59.6
+## 135     1   0.7   0.7  57.5    60.3
+## 138     1   0.7   0.7  58.2    61.0
+## 145     1   0.7   0.7  58.8    61.6
+## 148     1   0.7   0.7  59.5    62.3
+## 149     1   0.7   0.7  60.1    63.0
+## 150     1   0.7   0.7  60.8    63.7
+## 153     1   0.7   0.7  61.4    64.4
+## 157     1   0.7   0.7  62.1    65.1
+## 167     1   0.7   0.7  62.7    65.8
+## 183     1   0.7   0.7  63.4    66.4
+## 186     1   0.7   0.7  64.1    67.1
+## 187     1   0.7   0.7  64.7    67.8
+## 188     1   0.7   0.7  65.4    68.5
+## 189     1   0.7   0.7  66.0    69.2
+## 192     1   0.7   0.7  66.7    69.9
+## 193     1   0.7   0.7  67.3    70.5
+## 194     1   0.7   0.7  68.0    71.2
+## 197     1   0.7   0.7  68.6    71.9
+## 201     1   0.7   0.7  69.3    72.6
+## 203     1   0.7   0.7  69.9    73.3
+## 207     1   0.7   0.7  70.6    74.0
+## 212     1   0.7   0.7  71.2    74.7
+## 213     1   0.7   0.7  71.9    75.3
+## 215     1   0.7   0.7  72.5    76.0
+## 222     1   0.7   0.7  73.2    76.7
+## 224     1   0.7   0.7  73.9    77.4
+## 225     1   0.7   0.7  74.5    78.1
+## 229     1   0.7   0.7  75.2    78.8
+## 230     1   0.7   0.7  75.8    79.5
+## 242     1   0.7   0.7  76.5    80.1
+## 244     1   0.7   0.7  77.1    80.8
+## 248     1   0.7   0.7  77.8    81.5
+## 253     1   0.7   0.7  78.4    82.2
+## 254     1   0.7   0.7  79.1    82.9
+## 256     1   0.7   0.7  79.7    83.6
+## 258     1   0.7   0.7  80.4    84.2
+## 260     1   0.7   0.7  81.0    84.9
+## 266     1   0.7   0.7  81.7    85.6
+## 267     1   0.7   0.7  82.4    86.3
+## 269     1   0.7   0.7  83.0    87.0
+## 272     1   0.7   0.7  83.7    87.7
+## 275     1   0.7   0.7  84.3    88.4
+## 276     1   0.7   0.7  85.0    89.0
+## 279     1   0.7   0.7  85.6    89.7
+## 284     1   0.7   0.7  86.3    90.4
+## 285     1   0.7   0.7  86.9    91.1
+## 286     1   0.7   0.7  87.6    91.8
+## 287     1   0.7   0.7  88.2    92.5
+## 290     1   0.7   0.7  88.9    93.2
+## 294     1   0.7   0.7  89.5    93.8
+## 295     1   0.7   0.7  90.2    94.5
+## 299     1   0.7   0.7  90.8    95.2
+## 307     1   0.7   0.7  91.5    95.9
+## 313     1   0.7   0.7  92.2    96.6
+## 314     1   0.7   0.7  92.8    97.3
+## 320     1   0.7   0.7  93.5    97.9
+## 323     1   0.7   0.7  94.1    98.6
+## 332     1   0.7   0.7  94.8    99.3
+## 334     1   0.7   0.7  95.4   100.0
+## NA      7   4.6    NA 100.0      NA
+## Total 153 100.0 100.0 100.0   100.0</code></pre>
+<p>With the <code>freq</code> function from the <code>questionr</code> package, everything looks like it’s coming together! Counts, percentages, cumulative percentages, missing values data; all of one’s frequency needs in one place. The table can optionally be sorted in descending frequency.</p>
+<p>It is mostly tidy, but also has a slight annoyance in that the category values themselves are row labels rather than a standalone column. This means you may have to pop them into in a new column for best use in any downstream tidy tools. That’s easy to do with <code>dplyr</code>’s <code>add_rownames</code> function. But, that is another processing step to remember, which is defintely a shortcoming here.</p>
+<p>There is a total row at the bottom, but it’s optional, so don’t use the <code>total</code> parameter if you plan to pass the data onwards in a way where you don’t want to risk double-counting your totals. There’s an <code>exclude</code> parameter if you want to remove any particular categories from analysis before performing the calculations as well as a couple of extra formatting options that might be handy.</p>
+</div>
+<div id="summary" class="section level1">
+<h1>Summary</h1>
+<p>In total, I’ve covered five ways of conducting frequency counts and creating frequency tables in R.</p>
+<ol style="list-style-type: decimal">
+<li><code>table</code> and <code>prop.table</code> in base R</li>
+<li><code>tabyl</code> in the <code>janitor</code> package</li>
+<li><code>freq</code> in the <code>summarytools</code> package</li>
+<li><code>CrossTable</code> in the <code>gmodels</code> package</li>
+<li><code>freq</code> in the <code>questionr</code> package</li>
+</ol>
+<p>In my opinion, there is no perfect function for frequency counts for all circumstances; however, there are several very great options to chose from. I recommend playing around with any of the janitor, summarytools, and questionr package functions outlined above, as these seem to be my go-to frequency functions. Nevertheless, I still find myself often using base <code>table</code>. As with most things in life, it depends on the situation.</p>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/statistics/">statistics</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu0ce1d0d425c80ceaf4d913b20aaae805_1416650_250x250_fill_q75_box_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Jeremy R. Winget</a></h5>
+    <h6 class="card-subtitle">Graduate Research Assistant &amp; Lecturer</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:jwinget@luc.edu" >
+          <i class="fa fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//osf.io/x3gve/" >
+          <i class="ai ai-osf"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//gitlab.com/jrwinget" >
+          <i class="fa fa-gitlab"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//scholar.google.com/citations?user=UbgwtEwAAAAJ" >
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//orcid.org/0000-0002-3783-4354" >
+          <i class="ai ai-orcid"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/_jwinget" >
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/blog/2018-02-07_first-post/">First post!</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jeremyrwinget" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2019 | Attribution 4.0 International license &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//jeremyrwinget.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    <script src="/js/academic.min.07fbebbbf71b021c8836e1d7ecffa489.js"></script>
+
+    
+
+  </body>
+</html>
+
