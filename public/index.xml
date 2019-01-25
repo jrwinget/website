@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Featured Publications</title>
+      <title>Selected Publications</title>
       <link>/publications/publications_featured/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
@@ -65,30 +65,1237 @@
     </item>
     
     <item>
-      <title>Tags</title>
-      <link>/blog/tags/</link>
-      <pubDate>Wed, 20 Sep 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/blog/tags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>/publications/tags/</link>
-      <pubDate>Wed, 20 Sep 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/publications/tags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Open-minded group cognition</title>
       <link>/talk/group-omc/</link>
       <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
       
       <guid>/talk/group-omc/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>First TidyTuesday submission</title>
+      <link>/post/2019-01-08_tidy-tuesday/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-01-08_tidy-tuesday/</guid>
+      <description>
+
+
+&lt;p&gt;It’s been quite some time since I’ve written here, so I thought I would use one my of &lt;a href=&#34;https://twitter.com/_jwinget/status/1079437460357218304&#34;&gt;2019 #rstats goals&lt;/a&gt; as an excuse to brush off the dust.&lt;/p&gt;
+&lt;p&gt;In this post, I write about my &lt;strong&gt;first&lt;/strong&gt; &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08&#34;&gt;#tidytuesday&lt;/a&gt; submission of the Economist’s “TV’s golden age is real” data set (original #tidytuesday code &lt;a href=&#34;https://gitlab.com/jrwinget/tidy-tuesday/blob/master/2019-01-08_tv-golden-age.Rmd&#34;&gt;here&lt;/a&gt;). I also make a few improvements to some of the graphs and add tables with the &lt;code&gt;gt&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;Special thanks to &lt;a href=&#34;https://twitter.com/IsabellaGhement&#34;&gt;Isabella Ghement&lt;/a&gt; for providing &lt;a href=&#34;https://twitter.com/IsabellaGhement/status/1082831866523086849&#34;&gt;a few tips&lt;/a&gt; on how to improve the original graphs!&lt;/p&gt;
+&lt;p&gt;First, load the required packages and data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  2.0.1     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.3.1     ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(lubridate)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;lubridate&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
+## 
+##     date&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggpmisc)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## For news about &amp;#39;ggpmisc&amp;#39;, please, see https://www.r4photobiology.info/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## For on-line documentation see https://docs.r4photobiology.info/ggpmisc/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggrepel)
+library(gt)
+tv_rating &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-08/IMDb_Economist_tv_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   titleId = col_character(),
+##   seasonNumber = col_double(),
+##   title = col_character(),
+##   date = col_date(format = &amp;quot;&amp;quot;),
+##   av_rating = col_double(),
+##   share = col_double(),
+##   genres = col_character()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;which-years-had-the-highest-ratings&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Which years had the highest ratings?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tv_rating %&amp;gt;%
+  mutate(year = year(date)) %&amp;gt;%
+  group_by(year) %&amp;gt;%
+  summarize(
+    n = n(),
+    avg_rating = mean(av_rating)
+  ) %&amp;gt;%
+  filter(n &amp;gt; 25) %&amp;gt;%
+  arrange(desc(avg_rating)) %&amp;gt;%
+  ggplot() +
+  aes(year, avg_rating) +
+  geom_point() +
+  geom_smooth(
+    formula = y ~ x,
+    method = &amp;quot;lm&amp;quot;,
+    se = FALSE,
+    color = &amp;quot;red&amp;quot;
+  ) +
+  labs(
+    title = &amp;quot;Which years had the highest ratings?&amp;quot;,
+    x = &amp;quot;Year&amp;quot;,
+    y = &amp;quot;Average rating&amp;quot;
+  ) +
+  stat_poly_eq(aes(label = paste(&amp;quot;atop(&amp;quot;, ..eq.label.., &amp;quot;,&amp;quot;, ..adj.rr.label.., &amp;quot;)&amp;quot;)),
+    formula = y ~ x, color = &amp;quot;red&amp;quot;, parse = TRUE
+  ) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Looks like the newer the TV drama, the more likely it was to have a higher rating. Maybe some of this is variance is due to shows with multiple seasons. Let’s see how this changes when looking at individual shows and their respective run lengths.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;which-titles-had-the-highest-ratings-and-how-long-did-they-run&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Which titles had the highest ratings, and how long did they run?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;titles &amp;lt;- tv_rating %&amp;gt;%
+  group_by(title) %&amp;gt;%
+  summarize(
+    n = n(),
+    first_yr = min(year(date)),
+    last_yr = max(year(date)),
+    num_seasons = max(seasonNumber),
+    yrs_aired = (max(year(date) - min(year(date)))),
+    avg_rating = mean(av_rating)
+  ) %&amp;gt;%
+  filter(n &amp;gt; 10) %&amp;gt;% # not enough cases to filter by 25 ratings per title
+  arrange(desc(avg_rating))
+
+# highest rated titles&amp;#39; run lengths
+titles %&amp;gt;%
+  mutate(title = fct_reorder(title, yrs_aired)) %&amp;gt;%
+  ggplot() +
+  aes(title, yrs_aired, fill = title) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = &amp;quot;Most popular series&amp;#39; run lengths&amp;quot;,
+    x = &amp;quot;TV Series Title&amp;quot;,
+    y = &amp;quot;Number of years aired&amp;quot;
+  ) +
+  theme_light() +
+  theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# highest rated titles rating over time
+titles %&amp;gt;%
+  ggplot() +
+  aes(yrs_aired, avg_rating) +
+  geom_point() +
+  geom_smooth(
+    formula = y ~ x,
+    method = &amp;quot;lm&amp;quot;,
+    se = FALSE,
+    color = &amp;quot;red&amp;quot;
+  ) +
+  labs(
+    title = &amp;quot;Most popular series&amp;#39; ratings over time&amp;quot;,
+    x = &amp;quot;Number of years ran&amp;quot;,
+    y = &amp;quot;Average rating&amp;quot;
+  ) +
+  stat_poly_eq(aes(label = paste(&amp;quot;atop(&amp;quot;, ..eq.label.., &amp;quot;,&amp;quot;, ..adj.rr.label.., &amp;quot;)&amp;quot;)),
+    formula = y ~ x, color = &amp;quot;red&amp;quot;, parse = TRUE
+  ) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I haven’t seen all of these shows, but for the most part, their titles seem to describe suspenseful dramas (e.g., mystery, crime, maybe even thriller/horror). However, King of the Hill doesn’t really fit this description, so let’s take a look at the genre variable. Keeping in mind that all of these shows are dramas, I’m conceptualizing these as sub-genres of drama.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;which-sub-genres-are-most-popular&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Which sub-genres are most popular?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;top_ratings &amp;lt;- function(df, x) {
+  df %&amp;gt;%
+    summarize(
+      n = n(),
+      avg_rating = mean(av_rating),
+      med_rating = median(av_rating)
+    ) %&amp;gt;%
+    filter(n &amp;gt; 25) %&amp;gt;%
+    arrange(desc(med_rating))
+}
+
+tv_rating %&amp;gt;%
+  group_by(genres) %&amp;gt;%
+  top_ratings() %&amp;gt;%
+  mutate(genres = str_replace_all(genres, &amp;quot;,&amp;quot;, &amp;quot;, &amp;quot;)) %&amp;gt;%
+  gt() %&amp;gt;%
+  tab_header(title = &amp;quot;Which drama sub-genres are most popular?&amp;quot;) %&amp;gt;%
+  fmt_number(
+    columns = vars(avg_rating, med_rating),
+    decimals = 3
+  ) %&amp;gt;%
+  cols_label(
+    genres = &amp;quot;Sub-genres&amp;quot;,
+    n = &amp;quot;Number of responses&amp;quot;,
+    avg_rating = &amp;quot;Average rating&amp;quot;,
+    med_rating = &amp;quot;Median rating&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#ftskborryt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#ftskborryt .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#ftskborryt .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ftskborryt .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ftskborryt .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#ftskborryt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ftskborryt .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#ftskborryt .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#ftskborryt .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#ftskborryt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#ftskborryt .gt_striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#ftskborryt .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#ftskborryt .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#ftskborryt .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#ftskborryt .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#ftskborryt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#ftskborryt .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#ftskborryt .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#ftskborryt .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#ftskborryt .gt_center {
+  text-align: center;
+}
+
+#ftskborryt .gt_left {
+  text-align: left;
+}
+
+#ftskborryt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ftskborryt .gt_font_normal {
+  font-weight: normal;
+}
+
+#ftskborryt .gt_font_bold {
+  font-weight: bold;
+}
+
+#ftskborryt .gt_font_italic {
+  font-style: italic;
+}
+
+#ftskborryt .gt_super {
+  font-size: 65%;
+}
+
+#ftskborryt .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;div id=&#34;ftskborryt&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;table class=&#39;gt_table&#39;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_title gt_font_normal gt_center&#39; colspan=&#39;4&#39;&gt;Which drama sub-genres are most popular?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border&#39; colspan=&#39;4&#39;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_col_heading gt_left&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Sub-genres&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Number of responses&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Average rating&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Median rating&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tbody class=&#39;gt_table_body gt_striped&#39;&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Fantasy, Horror&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;56&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.341&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.505&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime, Drama, Thriller&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;63&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.390&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.409&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action, Crime, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;146&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.156&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.282&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;107&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.267&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.268&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Thriller&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;27&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.028&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.192&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Fantasy, Mystery&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;32&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.143&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.162&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;168&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.001&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.160&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Adventure, Drama, Fantasy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;27&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.107&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.145&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Mystery, Sci-Fi&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;58&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.061&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.113&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Drama, Family&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;43&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.008&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.110&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Crime, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;80&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.022&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.094&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;174&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.021&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.087&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime, Drama, Mystery&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;369&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.991&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.049&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action, Adventure, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;112&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.020&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.975&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy, Drama, Romance&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;76&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.973&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.962&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action, Drama, Sci-Fi&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;28&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.046&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.943&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Animation, Comedy, Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;28&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.040&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.918&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama, Romance&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;86&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.834&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.876&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--gt table end--&gt;
+&lt;/div&gt;
+&lt;p&gt;These results provide some evidence of my initial impression: People tend to give higher ratings to suspenseful-like dramas (e.g., crime, thriller, horror, mystery, action). But, there’s not much variability between the values. This might be because many of the values in ‘genres’ are grouped together. Combining genres like this could hide underlying patterns among the sub-genres, so let’s split the genres variable up such that each sub-genre has its own row.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split &amp;lt;- tv_rating %&amp;gt;%
+  mutate(genres = str_split(genres, pattern = &amp;quot;,&amp;quot;)) %&amp;gt;%
+  unnest()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;after-splitting-up-genres-which-sub-genres-are-most-popular&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;After splitting up ‘genres’, which sub-genres are most popular?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split %&amp;gt;%
+  group_by(genres) %&amp;gt;%
+  top_ratings() %&amp;gt;%
+  gt() %&amp;gt;%
+  tab_header(title = &amp;quot;Which sub-genres are most popular?&amp;quot;) %&amp;gt;%
+  fmt_number(
+    columns = vars(avg_rating, med_rating),
+    decimals = 3
+  ) %&amp;gt;%
+  cols_label(
+    genres = &amp;quot;Sub-genres&amp;quot;,
+    n = &amp;quot;Number of responses&amp;quot;,
+    avg_rating = &amp;quot;Average rating&amp;quot;,
+    med_rating = &amp;quot;Median rating&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#mdroztpfqq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#mdroztpfqq .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#mdroztpfqq .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mdroztpfqq .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mdroztpfqq .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#mdroztpfqq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mdroztpfqq .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#mdroztpfqq .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#mdroztpfqq .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#mdroztpfqq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#mdroztpfqq .gt_striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#mdroztpfqq .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#mdroztpfqq .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#mdroztpfqq .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#mdroztpfqq .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#mdroztpfqq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#mdroztpfqq .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#mdroztpfqq .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#mdroztpfqq .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#mdroztpfqq .gt_center {
+  text-align: center;
+}
+
+#mdroztpfqq .gt_left {
+  text-align: left;
+}
+
+#mdroztpfqq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mdroztpfqq .gt_font_normal {
+  font-weight: normal;
+}
+
+#mdroztpfqq .gt_font_bold {
+  font-weight: bold;
+}
+
+#mdroztpfqq .gt_font_italic {
+  font-style: italic;
+}
+
+#mdroztpfqq .gt_super {
+  font-size: 65%;
+}
+
+#mdroztpfqq .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;div id=&#34;mdroztpfqq&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;table class=&#39;gt_table&#39;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_title gt_font_normal gt_center&#39; colspan=&#39;4&#39;&gt;Which sub-genres are most popular?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border&#39; colspan=&#39;4&#39;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_col_heading gt_left&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Sub-genres&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Number of responses&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Average rating&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Median rating&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tbody class=&#39;gt_table_body gt_striped&#39;&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Sport&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;29&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.339&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.381&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;History&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;62&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.274&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.343&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Music&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;32&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.186&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.291&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Thriller&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;160&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.169&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.256&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Fantasy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;223&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.197&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.212&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Horror&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;124&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.093&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.211&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Family&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;76&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.063&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.179&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Crime&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;822&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.101&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.144&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Drama&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;2266&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.061&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.115&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Mystery&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;558&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.020&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.099&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Action&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;387&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.085&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.099&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;516&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.040&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.074&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Biography&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;29&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.111&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.072&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Adventure&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;204&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.024&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.033&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Romance&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;235&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.976&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.997&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Sci-Fi&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;154&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.925&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.927&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Animation&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;36&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.002&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;7.891&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--gt table end--&gt;
+&lt;/div&gt;
+&lt;p&gt;Still, very little variability between sub-genres. The overall difference between the the highest (‘Sport’) and lowest (‘Animation’) rating is around 0.49. Nevertheless, these results paint a different picture than when all of the sub-genres were grouped together.&lt;/p&gt;
+&lt;p&gt;Now, it looks like sports, history, and music are the highest rated sub-genres, and not the suspenseful ones (i.e., crime, thriller, and horror) we saw earlier. To be fair, these new sub-genres could very well be suspenseful, but they seem to be of a slightly different “theme” than the former ones.&lt;/p&gt;
+&lt;p&gt;This raises a good point: Within the dramas, there are different types, and these types could be valued for different reasons. For example, comedy dramas might be valued for certain positive connotations (e.g., laughter), whereas a crime drama might be valued for certain negative connotations (e.g., fear). So, perhaps there is a difference between comedies (defined as comedy and animation) and tragedies (defined as crime, horror, and thriller). Granted, these definitions could be debated/refined, but they should provide a rough snapshot of the idea.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;is-there-a-difference-in-ratings-between-comedies-and-tragedies&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Is there a difference in ratings between comedies and tragedies?&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genre_split %&amp;gt;%
+  mutate(
+    com_trag = case_when(
+      genres == &amp;quot;Comedy&amp;quot; |
+        genres == &amp;quot;Animation&amp;quot; ~ &amp;quot;comedy&amp;quot;,
+      genres == &amp;quot;Crime&amp;quot; |
+        genres == &amp;quot;Horror&amp;quot; |
+        genres == &amp;quot;Thriller&amp;quot; ~ &amp;quot;tragedy&amp;quot;
+    )
+  ) %&amp;gt;%
+  filter(!is.na(com_trag)) %&amp;gt;%
+  group_by(com_trag) %&amp;gt;%
+  top_ratings() %&amp;gt;%
+  mutate(com_trag = str_to_title(com_trag)) %&amp;gt;%
+  gt() %&amp;gt;%
+  tab_header(title = &amp;quot;Mean/median differences between comedies and tragedies&amp;quot;) %&amp;gt;%
+  fmt_number(
+    columns = vars(avg_rating, med_rating),
+    decimals = 3
+  ) %&amp;gt;%
+  cols_label(
+    com_trag = &amp;quot;Drama type&amp;quot;,
+    n = &amp;quot;Number of responses&amp;quot;,
+    avg_rating = &amp;quot;Average rating&amp;quot;,
+    med_rating = &amp;quot;Median rating&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#hnvhfrzdnn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#hnvhfrzdnn .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#hnvhfrzdnn .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hnvhfrzdnn .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hnvhfrzdnn .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#hnvhfrzdnn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hnvhfrzdnn .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#hnvhfrzdnn .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#hnvhfrzdnn .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#hnvhfrzdnn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#hnvhfrzdnn .gt_striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#hnvhfrzdnn .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#hnvhfrzdnn .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#hnvhfrzdnn .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#hnvhfrzdnn .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#hnvhfrzdnn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#hnvhfrzdnn .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#hnvhfrzdnn .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#hnvhfrzdnn .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#hnvhfrzdnn .gt_center {
+  text-align: center;
+}
+
+#hnvhfrzdnn .gt_left {
+  text-align: left;
+}
+
+#hnvhfrzdnn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hnvhfrzdnn .gt_font_normal {
+  font-weight: normal;
+}
+
+#hnvhfrzdnn .gt_font_bold {
+  font-weight: bold;
+}
+
+#hnvhfrzdnn .gt_font_italic {
+  font-style: italic;
+}
+
+#hnvhfrzdnn .gt_super {
+  font-size: 65%;
+}
+
+#hnvhfrzdnn .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;div id=&#34;hnvhfrzdnn&#34; style=&#34;overflow-x:auto;&#34;&gt;&lt;!--gt table start--&gt;
+&lt;table class=&#39;gt_table&#39;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_title gt_font_normal gt_center&#39; colspan=&#39;4&#39;&gt;Mean/median differences between comedies and tragedies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border&#39; colspan=&#39;4&#39;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;th class=&#39;gt_col_heading gt_left&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Drama type&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Number of responses&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Average rating&lt;/th&gt;
+&lt;th class=&#39;gt_col_heading gt_right&#39; rowspan=&#39;1&#39; colspan=&#39;1&#39;&gt;Median rating&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tbody class=&#39;gt_table_body gt_striped&#39;&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Tragedy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;1106&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.110&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.168&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&#39;gt_row gt_left&#39;&gt;Comedy&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;552&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.038&lt;/td&gt;
+&lt;td class=&#39;gt_row gt_right&#39;&gt;8.071&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--gt table end--&gt;
+&lt;/div&gt;
+&lt;p&gt;So, there is a difference, people tend to rate tragedies higher than comedies, but in the grand scheme of things, this difference quite small. The average distance between comedies and tragedies is only 0.07, and the median difference is 0.1. Thus, it seems there’s not much difference in viewer ratings among sub-genres, at least not in our sample. But, this isn’t actually &lt;em&gt;that&lt;/em&gt; surprising: Our sample was already narrowed down to TV &lt;em&gt;drama&lt;/em&gt; titles. Since all of the titles share this common characteristic, what we’re probably seeing is the consistency of viewers to rate TV dramas in a similar fashion. In other words, people tend to rate all TV dramas similarly, regardless of the story line/sub-genre.&lt;/p&gt;
+&lt;p&gt;Since sub-genres didn’t bare much useful information, let’s take a look at the actual titles within the dataset. All of the top-rated shows aired for multiple seasons, but I doubt &lt;em&gt;every&lt;/em&gt; show that aired multiple seasons was popular. In fact, some earlier analyses showed a decline in ratings over time. So, let’s see what the data say.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-do-viewer-ratings-changes-over-time-by-tv-show-title&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How do viewer ratings changes over time by TV show title&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list most popular shows from earlier analysis (with extra picks of my own)
+shows &amp;lt;- c(&amp;quot;The X-Files&amp;quot;, &amp;quot;Law &amp;amp; Order&amp;quot;, &amp;quot;Midsomer Murders&amp;quot;, &amp;quot;Law &amp;amp; Order: Special Victims Unit&amp;quot;, &amp;quot;ER&amp;quot;, &amp;quot;Grey&amp;#39;s Anatomy&amp;quot;, &amp;quot;CSI: Crime Scene Investigation&amp;quot;, &amp;quot;Supernatural&amp;quot;, &amp;quot;King of the Hill&amp;quot;, &amp;quot;Doctor Who&amp;quot;, &amp;quot;Criminal Minds&amp;quot;, &amp;quot;Bones&amp;quot;, &amp;quot;Murdoch Mysteries&amp;quot;, &amp;quot;American Horror Story&amp;quot;, &amp;quot;Are you Afraid of the Dark?&amp;quot;, &amp;quot;Californication&amp;quot;, &amp;quot;Elementary&amp;quot;, &amp;quot;Lost&amp;quot;, &amp;quot;Numb3rs&amp;quot;, &amp;quot;Shameless&amp;quot;, &amp;quot;The Walking Dead&amp;quot;, &amp;quot;The Sopranos&amp;quot;, &amp;quot;Scrubs&amp;quot;, &amp;quot;Oz&amp;quot;, &amp;quot;House&amp;quot;, &amp;quot;Dexter&amp;quot;)
+
+tv_rating %&amp;gt;%
+  filter(title %in% shows) %&amp;gt;%
+  mutate(title = str_replace(title, &amp;quot;Special Victims Unit&amp;quot;, &amp;quot;SVU&amp;quot;)) %&amp;gt;%
+  group_by(title) %&amp;gt;%
+  ggplot() +
+  aes(date, av_rating) +
+  facet_wrap(~title) +
+  geom_line() +
+  labs(
+    title = &amp;quot;Viewer ratings over time by TV show title&amp;quot;,
+    x = &amp;quot;Years aired&amp;quot;,
+    y = &amp;quot;Average rating&amp;quot;
+  ) +
+  theme_light() +
+  theme(axis.text.x = element_text(angle = 90))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Okay, now we have some interesting patterns to interpret. Overall, it looks like even the most popular shows experienced a decline in enthusiasm the longer they aired. However, there are notable exceptions to this trend: Criminal Minds and Murdoch Mysteries have really taken off in the last few years, both receiving the highest ratings out of any of the tiles in this sample. American Horror Story appears to be making a comeback as well recently. Noticeably, these exceptions all fit the suspenseful-like dramas noted earlier. It seems, then, the most successful TV dramas are ones with intense or striking elements (e.g., crime, murder, horror, etc.). I wonder if this says anything about the culture of the viewers…lookin’ at you America 🤔&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -128,42 +1335,59 @@
     </item>
     
     <item>
-      <title>Judgement &amp; Decision Making</title>
+      <title>Judgment &amp; Decision Making</title>
       <link>/teaching/jdm/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
       
       <guid>/teaching/jdm/</guid>
       <description>
 
-&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
+&lt;h2 id=&#34;loyola-university-chicago&#34;&gt;Loyola University Chicago&lt;/h2&gt;
 
-&lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;PSYC272: Judgment &amp;amp; Decision Making
 
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h2&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Under development&amp;hellip;coming Fall 2019!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
-      <title>Services: Methods</title>
+      <title>Services</title>
       <link>/consulting/methods/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
       
       <guid>/consulting/methods/</guid>
       <description>
 
-&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
+&lt;h2 id=&#34;methodological-consultation&#34;&gt;Methodological consultation&lt;/h2&gt;
 
-&lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
+&lt;p&gt;I provide a wide variety of methodogoical and data collection services. Such services include:&lt;/p&gt;
 
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Survey administration&lt;/li&gt;
+&lt;li&gt;Survey item development&lt;/li&gt;
+&lt;li&gt;Behavioral/psychological measurment&lt;/li&gt;
+&lt;li&gt;Experimental and quasi-experimental research designs&lt;/li&gt;
+&lt;li&gt;Programming of simple computer-based experiments&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h2&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;My fees vary by the complexity of the project as well as the funding agency. In general, if you are an individual, university, charity, non-profit, etc., my fees are $60-125 USD per 1 hour (including follow-up, references, future communication, ongoing advice, etc.). But, if you have any questions, please do not hesitate to contact me. All rates are open to negotiation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Past Projects</title>
+      <link>/consulting/prev_proj/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/consulting/prev_proj/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;2019 - Washington State Department of Social and Health Servies, Parole Division&lt;/li&gt;
+&lt;li&gt;2018 - Washington State Department of Social and Health Services&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

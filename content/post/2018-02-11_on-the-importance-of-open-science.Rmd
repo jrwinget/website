@@ -1,8 +1,8 @@
 ---
-title: On the importance of Open Science
-author: J. Winget
+title: "On the importance of Open Science"
+author: "J. Winget"
 date: '2018-02-11'
-slug: on-the-importance-of-open-science
+slug: 2018-02-11_on-the-importance-of-open-science
 categories: []
 tags: ["open science", "methods", "replication", "reproducibility", "QRP", "scientific integrity"]
 ---

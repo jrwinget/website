@@ -1,15 +1,10 @@
 ---
-title: Descriptive statistics in R, part II
-author: J. Winget
+title: "Descriptive statistics in R, part II"
+author: "J. Winget"
 date: '2018-04-23'
-slug: descriptives-part-ii
+slug: 2018-04-23_descriptives-part-ii
 categories: []
-tags:
-  - statistics
-  - R
-header:
-  caption: ''
-  image: ''
+tags:  ["statistics", "R"]
 ---
 
 
@@ -26,8 +21,7 @@ str(gapminder)
 ##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
 ##  $ gdpPercap: num  779 821 853 836 740 ...</code></pre>
 <p>Again, if you’re familiar with SPSS, you can get means, SDs, and pretty much all of your general descriptive statistics through either the FREQUENCIES, (CON)DESCRIPTIVE, or EXAMINE commands. There are some functions in R that are pretty similar to the output SPSS displays, but there are also a few cool functions that are exclusive to R.</p>
-<div id="options-in-base-r" class="section level1">
-<h1>Options in base R</h1>
+<p>#Options in base R</p>
 <p>R’s built-in function for univariate statistics is <code>summary</code>.</p>
 <pre class="r"><code>summary(gapminder)
 ##         country        continent        year         lifeExp     
@@ -158,9 +152,7 @@ str(gapminder)
 ##  Max.   :20434176   Max.   :34435  
 ## </code></pre>
 <p>These functions are certainly useful, but there are other more informative and flexible options for summarizing our data outside of base R.</p>
-</div>
-<div id="describe-from-the-hmisc-package" class="section level1">
-<h1>describe, from the Hmisc package</h1>
+<p>#describe, from the Hmisc package</p>
 <p>The <code>Hmisc</code> package offers a wide selection of functions that have a more comprehensive output than the base R functions. One of these is the <code>describe</code> function. It’s similar to the <code>summary</code> described above, but one nice feature of the <code>describe</code> function is that it provides frequencies on nonfactors as well as factors, as long as they do not have too many values.</p>
 <pre class="r"><code>library(Hmisc)
 ## Loading required package: lattice
@@ -234,9 +226,7 @@ describe(gapminder)
 ## ---------------------------------------------------------------------------</code></pre>
 <p>Unlike SPSS, the <code>describe</code> function does not provide percentages that include missing values. You can change that by setting the <code>exclude.missing</code> argument to <code>FALSE</code>. <code>describe</code> will automatically provide a table of frequencies whenever a variable has no more than 20 unique values. Beyond that, it will report the five largest and five smallest values, just like SPSS’s EXPLORE procedure. Also, for some items (not pictured in this example), the <code>describe</code> function will display the variable prompts themselves (e.g., the survey question participants responded to) in the output. This can be accomplished by adding variable labels (e.g., through the <code>label</code> function in the <code>Hmisc</code> package).</p>
 <p>SPSS users may find the output user-friendly, but it isn’t tidy and can be hard to work with at times. There is also no summary by group function, but you could get around this by wrapping <code>describe</code> in the <code>by()</code> function mentioned earlier. One downside of this approach, though, is that the output becomes lengthy and comparing statistics between groups becomes challenging.</p>
-</div>
-<div id="describe-and-describeby-from-the-psych-package" class="section level1">
-<h1>describe and describeBy, from the psych package</h1>
+<p>#describe and describeBy, from the psych package</p>
 <p>Not to be confused with <code>describe</code> from the <code>Hmisc</code> package, the <code>describe</code> function from the <code>psych</code> package has a strikingly different output!</p>
 <pre class="r"><code>library(psych)
 ## 
@@ -478,9 +468,7 @@ describe(gapminder)
 ## gdpPercap4  4.838366e+04  0.85400706  0.1360489 4.930630e+02
 ## gdpPercap5  2.439577e+04  0.70779453 -0.2063427 1.298022e+03</code></pre>
 <p>It’s not pretty, but it does have the added benefit of producing a potentially useful dataframe that you could tidy up.</p>
-</div>
-<div id="descr-and-dfsummary-from-the-summarytools-package" class="section level1">
-<h1>descr and dfsummary, from the summarytools package</h1>
+<p>#descr and dfsummary, from the summarytools package</p>
 <p>Stating with <code>descr</code>, the first thing to note is that it (like <code>psych::describe</code>) only works with numerical data. However, unlike <code>psych::describe</code>’s asterisk, we’re altered by an actual warning message displayed at the top of the output showing which columns have been ignored. There’s also a record count and a nice variety of summary statistics. The output also displays some information on missing data (e.g., <code>Pct.Valid</code> is the proportion of data that <em>is not</em> missing).</p>
 <pre class="r"><code>library(summarytools)
 ## 
@@ -505,7 +493,7 @@ descr(gapminder)
 ##               Max   2007.00     82.60   1318683096.00   113523.13
 ##               MAD     22.24     16.10      7841473.62     4007.61
 ##               IQR     27.50     22.65     16791557.75     8123.40
-##                CV    114.65      4.60            0.28        0.73
+##                CV      0.01      0.22            3.59        1.37
 ##          Skewness      0.00     -0.25            8.33        3.84
 ##       SE.Skewness      0.06      0.06            0.06        0.06
 ##          Kurtosis     -1.22     -1.13           77.62       27.40
@@ -529,12 +517,12 @@ descr(gapminder)
 ## 
 ##  
 ## 
-##                             Max          MAD           IQR       CV   Skewness   SE.Skewness
-## --------------- --------------- ------------ ------------- -------- ---------- -------------
-##            year         2007.00        22.24         27.50   114.65       0.00          0.06
-##         lifeExp           82.60        16.10         22.65     4.60      -0.25          0.06
-##             pop   1318683096.00   7841473.62   16791557.75     0.28       8.33          0.06
-##       gdpPercap       113523.13      4007.61       8123.40     0.73       3.84          0.06
+##                             Max          MAD           IQR     CV   Skewness   SE.Skewness
+## --------------- --------------- ------------ ------------- ------ ---------- -------------
+##            year         2007.00        22.24         27.50   0.01       0.00          0.06
+##         lifeExp           82.60        16.10         22.65   0.22      -0.25          0.06
+##             pop   1318683096.00   7841473.62   16791557.75   3.59       8.33          0.06
+##       gdpPercap       113523.13      4007.61       8123.40   1.37       3.84          0.06
 ## 
 ## Table: Table continues below
 ## 
@@ -551,55 +539,53 @@ descr(gapminder)
 ## Data Frame Summary   
 ## gapminder     
 ## N: 1704   
-## ------------------------------------------------------------------------------------------------------------------------------------------
-## No   Variable     Stats / Values                            Freqs (% of Valid)   Text Graph                             Valid    Missing  
-## ---- ------------ ----------------------------------------- -------------------- -------------------------------------- -------- ---------
-## 1    country      1. Afghanistan                              12 ( 0.7%)         IIIIIIIIIIIIIIII                       1704     0        
-##      [factor]     2. Albania                                  12 ( 0.7%)                                                (100%)   (0%)     
-##                   3. Algeria                                  12 ( 0.7%)                                                                  
-##                   4. Angola                                   12 ( 0.7%)                                                                  
-##                   5. Argentina                                12 ( 0.7%)                                                                  
-##                   6. Australia                                12 ( 0.7%)                                                                  
-##                   7. Austria                                  12 ( 0.7%)                                                                  
-##                   8. Bahrain                                  12 ( 0.7%)                                                                  
-##                   9. Bangladesh                               12 ( 0.7%)                                                                  
-##                   10. Belgium                                 12 ( 0.7%)                                                                  
-##                   [ 132 others ]                            1584 (92.4%)                                                                  
+## --------------------------------------------------------------------------------------------------------------------------------------------
+## No   Variable     Stats / Values                            Freqs (% of Valid)     Text Graph                             Valid    Missing  
+## ---- ------------ ----------------------------------------- ---------------------- -------------------------------------- -------- ---------
+## 1    country      1. Afghanistan                              12 ( 0.7%)                                                  1704     0        
+##      [factor]     2. Albania                                  12 ( 0.7%)                                                  (100%)   (0%)     
+##                   3. Algeria                                  12 ( 0.7%)                                                                    
+##                   4. Angola                                   12 ( 0.7%)                                                                    
+##                   5. Argentina                                12 ( 0.7%)                                                                    
+##                   6. Australia                                12 ( 0.7%)                                                                    
+##                   7. Austria                                  12 ( 0.7%)                                                                    
+##                   8. Bahrain                                  12 ( 0.7%)                                                                    
+##                   9. Bangladesh                               12 ( 0.7%)                                                                    
+##                   10. Belgium                                 12 ( 0.7%)                                                                    
+##                   [ 132 others ]                            1584 (93.0%)           IIIIIIIIIIIIIIII                                         
 ## 
-## 2    continent    1. Africa                                 624 (36.6%)          IIIIIIIIIIIIIIII                       1704     0        
-##      [factor]     2. Americas                               300 (17.6%)          IIIIIII                                (100%)   (0%)     
-##                   3. Asia                                   396 (23.2%)          IIIIIIIIII                                               
-##                   4. Europe                                 360 (21.1%)          IIIIIIIII                                                
-##                   5. Oceania                                 24 ( 1.4%)                                                                   
+## 2    continent    1. Africa                                 624 (36.6%)            IIIIIIIIIIIIIIII                       1704     0        
+##      [factor]     2. Americas                               300 (17.6%)            IIIIIII                                (100%)   (0%)     
+##                   3. Asia                                   396 (23.2%)            IIIIIIIIII                                               
+##                   4. Europe                                 360 (21.1%)            IIIIIIIII                                                
+##                   5. Oceania                                 24 ( 1.4%)                                                                     
 ## 
-## 3    year         mean (sd) : 1979.5 (17.27)                12 distinct val.     :                 :                    1704     0        
-##      [integer]    min &lt; med &lt; max :                                              :                 :                    (100%)   (0%)     
-##                   1952 &lt; 1979.5 &lt; 2007                                           : . . . . . . . . :                                      
-##                   IQR (CV) : 27.5 (0.01)                                         : : : : : : : : : :                                      
-##                                                                                  : : : : : : : : : :                                      
+## 3    year         mean (sd) : 1979.5 (17.27)                12 distinct values     :                 :                    1704     0        
+##      [integer]    min &lt; med &lt; max :                                                :                 :                    (100%)   (0%)     
+##                   1952 &lt; 1979.5 &lt; 2007                                             : . . . . . . . . :                                      
+##                   IQR (CV) : 27.5 (0.01)                                           : : : : : : : : : :                                      
+##                                                                                    : : : : : : : : : :                                      
 ## 
-## 4    lifeExp      mean (sd) : 59.47 (12.92)                 1626 distinct val.                 . :                      1704     0        
-##      [numeric]    min &lt; med &lt; max :                                                    . .     : :                      (100%)   (0%)     
-##                   23.6 &lt; 60.71 &lt; 82.6                                                  : : : : : :                                        
-##                   IQR (CV) : 22.65 (0.22)                                            : : : : : : : .                                      
-##                                                                                    . : : : : : : : :                                      
+## 4    lifeExp      mean (sd) : 59.47 (12.92)                 1626 distinct values                 . :                      1704     0        
+##      [numeric]    min &lt; med &lt; max :                                                      . .     : :                      (100%)   (0%)     
+##                   23.6 &lt; 60.71 &lt; 82.6                                                    : : : : : :                                        
+##                   IQR (CV) : 22.65 (0.22)                                              : : : : : : : .                                      
+##                                                                                      . : : : : : : : :                                      
 ## 
-## 5    pop          mean (sd) : 29601212.32 (106157896.74)    1704 distinct val.   :                                      1704     0        
-##      [integer]    min &lt; med &lt; max :                                              :                                      (100%)   (0%)     
-##                   60011 &lt; 7023595.5 &lt; 1318683096                                 :                                                        
-##                   IQR (CV) : 16791557.75 (3.59)                                  :                                                        
-##                                                                                  :                                                        
+## 5    pop          mean (sd) : 29601212.32 (106157896.74)    1704 distinct values   :                                      1704     0        
+##      [integer]    min &lt; med &lt; max :                                                :                                      (100%)   (0%)     
+##                   60011 &lt; 7023595.5 &lt; 1318683096                                   :                                                        
+##                   IQR (CV) : 16791557.75 (3.59)                                    :                                                        
+##                                                                                    :                                                        
 ## 
-## 6    gdpPercap    mean (sd) : 7215.33 (9857.45)             1704 distinct val.   :                                      1704     0        
-##      [numeric]    min &lt; med &lt; max :                                              :                                      (100%)   (0%)     
-##                   241.17 &lt; 3531.85 &lt; 113523.13                                   :                                                        
-##                   IQR (CV) : 8123.4 (1.37)                                       :                                                        
-##                                                                                  : : .                                                    
-## ------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
+## 6    gdpPercap    mean (sd) : 7215.33 (9857.45)             1704 distinct values   :                                      1704     0        
+##      [numeric]    min &lt; med &lt; max :                                                :                                      (100%)   (0%)     
+##                   241.17 &lt; 3531.85 &lt; 113523.13                                     :                                                        
+##                   IQR (CV) : 8123.4 (1.37)                                         :                                                        
+##                                                                                    : : .                                                    
+## --------------------------------------------------------------------------------------------------------------------------------------------</code></pre>
 <p>The output from <code>dfSummary</code> is much more detailed than many of the functions we’ve looked at so far, and it can deal with both categorical and numeric variables. It displays commonly used summary statistics, information on missing data, sample sizes, and variable type. It also uses a textgraph to show rough distributions (but these pale in comparison to the <code>skimr</code> package described below). However, one limitation is that there is no special grouping feature.</p>
-</div>
-<div id="skim-from-the-skimr-package" class="section level1">
-<h1>skim, from the skimr package</h1>
+<p>#skim, from the skimr package</p>
 <p>The <code>skim</code> function summarizes the record and variable count. It is fantastic for handling both categorical and numeric data, and displays accurate summary stats for each. For readability, it separates variables into different sections dependent on data type, which in turn makes for quick interpretation given that different summary stats are relevant for different data types. It also clearly reports missing data, and has all the most common summary stats. However, it doesn’t display some of the bonus content that <code>psych::describe</code> does such as SE and range.</p>
 <pre class="r"><code>library(skimr)
 skim(gapminder)
@@ -607,7 +593,7 @@ skim(gapminder)
 ##  n obs: 1704 
 ##  n variables: 6 
 ## 
-## Variable type: factor 
+## ── Variable type:factor ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##   variable missing complete    n n_unique
 ##  continent       0     1704 1704        5
 ##    country       0     1704 1704      142
@@ -615,7 +601,7 @@ skim(gapminder)
 ##  Afr: 624, Asi: 396, Eur: 360, Ame: 300   FALSE
 ##      Afg: 12, Alb: 12, Alg: 12, Ang: 12   FALSE
 ## 
-## Variable type: integer 
+## ── Variable type:integer ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  variable missing complete    n    mean       sd    p0        p25     p50
 ##       pop       0     1704 1704 3e+07    1.1e+08 60011 2793664    7e+06  
 ##      year       0     1704 1704  1979.5 17.27     1952    1965.75  1979.5
@@ -623,7 +609,7 @@ skim(gapminder)
 ##  2e+07       1.3e+09 ▇▁▁▁▁▁▁▁
 ##   1993.25 2007       ▇▃▇▃▃▇▃▇
 ## 
-## Variable type: numeric 
+## ── Variable type:numeric ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##   variable missing complete    n    mean      sd     p0     p25     p50
 ##  gdpPercap       0     1704 1704 7215.33 9857.45 241.17 1202.06 3531.85
 ##    lifeExp       0     1704 1704   59.47   12.92  23.6    48.2    60.71
@@ -634,10 +620,6 @@ skim(gapminder)
 <pre class="r"><code>library(dplyr)
 ## 
 ## Attaching package: &#39;dplyr&#39;
-## The following objects are masked from &#39;package:skimr&#39;:
-## 
-##     contains, ends_with, everything, matches, num_range, one_of,
-##     starts_with
 ## The following objects are masked from &#39;package:Hmisc&#39;:
 ## 
 ##     src, summarize
@@ -654,7 +636,7 @@ group_by(gapminder, continent) %&gt;%
 ##  n variables: 6 
 ##  group variables: continent 
 ## 
-## Variable type: factor 
+## ── Variable type:factor ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  continent variable missing complete   n n_unique
 ##     Africa  country       0      624 624       52
 ##   Americas  country       0      300 300       25
@@ -668,7 +650,7 @@ group_by(gapminder, continent) %&gt;%
 ##  Alb: 12, Aus: 12, Bel: 12, Bos: 12   FALSE
 ##    Aus: 12, New: 12, Afg: 0, Alb: 0   FALSE
 ## 
-## Variable type: integer 
+## ── Variable type:integer ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  continent variable missing complete   n          mean            sd
 ##     Africa      pop       0      624 624 9916003.14          1.5e+07
 ##     Africa     year       0      624 624    1979.5          17.27   
@@ -692,7 +674,7 @@ group_by(gapminder, continent) %&gt;%
 ##   2e+06 3199212.5  6403491.5        1.4e+07 2e+07       ▇▁▁▁▁▁▁▂
 ##    1952    1965.75    1979.5     1993.25     2007       ▇▃▇▃▃▇▃▇
 ## 
-## Variable type: numeric 
+## ── Variable type:numeric ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  continent  variable missing complete   n     mean       sd       p0
 ##     Africa gdpPercap       0      624 624  2193.75  2827.93   241.17
 ##     Africa   lifeExp       0      624 624    48.87     9.15    23.6 
@@ -723,12 +705,12 @@ head(data)
 ## # Groups:   continent [1]
 ##   continent variable type   stat       level   value formatted
 ##   &lt;fct&gt;     &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;    
-## 1 Africa    country  factor missing    .all       0. 0        
-## 2 Africa    country  factor complete   .all     624. 624      
-## 3 Africa    country  factor n          .all     624. 624      
-## 4 Africa    country  factor n_unique   .all      52. 52       
-## 5 Africa    country  factor top_counts Algeria   12. Alg: 12  
-## 6 Africa    country  factor top_counts Angola    12. Ang: 12</code></pre>
+## 1 Africa    country  factor missing    .all        0 0        
+## 2 Africa    country  factor complete   .all      624 624      
+## 3 Africa    country  factor n          .all      624 624      
+## 4 Africa    country  factor n_unique   .all       52 52       
+## 5 Africa    country  factor top_counts Algeria    12 Alg: 12  
+## 6 Africa    country  factor top_counts Angola     12 Ang: 12</code></pre>
 <p>It’s not exactly human-reader friendly, but after some deciphering, you might be able to see it produces a long table that contains one row for every combination of group, variable, and summary statistic. This means you can use standard methods of dataframe manipulation to process your summary statistics.</p>
 <p>For instance, using the <code>tidyverse</code>, we can examine the mean and SD of the lifeExp variable and compare the results between each continent in the <code>gapminder</code> dataset.</p>
 <pre class="r"><code>data %&gt;% 
@@ -736,11 +718,9 @@ head(data)
   ggplot(aes(x = continent, y = value)) +
   facet_grid(stat ~ ., scales = &quot;free&quot;) +
   geom_col()</code></pre>
-<p><img src="/post/2018-04-23-descriptives-part-ii_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/post/2018-04-23_descriptives-part-ii_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Overall, <code>skimr</code> is a simple to use summary function that can be used with pipes and displays. You can modify the default summary statistics, as can the default formatting. Support for data frames and vectors is included, and you can implement your own skim methods for specific object types. So, I encourage you to check out the <a href="https://cran.r-project.org/web/packages/skimr/skimr.pdf">skimr documentation</a> for further details on these topics.</p>
-</div>
-<div id="summary" class="section level1">
-<h1>Summary</h1>
+<p>#Summary</p>
 <p>That about wraps it up for part II. In this post, I covered five packages for summarizing your data in R.</p>
 <ol style="list-style-type: decimal">
 <li><code>summary</code> and <code>by</code> in base R</li>
@@ -751,4 +731,3 @@ head(data)
 </ol>
 <p>I tend to use <code>skimr</code> as my go-to package for descriptive statistics, mostly because I can seamlessly integrate it with my tidy workflow. I used <code>psych::describe</code> as my main data summary function for a very long time because it provided me with descriptive statistics that many other functions neglect. However, since <code>skimr</code> allows you to modify the default summary statistics it displays, I find myself using it more and more. That being said, there are many times I’ll use base R’s <code>summary</code> function because of its simplicity and flexibility with other functions.</p>
 <p>However, these five packages are just the tip of R’s descriptive statistic iceberg. Stay tuned for more descriptive statistics in R part III, coming soon!</p>
-</div>

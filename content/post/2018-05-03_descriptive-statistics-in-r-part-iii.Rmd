@@ -1,13 +1,10 @@
 ---
-title: Descriptive statistics in R, part III
-author: J. Winget
+title: "Descriptive statistics in R, part III"
+author: "J. Winget"
 date: '2018-05-03'
 slug: 2018-05-03_descriptive-statistics-in-r-part-iii
 categories: []
 tags: ["statistics", "R"]
-header:
-  caption: ''
-  image: ''
 ---
 
 ```{r setup, include=FALSE}

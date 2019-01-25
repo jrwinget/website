@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Featured Publications</title>
+      <title>Selected Publications</title>
       <link>/publications/publications_featured/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
@@ -45,15 +45,6 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>/publications/talks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>/publications/tags/</link>
-      <pubDate>Wed, 20 Sep 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/publications/tags/</guid>
       <description></description>
     </item>
     

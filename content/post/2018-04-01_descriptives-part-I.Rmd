@@ -1,8 +1,8 @@
 ---
-title: Descriptive statistics in R, part I
-author: J. Winget
+title: "Descriptive statistics in R, part I"
+author: "J. Winget"
 date: '2018-04-01'
-slug: descriptives-part-I
+slug: 2018-04-01_descriptives-part-I
 categories: []
 tags: ["statistics", "R"]
 ---

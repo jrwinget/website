@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>replication on Margins of Error</title>
+    <link>/tags/replication/</link>
+    <description>Recent content in replication on Margins of Error</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
+    <lastBuildDate>Sun, 11 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/replication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>On the importance of Open Science</title>
+      <link>/post/2018-02-11_on-the-importance-of-open-science/</link>
+      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-02-11_on-the-importance-of-open-science/</guid>
+      <description>In my last post, I refrained from standing on my Open Science soapbox; that’s not the case in this one. However, before I dig into why Open Science is near and dear to my heart, I want to take some time to cover some basic concepts. After all, it seems like the terms “Open Science” and “QRPs” are becoming buzz words in many contexts, at least from my perspective as a graduate student.</description>
+    </item>
+    
+  </channel>
+</rss>

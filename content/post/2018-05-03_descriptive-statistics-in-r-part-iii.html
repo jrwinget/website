@@ -1,13 +1,10 @@
 ---
-title: Descriptive statistics in R, part III
-author: J. Winget
+title: "Descriptive statistics in R, part III"
+author: "J. Winget"
 date: '2018-05-03'
 slug: 2018-05-03_descriptive-statistics-in-r-part-iii
 categories: []
 tags: ["statistics", "R"]
-header:
-  caption: ''
-  image: ''
 ---
 
 
@@ -30,6 +27,7 @@ str(company)
 <h1>ggpairs, from the <a href="https://cran.r-project.org/web/packages/GGally/GGally.pdf">GGally</a> package</h1>
 <p>The <code>ggpairs</code> function is a unique method of summarizing data. It does not tell you the frequency, central tendency, variation or any other single-number descriptive statistic. It also does not provide any information on missing data. At this point, you may be wondering how the hell this function even ended up in a blog post about descriptive statistics. Well, the approach <code>ggpairs</code> takes to summarizing data is to provide a pairs plot, which shows the interactions of each variable in a dataset with each of the other variables. For example:</p>
 <pre class="r"><code>library(GGally)
+## Loading required package: ggplot2
 ggpairs(company)
 ## Warning: Removed 1 rows containing non-finite values (stat_boxplot).
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -115,17 +113,17 @@ CreateTableOne(data = company)
 ## 
 ##     chisq.test, fisher.test, IQR
 desctable(company)
-##                    N Median/%  IQR
-## 1         employee 4       NA   NA
-## 2   employee: John 1       25   NA
-## 3  employee: Jolie 1       25   NA
-## 4   employee: Mary 1       25   NA
-## 5  employee: Peter 1       25   NA
-## 6           salary 3    23400 2900
-## 7       department 4       NA   NA
-## 8    department: 1 2       50   NA
-## 9    department: 2 2       50   NA
-## 10       startdate 4       NA   NA</code></pre>
+##                    N  % Median  IQR
+## 1         employee 4 NA     NA   NA
+## 2   employee: John 1 25     NA   NA
+## 3  employee: Jolie 1 25     NA   NA
+## 4   employee: Mary 1 25     NA   NA
+## 5  employee: Peter 1 25     NA   NA
+## 6           salary 3 NA  23400 2900
+## 7       department 4 NA     NA   NA
+## 8    department: 1 2 50     NA   NA
+## 9    department: 2 2 50     NA   NA
+## 10       startdate 4 NA  15968   NA</code></pre>
 <p>The output is unique (at least to me) such that some fields (e.g., department) are hierarchical. This could get confusing with a large dataset, especially if you are not expecting it. There is also no overall summary count of missing data, which can be a major limitation in some cases.</p>
 <p>Since the output is tidy, you can easily use the <code>group_by</code> function from the <code>dplyr</code> package to summarize the data by group.</p>
 <pre class="r"><code>library(dplyr)
@@ -142,30 +140,38 @@ desctable(company)
 ##     intersect, setdiff, setequal, union
 group_by(company, department) %&gt;% 
   desctable()
-##                   department: 1 (n=2) / N department: 1 (n=2) / Median/%
-## 1        employee                       2                             NA
-## 2  employee: John                       1                             50
-## 3 employee: Jolie                       0                              0
-## 4  employee: Mary                       1                             50
-## 5 employee: Peter                       0                              0
-## 6          salary                       1                          21000
-## 7       startdate                       2                             NA
-##   department: 1 (n=2) / IQR department: 2 (n=2) / N1
-## 1                        NA                        2
-## 2                        NA                        0
-## 3                        NA                        1
-## 4                        NA                        0
-## 5                        NA                        1
-## 6                         0                        2
-## 7                        NA                        2
-##   department: 2 (n=2) / Median/%1 department: 2 (n=2) / IQR1 tests / p
-## 1                              NA                         NA 1.0000000
-## 2                               0                         NA        NA
-## 3                              50                         NA        NA
-## 4                               0                         NA        NA
-## 5                              50                         NA        NA
-## 6                           25100                       1700 0.6666667
-## 7                              NA                         NA       NaN
+##                   department: 1 (n=2) / N department: 1 (n=2) / %
+## 1        employee                       2                      NA
+## 2  employee: John                       1                      50
+## 3 employee: Jolie                       0                       0
+## 4  employee: Mary                       1                      50
+## 5 employee: Peter                       0                       0
+## 6          salary                       1                      NA
+## 7       startdate                       2                      NA
+##   department: 1 (n=2) / Median department: 1 (n=2) / IQR
+## 1                           NA                        NA
+## 2                           NA                        NA
+## 3                           NA                        NA
+## 4                           NA                        NA
+## 5                           NA                        NA
+## 6                        21000                         0
+## 7                        17148                        NA
+##   department: 2 (n=2) / N1 department: 2 (n=2) / %1
+## 1                        2                       NA
+## 2                        0                        0
+## 3                        1                       50
+## 4                        0                        0
+## 5                        1                       50
+## 6                        2                       NA
+## 7                        2                       NA
+##   department: 2 (n=2) / Median1 department: 2 (n=2) / IQR1 tests / p
+## 1                            NA                         NA 1.0000000
+## 2                            NA                         NA        NA
+## 3                            NA                         NA        NA
+## 4                            NA                         NA        NA
+## 5                            NA                         NA        NA
+## 6                         25100                       1700 0.6666667
+## 7                         14391                         NA       NaN
 ##   tests / test
 ## 1  fisher.test
 ## 2         &lt;NA&gt;
@@ -183,7 +189,7 @@ group_by(company, department) %&gt;%
                                 &quot;IQR&quot; = IQR,
                                 &quot;Min&quot; = min,
                                 &quot;Max&quot; = max))
-##                    N     Mean           SD Median  IQR   Min   Max
+##                    N     Mean           SD Median  IQR   Min   Max
 ## 1         employee 4       NA    1.2909944     NA   NA    NA    NA
 ## 2   employee: John 1       NA           NA     NA   NA    NA    NA
 ## 3  employee: Jolie 1       NA           NA     NA   NA    NA    NA
@@ -193,7 +199,7 @@ group_by(company, department) %&gt;%
 ## 7       department 4       NA    0.5773503     NA   NA    NA    NA
 ## 8    department: 1 2       NA    0.0000000     NA   NA    NA    NA
 ## 9    department: 2 2       NA    0.0000000     NA   NA    NA    NA
-## 10       startdate 4       NA 1754.0455144     NA   NA    NA    NA</code></pre>
+## 10       startdate 4 15769.50 1754.0455144  15968   NA 13586 17556</code></pre>
 <p>You can also customize the statistical tests that are conducted or add conditional formulas. This function is so customizable that you may be able to create a summary output that fits your needs for virtually any situation. See the documentation (link in section header) for more details.</p>
 </div>
 <div id="stat.desc-from-the-pastecs-package" class="section level1">

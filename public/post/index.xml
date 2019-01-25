@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Margins of Error</title>
+    <title>Blog Posts on Margins of Error</title>
     <link>/post/</link>
-    <description>Recent content in Posts on Margins of Error</description>
+    <description>Recent content in Blog Posts on Margins of Error</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
-    <lastBuildDate>Wed, 07 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0600</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>First TidyTuesday submission</title>
+      <link>/post/2019-01-08_tidy-tuesday/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-01-08_tidy-tuesday/</guid>
+      <description>It’s been quite some time since I’ve written here, so I thought I would use one my of 2019 #rstats goals as an excuse to brush off the dust.
+In this post, I write about my first #tidytuesday submission of the Economist’s “TV’s golden age is real” data set (original #tidytuesday code here). I also make a few improvements to some of the graphs and add tables with the gt package.</description>
+    </item>
+    
+    <item>
+      <title>Descriptive statistics in R, part III</title>
+      <link>/post/2018-05-03_descriptive-statistics-in-r-part-iii/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-05-03_descriptive-statistics-in-r-part-iii/</guid>
+      <description>In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating how to calculate frequencies and create data tables and then covered some common functions in base R and other packages that provide more detailed descriptive statistics. In today’s post, I will cover four more ways to calculating descriptive statistics and give some of my thoughts on these methods.</description>
+    </item>
+    
+    <item>
+      <title>Descriptive statistics in R, part II</title>
+      <link>/post/2018-04-23_descriptives-part-ii/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-04-23_descriptives-part-ii/</guid>
+      <description>Moving on from frequencies and tables, which were covered in part I, let’s now focus on other ways to summarize our data (e.g., mean, standard deviation). There are a lot of ways to divide a topic like descriptive statistics, and R can further complicate this seemingly simple task. It’s been said R does a great job of making complex procedures simple, but it also has the tendency to make simple tasks complex.</description>
+    </item>
+    
+    <item>
+      <title>Descriptive statistics in R, part I</title>
+      <link>/post/2018-04-01_descriptives-part-i/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-04-01_descriptives-part-i/</guid>
+      <description>Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of March. So, in an attempt to reestablish my (bi)weekly delivery of all things trivial, I’m starting a three-part series about conducting descriptive statistics in R. In part I, I cover frequencies and tables. In parts II and III, I’ll cover descriptive statistics such as means, standard deviations, and the like.</description>
+    </item>
+    
+    <item>
+      <title>On the importance of Open Science</title>
+      <link>/post/2018-02-11_on-the-importance-of-open-science/</link>
+      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-02-11_on-the-importance-of-open-science/</guid>
+      <description>In my last post, I refrained from standing on my Open Science soapbox; that’s not the case in this one. However, before I dig into why Open Science is near and dear to my heart, I want to take some time to cover some basic concepts. After all, it seems like the terms “Open Science” and “QRPs” are becoming buzz words in many contexts, at least from my perspective as a graduate student.</description>
+    </item>
     
     <item>
       <title>First post!</title>
@@ -18,7 +64,7 @@
       <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-02-07_first-post/</guid>
-      <description>knitr::opts_chunk$set(collapse = TRUE)  Hello, world! Thanks for taking the time to read my first blog post! While I am trained as a social psychologist, I&amp;rsquo;m a big proponent of leveraging data science tools to understand the world around us. Thus, I plan to discuss a mixture of data-driven topics and insights here. I hope to use this blog as a place to write about things that interest me, but focus will likely be on statistics, research methods, open science, social psychology, and data science.</description>
+      <description>Hello, world! Thanks for taking the time to read my first blog post! While I am trained as a social psychologist, I’m a big proponent of leveraging data science tools to understand the world around us. Thus, I plan to discuss a mixture of data-driven topics and insights here. I hope to use this blog as a place to write about things that interest me, but focus will likely be on statistics, research methods, open science, social psychology, and data science.</description>
     </item>
     
   </channel>

@@ -143,7 +143,7 @@ In this post, I write about my first #tidytuesday submission of the Economist’
   
   <meta property="article:published_time" content="2019-01-08T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-01-11T21:26:52-06:00">
+  <meta property="article:modified_time" content="2019-01-08T00:00:00&#43;00:00">
   
 
   
@@ -415,7 +415,7 @@ In this post, I write about my first #tidytuesday submission of the Economist’
 
 
 <meta content="2019-01-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-01-11 21:26:52 -0600 CST" itemprop="dateModified">
+<meta content="2019-01-08 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -427,10 +427,8 @@ In this post, I write about my first #tidytuesday submission of the Economist’
     
     
       
-          Last updated on
-      
     
-    <time>Jan 11, 2019</time>
+    <time>Jan 8, 2019</time>
   </span>
   
 
@@ -527,12 +525,12 @@ In this post, I write about my first #tidytuesday submission of the Economist’
 <p>Special thanks to <a href="https://twitter.com/IsabellaGhement">Isabella Ghement</a> for providing <a href="https://twitter.com/IsabellaGhement/status/1082831866523086849">a few tips</a> on how to improve the original graphs!</p>
 <p>First, load the required packages and data:</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
-## ✔ tibble  2.0.0     ✔ dplyr   0.7.8
+## ✔ tibble  2.0.1     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
-## ✔ readr   1.3.0     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✔ readr   1.3.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(lubridate)</code></pre>
@@ -586,7 +584,7 @@ tv_rating &lt;- read_csv(&quot;https://raw.githubusercontent.com/rfordatascience
     formula = y ~ x, color = &quot;red&quot;, parse = TRUE
   ) +
   theme_light()</code></pre>
-<p><img src="/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Looks like the newer the TV drama, the more likely it was to have a higher rating. Maybe some of this is variance is due to shows with multiple seasons. Let’s see how this changes when looking at individual shows and their respective run lengths.</p>
 </div>
 <div id="which-titles-had-the-highest-ratings-and-how-long-did-they-run" class="section level3">
@@ -618,7 +616,7 @@ titles %&gt;%
   ) +
   theme_light() +
   theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code># highest rated titles rating over time
 titles %&gt;%
   ggplot() +
@@ -639,7 +637,7 @@ titles %&gt;%
     formula = y ~ x, color = &quot;red&quot;, parse = TRUE
   ) +
   theme_light()</code></pre>
-<p><img src="/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p><img src="/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
 <p>I haven’t seen all of these shows, but for the most part, their titles seem to describe suspenseful dramas (e.g., mystery, crime, maybe even thriller/horror). However, King of the Hill doesn’t really fit this description, so let’s take a look at the genre variable. Keeping in mind that all of these shows are dramas, I’m conceptualizing these as sub-genres of drama.</p>
 </div>
 <div id="which-sub-genres-are-most-popular" class="section level3">
@@ -675,7 +673,7 @@ tv_rating %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#glrexbkane .gt_table {
+#ftskborryt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -694,13 +692,13 @@ tv_rating %&gt;%
   /* table.border.top.color */
 }
 
-#glrexbkane .gt_heading {
+#ftskborryt .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#glrexbkane .gt_title {
+#ftskborryt .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -711,7 +709,7 @@ tv_rating %&gt;%
   border-bottom-width: 0;
 }
 
-#glrexbkane .gt_subtitle {
+#ftskborryt .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -722,7 +720,7 @@ tv_rating %&gt;%
   border-top-width: 0;
 }
 
-#glrexbkane .gt_bottom_border {
+#ftskborryt .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -731,7 +729,7 @@ tv_rating %&gt;%
   /* heading.border.bottom.color */
 }
 
-#glrexbkane .gt_column_spanner {
+#ftskborryt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -739,7 +737,7 @@ tv_rating %&gt;%
   padding-bottom: 4px;
 }
 
-#glrexbkane .gt_col_heading {
+#ftskborryt .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -752,11 +750,11 @@ tv_rating %&gt;%
   margin: 10px;
 }
 
-#glrexbkane .gt_sep_right {
+#ftskborryt .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#glrexbkane .gt_group_heading {
+#ftskborryt .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -780,7 +778,7 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#glrexbkane .gt_empty_group_heading {
+#ftskborryt .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -804,29 +802,29 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#glrexbkane .gt_striped tr:nth-child(even) {
+#ftskborryt .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#glrexbkane .gt_row {
+#ftskborryt .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#glrexbkane .gt_stub {
+#ftskborryt .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#glrexbkane .gt_stub.gt_row {
+#ftskborryt .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#glrexbkane .gt_summary_row {
+#ftskborryt .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -835,13 +833,13 @@ tv_rating %&gt;%
   /* summary_row.text_transform */
 }
 
-#glrexbkane .gt_first_summary_row {
+#ftskborryt .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#glrexbkane .gt_table_body {
+#ftskborryt .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -856,55 +854,55 @@ tv_rating %&gt;%
   /* field.border.bottom.color */
 }
 
-#glrexbkane .gt_footnote {
+#ftskborryt .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#glrexbkane .gt_sourcenote {
+#ftskborryt .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#glrexbkane .gt_center {
+#ftskborryt .gt_center {
   text-align: center;
 }
 
-#glrexbkane .gt_left {
+#ftskborryt .gt_left {
   text-align: left;
 }
 
-#glrexbkane .gt_right {
+#ftskborryt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#glrexbkane .gt_font_normal {
+#ftskborryt .gt_font_normal {
   font-weight: normal;
 }
 
-#glrexbkane .gt_font_bold {
+#ftskborryt .gt_font_bold {
   font-weight: bold;
 }
 
-#glrexbkane .gt_font_italic {
+#ftskborryt .gt_font_italic {
   font-style: italic;
 }
 
-#glrexbkane .gt_super {
+#ftskborryt .gt_super {
   font-size: 65%;
 }
 
-#glrexbkane .gt_footnote_glyph {
+#ftskborryt .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="glrexbkane" style="overflow-x:auto;"><!--gt table start-->
+<div id="ftskborryt" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -1059,7 +1057,7 @@ tv_rating %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#txehimqiua .gt_table {
+#mdroztpfqq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1078,13 +1076,13 @@ tv_rating %&gt;%
   /* table.border.top.color */
 }
 
-#txehimqiua .gt_heading {
+#mdroztpfqq .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#txehimqiua .gt_title {
+#mdroztpfqq .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -1095,7 +1093,7 @@ tv_rating %&gt;%
   border-bottom-width: 0;
 }
 
-#txehimqiua .gt_subtitle {
+#mdroztpfqq .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -1106,7 +1104,7 @@ tv_rating %&gt;%
   border-top-width: 0;
 }
 
-#txehimqiua .gt_bottom_border {
+#mdroztpfqq .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -1115,7 +1113,7 @@ tv_rating %&gt;%
   /* heading.border.bottom.color */
 }
 
-#txehimqiua .gt_column_spanner {
+#mdroztpfqq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -1123,7 +1121,7 @@ tv_rating %&gt;%
   padding-bottom: 4px;
 }
 
-#txehimqiua .gt_col_heading {
+#mdroztpfqq .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -1136,11 +1134,11 @@ tv_rating %&gt;%
   margin: 10px;
 }
 
-#txehimqiua .gt_sep_right {
+#mdroztpfqq .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#txehimqiua .gt_group_heading {
+#mdroztpfqq .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1164,7 +1162,7 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#txehimqiua .gt_empty_group_heading {
+#mdroztpfqq .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1188,29 +1186,29 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#txehimqiua .gt_striped tr:nth-child(even) {
+#mdroztpfqq .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#txehimqiua .gt_row {
+#mdroztpfqq .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#txehimqiua .gt_stub {
+#mdroztpfqq .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#txehimqiua .gt_stub.gt_row {
+#mdroztpfqq .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#txehimqiua .gt_summary_row {
+#mdroztpfqq .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -1219,13 +1217,13 @@ tv_rating %&gt;%
   /* summary_row.text_transform */
 }
 
-#txehimqiua .gt_first_summary_row {
+#mdroztpfqq .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#txehimqiua .gt_table_body {
+#mdroztpfqq .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -1240,55 +1238,55 @@ tv_rating %&gt;%
   /* field.border.bottom.color */
 }
 
-#txehimqiua .gt_footnote {
+#mdroztpfqq .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#txehimqiua .gt_sourcenote {
+#mdroztpfqq .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#txehimqiua .gt_center {
+#mdroztpfqq .gt_center {
   text-align: center;
 }
 
-#txehimqiua .gt_left {
+#mdroztpfqq .gt_left {
   text-align: left;
 }
 
-#txehimqiua .gt_right {
+#mdroztpfqq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#txehimqiua .gt_font_normal {
+#mdroztpfqq .gt_font_normal {
   font-weight: normal;
 }
 
-#txehimqiua .gt_font_bold {
+#mdroztpfqq .gt_font_bold {
   font-weight: bold;
 }
 
-#txehimqiua .gt_font_italic {
+#mdroztpfqq .gt_font_italic {
   font-style: italic;
 }
 
-#txehimqiua .gt_super {
+#mdroztpfqq .gt_super {
   font-size: 65%;
 }
 
-#txehimqiua .gt_footnote_glyph {
+#mdroztpfqq .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="txehimqiua" style="overflow-x:auto;"><!--gt table start-->
+<div id="mdroztpfqq" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -1447,7 +1445,7 @@ tv_rating %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ukavyfjszw .gt_table {
+#hnvhfrzdnn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1466,13 +1464,13 @@ tv_rating %&gt;%
   /* table.border.top.color */
 }
 
-#ukavyfjszw .gt_heading {
+#hnvhfrzdnn .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#ukavyfjszw .gt_title {
+#hnvhfrzdnn .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -1483,7 +1481,7 @@ tv_rating %&gt;%
   border-bottom-width: 0;
 }
 
-#ukavyfjszw .gt_subtitle {
+#hnvhfrzdnn .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -1494,7 +1492,7 @@ tv_rating %&gt;%
   border-top-width: 0;
 }
 
-#ukavyfjszw .gt_bottom_border {
+#hnvhfrzdnn .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -1503,7 +1501,7 @@ tv_rating %&gt;%
   /* heading.border.bottom.color */
 }
 
-#ukavyfjszw .gt_column_spanner {
+#hnvhfrzdnn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -1511,7 +1509,7 @@ tv_rating %&gt;%
   padding-bottom: 4px;
 }
 
-#ukavyfjszw .gt_col_heading {
+#hnvhfrzdnn .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -1524,11 +1522,11 @@ tv_rating %&gt;%
   margin: 10px;
 }
 
-#ukavyfjszw .gt_sep_right {
+#hnvhfrzdnn .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#ukavyfjszw .gt_group_heading {
+#hnvhfrzdnn .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1552,7 +1550,7 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#ukavyfjszw .gt_empty_group_heading {
+#hnvhfrzdnn .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1576,29 +1574,29 @@ tv_rating %&gt;%
   vertical-align: middle;
 }
 
-#ukavyfjszw .gt_striped tr:nth-child(even) {
+#hnvhfrzdnn .gt_striped tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#ukavyfjszw .gt_row {
+#hnvhfrzdnn .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#ukavyfjszw .gt_stub {
+#hnvhfrzdnn .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#ukavyfjszw .gt_stub.gt_row {
+#hnvhfrzdnn .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#ukavyfjszw .gt_summary_row {
+#hnvhfrzdnn .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -1607,13 +1605,13 @@ tv_rating %&gt;%
   /* summary_row.text_transform */
 }
 
-#ukavyfjszw .gt_first_summary_row {
+#hnvhfrzdnn .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#ukavyfjszw .gt_table_body {
+#hnvhfrzdnn .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -1628,55 +1626,55 @@ tv_rating %&gt;%
   /* field.border.bottom.color */
 }
 
-#ukavyfjszw .gt_footnote {
+#hnvhfrzdnn .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#ukavyfjszw .gt_sourcenote {
+#hnvhfrzdnn .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#ukavyfjszw .gt_center {
+#hnvhfrzdnn .gt_center {
   text-align: center;
 }
 
-#ukavyfjszw .gt_left {
+#hnvhfrzdnn .gt_left {
   text-align: left;
 }
 
-#ukavyfjszw .gt_right {
+#hnvhfrzdnn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ukavyfjszw .gt_font_normal {
+#hnvhfrzdnn .gt_font_normal {
   font-weight: normal;
 }
 
-#ukavyfjszw .gt_font_bold {
+#hnvhfrzdnn .gt_font_bold {
   font-weight: bold;
 }
 
-#ukavyfjszw .gt_font_italic {
+#hnvhfrzdnn .gt_font_italic {
   font-style: italic;
 }
 
-#ukavyfjszw .gt_super {
+#hnvhfrzdnn .gt_super {
   font-size: 65%;
 }
 
-#ukavyfjszw .gt_footnote_glyph {
+#hnvhfrzdnn .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="ukavyfjszw" style="overflow-x:auto;"><!--gt table start-->
+<div id="hnvhfrzdnn" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -1732,7 +1730,7 @@ tv_rating %&gt;%
   ) +
   theme_light() +
   theme(axis.text.x = element_text(angle = 90))</code></pre>
-<p><img src="/post/2019-01-08-first-tidytuesday-submission_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Okay, now we have some interesting patterns to interpret. Overall, it looks like even the most popular shows experienced a decline in enthusiasm the longer they aired. However, there are notable exceptions to this trend: Criminal Minds and Murdoch Mysteries have really taken off in the last few years, both receiving the highest ratings out of any of the tiles in this sample. American Horror Story appears to be making a comeback as well recently. Noticeably, these exceptions all fit the suspenseful-like dramas noted earlier. It seems, then, the most successful TV dramas are ones with intense or striking elements (e.g., crime, murder, horror, etc.). I wonder if this says anything about the culture of the viewers…lookin’ at you America 🤔</p>
 </div>
 

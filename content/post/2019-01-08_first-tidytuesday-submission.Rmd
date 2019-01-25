@@ -1,18 +1,10 @@
 ---
 title: 'First TidyTuesday submission'
-author: J. Winget
+author: "J. Winget"
 date: '2019-01-08'
 slug: 2019-01-08_tidy-tuesday
 categories: []
-tags:
-  - TidyTuesday
-  - data wrangling
-  - data viz
-header:
-  caption: ''
-  image: ''
-editor_options: 
-  chunk_output_type: console
+tags: ["TidyTuesday", "data wrangling", "data viz"]
 ---
 
 It's been quite some time since I've written here, so I thought I would use one my of [2019 #rstats goals](https://twitter.com/_jwinget/status/1079437460357218304) as an excuse to brush off the dust. 

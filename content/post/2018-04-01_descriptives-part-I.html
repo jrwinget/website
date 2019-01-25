@@ -1,8 +1,8 @@
 ---
-title: Descriptive statistics in R, part I
-author: J. Winget
+title: "Descriptive statistics in R, part I"
+author: "J. Winget"
 date: '2018-04-01'
-slug: descriptives-part-I
+slug: 2018-04-01_descriptives-part-I
 categories: []
 tags: ["statistics", "R"]
 ---
@@ -20,8 +20,7 @@ tags: ["statistics", "R"]
 ##  $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
 ##  $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
 ##  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
-<div id="options-in-base-r" class="section level1">
-<h1>Options in base R</h1>
+<p>#Options in base R</p>
 <p>R’s built-in function for frequency counts is the <code>table</code> function, but its output is pretty sparse.</p>
 <pre class="r"><code>table(airquality$Solar.R)
 ## 
@@ -39,7 +38,7 @@ tags: ["statistics", "R"]
 ##   2   1   1   1   1   2   2   1   1   1   1   1   1   1   1   2   1   1 
 ## 299 307 313 314 320 322 323 332 334 
 ##   1   1   1   1   1   2   1   1   1</code></pre>
-<p>It’s a very simple way to count up the number of times a particular level of solar radiation was recorded, but it doesn’t show percentages or any sort of cumulation. It displays only the frequencies. By default, it hasn’t highlighted that there are some cases with missing data, but it does have a <code>useNA</code> parameter that can call this information. This sparsity makes it very easy to use this output as input to other functions (e.g., <code>barplot</code>).</p>
+<p>It’s a very simple way to count up the number of times a particular level of solar radiation was recorded, but it doesn’t show percentages or any sort of cumulation. It displays only the frequencies. By default, it hasn’t highlighted that there are some cases with missing data. It does have a <code>useNA</code> parameter that can call this information. This sparsity makes it very easy to use this output as input to other functions (e.g., <code>barplot</code>).</p>
 <pre class="r"><code>table(airquality$Solar.R, useNA = &quot;ifany&quot;)
 ## 
 ##    7    8   13   14   19   20   24   25   27   31   36   37   44   47   48 
@@ -140,9 +139,7 @@ tags: ["statistics", "R"]
 ##       320       322       323       332       334 
 ## 0.6849315 1.3698630 0.6849315 0.6849315 0.6849315</code></pre>
 <p>But, you’d need to run both commands to understand the count and percentages, and the latter has many of the same limitations of the former.</p>
-</div>
-<div id="tabyl-from-the-janitor-package" class="section level1">
-<h1>tabyl, from the janitor package</h1>
+<p>#tabyl, from the janitor package</p>
 <p>Another great function for frequency tables is the <code>tabyl</code> function from the <code>janitor</code> package.</p>
 <pre class="r"><code>library(janitor)
 tabyl(airquality$Temp, sort = TRUE)
@@ -188,14 +185,11 @@ tabyl(airquality$Temp, sort = TRUE)
 ##               96  1 0.006535948
 ##               97  1 0.006535948</code></pre>
 <p>This output is a major improvement over base <code>table</code>! By default, it shows counts, percents, and percent of non-missing data. It can optionally sort in order of frequency. The output is tidy, and the only thing that seems to be missing is a cumulative percentage option.</p>
-</div>
-<div id="freq-from-the-summarytools-package" class="section level1">
-<h1>freq, from the summarytools package</h1>
+<p>#freq, from the summarytools package</p>
 <pre class="r"><code>library(summarytools)
 summarytools::freq(airquality$Ozone, order = &quot;freq&quot;)
 ## Frequencies   
-## Ozone     
-## Data frame: airquality   
+## airquality$Ozone     
 ## Type: Numeric   
 ## 
 ##               Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
@@ -269,17 +263,10 @@ summarytools::freq(airquality$Ozone, order = &quot;freq&quot;)
 ##         168      1      0.86         100.00      0.65          75.82
 ##        &lt;NA&gt;     37                              24.18         100.00
 ##       Total    153    100.00         100.00    100.00         100.00</code></pre>
-<p>This looks pretty great. Has all the variations of counts, percents, and missing-data output I tend to want. In the above output, the “% valid” column should be interpreted as “% of all non-missing”, and so far is one of the more intuitive outputs to read in the console.</p>
-  <p>It is almost tidy, although has a minor problem (by <code>tidyverse</code> standards) in that the output always includes the total row. It’s often important to know your totals, but if you’re piping your output to other tools or charts, you may have to use another command to filter that row out each time because there doesn’t seem to be a way to prevent it from being included with the rest of the dataset when running it directly.</p>
-</div>
-<div id="crosstable-from-the-gmodels-library" class="section level1">
-<h1>CrossTable, from the gmodels library</h1>
+<p>This has all the variations of counts, percents, and missing-data output that I tend to look for. In the above output, the “% valid” column should be interpreted as “% of all non-missing”, and so far is one of the more intuitive outputs to read in the console.</p>
+<p>It is almost tidy, although has a minor problem (by <code>tidyverse</code> standards) in that the output always includes the total row. It’s often important to know your totals, but if you’re piping your output to other tools or charts, you may have to use another command to filter that row out each time because there doesn’t seem to be a way to prevent it from being included with the rest of the dataset when running it directly.</p>
+<p>#CrossTable, from the gmodels library</p>
 <pre class="r"><code>library(gmodels)
-## 
-## Attaching package: &#39;gmodels&#39;
-## The following object is masked from &#39;package:epiDisplay&#39;:
-## 
-##     ci
 CrossTable(airquality$Ozone)
 ## 
 ##  
@@ -395,9 +382,7 @@ CrossTable(airquality$Ozone)
 ## </code></pre>
 <p>Here the results are displayed in a horizontal format, a bit like the base <code>table</code>. Unlike base <code>table</code>, however, the proportions are clearly shown in this output (minus a cumulative version). It doesn’t note there are missing values, and it isn’t tidy. You can get it to display a vertical version (add the parameter <code>max.width = 1</code>) which is visually distinctive, but untidy in the <code>tidyverse</code> sense.</p>
 <p>It’s not a great tool for my typical needs, and it’s not particularly designed for one-way frequency tables. If you are crosstabulating multiple dimensions, it may provide a powerful and visually accessible way to see counts, proportions, and potentially run hypothesis tests.</p>
-</div>
-<div id="freq-from-the-questionr-package" class="section level1">
-<h1>freq, from the questionr package</h1>
+<p>#freq, from the questionr package</p>
 <pre class="r"><code>library(questionr)
 ## 
 ## Attaching package: &#39;questionr&#39;
@@ -528,9 +513,7 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &quot;dec&quot;, total = 
 <p>With the <code>freq</code> function from the <code>questionr</code> package, everything looks like it’s coming together! Counts, percentages, cumulative percentages, missing values data; all of one’s frequency needs in one place. The table can optionally be sorted in descending frequency.</p>
 <p>It is mostly tidy, but also has a slight annoyance in that the category values themselves are row labels rather than a standalone column. This means you may have to pop them into in a new column for best use in any downstream tidy tools. That’s easy to do with <code>dplyr</code>’s <code>add_rownames</code> function. But, that is another processing step to remember, which is defintely a shortcoming here.</p>
 <p>There is a total row at the bottom, but it’s optional, so don’t use the <code>total</code> parameter if you plan to pass the data onwards in a way where you don’t want to risk double-counting your totals. There’s an <code>exclude</code> parameter if you want to remove any particular categories from analysis before performing the calculations as well as a couple of extra formatting options that might be handy.</p>
-</div>
-<div id="summary" class="section level1">
-<h1>Summary</h1>
+<p>#Summary</p>
 <p>In total, I’ve covered five ways of conducting frequency counts and creating frequency tables in R.</p>
 <ol style="list-style-type: decimal">
 <li><code>table</code> and <code>prop.table</code> in base R</li>
@@ -540,4 +523,3 @@ questionr::freq(airquality$Solar.R, cum = TRUE, sort = &quot;dec&quot;, total = 
 <li><code>freq</code> in the <code>questionr</code> package</li>
 </ol>
 <p>In my opinion, there is no perfect function for frequency counts for all circumstances; however, there are several very great options to chose from. I recommend playing around with any of the janitor, summarytools, and questionr package functions outlined above, as these seem to be my go-to frequency functions. Nevertheless, I still find myself often using base <code>table</code>. As with most things in life, it depends on the situation.</p>
-</div>
