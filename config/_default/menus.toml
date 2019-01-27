@@ -33,16 +33,21 @@
   url = "/consulting/"
   weight = 6
   
+[[main]]
+  name = "Resources"
+  url = "/resources/"
+  weight = 7
+  
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 [[main]]
    name = "CV"
    url = "https://drive.google.com/file/d/14CM2q6R1t191O6syAxx-NXRdZ9VTT2Oh/preview"
-   weight = 7
+   weight = 8
 
 [[main]]
   name = "Contact"
   url = "#contact"
-  weight = 8
+  weight = 9
 
 

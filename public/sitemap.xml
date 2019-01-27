@@ -104,6 +104,14 @@
     
     <url>
     
+      <loc>/resources/</loc>
+      <lastmod>2018-09-09T00:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/consulting/stats/</loc>
       <lastmod>2019-01-25T14:35:56-06:00</lastmod>
     </url>
@@ -138,6 +146,14 @@
     
       <loc>/teaching/philosophy/</loc>
       <lastmod>2019-01-25T14:35:56-06:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/resources/learn/</loc>
+      <lastmod>2018-09-09T00:00:00-05:00</lastmod>
     </url>
     
   
