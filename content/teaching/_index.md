@@ -21,6 +21,6 @@ I am currently a teaching instructor at [Loyola University Chicago](https://www.
 * PSYC304: Statistics
 * PSYC306: Research Methods
 
-I also have interests in teaching the following courses:
+I also have training in teaching online courses, and have interests in teaching the following:
 
 Social psychology, Attitudes, Group dynamics, Psychology and law, Industrial/Organizational psychology, Cognitive psychology
