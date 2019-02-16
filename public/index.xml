@@ -61,7 +61,8 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>/research/projects/</guid>
-      <description></description>
+      <description>&lt;p&gt;&lt;em&gt;I seek to answer these questions using a survey, experimental, and computational methods, and plan to apply this knowledge to optimize information processing, promote receptivity and cooperation, and decrease conflicts within and between groups.&lt;/em&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -1355,6 +1356,16 @@ tv_rating %&amp;gt;%
     </item>
     
     <item>
+      <title>LeaRning ResouRces</title>
+      <link>/resources/learn/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/resources/learn/</guid>
+      <description>&lt;p&gt;Click &lt;a href=&#34;https://gitlab.com/jrwinget/LeaRning-ResouRces&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; to view my LeaRning ResouRces repo, where I host some of the summaries/notes/snippets of R code I&amp;rsquo;ve found particularly useful. It also contains bookmarks of helpful blog posts and tutorials.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Services</title>
       <link>/consulting/methods/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
@@ -1375,19 +1386,6 @@ tv_rating %&amp;gt;%
 &lt;/ul&gt;
 
 &lt;p&gt;My fees vary by the complexity of the project as well as the funding agency. In general, if you are an individual, university, charity, non-profit, etc., my fees are $60-125 USD per 1 hour (including follow-up, references, future communication, ongoing advice, etc.). But, if you have any questions, please do not hesitate to contact me. All rates are open to negotiation.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Past Projects</title>
-      <link>/consulting/prev_proj/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/consulting/prev_proj/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;2019 - Washington State Department of Social and Health Servies, Parole Division&lt;/li&gt;
-&lt;li&gt;2018 - Washington State Department of Social and Health Services&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

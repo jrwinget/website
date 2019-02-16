@@ -23,7 +23,7 @@ interests = [
   "Group Dynamics",
   "Information Processing",
   "Social Influence",
-  "Political/Moral Psych",
+  "Morality/Ethics",
   "Data Science (with R)"
 ]
 
@@ -105,4 +105,4 @@ interests = [
 
 +++
 
-I’m a PhD student, research scientist, and the occasional consultant. Trained as a social psychologist, my research interests include information processing, social influence, and morality within both individual and group decision making. For example, some of my research looks  to see if shared representations of a task influence group decisions, performance, and intragroup processes. In another line of research, I’m investigating the role of group norms in cognitive processing styles (e.g., open-mindedness). I’m interested in how norms to enhance/protect a particular group may lead to more dogmatic (versus open-minded) cognition and how this may influence subsequent cooperation. I'm also passionate about data science and its role in uncovering new insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun.
+I am a PhD student, research scientist, and the occasional consultant. Trained as a social psychologist, my research interests include information processing, social influence, and morality within both individual and group decision making. For example, some of my research examines how group norms influence cognitive processing styles (e.g., open-mindedness) and how this may influence ethical decision making and cooperation. In another line of research, I am investigating how shared representations of a task can influence group decisions, performance, and intragroup processes. I am also passionate about data science and its role in developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun.

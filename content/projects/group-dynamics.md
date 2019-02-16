@@ -1,15 +1,15 @@
 +++
 # Date this page was created.
-date = "2018-05-01"
+date = "2018-04-01"
 
 # Project title.
 title = "Group Dynamics"
 
 # Project summary to display on homepage.
-summary = "What are the psychological processes that occur within social groups, and how do these processes influence individual and group outcomes?"
+summary = "How does being a member of a group alter people’s judgment and decision making?"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "group-dynamics.png"
+image_preview = ""
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
@@ -23,7 +23,7 @@ math = false
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
-image = "headers/research-overview.png"
+image = ""
 caption = ""
 
 +++

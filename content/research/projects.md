@@ -50,3 +50,4 @@ filter_default = 0
 
 +++
 
+*I seek to answer these questions using a survey, experimental, and computational methods, and plan to apply this knowledge to optimize information processing, promote receptivity and cooperation, and decrease conflicts within and between groups.*

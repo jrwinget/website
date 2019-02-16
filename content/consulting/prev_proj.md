@@ -14,5 +14,5 @@ type = "docs"  # Do not modify.
   weight = 4
 +++
 
-* 2019 - Washington State Department of Social and Health Servies, Parole Division
-* 2018 - Washington State Department of Social and Health Services
+* 2019 - Washington State Department of Social and Health Services, Parole Division
+* 2018 - Washington State Department of Social and Health Services, Residential Services

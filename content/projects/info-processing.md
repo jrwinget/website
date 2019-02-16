@@ -1,15 +1,15 @@
 +++
 # Date this page was created.
-date = "2018-02-07"
+date = "2018-05-01"
 
 # Project title.
 title = "Information Processing"
 
 # Project summary to display on homepage.
-summary = "How do we interact with and process the information we receive?"
+summary = "How do social norms dictate what information people pay attention to and seriously consider?"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "info-processing.jpg"
+image_preview = ""
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
@@ -23,7 +23,7 @@ math = false
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
-image = "headers/research-overview.png"
+image = ""
 caption = ""
 
 +++

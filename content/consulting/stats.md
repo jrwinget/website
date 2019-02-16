@@ -17,7 +17,7 @@ linktitle = "Statistics"
 
 ## Statistical consultation
 
-I provide a wide variety of statistical and modeling services, ranging from simple describe summaries to more advanced computational modeling. I have specific training in the following areas:
+I provide a wide variety of statistical and modeling services, ranging from simple descriptive summaries to more advanced computational modeling. I have specific training in the following areas:
 
 * Agent-based modeling
 * Structural equation modeling
