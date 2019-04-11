@@ -20,7 +20,7 @@ selected = false
 
 # Links (optional).
 url_pdf = ""
-url_slides = ""
+url_slides = "https://osf.io/4v29b/"
 url_video = ""
 url_code = ""
 
