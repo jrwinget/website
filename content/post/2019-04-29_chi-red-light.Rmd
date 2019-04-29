@@ -59,7 +59,7 @@ Turns out, this graph isn't very useful. It's hard to get an idea of what's real
 
 ## Focus on popular intersections
 
-These results might be a bit misleading--maybe popular intersections are fundamentally different (e.g., more dangerous, more lucrative). But, it will at least be a good place to start. Since there are 173 intersections in this dataset, I'm going to arbitrarily select all intersections that lead to greater than 4 red light violations on average.
+These results might be a bit misleading--maybe popular intersections are fundamentally different (e.g., more dangerous, more lucrative). But, it will at least be a good place to start. Since there are 173 intersections in this dataset, I'm going to arbitrarily select all intersections that lead to greater than 5.5 red light violations on average.
 
 ```{r}
 (intersections <- red_light %>% 
@@ -68,7 +68,7 @@ These results might be a bit misleading--maybe popular intersections are fundame
   arrange(desc(avg)))
 
 (red_light_popular <- red_light %>% 
-  semi_join(filter(intersections, avg > 4.5)) %>% 
+  semi_join(filter(intersections, avg > 5.5)) %>% 
   mutate(date = year + (month - 1) / 12))
 ```
 

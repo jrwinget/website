@@ -145,7 +145,7 @@ library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloa
   
   <meta property="article:published_time" content="2019-04-29T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-04-29T00:00:00&#43;00:00">
+  <meta property="article:modified_time" content="2019-04-29T10:29:35-05:00">
   
 
   
@@ -436,7 +436,7 @@ library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloa
 
 
 <meta content="2019-04-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-04-29 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2019-04-29 10:29:35 -0500 CDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -447,6 +447,8 @@ library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloa
   <span class="article-date">
     
     
+      
+          Last updated on
       
     
     <time>Apr 29, 2019</time>
@@ -616,7 +618,7 @@ library(modelr)
 </div>
 <div id="focus-on-popular-intersections" class="section level2">
 <h2>Focus on popular intersections</h2>
-<p>These results might be a bit misleading–maybe popular intersections are fundamentally different (e.g., more dangerous, more lucrative). But, it will at least be a good place to start. Since there are 173 intersections in this dataset, I’m going to arbitrarily select all intersections that lead to greater than 4 red light violations on average.</p>
+<p>These results might be a bit misleading–maybe popular intersections are fundamentally different (e.g., more dangerous, more lucrative). But, it will at least be a good place to start. Since there are 173 intersections in this dataset, I’m going to arbitrarily select all intersections that lead to greater than 5.5 red light violations on average.</p>
 <pre class="r"><code>(intersections &lt;- red_light %&gt;% 
   group_by(intersection) %&gt;% 
   summarize(avg = mean(violations)) %&gt;% 
@@ -636,23 +638,23 @@ library(modelr)
 ## 10 ARCHER AND CICERO          14.4
 ## # … with 173 more rows</code></pre>
 <pre class="r"><code>(red_light_popular &lt;- red_light %&gt;% 
-  semi_join(filter(intersections, avg &gt; 4.5)) %&gt;% 
+  semi_join(filter(intersections, avg &gt; 5.5)) %&gt;% 
   mutate(date = year + (month - 1) / 12))</code></pre>
 <pre><code>## Joining, by = &quot;intersection&quot;</code></pre>
-<pre><code>## # A tibble: 206,042 x 18
+<pre><code>## # A tibble: 134,776 x 18
 ##    intersection camera_id address month   day  year violations x_coordinate
 ##    &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;
-##  1 111TH AND H…      2424 800 W …     4    14  2019          2     1172945.
-##  2 111TH AND H…      2422 11100 …     4    14  2019          6     1172924.
-##  3 119TH AND H…      2402 11900 …     4    14  2019          4     1173095.
-##  4 119TH AND H…      2404 800 W …     4    14  2019          6     1173111.
-##  5 31ST ST AND…      2121 3100 S…     4    14  2019          4          NA 
-##  6 31ST ST AND…      2123 400 E …     4    14  2019          2     1179438.
-##  7 55TH AND WE…      2213 2400 W…     4    14  2019          2     1161277.
-##  8 63RD AND ST…      2714 1 E 63…     4    14  2019          9     1177368.
-##  9 63RD AND ST…      2712 6300 S…     4    14  2019          1     1177304.
-## 10 75TH AND ST…      2621 7500 S…     4    14  2019          3     1177539.
-## # … with 206,032 more rows, and 10 more variables: y_coordinate &lt;dbl&gt;,
+##  1 31ST ST AND…      2121 3100 S…     4    14  2019          4          NA 
+##  2 31ST ST AND…      2123 400 E …     4    14  2019          2     1179438.
+##  3 55TH AND WE…      2213 2400 W…     4    14  2019          2     1161277.
+##  4 63RD AND ST…      2714 1 E 63…     4    14  2019          9     1177368.
+##  5 63RD AND ST…      2712 6300 S…     4    14  2019          1     1177304.
+##  6 75TH AND ST…      2621 7500 S…     4    14  2019          3     1177539.
+##  7 75TH AND ST…      2624 1 E 75…     4    14  2019         10     1177602.
+##  8 87TH AND VI…      2413 848 W …     4    14  2019          5     1172003.
+##  9 99TH AND HA…      2433 800 W …     4    14  2019          4     1172711.
+## 10 99TH AND HA…      2431 9900 S…     4    14  2019          4     1172690.
+## # … with 134,766 more rows, and 10 more variables: y_coordinate &lt;dbl&gt;,
 ## #   latitude &lt;dbl&gt;, longitude &lt;dbl&gt;, location &lt;chr&gt;,
 ## #   historical_wards_2003_2015 &lt;dbl&gt;, zip_codes &lt;dbl&gt;,
 ## #   community_areas &lt;dbl&gt;, census_tracts &lt;dbl&gt;, wards &lt;dbl&gt;, date &lt;dbl&gt;</code></pre>
