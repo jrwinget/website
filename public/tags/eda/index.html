@@ -33,7 +33,7 @@
   <meta name="description" content="Graduate Research Assistant &amp; Lecturer">
 
   
-  <link rel="alternate" hreflang="en-us" href="/blog/">
+  <link rel="alternate" hreflang="en-us" href="/tags/eda/">
 
   
 
@@ -113,15 +113,15 @@
   
 
   
-  <link rel="alternate" href="/blog/index.xml" type="application/rss+xml" title="Margins of Error">
-  <link rel="feed" href="/blog/index.xml" type="application/rss+xml" title="Margins of Error">
+  <link rel="alternate" href="/tags/eda/index.xml" type="application/rss+xml" title="Margins of Error">
+  <link rel="feed" href="/tags/eda/index.xml" type="application/rss+xml" title="Margins of Error">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/blog/">
+  <link rel="canonical" href="/tags/eda/">
 
   
   
@@ -136,22 +136,22 @@
   <meta property="twitter:creator" content="@_jwinget">
   
   <meta property="og:site_name" content="Margins of Error">
-  <meta property="og:url" content="/blog/">
-  <meta property="og:title" content="Blog Posts | Margins of Error">
+  <meta property="og:url" content="/tags/eda/">
+  <meta property="og:title" content="EDA | Margins of Error">
   <meta property="og:description" content="Graduate Research Assistant &amp; Lecturer"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-01-01T00:00:00-06:00">
+  <meta property="og:updated_time" content="2019-04-29T00:00:00&#43;00:00">
   
 
   
 
   
 
-  <title>Blog Posts | Margins of Error</title>
+  <title>EDA | Margins of Error</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" >
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
   <aside class="search-results" id="search">
   <div class="container">
     <section class="search-header">
@@ -403,430 +403,55 @@
 
 
 
-<span id="homepage" style="display: none"></span>
+
+
+
+
+
+
+
+
+
+
 
 
   
 
-
-
-
-
   
   
   
-  <section id="posts" class="home-section">
-    <div class="container">
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1 itemprop="name">EDA</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/2019-04-29_chi-red-light/">EDA: Chicago red light camera violations</a></h2>
+    <div class="article-style">
       
-
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-
-    <h1>Recent Posts</h1>
-    
-    
-    <p class="view-all">
-      <a href="/post/">
-        More Posts
-        <i class="fas fa-angle-double-right"></i>
-      </a>
-    </p>
-    
-
-  </div>
-  <div class="col-12 col-lg-8">
-
-    
-
-    
+      Chicago red light camera violations In this post, I walk through a simple exploratory data analysis of red light camera violations in Chicago.
+Data import Data downloaded from the Chicago Data Portal.
+library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloads/2019-04-28_chi-red-light.csv&quot;)) ## # A tibble: 462,769 x 15 ## INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS ## &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; ## 1 111TH AND H… 2424 800 W … 04/14/2019 2 ## 2 111TH AND H… 2422 11100 … 04/14/2019 6 ## 3 119TH AND H… 2402 11900 … 04/14/2019 4 ## 4 119TH AND H… 2404 800 W … 04/14/2019 6 ## 5 31ST ST AND… 2121 3100 S… 04/14/2019 4 ## 6 31ST ST AND… 2123 400 E … 04/14/2019 2 ## 7 35TH AND WE… 2092 3500 S… 04/14/2019 2 ## 8 35TH AND WE… 2091 3500 S… 04/14/2019 2 ## 9 55TH AND KE… 2162 5500 S… 04/14/2019 2 ## 10 55TH AND WE… 2213 2400 W… 04/14/2019 2 ## # … with 462,759 more rows, and 10 more variables: `X COORDINATE` &lt;dbl&gt;, ## # `Y COORDINATE` &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, LONGITUDE &lt;dbl&gt;, LOCATION &lt;chr&gt;, ## # `Historical Wards 2003-2015` &lt;dbl&gt;, `Zip Codes` &lt;dbl&gt;, `Community ## # Areas` &lt;dbl&gt;, `Census Tracts` &lt;dbl&gt;, Wards &lt;dbl&gt; These data reflect the daily volume of violations created by the City of Chicago Red Light Program for each camera since July 1, 2014.
       
-        
-
-<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="headline">
-      <a href="/post/2019-04-29_chi-red-light/" itemprop="url">EDA: Chicago red light camera violations</a>
-    </h3>
-
-    
-    
-      
-    
-    
-    <div class="article-style" itemprop="articleBody">
-      Chicago red light camera violations In this post, I walk through a simple exploratory data analysis of red light camera violations in …
     </div>
-    
-
-    <div class="stream-meta">
-    
-
-
-<meta content="2019-04-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-04-29 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 29, 2019</time>
-  </span>
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    9 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2019-04-29_chi-red-light/#disqus_thread"></a>
-  
-
+  </div>
   
 
   
 
 </div>
-
-    </div>
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-      
-    
-      
-        
-
-<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="headline">
-      <a href="/post/2019-01-08_tidy-tuesday/" itemprop="url">First TidyTuesday submission</a>
-    </h3>
-
-    
-    
-      
-    
-    
-    <div class="article-style" itemprop="articleBody">
-      It’s been quite some time since I’ve written here, so I thought I would use one my of 2019 #rstats goals as an excuse to brush off the …
-    </div>
-    
-
-    <div class="stream-meta">
-    
-
-
-<meta content="2019-01-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-01-25 15:49:27 -0600 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    <time>Jan 25, 2019</time>
-  </span>
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    15 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2019-01-08_tidy-tuesday/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-    </div>
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-      
-    
-      
-        
-
-<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="headline">
-      <a href="/post/2018-05-03_descriptive-statistics-in-r-part-iii/" itemprop="url">Descriptive statistics in R, part III</a>
-    </h3>
-
-    
-    
-      
-    
-    
-    <div class="article-style" itemprop="articleBody">
-      In my last couple of posts, I discussed some of the ways R can summarize data. I started this discussion by demonstrating how to …
-    </div>
-    
-
-    <div class="stream-meta">
-    
-
-
-<meta content="2018-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-01-25 15:49:27 -0600 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    <time>Jan 25, 2019</time>
-  </span>
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    13 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-05-03_descriptive-statistics-in-r-part-iii/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-    </div>
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-      
-    
-      
-        
-
-<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="headline">
-      <a href="/post/2018-04-23_descriptives-part-ii/" itemprop="url">Descriptive statistics in R, part II</a>
-    </h3>
-
-    
-    
-      
-    
-    
-    <div class="article-style" itemprop="articleBody">
-      Moving on from frequencies and tables, which were covered in part I, let’s now focus on other ways to summarize our data (e.g., mean, …
-    </div>
-    
-
-    <div class="stream-meta">
-    
-
-
-<meta content="2018-04-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-01-25 15:49:27 -0600 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    <time>Jan 25, 2019</time>
-  </span>
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    28 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-04-23_descriptives-part-ii/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-    </div>
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-      
-    
-      
-        
-
-<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="headline">
-      <a href="/post/2018-04-01_descriptives-part-i/" itemprop="url">Descriptive statistics in R, part I</a>
-    </h3>
-
-    
-    
-      
-    
-    
-    <div class="article-style" itemprop="articleBody">
-      Well, I made it to my second blog post before I broke my goal of writing 2-4 posts a month. In fact, I completely missed the month of …
-    </div>
-    
-
-    <div class="stream-meta">
-    
-
-
-<meta content="2018-04-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-01-25 15:49:27 -0600 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    <time>Jan 25, 2019</time>
-  </span>
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    20 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-04-01_descriptives-part-i/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-    </div>
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-      
-    
-
-  </div>
-</div>
-
-    </div>
-  </section>
-  
-
-
-
 <div class="container">
   <footer class="site-footer">
   
@@ -980,7 +605,6 @@
 
   </body>
 </html>
-
 
 
 

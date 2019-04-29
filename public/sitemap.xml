@@ -16,8 +16,16 @@
     
     <url>
     
+      <loc>/post/2019-04-29_chi-red-light/</loc>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/talk/group-omc/</loc>
-      <lastmod>2019-04-10T21:37:33-05:00</lastmod>
+      <lastmod>2019-04-10T22:01:38-05:00</lastmod>
     </url>
     
   
@@ -135,8 +143,6 @@
   
     
     <url>
-    
-      <xhtml:link rel="alternate" href="/teaching/" hreflang="en"/>
     
       <loc>/teaching/</loc>
       <lastmod>2019-02-15T23:59:51-06:00</lastmod>
@@ -290,16 +296,6 @@
     
     <url>
     
-      <xhtml:link rel="alternate" href="/teaching/" hreflang="en"/>
-    
-      <loc>/teaching/</loc>
-      <lastmod>2019-01-25T14:35:56-06:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/publication_types/2/</loc>
       <lastmod>2019-01-25T14:35:56-06:00</lastmod>
       <priority>0</priority>
@@ -335,6 +331,15 @@
     <url>
     
       <loc>/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/eda/</loc>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -424,7 +429,7 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2019-01-25T15:49:27-06:00</lastmod>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -433,7 +438,7 @@
     <url>
     
       <loc>/talk/</loc>
-      <lastmod>2019-04-10T21:37:33-05:00</lastmod>
+      <lastmod>2019-04-10T22:01:38-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -460,7 +465,7 @@
     <url>
     
       <loc>/tags/data-viz/</loc>
-      <lastmod>2019-01-25T15:49:27-06:00</lastmod>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -469,7 +474,7 @@
     <url>
     
       <loc>/tags/data-wrangling/</loc>
-      <lastmod>2019-01-25T15:49:27-06:00</lastmod>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

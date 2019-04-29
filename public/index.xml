@@ -66,6 +66,234 @@
     </item>
     
     <item>
+      <title>EDA: Chicago red light camera violations</title>
+      <link>/post/2019-04-29_chi-red-light/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-04-29_chi-red-light/</guid>
+      <description>
+
+
+&lt;div id=&#34;chicago-red-light-camera-violations&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Chicago red light camera violations&lt;/h1&gt;
+&lt;p&gt;In this post, I walk through a simple exploratory data analysis of red light camera violations in Chicago.&lt;/p&gt;
+&lt;div id=&#34;data-import&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data import&lt;/h2&gt;
+&lt;p&gt;Data downloaded from the &lt;a href=&#34;https://data.cityofchicago.org/Transportation/Red-Light-Camera-Violations/spqx-js37&#34;&gt;Chicago Data Portal&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(modelr)
+(red_light_raw &amp;lt;- read_csv(&amp;quot;~/Downloads/2019-04-28_chi-red-light.csv&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 462,769 x 15
+##    INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS
+##    &amp;lt;chr&amp;gt;              &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;                 &amp;lt;dbl&amp;gt;
+##  1 111TH AND H…        2424 800 W … 04/14/2019                2
+##  2 111TH AND H…        2422 11100 … 04/14/2019                6
+##  3 119TH AND H…        2402 11900 … 04/14/2019                4
+##  4 119TH AND H…        2404 800 W … 04/14/2019                6
+##  5 31ST ST AND…        2121 3100 S… 04/14/2019                4
+##  6 31ST ST AND…        2123 400 E … 04/14/2019                2
+##  7 35TH AND WE…        2092 3500 S… 04/14/2019                2
+##  8 35TH AND WE…        2091 3500 S… 04/14/2019                2
+##  9 55TH AND KE…        2162 5500 S… 04/14/2019                2
+## 10 55TH AND WE…        2213 2400 W… 04/14/2019                2
+## # … with 462,759 more rows, and 10 more variables: `X COORDINATE` &amp;lt;dbl&amp;gt;,
+## #   `Y COORDINATE` &amp;lt;dbl&amp;gt;, LATITUDE &amp;lt;dbl&amp;gt;, LONGITUDE &amp;lt;dbl&amp;gt;, LOCATION &amp;lt;chr&amp;gt;,
+## #   `Historical Wards 2003-2015` &amp;lt;dbl&amp;gt;, `Zip Codes` &amp;lt;dbl&amp;gt;, `Community
+## #   Areas` &amp;lt;dbl&amp;gt;, `Census Tracts` &amp;lt;dbl&amp;gt;, Wards &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These data reflect the daily volume of violations created by the City of Chicago Red Light Program for each camera since July 1, 2014.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;INTERSECTION&lt;/strong&gt; = Intersection of the location of the red light enforcement camera(s). There may be more than one camera at each intersection&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CAMERA ID&lt;/strong&gt; = A unique ID for each physical camera at an intersection, which may contain more than one camera&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ADDRESS&lt;/strong&gt; = The address of the physical camera (CAMERA ID). The address may be the same for all cameras or different, based on the physical installation of each camera&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;VIOLATION DATE&lt;/strong&gt; = The date of when the violations occurred. NOTE: The citation may be issued on a different date&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;VIOLATIONS&lt;/strong&gt; = Number of violations for each camera on a particular day&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X COORDINATE&lt;/strong&gt; = The X Coordinate, measured in feet, of the location of the camera. Geocoded using Illinois State Plane East&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Y COORDINATE&lt;/strong&gt; = The Y Coordinate, measured in feet, of the location of the camera. Geocoded using Illinois State Plane East&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LATITUDE&lt;/strong&gt; = The latitude of the physical location of the camera(s) based on the ADDRESS column. Geocoded using the WGS84&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LONGITUDE&lt;/strong&gt; = The longitude of the physical location of the camera(s) based on the ADDRESS column. Geocoded using the WGS84&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LOCATION&lt;/strong&gt; = The coordinates of the camera(s) based on the LATITUDE and LONGITUDE columns. Geocoded using the WGS84&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-clean&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data clean&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(red_light &amp;lt;- red_light_raw %&amp;gt;% 
+  janitor::clean_names() %&amp;gt;% 
+  separate(violation_date, c(&amp;quot;month&amp;quot;, &amp;quot;day&amp;quot;, &amp;quot;year&amp;quot;), &amp;quot;/&amp;quot;) %&amp;gt;% 
+  mutate_at(vars(month, day, year),
+            ~ as.numeric(.)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 462,769 x 17
+##    intersection camera_id address month   day  year violations x_coordinate
+##    &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;
+##  1 111TH AND H…      2424 800 W …     4    14  2019          2     1172945.
+##  2 111TH AND H…      2422 11100 …     4    14  2019          6     1172924.
+##  3 119TH AND H…      2402 11900 …     4    14  2019          4     1173095.
+##  4 119TH AND H…      2404 800 W …     4    14  2019          6     1173111.
+##  5 31ST ST AND…      2121 3100 S…     4    14  2019          4          NA 
+##  6 31ST ST AND…      2123 400 E …     4    14  2019          2     1179438.
+##  7 35TH AND WE…      2092 3500 S…     4    14  2019          2     1160895.
+##  8 35TH AND WE…      2091 3500 S…     4    14  2019          2     1160895.
+##  9 55TH AND KE…      2162 5500 S…     4    14  2019          2     1155946.
+## 10 55TH AND WE…      2213 2400 W…     4    14  2019          2     1161277.
+## # … with 462,759 more rows, and 9 more variables: y_coordinate &amp;lt;dbl&amp;gt;,
+## #   latitude &amp;lt;dbl&amp;gt;, longitude &amp;lt;dbl&amp;gt;, location &amp;lt;chr&amp;gt;,
+## #   historical_wards_2003_2015 &amp;lt;dbl&amp;gt;, zip_codes &amp;lt;dbl&amp;gt;,
+## #   community_areas &amp;lt;dbl&amp;gt;, census_tracts &amp;lt;dbl&amp;gt;, wards &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;simple-eda&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Simple EDA&lt;/h2&gt;
+&lt;p&gt;I’m going to look at the number of red light violations by intersection across time.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(red_light, aes(year + month / 12, violations)) +
+  geom_line(aes(group = intersection))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Turns out, this graph isn’t very useful. It’s hard to get an idea of what’s really going on here because there is so much lumped at bottom. For now, I’m going to focus on the more popular intersections (i.e., those with more violations).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;focus-on-popular-intersections&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Focus on popular intersections&lt;/h2&gt;
+&lt;p&gt;These results might be a bit misleading–maybe popular intersections are fundamentally different (e.g., more dangerous, more lucrative). But, it will at least be a good place to start. Since there are 173 intersections in this dataset, I’m going to arbitrarily select all intersections that lead to greater than 4 red light violations on average.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(intersections &amp;lt;- red_light %&amp;gt;% 
+  group_by(intersection) %&amp;gt;% 
+  summarize(avg = mean(violations)) %&amp;gt;% 
+  arrange(desc(avg)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 183 x 2
+##    intersection                avg
+##    &amp;lt;chr&amp;gt;                     &amp;lt;dbl&amp;gt;
+##  1 CICERO AND I55             33.7
+##  2 LAKE AND UPPER WACKER      31.7
+##  3 LAKE SHORE DR AND BELMONT  26.8
+##  4 VAN BUREN AND WESTERN      20.8
+##  5 LAFAYETTE AND 87TH         18.6
+##  6 STATE AND 79TH             16.7
+##  7 STONEY ISLAND AND 76TH     15.9
+##  8 LINCOLN AND MCCORMICK      15.2
+##  9 WENTWORTH AND GARFIELD     14.7
+## 10 ARCHER AND CICERO          14.4
+## # … with 173 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(red_light_popular &amp;lt;- red_light %&amp;gt;% 
+  semi_join(filter(intersections, avg &amp;gt; 4.5)) %&amp;gt;% 
+  mutate(date = year + (month - 1) / 12))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;intersection&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 206,042 x 18
+##    intersection camera_id address month   day  year violations x_coordinate
+##    &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;
+##  1 111TH AND H…      2424 800 W …     4    14  2019          2     1172945.
+##  2 111TH AND H…      2422 11100 …     4    14  2019          6     1172924.
+##  3 119TH AND H…      2402 11900 …     4    14  2019          4     1173095.
+##  4 119TH AND H…      2404 800 W …     4    14  2019          6     1173111.
+##  5 31ST ST AND…      2121 3100 S…     4    14  2019          4          NA 
+##  6 31ST ST AND…      2123 400 E …     4    14  2019          2     1179438.
+##  7 55TH AND WE…      2213 2400 W…     4    14  2019          2     1161277.
+##  8 63RD AND ST…      2714 1 E 63…     4    14  2019          9     1177368.
+##  9 63RD AND ST…      2712 6300 S…     4    14  2019          1     1177304.
+## 10 75TH AND ST…      2621 7500 S…     4    14  2019          3     1177539.
+## # … with 206,032 more rows, and 10 more variables: y_coordinate &amp;lt;dbl&amp;gt;,
+## #   latitude &amp;lt;dbl&amp;gt;, longitude &amp;lt;dbl&amp;gt;, location &amp;lt;chr&amp;gt;,
+## #   historical_wards_2003_2015 &amp;lt;dbl&amp;gt;, zip_codes &amp;lt;dbl&amp;gt;,
+## #   community_areas &amp;lt;dbl&amp;gt;, census_tracts &amp;lt;dbl&amp;gt;, wards &amp;lt;dbl&amp;gt;, date &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, I replot the initial graph.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(red_light_popular, aes(date, violations)) +
+  geom_line(aes(group = intersection))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Decreasing the sample reduced the number of intersections that were lumped at the bottom, but there are still a lot of data there. Let’s try adding some transparency and a log10 transformation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(red_light_popular, aes(date, violations)) +
+  geom_line(aes(group = intersection), alpha = 1/5) +
+  scale_y_log10() +
+  geom_smooth(se = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;gam&amp;#39; and formula &amp;#39;y ~ s(x, bs = &amp;quot;cs&amp;quot;)&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The transformation does a fairly good job of shrinking the high violation intersections down and scaling the low violation intersections up. Now, it looks like there might be a reoccurring pattern occurring within a year. So, I’m wondering if there is a seasonal trend. To look at this, let’s focus on a single intersection for the moment: Lake Shore Dr. and Belmont.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;whats-the-pattern&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What’s the pattern?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lsd_belmont &amp;lt;- red_light_popular %&amp;gt;% 
+  filter(intersection == &amp;quot;LAKE SHORE DR AND BELMONT&amp;quot;)
+
+ggplot(lsd_belmont, aes(date, violations)) +
+  geom_point(aes(group = intersection)) +
+  geom_smooth(se = FALSE) +
+  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;gam&amp;#39; and formula &amp;#39;y ~ s(x, bs = &amp;quot;cs&amp;quot;)&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now, let’s see how the monthly patterns change by year for the same intersection.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(lsd_belmont, aes(month, violations)) +
+  geom_point(aes(group = year)) +
+  geom_jitter() +
+  geom_smooth(se = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;gam&amp;#39; and formula &amp;#39;y ~ s(x, bs = &amp;quot;cs&amp;quot;)&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Both of these graphs supports the seasonal trend idea–there is a bump in red light violations every summer, between May and August.&lt;/p&gt;
+&lt;p&gt;Now, I have a few questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Are these patterns the same for all intersections?&lt;/li&gt;
+&lt;li&gt;What’s driving these peaks? More drivers/tourists on the road in summer months?&lt;/li&gt;
+&lt;li&gt;What’s producing the gap between the high violations (above 25 violations) and low violations (below 25 violations)?&lt;/li&gt;
+&lt;li&gt;Is this pattern more pronounced in certain parts of the city (e.g., Lake Shore and Belmont is by a popular highway)?&lt;/li&gt;
+&lt;li&gt;What happened in the summer/fall of 2016?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;can-we-remove-this-pattern&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Can we remove this pattern?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;belmont_mod &amp;lt;- lm(log(violations) ~ factor(month), data = lsd_belmont)
+
+lsd_belmont %&amp;gt;% 
+  add_predictions(belmont_mod) %&amp;gt;% 
+  ggplot(aes(date, pred)) +
+  geom_line()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This shows the model has captured the seasonal pattern, but plotting the residuals will probably be more useful.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lsd_belmont %&amp;gt;% 
+  add_residuals(belmont_mod) %&amp;gt;% 
+  ggplot(aes(date, resid)) +
+  geom_hline(yintercept = 0, color = &amp;quot;white&amp;quot;, size = 3) +
+  geom_point() +
+  geom_smooth(se = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;gam&amp;#39; and formula &amp;#39;y ~ s(x, bs = &amp;quot;cs&amp;quot;)&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It looks like the seasonal model does a good job of explaining the data, especially for 2017 on. And, by removing the strong monthly pattern, we can see the long-term trends much more clearly. There’s a steady increase from the beginning of the data to about 2016 when the number of red light violations peak. They then take a slight dip but remain relatively stable through the present.&lt;/p&gt;
+&lt;p&gt;More questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What’s driving this trend?&lt;/li&gt;
+&lt;li&gt;What happened around 2016?&lt;/li&gt;
+&lt;li&gt;Is this pattern the same for all intersections?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;all-intersections&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;All intersections&lt;/h2&gt;
+&lt;p&gt;Now, I want to extend this model to all of the intersections in the sample.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;by_intersection &amp;lt;- red_light_popular %&amp;gt;% 
+  group_by(intersection) %&amp;gt;% 
+  nest()
+
+intersection_model &amp;lt;- function(df) {
+  lm(log10(violations) ~ factor(month), data = df)
+}
+
+partioned &amp;lt;- by_intersection %&amp;gt;% 
+  mutate(
+    model = map(data, intersection_model),
+    resids = map2(data, model, add_residuals)
+  ) %&amp;gt;% 
+  unnest(resids)
+
+ggplot(partioned, aes(date, resid)) +
+  geom_line(aes(group = intersection), alpha = 1/5) +
+  stat_summary(geom = &amp;quot;line&amp;quot;, fun.y = function(x) quantile(x, 0.25), color = &amp;quot;blue&amp;quot;) +
+  stat_summary(geom = &amp;quot;line&amp;quot;, fun.y = function(x) quantile(x, 0.75), color = &amp;quot;blue&amp;quot;) +
+  geom_smooth(se = FALSE, linetype = &amp;quot;dashed&amp;quot;, color = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;gam&amp;#39; and formula &amp;#39;y ~ s(x, bs = &amp;quot;cs&amp;quot;)&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-04-29_chi-red-light_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After removing the seasonal pattern, the long-term trend becomes much more stable. However, some unexplained patterns remain.&lt;/p&gt;
+&lt;p&gt;Further questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What drove the increase in violations between 2014 and mid-2016?&lt;/li&gt;
+&lt;li&gt;What happened at the end of 2016/beginning of 2017?&lt;/li&gt;
+&lt;li&gt;Do violations occur systematically throughout the city, or are certain locations more likely to lead to higher violations?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Open-minded group cognition</title>
       <link>/talk/group-omc/</link>
       <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
@@ -1362,30 +1590,6 @@ tv_rating %&amp;gt;%
       
       <guid>/resources/learn/</guid>
       <description>&lt;p&gt;Click &lt;a href=&#34;https://gitlab.com/jrwinget/LeaRning-ResouRces&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; to view my LeaRning ResouRces repo, where I host some of the summaries/notes/snippets of R code I&amp;rsquo;ve found particularly useful. It also contains bookmarks of helpful blog posts and tutorials.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Services</title>
-      <link>/consulting/methods/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/consulting/methods/</guid>
-      <description>
-
-&lt;h2 id=&#34;methodological-consultation&#34;&gt;Methodological consultation&lt;/h2&gt;
-
-&lt;p&gt;I provide a wide variety of methodogoical and data collection services. Such services include:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Survey administration&lt;/li&gt;
-&lt;li&gt;Survey item development&lt;/li&gt;
-&lt;li&gt;Behavioral/psychological measurment&lt;/li&gt;
-&lt;li&gt;Experimental and quasi-experimental research designs&lt;/li&gt;
-&lt;li&gt;Programming of simple computer-based experiments&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;My fees vary by the complexity of the project as well as the funding agency. In general, if you are an individual, university, charity, non-profit, etc., my fees are $60-125 USD per 1 hour (including follow-up, references, future communication, ongoing advice, etc.). But, if you have any questions, please do not hesitate to contact me. All rates are open to negotiation.&lt;/p&gt;
 </description>
     </item>
     
