@@ -78,12 +78,12 @@
 &lt;p&gt;This project is surprisingly easy: If you’re familiar with R (e.g., able to write a function), you shouldn’t have any trouble creating something like this. If you’re still learning how to write functions, this project is great practice!&lt;/p&gt;
 &lt;div id=&#34;step-1-what-will-the-bot-tweet&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Step 1: What will the bot tweet?&lt;/h2&gt;
-&lt;p&gt;The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., &lt;a href=&#34;https://twitter.com/WhyDoesR&#34;&gt;WhyDoesR&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/TwoHeadlines&#34;&gt;TwoHeadlines&lt;/a&gt;), so I wanted to create something simple that could get a few laughs. So, I decided to make a random “Would You Rather” generator that pits outrageous or terrible situations against one another&lt;/p&gt;
+&lt;p&gt;The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., &lt;a href=&#34;https://twitter.com/WhyDoesR&#34;&gt;WhyDoesR&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/TwoHeadlines&#34;&gt;TwoHeadlines&lt;/a&gt;), so I wanted to create something simple that could get a few laughs. So, I decided to make a random “Would You Rather” generator that pits outrageous or terrible situations against one another.&lt;/p&gt;
 &lt;p&gt;To do this, I set up a little “database” containing a list of the situations in a .csv file (you can view that file on the &lt;a href=&#34;https://gitlab.com/jrwinget/rathr-generatr&#34;&gt;GitLab repo&lt;/a&gt; for the bot). I also wanted to add pictures to the posts, so I found 11 open source images online and stored them into a “img” directory. Once the database and image directory are created, they need to be loaded into R.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(here)
 
-wyr &amp;lt;- read_csv(here(&amp;quot;wyr-db.csv&amp;quot;), ccol_names = FALSE)
+wyr &amp;lt;- read_csv(here(&amp;quot;wyr-db.csv&amp;quot;), col_names = FALSE)
 pictures &amp;lt;- list.files(here(&amp;quot;img&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Next, the bot needs to be able to randomly select two situations from the database and combine them into a sentence. A function would be perfect for this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(glue)

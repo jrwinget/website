@@ -21,7 +21,7 @@ This project is surprisingly easy: If you're familiar with R (e.g., able to writ
 
 ## Step 1: What will the bot tweet?
 
-The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., [WhyDoesR](https://twitter.com/WhyDoesR) or [TwoHeadlines](https://twitter.com/TwoHeadlines)), so I wanted to create something simple that could get a few laughs. So, I decided to make a random "Would You Rather" generator that pits outrageous or terrible situations against one another
+The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., [WhyDoesR](https://twitter.com/WhyDoesR) or [TwoHeadlines](https://twitter.com/TwoHeadlines)), so I wanted to create something simple that could get a few laughs. So, I decided to make a random "Would You Rather" generator that pits outrageous or terrible situations against one another.
 
 To do this, I set up a little "database" containing a list of the situations in a .csv file (you can view that file on the [GitLab repo](https://gitlab.com/jrwinget/rathr-generatr) for the bot). I also wanted to add pictures to the posts, so I found 11 open source images online and stored them into a "img" directory. Once the database and image directory are created, they need to be loaded into R.
 
@@ -29,7 +29,7 @@ To do this, I set up a little "database" containing a list of the situations in 
 library(tidyverse)
 library(here)
 
-wyr <- read_csv(here("wyr-db.csv"), ccol_names = FALSE)
+wyr <- read_csv(here("wyr-db.csv"), col_names = FALSE)
 pictures <- list.files(here("img"))
 ```
 
