@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.3.0">
+  <meta name="generator" content="Hugo 0.53" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Jeremy R. Winget">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Last week, I decided to kill an afternoon by creating a Twitter bot. Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).
+This project is surprisingly easy: If you’re familiar with R (e.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2019-05-08_create-a-twitter-bot/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-133161697-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Margins of Error">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Margins of Error">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2019-05-08_create-a-twitter-bot/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@_jwinget">
+  <meta property="twitter:creator" content="@_jwinget">
+  
+  <meta property="og:site_name" content="Margins of Error">
+  <meta property="og:url" content="/post/2019-05-08_create-a-twitter-bot/">
+  <meta property="og:title" content="How to create a Twitter bot using R | Margins of Error">
+  <meta property="og:description" content="Last week, I decided to kill an afternoon by creating a Twitter bot. Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).
+This project is surprisingly easy: If you’re familiar with R (e."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-05-08T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-05-08T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>How to create a Twitter bot using R | Margins of Error</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Margins of Error</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/research/">
+            
+            <span>Research</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/publications/">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/teaching/">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/consulting/">
+            
+            <span>Consulting</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/resources/">
+            
+            <span>Resources</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://drive.google.com/file/d/14CM2q6R1t191O6syAxx-NXRdZ9VTT2Oh/preview" target="_blank" rel="noopener">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">How to create a Twitter bot using R</h1>
+
+  
+
+  
+    
+
+
+<meta content="2019-05-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-05-08 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 8, 2019</time>
+  </span>
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2019-05-08_create-a-twitter-bot/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=How%20to%20create%20a%20Twitter%20bot%20using%20R&amp;url=%2fpost%2f2019-05-08_create-a-twitter-bot%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2f2019-05-08_create-a-twitter-bot%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2019-05-08_create-a-twitter-bot%2f&amp;title=How%20to%20create%20a%20Twitter%20bot%20using%20R"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2019-05-08_create-a-twitter-bot%2f&amp;title=How%20to%20create%20a%20Twitter%20bot%20using%20R"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=How%20to%20create%20a%20Twitter%20bot%20using%20R&amp;body=%2fpost%2f2019-05-08_create-a-twitter-bot%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>Last week, I decided to kill an afternoon by creating a <a href="https://twitter.com/rathrgeneratr">Twitter bot</a>. Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).</p>
+<p>This project is surprisingly easy: If you’re familiar with R (e.g., able to write a function), you shouldn’t have any trouble creating something like this. If you’re still learning how to write functions, this project is great practice!</p>
+<div id="step-1-what-will-the-bot-tweet" class="section level2">
+<h2>Step 1: What will the bot tweet?</h2>
+<p>The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., <a href="https://twitter.com/WhyDoesR">WhyDoesR</a> or <a href="https://twitter.com/TwoHeadlines">TwoHeadlines</a>), so I wanted to create something simple that could get a few laughs. So, I decided to make a random “Would You Rather” generator that pits outrageous or terrible situations against one another</p>
+<p>To do this, I set up a little “database” containing a list of the situations in a .csv file (you can view that file on the <a href="https://gitlab.com/jrwinget/rathr-generatr">GitLab repo</a> for the bot). I also wanted to add pictures to the posts, so I found 11 open source images online and stored them into a “img” directory. Once the database and image directory are created, they need to be loaded into R.</p>
+<pre class="r"><code>library(tidyverse)
+library(here)
+
+wyr &lt;- read_csv(here(&quot;wyr-db.csv&quot;), ccol_names = FALSE)
+pictures &lt;- list.files(here(&quot;img&quot;))</code></pre>
+<p>Next, the bot needs to be able to randomly select two situations from the database and combine them into a sentence. A function would be perfect for this:</p>
+<pre class="r"><code>library(glue)
+
+would_you_rather &lt;- function() {
+  choices &lt;- sample_n(wyr, 2)
+  a &lt;- slice(choices, 1)
+  b &lt;- slice(choices, 2)
+  sentence &lt;- glue(&quot;Would you rather {a} or {b}?&quot;)
+  return(sentence)
+}</code></pre>
+<p>Now, the bot has a way of creating a sentence, but it still needs to actually generate one to tweet. It also needs to select a picture to tweet with the generated sentence. To create a sentence, we can use our new function and store the result in an object called “tweet”. To randomly select a picutre, we just need to sample 1 of the 11 and store the name of the file as an object called “img”.</p>
+<pre class="r"><code>tweet &lt;- would_you_rather()
+img &lt;- sample(pictures, 1)</code></pre>
+</div>
+<div id="step-2-connect-to-twitter" class="section level2">
+<h2>Step 2: Connect to Twitter</h2>
+<p>Because this bot will be tweeting from the R console, we have to register a new app with Twitter. Michael Kearney has a great <a href="https://rtweet.info/articles/auth.html">tutorial on this</a> using his <code>rtweet</code> package. Basically, load the <code>rtweet</code> package and connect to Twitter’s API using credentials stored in the environment. Once the credentials are stored, use the <code>get_tokens</code> function to fetch and load them.</p>
+<pre class="r"><code>library(rtweet)
+
+token &lt;- get_tokens()</code></pre>
+<p>Now, the bot can tweet a randomized “Would You Rather” situation with the <code>post_tweet</code> function. I decided to also include a hashtag in the tweet, which is really easy to do using the <code>glue</code> package. To add the randomly selected picture to the tweet, just include the file path to that picture in the <code>media</code> argument.</p>
+<pre class="r"><code># tweet it
+post_tweet(status = glue(
+  &quot;{tweet}
+  
+#wouldyourather&quot;),
+  media = glue(&quot;img/{img}&quot;))</code></pre>
+<p>I also wanted to collect all of the tweets the bot produces, so I made a log file to store them.</p>
+<pre class="r"><code>line &lt;- paste(as.character(Sys.time()), tweet, sep = &quot; &quot;)
+write(line, file = here(&quot;wyr-tweets.log&quot;), append = TRUE)</code></pre>
+</div>
+<div id="step-3-automate-the-bot" class="section level2">
+<h2>Step 3: Automate the bot</h2>
+<p>We now have a script that will randomly generate a “Would You Rather” situation along with a randomly chosen picture. However, it would be annoying to manually operate the bot every time we wanted it to tweet. Besides, doing so would undermine the entire point of making a “bot”. So let’s have the computer do this instead.</p>
+<p>However, before the computer can understand the R script, we have to add a line of code to the top of the script (note ‘#!’ is important here):</p>
+<pre class="r"><code>#! /usr/bin/env Rscript</code></pre>
+<p>This is basically turns our script into something the computer can execute. This is good, but having the script loaded on a server would be even better because the script can run whether or not your personal computer is on. Luckily, I happened to already have a server running, so I was able to simply load everything on there and schedule a cron job. Cron jobs basically tell the computer to run a certain command at a certain time (more on cron jobs <a href="https://help.ubuntu.com/community/CronHowto">here</a>).</p>
+<p>If you’ve never scheduled a cron job before, it’s a relatively simple process (note: to use this method, you will need a Mac or Linux OS; for Windows OS, use Windows Task Scheduler). First, open the terminal and type:</p>
+<pre class="bash"><code>crontab -e</code></pre>
+<p>This opens your personal crontab (i.e., the configuration file). In every line, you can define one command to run and its schedule. The structure of the format is:</p>
+<pre class="bash"><code>minute hour day-of-month month day-of-week command</code></pre>
+<p>Using an asterisk as a value represents “any”. For example, to run a command every Monday at 8am, the format would be:</p>
+<pre class="bash"><code>0 8 * * 1 /path/to/command</code></pre>
+<p>For this project, the command will tell the computer to execute the bot script we wrote in R. I chose to combine all of the files for the bot (e.g., bot script, database, pictures, etc.) into an R project on the server, so the command I created changes the working directory to the project directory (the <code>cd</code> command) and then runs the script (the <code>Rscript</code> command). I also chose to run the bot twice a day:</p>
+<pre class="bash"><code># m h  dom mon dow    command
+0 8 * * * cd ~/2019-05-02_would-you-rather-bot; Rscript bot-script.R      # run at 8am CST
+15 17 * * * cd ~/2019-05-02_would-you-rather-bot; Rscript bot-script.R    # run at 5:15pm CST</code></pre>
+<p>You certainly don’t <em>have</em> to run the bot on a server; servers just make things easier and more consistent in this case. If you don’t have access to a server, the process will be basically the same for running the bot on a personal computer. You’ll just need to make sure the computer is on (and awake!) at the scheduled time(s) for it to automatically tweet. Or, you can <a href="https://dunia-it.com/wake-your-linux-up-from-sleep-for-a-cron-job/">wake your linux up from sleep for a cron job</a>.</p>
+</div>
+<div id="wrapping-up" class="section level2">
+<h2>Wrapping up</h2>
+<p>And, that’s it! Here’s the completed script:</p>
+<pre class="r"><code>#!/usr/bin/env Rscript
+# would_you_rather_bot 0.1
+# author: jeremy r. winget
+library(tidyverse)
+library(rtweet)
+library(here)
+library(glue)
+
+# authenticate
+token &lt;- get_tokens()
+
+# read in data
+wyr &lt;- read_csv(here(&quot;wyr-db.csv&quot;), col_names = FALSE)
+pictures &lt;- list.files(here(&quot;img&quot;))
+
+# function to generate sentence
+would_you_rather &lt;- function() {
+  choices &lt;- sample_n(wyr, 2)
+  a &lt;- slice(choices, 1)
+  b &lt;- slice(choices, 2)
+  sentence &lt;- glue(&quot;Would you rather {a} or {b}?&quot;)
+  return(sentence)
+}
+
+# generate question and picture
+tweet &lt;- would_you_rather()
+img &lt;- sample(pictures, 1)
+
+# tweet it
+post_tweet(status = glue(
+  &quot;{tweet}
+  
+#wouldyourather&quot;),
+  media = glue(&quot;img/{img}&quot;))
+
+# create log entry
+line &lt;- paste(as.character(Sys.time()), tweet, sep = &quot; &quot;)
+write(line, file = here(&quot;wyr-tweets.log&quot;), append = TRUE)</code></pre>
+<p>If you create your own Twitter bot with R (or if this tutorial inspired any other projects), please <a href="https://twitter.com/_jwinget">share it with me</a>. I’d love to hear what you did!</p>
+</div>
+<div id="potential-future-features" class="section level2">
+<h2>Potential future features</h2>
+<p>Right now, this bot is pretty basic. I’ve had a few ideas for additional features/adjustments I may or may not end up incorporating:</p>
+<ol style="list-style-type: decimal">
+<li>I’d like to add more content to the the database. I basically just googled “Would You Rather” questions and chose some of the more outrageous ones. But, there aren’t a lot of different situations (and some are pretty lame) listed in the database, which can sometimes lead to repeated situations being tweeted. If anyone has any situations they’d like to add, feel free to submit merge request!</li>
+<li>If people like the bot and start engaging with it, I thought it’d be fun to retweet popular comments/answers. I’m not sure what that procedure would be yet, though.</li>
+<li>It might be useful to create different categories of “Would You Rather” situations (e.g., outrageous situations, relationship situations, entertainment situations, etc.). If the situations aren’t chosen from the same category, it can lead to dumb questions (like <a href="https://twitter.com/rathrgeneratr/status/1125162015293673473">this one</a>).</li>
+</ol>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/how-to/">how to</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hue8a1131a0eda452e4db8aa1079e274c8_2897490_250x250_fill_q75_box_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Jeremy R. Winget</a></h5>
+    <h6 class="card-subtitle">Graduate Research Assistant &amp; Lecturer</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:jwinget@luc.edu" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//osf.io/x3gve/" >
+          <i class="ai ai-osf"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//gitlab.com/jrwinget" >
+          <i class="fab fa-gitlab"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//scholar.google.com/citations?user=UbgwtEwAAAAJ" >
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//orcid.org/0000-0002-3783-4354" >
+          <i class="ai ai-orcid"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/_jwinget" >
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/2018-05-03_descriptive-statistics-in-r-part-iii/">Descriptive statistics in R, part III</a></li>
+          
+          <li><a href="/post/2018-04-23_descriptives-part-ii/">Descriptive statistics in R, part II</a></li>
+          
+          <li><a href="/post/2018-04-01_descriptives-part-i/">Descriptive statistics in R, part I</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jeremyrwinget" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2019 | Attribution 4.0 International license &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//jeremyrwinget.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    <script src="/js/academic.min.07fbebbbf71b021c8836e1d7ecffa489.js"></script>
+
+    
+
+  </body>
+</html>
+

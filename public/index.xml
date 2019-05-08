@@ -66,6 +66,130 @@
     </item>
     
     <item>
+      <title>How to create a Twitter bot using R</title>
+      <link>/post/2019-05-08_create-a-twitter-bot/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-08_create-a-twitter-bot/</guid>
+      <description>
+
+
+&lt;p&gt;Last week, I decided to kill an afternoon by creating a &lt;a href=&#34;https://twitter.com/rathrgeneratr&#34;&gt;Twitter bot&lt;/a&gt;. Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).&lt;/p&gt;
+&lt;p&gt;This project is surprisingly easy: If you’re familiar with R (e.g., able to write a function), you shouldn’t have any trouble creating something like this. If you’re still learning how to write functions, this project is great practice!&lt;/p&gt;
+&lt;div id=&#34;step-1-what-will-the-bot-tweet&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Step 1: What will the bot tweet?&lt;/h2&gt;
+&lt;p&gt;The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., &lt;a href=&#34;https://twitter.com/WhyDoesR&#34;&gt;WhyDoesR&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/TwoHeadlines&#34;&gt;TwoHeadlines&lt;/a&gt;), so I wanted to create something simple that could get a few laughs. So, I decided to make a random “Would You Rather” generator that pits outrageous or terrible situations against one another&lt;/p&gt;
+&lt;p&gt;To do this, I set up a little “database” containing a list of the situations in a .csv file (you can view that file on the &lt;a href=&#34;https://gitlab.com/jrwinget/rathr-generatr&#34;&gt;GitLab repo&lt;/a&gt; for the bot). I also wanted to add pictures to the posts, so I found 11 open source images online and stored them into a “img” directory. Once the database and image directory are created, they need to be loaded into R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(here)
+
+wyr &amp;lt;- read_csv(here(&amp;quot;wyr-db.csv&amp;quot;), ccol_names = FALSE)
+pictures &amp;lt;- list.files(here(&amp;quot;img&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, the bot needs to be able to randomly select two situations from the database and combine them into a sentence. A function would be perfect for this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(glue)
+
+would_you_rather &amp;lt;- function() {
+  choices &amp;lt;- sample_n(wyr, 2)
+  a &amp;lt;- slice(choices, 1)
+  b &amp;lt;- slice(choices, 2)
+  sentence &amp;lt;- glue(&amp;quot;Would you rather {a} or {b}?&amp;quot;)
+  return(sentence)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, the bot has a way of creating a sentence, but it still needs to actually generate one to tweet. It also needs to select a picture to tweet with the generated sentence. To create a sentence, we can use our new function and store the result in an object called “tweet”. To randomly select a picutre, we just need to sample 1 of the 11 and store the name of the file as an object called “img”.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tweet &amp;lt;- would_you_rather()
+img &amp;lt;- sample(pictures, 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2-connect-to-twitter&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Step 2: Connect to Twitter&lt;/h2&gt;
+&lt;p&gt;Because this bot will be tweeting from the R console, we have to register a new app with Twitter. Michael Kearney has a great &lt;a href=&#34;https://rtweet.info/articles/auth.html&#34;&gt;tutorial on this&lt;/a&gt; using his &lt;code&gt;rtweet&lt;/code&gt; package. Basically, load the &lt;code&gt;rtweet&lt;/code&gt; package and connect to Twitter’s API using credentials stored in the environment. Once the credentials are stored, use the &lt;code&gt;get_tokens&lt;/code&gt; function to fetch and load them.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rtweet)
+
+token &amp;lt;- get_tokens()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, the bot can tweet a randomized “Would You Rather” situation with the &lt;code&gt;post_tweet&lt;/code&gt; function. I decided to also include a hashtag in the tweet, which is really easy to do using the &lt;code&gt;glue&lt;/code&gt; package. To add the randomly selected picture to the tweet, just include the file path to that picture in the &lt;code&gt;media&lt;/code&gt; argument.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# tweet it
+post_tweet(status = glue(
+  &amp;quot;{tweet}
+  
+#wouldyourather&amp;quot;),
+  media = glue(&amp;quot;img/{img}&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I also wanted to collect all of the tweets the bot produces, so I made a log file to store them.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;line &amp;lt;- paste(as.character(Sys.time()), tweet, sep = &amp;quot; &amp;quot;)
+write(line, file = here(&amp;quot;wyr-tweets.log&amp;quot;), append = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3-automate-the-bot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Step 3: Automate the bot&lt;/h2&gt;
+&lt;p&gt;We now have a script that will randomly generate a “Would You Rather” situation along with a randomly chosen picture. However, it would be annoying to manually operate the bot every time we wanted it to tweet. Besides, doing so would undermine the entire point of making a “bot”. So let’s have the computer do this instead.&lt;/p&gt;
+&lt;p&gt;However, before the computer can understand the R script, we have to add a line of code to the top of the script (note ‘#!’ is important here):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#! /usr/bin/env Rscript&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is basically turns our script into something the computer can execute. This is good, but having the script loaded on a server would be even better because the script can run whether or not your personal computer is on. Luckily, I happened to already have a server running, so I was able to simply load everything on there and schedule a cron job. Cron jobs basically tell the computer to run a certain command at a certain time (more on cron jobs &lt;a href=&#34;https://help.ubuntu.com/community/CronHowto&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;If you’ve never scheduled a cron job before, it’s a relatively simple process (note: to use this method, you will need a Mac or Linux OS; for Windows OS, use Windows Task Scheduler). First, open the terminal and type:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;crontab -e&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This opens your personal crontab (i.e., the configuration file). In every line, you can define one command to run and its schedule. The structure of the format is:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;minute hour day-of-month month day-of-week command&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using an asterisk as a value represents “any”. For example, to run a command every Monday at 8am, the format would be:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;0 8 * * 1 /path/to/command&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For this project, the command will tell the computer to execute the bot script we wrote in R. I chose to combine all of the files for the bot (e.g., bot script, database, pictures, etc.) into an R project on the server, so the command I created changes the working directory to the project directory (the &lt;code&gt;cd&lt;/code&gt; command) and then runs the script (the &lt;code&gt;Rscript&lt;/code&gt; command). I also chose to run the bot twice a day:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# m h  dom mon dow    command
+0 8 * * * cd ~/2019-05-02_would-you-rather-bot; Rscript bot-script.R      # run at 8am CST
+15 17 * * * cd ~/2019-05-02_would-you-rather-bot; Rscript bot-script.R    # run at 5:15pm CST&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You certainly don’t &lt;em&gt;have&lt;/em&gt; to run the bot on a server; servers just make things easier and more consistent in this case. If you don’t have access to a server, the process will be basically the same for running the bot on a personal computer. You’ll just need to make sure the computer is on (and awake!) at the scheduled time(s) for it to automatically tweet. Or, you can &lt;a href=&#34;https://dunia-it.com/wake-your-linux-up-from-sleep-for-a-cron-job/&#34;&gt;wake your linux up from sleep for a cron job&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrapping-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Wrapping up&lt;/h2&gt;
+&lt;p&gt;And, that’s it! Here’s the completed script:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#!/usr/bin/env Rscript
+# would_you_rather_bot 0.1
+# author: jeremy r. winget
+library(tidyverse)
+library(rtweet)
+library(here)
+library(glue)
+
+# authenticate
+token &amp;lt;- get_tokens()
+
+# read in data
+wyr &amp;lt;- read_csv(here(&amp;quot;wyr-db.csv&amp;quot;), col_names = FALSE)
+pictures &amp;lt;- list.files(here(&amp;quot;img&amp;quot;))
+
+# function to generate sentence
+would_you_rather &amp;lt;- function() {
+  choices &amp;lt;- sample_n(wyr, 2)
+  a &amp;lt;- slice(choices, 1)
+  b &amp;lt;- slice(choices, 2)
+  sentence &amp;lt;- glue(&amp;quot;Would you rather {a} or {b}?&amp;quot;)
+  return(sentence)
+}
+
+# generate question and picture
+tweet &amp;lt;- would_you_rather()
+img &amp;lt;- sample(pictures, 1)
+
+# tweet it
+post_tweet(status = glue(
+  &amp;quot;{tweet}
+  
+#wouldyourather&amp;quot;),
+  media = glue(&amp;quot;img/{img}&amp;quot;))
+
+# create log entry
+line &amp;lt;- paste(as.character(Sys.time()), tweet, sep = &amp;quot; &amp;quot;)
+write(line, file = here(&amp;quot;wyr-tweets.log&amp;quot;), append = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you create your own Twitter bot with R (or if this tutorial inspired any other projects), please &lt;a href=&#34;https://twitter.com/_jwinget&#34;&gt;share it with me&lt;/a&gt;. I’d love to hear what you did!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;potential-future-features&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Potential future features&lt;/h2&gt;
+&lt;p&gt;Right now, this bot is pretty basic. I’ve had a few ideas for additional features/adjustments I may or may not end up incorporating:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;I’d like to add more content to the the database. I basically just googled “Would You Rather” questions and chose some of the more outrageous ones. But, there aren’t a lot of different situations (and some are pretty lame) listed in the database, which can sometimes lead to repeated situations being tweeted. If anyone has any situations they’d like to add, feel free to submit merge request!&lt;/li&gt;
+&lt;li&gt;If people like the bot and start engaging with it, I thought it’d be fun to retweet popular comments/answers. I’m not sure what that procedure would be yet, though.&lt;/li&gt;
+&lt;li&gt;It might be useful to create different categories of “Would You Rather” situations (e.g., outrageous situations, relationship situations, entertainment situations, etc.). If the situations aren’t chosen from the same category, it can lead to dumb questions (like &lt;a href=&#34;https://twitter.com/rathrgeneratr/status/1125162015293673473&#34;&gt;this one&lt;/a&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>EDA: Chicago red light camera violations</title>
       <link>/post/2019-04-29_chi-red-light/</link>
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
@@ -82,7 +206,7 @@
 &lt;p&gt;Data downloaded from the &lt;a href=&#34;https://data.cityofchicago.org/Transportation/Red-Light-Camera-Violations/spqx-js37&#34;&gt;Chicago Data Portal&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(modelr)
-(red_light_raw &amp;lt;- read_csv(&amp;quot;~/Downloads/2019-04-28_chi-red-light.csv&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+(red_light_raw &amp;lt;- read_csv(&amp;quot;~/Tresors/datasets/2019-04-28_chi-red-light.csv&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 462,769 x 15
 ##    INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS
 ##    &amp;lt;chr&amp;gt;              &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;                 &amp;lt;dbl&amp;gt;
@@ -1580,16 +1704,6 @@ tv_rating %&amp;gt;%
 &lt;li&gt;Under development&amp;hellip;coming Fall 2019!&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeaRning ResouRces</title>
-      <link>/resources/learn/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/resources/learn/</guid>
-      <description>&lt;p&gt;Click &lt;a href=&#34;https://gitlab.com/jrwinget/LeaRning-ResouRces&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; to view my LeaRning ResouRces repo, where I host some of the summaries/notes/snippets of R code I&amp;rsquo;ve found particularly useful. It also contains bookmarks of helpful blog posts and tutorials.&lt;/p&gt;
 </description>
     </item>
     

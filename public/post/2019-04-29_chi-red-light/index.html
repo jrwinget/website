@@ -30,7 +30,7 @@
   
   <meta name="description" content="Chicago red light camera violations In this post, I walk through a simple exploratory data analysis of red light camera violations in Chicago.
 Data import Data downloaded from the Chicago Data Portal.
-library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloads/2019-04-28_chi-red-light.csv&quot;)) ## # A tibble: 462,769 x 15 ## INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS ## &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; ## 1 111TH AND H… 2424 800 W … 04/14/2019 2 ## 2 111TH AND H… 2422 11100 … 04/14/2019 6 ## 3 119TH AND H… 2402 11900 … 04/14/2019 4 ## 4 119TH AND H… 2404 800 W … 04/14/2019 6 ## 5 31ST ST AND… 2121 3100 S… 04/14/2019 4 ## 6 31ST ST AND… 2123 400 E … 04/14/2019 2 ## 7 35TH AND WE… 2092 3500 S… 04/14/2019 2 ## 8 35TH AND WE… 2091 3500 S… 04/14/2019 2 ## 9 55TH AND KE… 2162 5500 S… 04/14/2019 2 ## 10 55TH AND WE… 2213 2400 W… 04/14/2019 2 ## # … with 462,759 more rows, and 10 more variables: `X COORDINATE` &lt;dbl&gt;, ## # `Y COORDINATE` &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, LONGITUDE &lt;dbl&gt;, LOCATION &lt;chr&gt;, ## # `Historical Wards 2003-2015` &lt;dbl&gt;, `Zip Codes` &lt;dbl&gt;, `Community ## # Areas` &lt;dbl&gt;, `Census Tracts` &lt;dbl&gt;, Wards &lt;dbl&gt; These data reflect the daily volume of violations created by the City of Chicago Red Light Program for each camera since July 1, 2014.">
+library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Tresors/datasets/2019-04-28_chi-red-light.csv&quot;)) ## # A tibble: 462,769 x 15 ## INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS ## &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; ## 1 111TH AND H… 2424 800 W … 04/14/2019 2 ## 2 111TH AND H… 2422 11100 … 04/14/2019 6 ## 3 119TH AND H… 2402 11900 … 04/14/2019 4 ## 4 119TH AND H… 2404 800 W … 04/14/2019 6 ## 5 31ST ST AND… 2121 3100 S… 04/14/2019 4 ## 6 31ST ST AND… 2123 400 E … 04/14/2019 2 ## 7 35TH AND WE… 2092 3500 S… 04/14/2019 2 ## 8 35TH AND WE… 2091 3500 S… 04/14/2019 2 ## 9 55TH AND KE… 2162 5500 S… 04/14/2019 2 ## 10 55TH AND WE… 2213 2400 W… 04/14/2019 2 ## # … with 462,759 more rows, and 10 more variables: `X COORDINATE` &lt;dbl&gt;, ## # `Y COORDINATE` &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, LONGITUDE &lt;dbl&gt;, LOCATION &lt;chr&gt;, ## # `Historical Wards 2003-2015` &lt;dbl&gt;, `Zip Codes` &lt;dbl&gt;, `Community ## # Areas` &lt;dbl&gt;, `Census Tracts` &lt;dbl&gt;, Wards &lt;dbl&gt; These data reflect the daily volume of violations created by the City of Chicago Red Light Program for each camera since July 1, 2014.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2019-04-29_chi-red-light/">
@@ -140,12 +140,12 @@ library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloa
   <meta property="og:title" content="EDA: Chicago red light camera violations | Margins of Error">
   <meta property="og:description" content="Chicago red light camera violations In this post, I walk through a simple exploratory data analysis of red light camera violations in Chicago.
 Data import Data downloaded from the Chicago Data Portal.
-library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloads/2019-04-28_chi-red-light.csv&quot;)) ## # A tibble: 462,769 x 15 ## INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS ## &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; ## 1 111TH AND H… 2424 800 W … 04/14/2019 2 ## 2 111TH AND H… 2422 11100 … 04/14/2019 6 ## 3 119TH AND H… 2402 11900 … 04/14/2019 4 ## 4 119TH AND H… 2404 800 W … 04/14/2019 6 ## 5 31ST ST AND… 2121 3100 S… 04/14/2019 4 ## 6 31ST ST AND… 2123 400 E … 04/14/2019 2 ## 7 35TH AND WE… 2092 3500 S… 04/14/2019 2 ## 8 35TH AND WE… 2091 3500 S… 04/14/2019 2 ## 9 55TH AND KE… 2162 5500 S… 04/14/2019 2 ## 10 55TH AND WE… 2213 2400 W… 04/14/2019 2 ## # … with 462,759 more rows, and 10 more variables: `X COORDINATE` &lt;dbl&gt;, ## # `Y COORDINATE` &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, LONGITUDE &lt;dbl&gt;, LOCATION &lt;chr&gt;, ## # `Historical Wards 2003-2015` &lt;dbl&gt;, `Zip Codes` &lt;dbl&gt;, `Community ## # Areas` &lt;dbl&gt;, `Census Tracts` &lt;dbl&gt;, Wards &lt;dbl&gt; These data reflect the daily volume of violations created by the City of Chicago Red Light Program for each camera since July 1, 2014."><meta property="og:image" content="/img/icon-192.png">
+library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Tresors/datasets/2019-04-28_chi-red-light.csv&quot;)) ## # A tibble: 462,769 x 15 ## INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS ## &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; ## 1 111TH AND H… 2424 800 W … 04/14/2019 2 ## 2 111TH AND H… 2422 11100 … 04/14/2019 6 ## 3 119TH AND H… 2402 11900 … 04/14/2019 4 ## 4 119TH AND H… 2404 800 W … 04/14/2019 6 ## 5 31ST ST AND… 2121 3100 S… 04/14/2019 4 ## 6 31ST ST AND… 2123 400 E … 04/14/2019 2 ## 7 35TH AND WE… 2092 3500 S… 04/14/2019 2 ## 8 35TH AND WE… 2091 3500 S… 04/14/2019 2 ## 9 55TH AND KE… 2162 5500 S… 04/14/2019 2 ## 10 55TH AND WE… 2213 2400 W… 04/14/2019 2 ## # … with 462,759 more rows, and 10 more variables: `X COORDINATE` &lt;dbl&gt;, ## # `Y COORDINATE` &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, LONGITUDE &lt;dbl&gt;, LOCATION &lt;chr&gt;, ## # `Historical Wards 2003-2015` &lt;dbl&gt;, `Zip Codes` &lt;dbl&gt;, `Community ## # Areas` &lt;dbl&gt;, `Census Tracts` &lt;dbl&gt;, Wards &lt;dbl&gt; These data reflect the daily volume of violations created by the City of Chicago Red Light Program for each camera since July 1, 2014."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-04-29T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-04-29T10:29:35-05:00">
+  <meta property="article:modified_time" content="2019-04-29T10:36:39-05:00">
   
 
   
@@ -436,7 +436,7 @@ library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloa
 
 
 <meta content="2019-04-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-04-29 10:29:35 -0500 CDT" itemprop="dateModified">
+<meta content="2019-04-29 10:36:39 -0500 CDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -551,7 +551,7 @@ library(tidyverse) library(modelr) (red_light_raw &lt;- read_csv(&quot;~/Downloa
 <p>Data downloaded from the <a href="https://data.cityofchicago.org/Transportation/Red-Light-Camera-Violations/spqx-js37">Chicago Data Portal</a>.</p>
 <pre class="r"><code>library(tidyverse)
 library(modelr)
-(red_light_raw &lt;- read_csv(&quot;~/Downloads/2019-04-28_chi-red-light.csv&quot;))</code></pre>
+(red_light_raw &lt;- read_csv(&quot;~/Tresors/datasets/2019-04-28_chi-red-light.csv&quot;))</code></pre>
 <pre><code>## # A tibble: 462,769 x 15
 ##    INTERSECTION `CAMERA ID` ADDRESS `VIOLATION DATE` VIOLATIONS
 ##    &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;                 &lt;dbl&gt;

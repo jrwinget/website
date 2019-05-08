@@ -20,7 +20,7 @@ Data downloaded from the [Chicago Data Portal](https://data.cityofchicago.org/Tr
 ```{r message=FALSE}
 library(tidyverse)
 library(modelr)
-(red_light_raw <- read_csv("~/Downloads/2019-04-28_chi-red-light.csv"))
+(red_light_raw <- read_csv("~/Tresors/datasets/2019-04-28_chi-red-light.csv"))
 ```
 
 These data reflect the daily volume of violations created by the City of Chicago Red Light Program for each camera since July 1, 2014.
