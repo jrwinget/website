@@ -1,6 +1,6 @@
 +++
 title = "Deceptive communication in group contexts"
-date = "2019-01-01"
+date = "2019-05-06"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["J.R. Winget", "R.S. Tindale"]
@@ -17,7 +17,7 @@ authors = ["J.R. Winget", "R.S. Tindale"]
 publication_types = ["6"]
 
 # Publication name and optional abbreviated version.
-publication = "In *Palgrave Handbook of Deceptive Communication*"
+publication = "In *The Palgrave Handbook of Deceptive Communication*"
 publication_short = ""
 
 # Abstract and optional shortened version.

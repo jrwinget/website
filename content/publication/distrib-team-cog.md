@@ -1,6 +1,6 @@
 +++
 title = "Distributed cognition in teams is influenced by type of task and nature of member interactions"
-date = "2019-01-02"
+date = "2019-07-08"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["R.S. Tindale", "J.R. Winget", "V.B. Hinsz"]
@@ -17,7 +17,7 @@ authors = ["R.S. Tindale", "J.R. Winget", "V.B. Hinsz"]
 publication_types = ["6"]
 
 # Publication name and optional abbreviated version.
-publication = "In *Handbook of Distributed Team Cognition*. Submitted for review"
+publication = "In *Handbook of Distributed Team Cognition*. Manuscript accepted"
 publication_short = ""
 
 # Abstract and optional shortened version.
