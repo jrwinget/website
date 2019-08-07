@@ -21,7 +21,7 @@ publication = "*Group Processes and Interpersonal Relationships*"
 publication_short = ""
 
 # Abstract and optional shortened version.
-abstract = "Today's modern world affords many benefits, one of which is the ability to have near-instantaneous interactions with groups and cultures other than our own. Though advantageous in many situations, one challenge for these groups is navigating what they perceive to be right and wrong in a cooperative manner despite having different modes of morality. Moral foundations theory holds groups use the same moral foundations to guide their judgments and decision making, but there has been little research on how the perception of these foundations differ within and between groups. Thus, the current study examined how moral foundations operate from a group perspective and potential outgroup moderators of moral foundations. Participants rated the extent to which various groups used moral foundations in one of two conditions. Each condition contained an ingroup and three outgroups that conformed to the quadrants of the stereotype content model. Results showed significant differences in the harm, fairness, and loyalty foundations between ingroups and outgroups. Moreover, the type of outgroup significantly influenced moral foundations scores. These findings demonstrate the importance of considering moral foundations at the group level."
+abstract = "Today’s modern world affords many benefits, one of which is the ability to have near-instantaneous interactions with groups and cultures other than our own. Though advantageous in many situations, one challenge for these groups is navigating what they perceive to be right and wrong in a cooperative manner despite having different modes of morality. Moral foundations theory holds groups use the same moral foundations to guide their judgments and decision making, but there has been little researchon how the perception of these foundations differs within and between groups. Thus, the current study examined how moral foundations operate from a group perspective and potential outgroup moderators of moral foundations. Participants rated the extent to which various groups used moral foundations in one of two conditions. Each condition contained an ingroup and three outgroups that conformed to the quadrants of the stereotype content model. Results showed significant differences in the harm, fairness, and loyalty foundations between ingroups and outgroups. Moreover, the type of outgroup significantly influenced moral foundations scores. These findings demonstrate the importance of considering moral foundations at the group level.s"
 abstract_short = ""
 
 # Featured image thumbnail (optional)
@@ -35,7 +35,7 @@ featured = true
 projects = ""
 
 # Links (optional).
-url_pdf = ""
+url_pdf = "https://web.tresorit.com/l#917sZSUlfKWGL46ylpY3Jg"
 url_preprint = ""
 url_code = ""
 url_dataset = ""
@@ -43,7 +43,7 @@ url_project = "https://osf.io/84t9p/"
 url_slides = ""
 url_video = ""
 url_poster = ""
-url_source = ""
+url_source = "https://doi.org/10.1177/1368430219866502"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
