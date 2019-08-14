@@ -17,7 +17,7 @@ authors = ["J.R. Winget", "R.S. Tindale"]
 publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
-publication = "*Group Processes and Interpersonal Relationships*"
+publication = "*Group Processes & Interpersonal Relationships*"
 publication_short = ""
 
 # Abstract and optional shortened version.
@@ -35,7 +35,7 @@ featured = true
 projects = ""
 
 # Links (optional).
-url_pdf = "https://web.tresorit.com/l#917sZSUlfKWGL46ylpY3Jg"
+url_pdf = "https://web.tresorit.com/l#5TIjwf2inldvdZM1KPvXyA"
 url_preprint = ""
 url_code = ""
 url_dataset = ""
