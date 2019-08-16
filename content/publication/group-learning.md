@@ -35,15 +35,15 @@ featured = false
 projects = ""
 
 # Links (optional).
-url_pdf = "https://web.tresorit.com/l#wjyHDUqr6AhzGDtkMgUCbA"
-url_preprint = ""
+url_pdf = ""
+url_preprint = "https://psyarxiv.com/8ufgh"
 url_code = ""
 url_dataset = ""
 url_project = ""
 url_slides = ""
 url_video = ""
 url_poster = ""
-url_source = "http://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780190263362.001.0001/oxfordhb-9780190263362-e-42"
+url_source = "https://doi.org/10.1093/oxfordhb/9780190263362.013.42"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.

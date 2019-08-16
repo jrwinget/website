@@ -35,15 +35,15 @@ featured = true
 projects = ""
 
 # Links (optional).
-url_pdf = "https://web.tresorit.com/l#xSbOLY3qEPKxXjuE-F99Iw"
-url_preprint = ""
+url_pdf = ""
+url_preprint = "https://psyarxiv.com/kq2ft"
 url_code = ""
 url_dataset = ""
 url_project = ""
 url_slides = ""
 url_video = ""
 url_poster = ""
-url_source = "https://oxfordre.com/psychology/view/10.1093/acrefore/9780190236557.001.0001/acrefore-9780190236557-e-262"
+url_source = "https://doi.org/10.1093/acrefore/9780190236557.013.262"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
