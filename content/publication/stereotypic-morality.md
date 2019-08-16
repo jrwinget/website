@@ -35,14 +35,14 @@ featured = true
 projects = ""
 
 # Links (optional).
-url_pdf = "https://web.tresorit.com/l#5TIjwf2inldvdZM1KPvXyA"
-url_preprint = ""
+url_pdf = ""
+url_preprint = "https://psyarxiv.com/9u835/"
 url_code = ""
 url_dataset = ""
 url_project = "https://osf.io/84t9p/"
 url_slides = ""
 url_video = ""
-url_poster = ""
+url_poster = "https://osf.io/uakct/"
 url_source = "https://doi.org/10.1177/1368430219866502"
 
 # Custom links (optional).
