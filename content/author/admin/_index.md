@@ -61,10 +61,10 @@ interests = [
 #
 #   Full list: https://jpswalsh.github.io/academicons/
 
-[[social]]
-  icon = "envelope"
-  icon_pack = "fas"
-  link = "mailto:jwinget@luc.edu"
+# [[social]]
+#   icon = "envelope"
+#   icon_pack = "fas"
+#   link = "mailto:jwinget@luc.edu"
     
 [[social]]
   icon = "osf"
