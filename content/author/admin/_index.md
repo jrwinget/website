@@ -76,10 +76,10 @@ interests = [
   icon_pack = "fab"
   link = "//gitlab.com/jrwinget"
 
-# [[social]]
-#   icon = "impactstory"
-#   icon_pack = "ai"
-#   link = "//profiles.impactstory.org/wizard/add-publications"
+[[social]]
+  icon = "impactstory"
+  icon_pack = "ai"
+  link = "//profiles.impactstory.org/u/0000-0002-3783-4354"
   
 [[social]]
   icon = "google-scholar"
