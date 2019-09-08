@@ -61,3 +61,14 @@ image = ""
 caption = ""
 
 +++
+
+<table border="0">
+ <tr>
+  <td><b style="font size=30px">Source document:</b></td>
+  <td><b style="font size=30px">Preprint:</b></td>
+ </tr>
+ <tr> 
+  <td><script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script><div class='altmetric-embed' data-badge-type='medium-donut' data-badge-details='right' data-doi='10.1007/978-3-319-96334-1_32' data-hide-no-mentions="true" data-hide-less-than="0"></div></td>
+  <td><script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script><div class='altmetric-embed' data-badge-type='medium-donut' data-badge-details='right' data-doi='10.31234/osf.io/kaqgt' data-hide-no-mentions="true" data-hide-less-than="0"></div></td>
+ </tr>
+</table>

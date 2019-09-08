@@ -80,7 +80,16 @@
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/publication/stereotypic-morality/</guid>
-      <description>&lt;p&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.1177/1368430219866502&#39;&gt;&lt;/div&gt;&lt;/p&gt;
+      <description>&lt;table border=&#34;0&#34;&gt;
+ &lt;tr&gt;
+  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Source document:&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Preprint:&lt;/b&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt; 
+  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.1177/1368430219866502&#39;&gt;&lt;/div&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.31234/osf.io/9u835&#39; data-hide-no-mentions=&#34;true&#34; data-hide-less-than=&#34;0&#34;&gt;&lt;/div&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+&lt;/table&gt;
 </description>
     </item>
     
@@ -214,7 +223,17 @@ write(line, file = here(&amp;quot;wyr-tweets.log&amp;quot;), append = TRUE)&lt;/
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/publication/group-deception/</guid>
-      <description></description>
+      <description>&lt;table border=&#34;0&#34;&gt;
+ &lt;tr&gt;
+  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Source document:&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Preprint:&lt;/b&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt; 
+  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.1007/978-3-319-96334-1_32&#39; data-hide-no-mentions=&#34;true&#34; data-hide-less-than=&#34;0&#34;&gt;&lt;/div&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.31234/osf.io/kaqgt&#39; data-hide-no-mentions=&#34;true&#34; data-hide-less-than=&#34;0&#34;&gt;&lt;/div&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+&lt;/table&gt;
+</description>
     </item>
     
     <item>
@@ -1685,7 +1704,17 @@ tv_rating %&amp;gt;%
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/publication/group-decision-making/</guid>
-      <description></description>
+      <description>&lt;table border=&#34;0&#34;&gt;
+ &lt;tr&gt;
+  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Source document:&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Preprint:&lt;/b&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt; 
+  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.1093/acrefore/9780190236557.013.262&#39; data-hide-no-mentions=&#34;true&#34; data-hide-less-than=&#34;0&#34;&gt;&lt;/div&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.31234/osf.io/kq2ft&#39; data-hide-no-mentions=&#34;true&#34; data-hide-less-than=&#34;0&#34;&gt;&lt;/div&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+&lt;/table&gt;
+</description>
     </item>
     
     <item>
