@@ -17,9 +17,9 @@ type = "docs"  # Do not modify.
 I am currently a teaching instructor at [Loyola University Chicago](https://www.luc.edu/), where I teach the following courses:
 
 
-* PSYC272: Judgment and Decision Making
-* PSYC304: Statistics
-* PSYC306: Research Methods
+* PSYC/PHIL 272: Judgment and Decision Making
+* PSYC 304: Statistics
+* PSYC 306: Research Methods
 
 I also have training in teaching online courses, and have interests in teaching the following:
 
