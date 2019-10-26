@@ -24,14 +24,14 @@ interests = [
   "Information Processing",
   "Social Influence",
   "Morality/Ethics",
-  "Data Science (with R)"
+  "Data Science"
 ]
 
 # List qualifications (such as academic degrees)
 [[education.courses]]
   course = "PhD in Social Psychology"
   institution = "Loyola University Chicago"
-  year = 2020
+  year = 2021
 
 [[education.courses]]
   course = "MA in Social Psychology"
@@ -105,4 +105,4 @@ interests = [
 
 +++
 
-I am a PhD student, research scientist, and occasional consultant. Trained as a social psychologist, my research interests include information processing, social influence, and morality within both individual and group decision making. For example, some of my research examines how group norms influence cognitive processing styles (e.g., open-mindedness) and how this may influence ethical decision making and cooperation. In another line of research, I am investigating how shared representations of a task can influence group decisions, performance, and intragroup processes. I am also passionate about data science and its role in developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun.
+I am a PhD candidate, research scientist, and occasional consultant. Trained as a social psychologist, my research interests include information processing, social influence, and morality within both individual and group decision making. For example, some of my research examines how group norms influence cognitive processing styles (e.g., open-mindedness) and how this may influence ethical decision making and cooperation. In another line of research, I am investigating how shared representations of a task can influence group decisions, performance, and intragroup processes. I am also passionate about data science and its role in developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun.

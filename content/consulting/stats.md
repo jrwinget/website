@@ -21,9 +21,10 @@ I provide a wide variety of statistical and modeling services, ranging from simp
 
 * Agent-based modeling
 * Structural equation modeling
+* Text mining
 * Meta-analysis
 * Power analysis
-* Bayesian Methods
+* Bayesian methods
 * Generalized models
 * Fundamentals of multivariate modeling
 * Fundamentals of research design and data analysis
