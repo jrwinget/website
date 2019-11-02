@@ -6,36 +6,54 @@
     <description>Recent content in Talks on Margins of Error</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
+    <copyright>&amp;copy; 2018-2019 [![CC-BY](https://licensebuttons.net/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)</copyright>
     <lastBuildDate>Sat, 19 Jan 2019 00:00:00 -0600</lastBuildDate>
     
 	<atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Open-minded group cognition</title>
-      <link>/talk/group-omc/</link>
+      <title>A computational model of information integration in knowledge-diverse teams</title>
+      <link>/talk/sars_knowledge-diverse-teams/</link>
       <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
       
-      <guid>/talk/group-omc/</guid>
+      <guid>/talk/sars_knowledge-diverse-teams/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning R</title>
+      <link>/talk/sars_learning-r/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
+      
+      <guid>/talk/sars_learning-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open-minded group cognition</title>
+      <link>/talk/mpa_group-omc/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
+      
+      <guid>/talk/mpa_group-omc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Do groups make less ethical decisions than individuals?</title>
-      <link>/talk/unethical-group-talk/</link>
+      <link>/talk/gpir_unethical-group/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
       
-      <guid>/talk/unethical-group-talk/</guid>
+      <guid>/talk/gpir_unethical-group/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Group recall as a function of information redundancy and transactive memory</title>
-      <link>/talk/group-recall/</link>
+      <link>/talk/ingroup_group-recall/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
       
-      <guid>/talk/group-recall/</guid>
+      <guid>/talk/ingroup_group-recall/</guid>
       <description></description>
     </item>
     

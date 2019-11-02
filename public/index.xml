@@ -6,7 +6,7 @@
     <description>Recent content in Margins of Error on Margins of Error</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019 | Attribution 4.0 International license</copyright>
+    <copyright>&amp;copy; 2018-2019 [![CC-BY](https://licensebuttons.net/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)</copyright>
     <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0500</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
@@ -465,11 +465,29 @@ ggplot(partioned, aes(date, resid)) +
     </item>
     
     <item>
-      <title>Open-minded group cognition</title>
-      <link>/talk/group-omc/</link>
+      <title>A computational model of information integration in knowledge-diverse teams</title>
+      <link>/talk/sars_knowledge-diverse-teams/</link>
       <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
       
-      <guid>/talk/group-omc/</guid>
+      <guid>/talk/sars_knowledge-diverse-teams/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning R</title>
+      <link>/talk/sars_learning-r/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
+      
+      <guid>/talk/sars_learning-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open-minded group cognition</title>
+      <link>/talk/mpa_group-omc/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 -0600</pubDate>
+      
+      <guid>/talk/mpa_group-omc/</guid>
       <description></description>
     </item>
     
@@ -1695,45 +1713,6 @@ tv_rating %&amp;gt;%
 &lt;p&gt;&lt;img src=&#34;/post/2019-01-08_first-tidytuesday-submission_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Okay, now we have some interesting patterns to interpret. Overall, it looks like even the most popular shows experienced a decline in enthusiasm the longer they aired. However, there are notable exceptions to this trend: Criminal Minds and Murdoch Mysteries have really taken off in the last few years, both receiving the highest ratings out of any of the tiles in this sample. American Horror Story appears to be making a comeback as well recently. Noticeably, these exceptions all fit the suspenseful-like dramas noted earlier. It seems, then, the most successful TV dramas are ones with intense or striking elements (e.g., crime, murder, horror, etc.). I wonder if this says anything about the culture of the viewers…lookin’ at you America 🤔&lt;/p&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Group decision-making</title>
-      <link>/publication/group-decision-making/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/group-decision-making/</guid>
-      <description>&lt;table border=&#34;0&#34;&gt;
- &lt;tr&gt;
-  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Source document:&lt;/b&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b style=&#34;font size=30px&#34;&gt;Preprint:&lt;/b&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt; 
-  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.1093/acrefore/9780190236557.013.262&#39; data-hide-no-mentions=&#34;true&#34; data-hide-less-than=&#34;0&#34;&gt;&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;div class=&#39;altmetric-embed&#39; data-badge-type=&#39;medium-donut&#39; data-badge-details=&#39;right&#39; data-doi=&#39;10.31234/osf.io/kq2ft&#39; data-hide-no-mentions=&#34;true&#34; data-hide-less-than=&#34;0&#34;&gt;&lt;/div&gt;&lt;/td&gt;
- &lt;/tr&gt;
-&lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Judgment &amp; Decision Making</title>
-      <link>/teaching/jdm/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/teaching/jdm/</guid>
-      <description>
-
-&lt;h2 id=&#34;loyola-university-chicago&#34;&gt;Loyola University Chicago&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;PSYC272: Judgment &amp;amp; Decision Making
-
-&lt;ul&gt;
-&lt;li&gt;Under development&amp;hellip;coming Fall 2019!&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
