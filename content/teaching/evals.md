@@ -10,7 +10,7 @@ type = "docs"  # Do not modify.
 
 # Add menu entry to sidebar.
 [menu.teaching]
-  name = "Evaluations"
+  name = "Awards & Evaluations"
   weight = 6
 +++
 

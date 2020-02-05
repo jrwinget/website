@@ -17,5 +17,5 @@ linktitle = "Judgment & Decision Making"
 
 ## Loyola University Chicago
 
-* PSYC272: Judgment & Decision Making
-    * Under development...coming Fall 2019!
+* PSYC272: Judgment & Decision Making, *Fall 2019*
+    * [Course information](https://osf.io/dse74/)

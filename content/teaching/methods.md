@@ -18,4 +18,4 @@ linktitle = "Research Methods"
 ## Loyola University Chicago
 
 * PSYC306: Research Methods, *Fall 2017, Fall 2018, Summer 2019*
-    * [Syllabus](https://web.tresorit.com/l#GTvq5tmrL6QtV3JJFMLIpw)
+    * [Course information](https://osf.io/6v2ad/)

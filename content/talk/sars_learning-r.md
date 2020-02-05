@@ -20,9 +20,9 @@ selected = false
 
 # Links (optional).
 url_pdf = ""
-url_slides = ""
+url_slides = "https://gitlab.com/jrwinget/learning-r/-/blob/master/01_slides/learning-r.pdf"
 url_video = ""
-url_code = ""
+url_code = "https://gitlab.com/jrwinget/learning-r"
 
 # Does the content use math formatting?
 math = true

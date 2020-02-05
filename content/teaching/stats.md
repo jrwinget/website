@@ -17,5 +17,5 @@ linktitle = "Statistics"
 
 ## Loyola University Chicago
 
-* PSYC304: Statistics, *Summer 2017, Summer 2018*
-    * [Syllabus](https://web.tresorit.com/l#ihE5PB-tNu9BZ-ZPwpp3FQ)
+* PSYC304: Statistics, *Summer 2017, Summer 2018, Spring 2020*
+    * [Course information](https://osf.io/dc5mp/)
