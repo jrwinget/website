@@ -42,7 +42,7 @@
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 [[main]]
    name = "CV"
-   url = "https://drive.google.com/file/d/17nnTemtvy9IA_FRJ1D1HYHovpeDDIsvy/preview"
+   url = "https://drive.google.com/file/d/1NkM36Rj94Wbl69wkZaWzjV9Y8QIXJX49/preview"
    weight = 8
 
 [[main]]
