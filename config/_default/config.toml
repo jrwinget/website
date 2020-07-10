@@ -13,7 +13,7 @@ baseurl = "https://jrwinget.com/"
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`.
-copyright = "&copy; 2018-2020 [![CC-BY](https://licensebuttons.net/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)"
+copyright = "&copy; 2018-2020"
 
 # Enable analytics by entering your Google Analytics tracking ID
 googleAnalytics = "UA-133161697-1"
