@@ -1,7 +1,6 @@
-+++
-title = "Blog Posts"  
-date = 2017-01-01T00:00:00
-lastmod = 2018-09-09T00:00:00
-widgets = true
-summary = ""
-+++
+---
+title: "Blog Posts"  
+date: "2017-01-01T00:00:00"
+type: widget_page
+summary: ""
+---
