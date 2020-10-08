@@ -1,6 +1,6 @@
 +++
 title = "Stereotypic morality: The effects of group membership on moral foundations"
-date = "2019-07-01"
+date = "2020-08-01"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["J.R. Winget", "R.S. Tindale"]
@@ -17,7 +17,7 @@ authors = ["J.R. Winget", "R.S. Tindale"]
 publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
-publication = "*Group Processes & Interpersonal Relationships*"
+publication = "*Group Processes & Interpersonal Relationships, 23*(5), 710-715"
 publication_short = ""
 
 # Abstract and optional shortened version.

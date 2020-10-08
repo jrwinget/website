@@ -1,6 +1,6 @@
 +++
 title = "Deceptive communication in group contexts"
-date = "2019-05-06"
+date = "2019-04-30"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["J.R. Winget", "R.S. Tindale"]

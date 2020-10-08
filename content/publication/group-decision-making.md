@@ -1,6 +1,6 @@
 +++
 title = "Group decision-making"
-date = "2019-01-01"
+date = "2019-03-26"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["R.S. Tindale", "J.R. Winget"]

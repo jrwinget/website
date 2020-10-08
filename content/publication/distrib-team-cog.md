@@ -1,6 +1,6 @@
 +++
 title = "Distributed cognition in teams is influenced by type of task and nature of member interactions"
-date = "2019-07-08"
+date = "2020-08-01"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["R.S. Tindale", "J.R. Winget", "V.B. Hinsz"]
