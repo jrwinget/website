@@ -1,5 +1,5 @@
 +++
-title = "Research Methods"
+title = "Understanding Prejudice"
 
 date = 2018-09-09T00:00:00
 lastmod = 2018-09-09T00:00:00
@@ -9,14 +9,14 @@ toc = true  # Show table of contents? true/false
 type = "docs"  # Do not modify.
 
 # Add menu entry to sidebar.
-linktitle = "Research Methods"
+linktitle = "Understanding Prejudice"
 [menu.teaching]
   parent = "Courses"
-  weight = 5
+  weight = 6
 +++
 
 ## Loyola University Chicago
 
-* PSYC 306: Research Methods
-    * *Fall 2017, Fall 2018, Summer 2019, Summer 2020*
-    * [Course information](https://osf.io/6v2ad/)
+* PSYC 360: Understanding Prejudice
+    * *Fall 2020*
+    * [Course information](https://osf.io/8efkx/)

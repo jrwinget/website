@@ -12,10 +12,11 @@ type = "docs"  # Do not modify.
 linktitle = "Judgment & Decision Making"
 [menu.teaching]
   parent = "Courses"
-  weight = 5
+  weight = 3
 +++
 
 ## Loyola University Chicago
 
-* PSYC272: Judgment & Decision Making, *Fall 2019*
+* PSYC/PHIL 272: Judgment & Decision Making
+    * *Fall 2019, Fall 2020*
     * [Course information](https://osf.io/dse74/)

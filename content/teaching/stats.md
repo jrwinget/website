@@ -12,10 +12,11 @@ type = "docs"  # Do not modify.
 linktitle = "Statistics"
 [menu.teaching]
   parent = "Courses"
-  weight = 3
+  weight = 4
 +++
 
 ## Loyola University Chicago
 
-* PSYC304: Statistics, *Summer 2017, Summer 2018, Spring 2020*
+* PSYC 304: Statistics
+    * *Summer 2017, Summer 2018, Spring 2020*
     * [Course information](https://osf.io/dc5mp/)

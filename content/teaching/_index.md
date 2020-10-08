@@ -20,7 +20,8 @@ I am currently a teaching instructor at [Loyola University Chicago](https://www.
 * PSYC/PHIL 272: Judgment and Decision Making
 * PSYC 304: Statistics
 * PSYC 306: Research Methods
+* PSYC 360: Understanding Prejudice
 
-I also have training in teaching online courses, and have interests in teaching the following:
+I also have training in teaching online courses and have interests in teaching the following:
 
 Social psychology, Attitudes, Group dynamics, Psychology and law, Industrial/Organizational psychology, Cognitive psychology
