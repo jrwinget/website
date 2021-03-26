@@ -1,6 +1,6 @@
 ---
-title: Group Dynamics
-summary: How does being a member of a group alter people’s judgment and decision making?
+title: Open-minded cognition
+summary: How might information sharing within groups contribute to polarization? How can we make groups and individuals more open to opposing views?
 abstract: ""
 date: "2016-04-27T00:00:00Z"
 image:
@@ -8,38 +8,26 @@ image:
   focal_point: 
 
 categories:
-- group-dynamics
+- information-processing
+- decision-making
 ---
 
+Research suggests that political polarization is increasing in the United States (e.g., Druckman, Peterson, & Slothus, 2013). In the United States, political polarization is often reflected in increased conflict and political divide between traditionalist conservatives and more progressive liberals. However, there is evidence group polarization is growing as well (e.g., Del Vicario, et al., 2016). Group polarization is the tendency for groups to make more extreme recommendations after discussion compared to the average group member’s recommendation before discussion (Moscovici & Zavalloni, 1969). These forms of polarization are presumably exacerbated by closed-minded cognitive styles and a failure to consider other perspectives or information. Increased understanding of open-minded cognition at the individual- and group-level may foster the development of social interventions designed to decrease polarization, conflict, and unethical decision-making; as well as increase empathy, tolerance, acceptance, and pro-social behavior.
+
+At the individual level, I have examined these ideas primarily through the lens of the flexible merit standard model (Ottati, Wilson, Price, 2015). The flexible merit standard model presumes when individuals think about an issue, they initially activate and select an appropriate “merit standard”. That is, individuals consider the degree to which a closed- versus open-minded orientation is normatively appropriate or merited. Once this injunctive norm is activated, it determines the degree to which the individual adopts a closed- or open-minded cognitive orientation. A corollary of the situational merit standard hypothesis is that some situations will activate less open-mindedness than others. A likely candidate for such situations is those involving group interactions. Winget, Ottati, and Tindale (2019) tested the effects of ingroup on the situationally activated merit standard. We found that when threatening information was presented by an ingroup member compared to an outgroup member, participants were more open-minded. We found further evidence of the  situational merit standard hypothesis by directly manipulating the social norm within the group: When open-minded norms are present within a group, participants were more open-minded compared to being in a group with a close-minded norm.
+
+My dissertation extends the work on open-minded cognition at the individual level to the group level. Since this moves the cognitive style to the group domain, open-minded group cognition not only involves the unbiased cognitive processing in the minds of the group members, it also involves the unbiased cognitive processing (i.e., exchange of information) within the group (c.f., Hinsz et al., 1997). In other words, open-minded group cognition includes unbiased sharing of information within the group, open-minded cognitive styles among the group members, and this unbiased sharing of information and cognitive processes are continuing to be exchanged and transferred within the group. I tested this within the motivated information processing within groups model (De Dreu, Nijstad, & Knippenberg, 2008). Three-person groups worked on a logic puzzle and with either high or low epistemic motivation and prosocial or proself motivation. I also manipulated whether the task they worked on had a demonstrably correct solution or one where they had to make a judgment call. Data collection is still ongoing, but I predict prosocial high epistemic groups to have the highest levels of open-minded group cognition, which in turn should lead them to exchange information in the least biased fashion and to have the highest performance rates. Conversely, proself low epistemic groups should have the lowest levels of open-minded group cognition, which in turn should lead them to exchange information in the most biased fashion and to have the lowest performance rates. I also plan to conduct exploratory analyses of the group discussions using quantitative text analyses (e.g., sentiment analysis, word correlations, etc.) for any potential patterns in discussion remarks across these conditions.
+
 ***
+
 ## Current Projects:
 
-[Judgement & decision-making](#judg-dec)
-
-[Information sharing](#info-sharing)
++ [](#)
 
 ***
-### Judgment & decision-making {#judg-dec}
 
-Group decisions are ubiquitous in everyday life. Even when decisions are made individually, decision-makers often receive advice or suggestions from others. Thus, decisions are often social in nature and involve multiple group members. The ways group members combine their preferences to make a group decision generally falls along two dimensions: how much interaction or information exchange is allowed among the group members and how the final decision is made. On one end, group decisions can be made simply by aggregating member preferences or judgments without any interaction among members and where members have no control or say in the final judgment. One the other end, groups decisions can involve extensive member interaction and information exchanges and the final decision is reached by group consensus. In between these two endpoints, various other strategies are also possible, including prediction markets, Delphi groups, and judge-advisor systems.
+## Representative Publications:
 
-There is also a fair amount of research on unethical behavior in and by groups (see Mannix, Neal, & Tenbrunsel, 2006, for a review). Even in situations where individuals behave cooperatively and abide by prior agreements, groups often defect from such agreements in order to protect or enhance the group (Wildschut, Pinter, Vevea, Insko, & Schopler, 2003; Morgan & Tindale, 2002). Thus, groups are quite likely to use the group’s welfare to guide their “moral compass” and behave in ways consistent with their self interest even when it violates typical norms of ethics (Cohen, Gunia, Kim-Jun, & Murnighan, 2009).This “group morality” (Wildschut & Insko, 2006) or group enhancement/protection norm (Tindale, 2008), at times, seems to guide group behavior in directions opposite those typically found for individuals. Groups often exacerbate tendencies found for individuals (i.e., group polarization, Stasser, Kerr, & Davis, 1989; Kameda, Tindale, & Davis, 2003), so this discontinuity (Wildschut et al., 2003) is somewhat unique in research on groups and has proved very difficult to change (though see Wolf et al., 2008; Pinter et al., 2007).  
-
-### Representative publications
-
-* Tindale, R.S., **Winget, J.R.**, & Hinsz, V.B. (2019). Distributed cognition in teams is influenced by type of task and nature of member interactions. In *Handbook of Distributed Team Cognition*.
-* **Winget, J.R.** & Tindale, R.S. (2019). Deception in group contexts. In *Palgrave Handbook of Deceptive Communication*.
-* Group moral dilemma study preprint coming soon!
-
-***
-### Information sharing {#info-sharing}
-
-In today's world, most jobs involve information processing and manipulation as opposed to production and physical effort (Weber, 1998), and many tasks performed in organizations are done by groups (teams) as opposed to individuals (Thompson, 2004; Hackman & Sageman, 2005). Thus, it is not surprising research in organizational and social psychology has focused on information processing in groups (Hinsz, Tindale, & Vollrath, 1997; Brauner & Scholl, 2000; Nijstad & Stroebe, 2006). Much of this work has involved investigations of the degree to which information and/or other cognitions or cognitive processes are shared among group members (Brodbeck, Kerschreiter, Mojzisch, & Schulz-Hardt, 2007; Hinsz et al., 1997; Stasser, 1999; Tindale and Kameda, 2000). The distinction between information that is shared vs. unshared (i.e., non-redundant information that is distributed among the members) has played a critical role in guiding both theory and research on groups since Stasser and Titus (1985) first demonstrated its importance. However, sharedness at other levels (e.g., preferences, mental models, identities, motivations, etc.) has also been shown to be important for group information processing and performance (Tindale & Kameda, 2000; Tindale, Meisenhelder, Dykema-Engblade, & Hogg, 2001). Another prominent area of group information processing has focused on the concept of “transactive memory systems” (Wegner, 1987; Hollingshead, 1998; Moreland, Argote, & Krishnan, 1998). The development of a transactive memory involves distributing knowledge/information among group members to enhance overall information storage capacity of the group.  Because the information is non-redundantly distributed (i.e., unshared), transactive memory systems benefit groups only if the members share knowledge of the storage structure (i.e., members know who knows what in the group).
-
-The two main lines of research mentioned above (shared vs. unshared information and transactive memory systems) produce somewhat contradictory implications for optimal group memory. A substantial body of research shows that information recall and use is positively related to the number of people who have access to the information prior to group discussion (Lu, Yuan, & McLeod, 2012; Stasser, 1999). This implies that information should be widely shared by group members in order to maximize its usefulness to the group. Transactive memory systems, however, attempt to maximize group memory capacity by distributing the information so that each type or category of information is assigned to a specific member of the group (Wegner, 1987). This allows the group as a whole to potentially remember a greater amount of information. In addition, distributing less information to each individual member should decrease cognitive load and thus improve the percentage of information recalled by each individual member (Adams, 1980; Tindale & Sheffey, 2002; Wordsworth, 1938). Thus, for tasks requiring fairly large amounts of information, research on individual memory capacity and transactive memory would suggest low to non-existent levels of information assignment redundancy across members. However, work on group information processing in general would suggest that complete redundancy would maximize the likelihood that any given piece of information would be used by the group.
-
-### Representative publications
-
-* Tindale, R.S. & **Winget, J.R.** (2017). Learning while deciding in groups. In *The Oxford Handbook of Group and Organizational Learning*.
++
 
 ***

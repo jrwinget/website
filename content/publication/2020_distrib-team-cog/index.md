@@ -17,7 +17,7 @@ authors = ["R.S. Tindale", "J.R. Winget", "V.B. Hinsz"]
 publication_types = ["6"]
 
 # Publication name and optional abbreviated version.
-publication = "In *Handbook of Distributed Team Cognition*. Manuscript accepted"
+publication = "In McNeese, Salas, & Endsley (Eds), *Foundations and Theoretical Perspectives of Distributed Team Cognition*."
 publication_short = ""
 
 # Abstract and optional shortened version.
@@ -43,7 +43,7 @@ url_project = ""
 url_slides = ""
 url_video = ""
 url_poster = ""
-url_source = ""
+url_source = "https://doi.org//10.1201/9780429459795-4"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.

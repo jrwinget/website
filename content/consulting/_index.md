@@ -18,4 +18,4 @@ I also provide statistical and methodological consulting services.
 
 While I mainly conduct my analyses in R, I am familiar with other statistical software (e.g., Python, SPSS, LISREL, etc.) . I use R Markdown for document preparation and Git/GitLab for version control. I also know a bit of programming, which I often apply to creating programs for experimental protocols. Please, see side panel for more details (and my CV for a full list of my skills and qualifications).
 
-If you have any questions or would like to discuss my services in detail, please complete the Contact form. It is better to set something up with me directly, rather than my Upwork profile, because we can almost always negotiate lower consultation fees.
+If you have any questions or would like to discuss my services in detail, please complete the Contact form on the homepage.

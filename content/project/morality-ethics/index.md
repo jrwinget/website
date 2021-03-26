@@ -1,6 +1,6 @@
 ---
-title: Morality/Ethics
-summary: What are the cognitive and motivational underpinnings of moral judgment and decision making? How does ideology bind people together into cooperative groups?
+title: Computational modeling
+summary: What conditions lead to optimal group decision performance? What are practical interventions for biased information exchange?
 abstract: ""
 date: "2016-04-27T00:00:00Z"
 image:
@@ -8,30 +8,25 @@ image:
   focal_point: 
 
 categories:
-- morality
-- ethics
+- computational-modeling
+- information-processing
+- group-dynamics
 ---
 
-***
-## Projects:
+Computational models of complex behavior (e.g., group discussions) offer a variety of benefits. First, such models permit us to link theoretical propositions and empirical findings in an integrated symbolic representation, which then allows us to explore their combined actions (Stasser, 1988). For example, if we know which option people tend to choose out of three responses and how they combine information to make a judgment, then we have the ingredients for a computational model of task decision. This model would take information about choice alternatives as an input and provide a likely choice as an output. Second, computational models allow us to assess whether our understanding of the components of complex behavior is enough to produce an account of the actual behavior we are interested in. While building the model, we might realize that we have an insufficient understanding of the behavior, which could lead to new insights (Larson, 1997; Stasser, 1988). If we can build a working computational model, we can adjust the parameters to explore their effects on the behavior of interest and perhaps learn something new. Finally, computational modeling offers one way of understanding how processes at one level can lead to changes at a higher level (Stasser, 1988). This last point is especially relevant to group decision-making. It is often difficult to link what individuals do within groups to what groups end up doing. For example, although we may understand an individual's behavior in a given situation, it can be difficult to predict how a group of individuals may behave in the same situation because the same group processes can often lead to different outcomes (e.g., Tindale, Smith, Dykema-Engblade, & Kluwe, 2012).
 
-[Virtuous dogmatism](#virtuous-dogmatism)
-
-[Moral foundations](#moral-foundations)
+Based on previous research about the nature of group-level information processing and individual-level open-minded cognition, I developed a theory about the influence of open-minded group cognition on group decision performance. The theory proposes that the combination of two orthogonal motivations (epistemic and social), and the type of task groups work on, impact a group member's individual-level open-minded cognition. These group member cognitive styles, in turn, influence how likely they are to exchange information with other members in the group during a group discussion. I implemented this theory in an agent-based model, which is a class of computational models for simulating the actions of agents (e.g., group members) to assess their effects on the system (e.g., group) as a whole. Results from this theory not only supported preregistered a priori predictions, but it pointed to other potential effects for future research as well.
 
 ***
-### Virtuous dogmatism {#virtuous-dogmatism}
-Although cultural values generally prescribe open-mindedness, open-minded cognition systematically varies across individuals and situations. According to the Virtuous Dogmatism Hypothesis, social norms dictate when moral standards are violated, a relatively dogmatic, closed-minded orientation is warranted. As a consequence, situations that engender perceptions of moral violations will elicit a more closed-minded cognitive style.
+
+## Current Projects:
+
++ [](#)
 
 ***
-### Moral foundations {#moral-foundations}
-Today’s modern world affords many benefits, one of which is the ability to have near instantaneous interactions with groups and cultures other than our own. Though advantageous in many situations, one challenge for these groups is navigating what they perceive to be right and wrong in a cooperative manner despite having different modes of morality. Moral foundations theory holds all groups use the same moral foundations to guide their judgments and decision making, but there has been little research on how the perception of these foundations differ within and between groups. Thus, some of my work has examined how moral foundations operate from a group perspective, and potential outgroup moderators of moral foundations were examined.
 
-To furhter probe the differnces between individual and group judgments, I utilized the trolley paradigm. The trolley problem has been used in moral psychology for its ability to capture both cognitive and emotional approaches to moral judgment. In the switch dilemma, a runaway trolley is headed for five workers who will be killed if it proceeds on its present course (Thomson, 1985). To save them, one must throw a switch, turning the trolley so it will kill one person instead of five. Research shows most people find this acceptable (e.g., Greene, Sommerville, Nystrom, Darley, & Cohen, 2001). In the footbridge dilemma, a trolley again threatens to kill five people. This time, the actor is on a footbridge next to a large stranger (Thomson, 1985). To save them, one must push the stranger off the bridge, onto the tracks. This will kill the stranger, but save the five workers. Research shows most people find this unacceptable (e.g., Greene et al., 2001). 
+## Representative Publications:
 
-### Representative publications
-
-* **Winget, J.R.** & Tindale, R.S. (2018). Stereotypic morality: The effects of group membership on moral foundations. *Submitted for review*.
-* Trolley moral foundations preprints coming soon!
++ 
 
 ***

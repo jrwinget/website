@@ -23,8 +23,8 @@ interests = [
   "Group Dynamics",
   "Information Processing",
   "Social Influence",
-  "Morality/Ethics",
-  "Data Science"
+  "Computational Modeling",
+  "Machine Learning"
 ]
 
 # List qualifications (such as academic degrees)
@@ -101,8 +101,8 @@ interests = [
 # [[social]]
 #   icon = "cv"
 #   icon_pack = "ai"
-#   link = "https://drive.google.com/file/d/1JG4rjnNVf6KPXmCMPvsME6WG7ohfwUZi/preview"
+#   link = ""
 
 +++
 
-I am a PhD candidate, research scientist, and occasional consultant. Trained as a social psychologist, my research interests include information processing, social influence, and morality within both individual and group decision making. For example, some of my research examines how group norms influence cognitive processing styles (e.g., open-mindedness) and how this may influence ethical decision making and cooperation. In another line of research, I am investigating how shared representations of a task can influence group decisions, performance, and intragroup processes. I am also passionate about data science and its role in developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun.
+I am a Ph.D. candidate, research scientist, and occasional consultant. Trained as a social psychologist, my research interests include information processing, social influence, and open-mindedness in both individual and group decision-making contexts. For example, one line of my research examines how group dynamics influence open-minded cognition and how this may contribute to polarization. In another line of research, I am investigating how shared representations of a task can influence ethical group decision-making, performance, and intragroup processes. To study the above topics, I use such methods as computational modeling, structural equation modeling, machine learning, and online- and laboratory-based experiments. I am also passionate about data science and its role in developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun.
