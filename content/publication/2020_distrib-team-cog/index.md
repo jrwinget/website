@@ -1,6 +1,6 @@
 +++
 title = "Distributed cognition in teams is influenced by type of task and nature of member interactions"
-date = "2020-08-01"
+date = "2020-09-29"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["R.S. Tindale", "J.R. Winget", "V.B. Hinsz"]
@@ -17,7 +17,7 @@ authors = ["R.S. Tindale", "J.R. Winget", "V.B. Hinsz"]
 publication_types = ["6"]
 
 # Publication name and optional abbreviated version.
-publication = "In McNeese, Salas, & Endsley (Eds), *Foundations and Theoretical Perspectives of Distributed Team Cognition*."
+publication = "In McNeese, Salas, & Endsley (Eds), *Foundations and Theoretical Perspectives of Distributed Team Cognition* (pp. 91-113)."
 publication_short = ""
 
 # Abstract and optional shortened version.
@@ -36,7 +36,7 @@ projects = ""
 
 # Links (optional).
 url_pdf = ""
-url_preprint = ""
+url_preprint = "https://psyarxiv.com/wfy7a/"
 url_code = ""
 url_dataset = ""
 url_project = ""
