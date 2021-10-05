@@ -12,14 +12,14 @@ type = "docs"  # Do not modify.
 linktitle = "Understanding Prejudice"
 [menu.teaching]
   parent = "Courses"
-  weight = 6
+  weight = 7
 +++
 
 ## Loyola University Chicago
 
 * PSYC 360: Understanding Prejudice
-    * *Fall 2020*
-    * [Course information](https://osf.io/8efkx/)
+  * *Fall 2020*
+  * [Course information](https://osf.io/8efkx/)
 
 This course focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations. This material considers how the person, the situation, and society shape our thoughts, feelings, and behaviors toward people from various social groups. Most psychological research on these topics focuses on race; however, we also discuss research related to gender, sexual orientation, size, and social class.
 

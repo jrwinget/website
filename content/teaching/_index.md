@@ -16,8 +16,8 @@ type = "docs"  # Do not modify.
 
 I am currently a teaching instructor at [Loyola University Chicago](https://www.luc.edu/), where I teach the following courses:
 
-
-* PSYC/PHIL 272: Judgment and Decision Making
+* PSYC 100: Psychological Perspectives on the Experiences of Globalization
+* PSYC 280: Judgment and Decision Making
 * PSYC 304: Statistics
 * PSYC 306: Research Methods
 * PSYC 360: Understanding Prejudice

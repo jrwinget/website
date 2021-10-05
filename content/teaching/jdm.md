@@ -12,14 +12,14 @@ type = "docs"  # Do not modify.
 linktitle = "Judgment & Decision Making"
 [menu.teaching]
   parent = "Courses"
-  weight = 3
+  weight = 4
 +++
 
 ## Loyola University Chicago
 
-* PSYC/PHIL 272: Judgment & Decision Making
-    * *Fall 2019, Fall 2020, Spring 2021*
-    * [Course information](https://osf.io/dse74/)
+* PSYC 280: Judgment & Decision Making
+  * *Fall 2019, Fall 2020, Spring 2021, Fall 2021*
+  * [Course information](https://osf.io/dse74/)
 
 This course presents a state-of-the-art discussion of research on judgment and decision-making. Decisions large and small are part of everyday life. Where should I go for lunch? Should I go to the gym today? Will this course make me happy? Is this a cold or the flu? Should I go to the doctor? Is this job for me? Even when we have the best information, we often don't make the right decisions. The quality of our decisions depends upon a variety of factors, many of which can be found in philosophy, psychology, and economic research. Philosophy contributes its canon of literature on inductive and deductive reasoning, and its focus on prescriptive questions about the purpose of good reasoning. Psychology offers experimental evidence of human capability in the area of judgment and decision-making, and the outlines the processes that give rise to good decisions. Economics, as the science of policy, describes the structural conditions that promote good decision-making, and tracks the utilities, costs, and benefits both to individuals and societies of those decisions.
 
