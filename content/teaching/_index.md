@@ -14,7 +14,7 @@ type = "docs"  # Do not modify.
   weight = 1
 +++
 
-I am currently a teaching instructor at [Loyola University Chicago](https://www.luc.edu/), where I teach the following courses:
+I am currently a full-time instructor at [Loyola University Chicago](https://www.luc.edu/), where I teach the following courses:
 
 * PSYC 100: Psychological Perspectives on the Experiences of Globalization
 * PSYC 280: Judgment and Decision Making
