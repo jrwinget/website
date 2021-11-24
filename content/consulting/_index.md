@@ -1,21 +1,22 @@
-+++
-title = "Consulting Services"
+---
+title: Consulting
+description: |
+  I also provide statistical and methodological consulting services. 
+  Please, see below for more details.
+author: "Jeremy R. Winget"
+show_post_thumbnail: true
+thumbnail_left: false
+show_author_byline: false
+show_post_date: true
+# for listing page layout
+layout: list-grid # list, list-sidebar, list-grid
 
-date = 2018-09-09T00:00:00
-lastmod = 2018-09-09T00:00:00
+# set up common front matter for all pages inside blog/
+cascade:
+  author: "Jeremy R. Winget"
+  show_author_byline: true
+  show_post_date: true
+  show_comments: true # see site config to choose Disqus or Utterances
+---
 
-draft = false  # Is this a draft? true/false
-toc = true  # Show table of contents? true/false
-type = "docs"  # Do not modify.
-
-# Add menu entry to sidebar.
-[menu.consulting]
-  name = "Overview"
-  weight = 1
-+++
-
-I also provide statistical and methodological consulting services.
-
-While I mainly conduct my analyses in R, I am familiar with other statistical software (e.g., Python, SPSS, LISREL, etc.) . I use R Markdown for document preparation and Git/GitLab for version control. I also know a bit of programming, which I often apply to creating programs for experimental protocols. Please, see side panel for more details (and my CV for a full list of my skills and qualifications).
-
-If you have any questions or would like to discuss my services in detail, please complete the Contact form on the homepage.
+** No content below YAML for the consulting _index. This file provides front matter for the listing page layout and sidebar content. It is also a branch bundle, and all settings under `cascade` provide front matter for all pages inside consulting/. You may still override any of these by changing them in a page's front matter.**

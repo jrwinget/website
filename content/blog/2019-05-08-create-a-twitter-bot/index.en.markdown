@@ -1,0 +1,191 @@
+---
+aliases: 
+  - /blog/create-a-twitter-bot
+  - /blog/2019-05-08-create-a-twitter-bot
+title: "How to create a Twitter bot using R"
+authors: [jeremy]
+date: '2019-05-08'
+tags: ["how to", "R"]
+categories: ["Blog"]
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    toc_depth: 1
+---
+
+
+
+Last week, I decided to kill an afternoon by creating a [Twitter bot](https://twitter.com/rathrgeneratr). Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).
+
+This project is surprisingly easy: If you're familiar with R (e.g., able to write a function), you shouldn't have any trouble creating something like this. If you're still learning how to write functions, this project is great practice!
+
+## Step 1: What will the bot tweet?
+
+The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., [WhyDoesR](https://twitter.com/WhyDoesR) or [TwoHeadlines](https://twitter.com/TwoHeadlines)), so I wanted to create something simple that could get a few laughs. So, I decided to make a random "Would You Rather" generator that pits outrageous or terrible situations against one another.
+
+To do this, I set up a little "database" containing a list of the situations in a .csv file (you can view that file on the [GitLab repo](https://gitlab.com/jrwinget/rathr-generatr) for the bot). I also wanted to add pictures to the posts, so I found 11 open source images online and stored them into a "img" directory. Once the database and image directory are created, they need to be loaded into R.
+
+
+```r
+library(tidyverse)
+library(here)
+
+wyr <- read_csv(here("wyr-db.csv"), col_names = FALSE)
+pictures <- list.files(here("img"))
+```
+
+Next, the bot needs to be able to randomly select two situations from the database and combine them into a sentence. A function would be perfect for this:
+
+
+```r
+library(glue)
+
+would_you_rather <- function() {
+  choices <- sample_n(wyr, 2)
+  a <- slice(choices, 1)
+  b <- slice(choices, 2)
+  sentence <- glue("Would you rather {a} or {b}?")
+  return(sentence)
+}
+```
+
+Now, the bot has a way of creating a sentence, but it still needs to actually generate one to tweet. It also needs to select a picture to tweet with the generated sentence. To create a sentence, we can use our new function and store the result in an object called "tweet". To randomly select a picutre, we just need to sample 1 of the 11 and store the name of the file as an object called "img".
+
+
+```r
+tweet <- would_you_rather()
+img <- sample(pictures, 1)
+```
+
+## Step 2: Connect to Twitter
+
+Because this bot will be tweeting from the R console, we have to register a new app with Twitter. Michael Kearney has a great [tutorial on this](https://rtweet.info/articles/auth.html) using his ```rtweet``` package. Basically, load the ```rtweet``` package and connect to Twitter's API using credentials stored in the environment. Once the credentials are stored, use the ```get_tokens``` function to fetch and load them.
+
+
+```r
+library(rtweet)
+
+token <- get_tokens()
+```
+
+Now, the bot can tweet a randomized "Would You Rather" situation with the ```post_tweet``` function. I decided to also include a hashtag in the tweet, which is really easy to do using the ```glue``` package. To add the randomly selected picture to the tweet, just include the file path to that picture in the ```media``` argument.
+
+
+```r
+# tweet it
+post_tweet(status = glue(
+  "{tweet}
+  
+#wouldyourather"),
+  media = glue("img/{img}"))
+```
+
+I also wanted to collect all of the tweets the bot produces, so I made a log file to store them.
+
+
+```r
+line <- paste(as.character(Sys.time()), tweet, sep = " ")
+write(line, file = here("wyr-tweets.log"), append = TRUE)
+```
+
+## Step 3: Automate the bot
+
+We now have a script that will randomly generate a "Would You Rather" situation along with a randomly chosen picture. However, it would be annoying to manually operate the bot every time we wanted it to tweet. Besides, doing so would undermine the entire point of making a "bot". So let's have the computer do this instead. 
+
+However, before the computer can understand the R script, we have to add a line of code to the top of the script (note '#!' is important here):
+
+
+```r
+#! /usr/bin/env Rscript
+```
+
+This is basically turns our script into something the computer can execute. This is good, but having the script loaded on a server would be even better because the script can run whether or not your personal computer is on. Luckily, I happened to already have a server running, so I was able to simply load everything on there and schedule a cron job. Cron jobs basically tell the computer to run a certain command at a certain time (more on cron jobs [here](https://help.ubuntu.com/community/CronHowto)). 
+
+If you've never scheduled a cron job before, it's a relatively simple process (note: to use this method, you will need a Mac or Linux OS; for Windows OS, use Windows Task Scheduler). First, open the terminal and type:
+
+
+```bash
+crontab -e
+```
+
+This opens your personal crontab (i.e., the configuration file). In every line, you can define one command to run and its schedule. The structure of the format is:
+
+
+```bash
+minute hour day-of-month month day-of-week command
+```
+
+Using an asterisk as a value represents "any". For example, to run a command every Monday at 8am, the format would be:
+
+
+```bash
+0 8 * * 1 /path/to/command
+```
+
+For this project, the command will tell the computer to execute the bot script we wrote in R. I chose to combine all of the files for the bot (e.g., bot script, database, pictures, etc.) into an R project on the server, so the command I created changes the working directory to the project directory (the ```cd``` command) and then runs the script (the ```Rscript``` command). I also chose to run the bot twice a day:
+
+
+```bash
+# m h  dom mon dow    command
+0 8 * * * cd ~/2019-05-02_would-you-rather-bot; Rscript bot-script.R      # run at 8am CST
+15 17 * * * cd ~/2019-05-02_would-you-rather-bot; Rscript bot-script.R    # run at 5:15pm CST
+```
+
+You certainly don't *have* to run the bot on a server; servers just make things easier and more consistent in this case. If you don't have access to a server, the process will be basically the same for running the bot on a personal computer. You'll just need to make sure the computer is on (and awake!) at the scheduled time(s) for it to automatically tweet. Or, you can [wake your linux up from sleep for a cron job](https://dunia-it.com/wake-your-linux-up-from-sleep-for-a-cron-job/).
+
+## Wrapping up
+
+And, that's it! Here's the completed script:
+
+
+```r
+#!/usr/bin/env Rscript
+# would_you_rather_bot 0.1
+# author: jeremy r. winget
+library(tidyverse)
+library(rtweet)
+library(here)
+library(glue)
+
+# authenticate
+token <- get_tokens()
+
+# read in data
+wyr <- read_csv(here("wyr-db.csv"), col_names = FALSE)
+pictures <- list.files(here("img"))
+
+# function to generate sentence
+would_you_rather <- function() {
+  choices <- sample_n(wyr, 2)
+  a <- slice(choices, 1)
+  b <- slice(choices, 2)
+  sentence <- glue("Would you rather {a} or {b}?")
+  return(sentence)
+}
+
+# generate question and picture
+tweet <- would_you_rather()
+img <- sample(pictures, 1)
+
+# tweet it
+post_tweet(status = glue(
+  "{tweet}
+  
+#wouldyourather"),
+  media = glue("img/{img}"))
+
+# create log entry
+line <- paste(as.character(Sys.time()), tweet, sep = " ")
+write(line, file = here("wyr-tweets.log"), append = TRUE)
+```
+
+If you create your own Twitter bot with R (or if this tutorial inspired any other projects), please [share it with me](https://twitter.com/_jwinget). I'd love to hear what you did! 
+
+## Potential future features
+
+Right now, this bot is pretty basic. I've had a few ideas for additional features/adjustments I may or may not end up incorporating:
+
+1. I'd like to add more content to the the database. I basically just googled "Would You Rather" questions and chose some of the more outrageous ones. But, there aren't a lot of different situations (and some are pretty lame) listed in the database, which can sometimes lead to repeated situations being tweeted. If anyone has any situations they'd like to add, feel free to submit merge request!
+2. If people like the bot and start engaging with it, I thought it'd be fun to retweet popular comments/answers. I'm not sure what that procedure would be yet, though.
+3. It might be useful to create different categories of "Would You Rather" situations (e.g., outrageous situations, relationship situations, entertainment situations, etc.). If the situations aren't chosen from the same category, it can lead to dumb questions (like [this one](https://twitter.com/rathrgeneratr/status/1125162015293673473)).

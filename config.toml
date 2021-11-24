@@ -1,72 +1,190 @@
-# Configuration of Academic
-# Documentation: https://sourcethemes.com/academic/
-#
-# This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
-# Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
-
-# Title of your site
+baseURL = "https://jrwinget.com"
+theme = "hugo-apero"
+languageCode = "en"
 title = "Jeremy R. Winget, Ph.D."
-
-# The URL of your site.
-# End your URL with a `/` trailing slash, e.g. `https://example.com/`.
-baseurl = "https://jrwinget.com"
-
-# Enter a copyright notice to display in the site footer.
-# To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
-copyright = "&copy; 2018-{year}"
-
-############################
-## Advanced options below ##
-############################
-
-# Name of Academic theme folder in `themes/`.
-theme = "academic"
-
-# Get last modified date for content from Git?
-enableGitInfo = false
-
-# Default language to use (if you setup multilingual support)
-defaultContentLanguage = "en"
-hasCJKLanguage = false  # Set `true` for Chinese/Japanese/Korean languages.
-defaultContentLanguageInSubdir = false
-removePathAccents = true  # Workaround for https://github.com/gohugoio/hugo/issues/5687
-
-summaryLength = 30  # Listing summary length in words. Also, see `abstract_length` in `params.toml`.
-paginate = 10  # Number of items per page in paginated lists.
+author = "Jeremy R. Winget"
+copyright = "" # set to override the auto generated copyright using org info and now year
+googleAnalytics = ""
+disqusShortname = "jeremyrwinget" # see params.utterances to use utterances instead of Disqus
+metaDataFormat = "yaml"
+footnoteReturnLinkContents = "&#8617;" # ↩
+# set deliberately low for testing choose your preffered number based on the blog layout you've chosen
+paginate = 5
+preserveTaxonomyNames = true
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 enableEmoji = true
-footnotereturnlinkcontents = "<sup>^</sup>"
-ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
-[outputs]
-  home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]
-  section = [ "HTML", "RSS" ]
-
-[mediaTypes."application/manifest+json"]
-  suffixes = ["webmanifest"]
-
-[outputFormats.WebAppManifest]
-  mediaType = "application/manifest+json"
-  rel = "manifest"
+# Permalinks
+[permalinks]
+  blog = "/blog/:year-:month-:slug/"
+  talk = "/talk/:filename/"
 
 [markup]
   defaultMarkdownHandler = "goldmark"
   [markup.goldmark.renderer]
     unsafe = true  # Enable user to embed HTML snippets in Markdown content.
-  [markup.highlight]
-    style = "pygments"
-    codeFences = false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
+    hardwraps = false
   [markup.tableOfContents]
     startLevel = 2
-    endLevel = 3
+    endLevel = 2
+    ordered = false
+  [markup.highlight]
+    # one of: https://xyproto.github.io/splash/docs/
+    style = "github"
 
-[imaging]
-  resampleFilter = "lanczos"
-  quality = 90
-  anchor = "smart"  # Anchor for cropping. Options include Smart and Center.
+[params]
+  orgName = "Jeremy R. Winget"
+  orgLocal = ""
+  description = "Personal website and portfolio of Dr. Jeremy R. Winget"
+  favicon = "/img/favicon.ico"
+  logo = "/img/logo.png"
+  mainSections = ["blog", "publications", "talk"]
+  navallcaps = true
+  # show/hide social icons in site header & footer
+  # configure social icons and links below in [[params.social]]
+  socialInHeader = false
+  socialInFooter = true
+  # Default image for social sharing and search engines.
+  # Place image file in `static` folder and specify image name here.
+  #sharing_image = "/img/papillons.jpg"
+  # Twitter username (without @). Used when a visitor shares your site on Twitter.
+  twitter = "_jwinget"
 
-# Taxonomies.
+  # use a built-in color theme
+  # one of: forest / grayscale / peach / plum /
+  #         poppy / sky / violet / water
+  theme = ""
+
+  # or, leave theme empty & make your own palette
+  # see docs at https://hugo-apero.netlify.app/blog/color-themes/
+  # the custom scss file must be in the assets/ folder
+  # add the filename name here, without extension
+  # to use hex colors instead of named tachyons colors, include "hex" in filename
+  custom_theme = "fb-hex"
+
+  # use an embedded font-family
+  # serif options: Fraunces / EB Garamond / Bitter
+  # sans-serif options: Commissioner / Alegreya Sans / Metropolis
+  # if you import your own fonts, name them here too
+  customtextFontFamily = "Ilisarniq-Light"
+  customheadingFontFamily = "Petrona"
+  # alternatively, leave empty and select basic font options: sans-serif or serif
+  # for more http://tachyons.io/docs/typography/font-family/
+  textFontFamily = "sans-serif"
+  headingFontFamily = "sans-serif"
+
+  # Configuration of https://utteranc.es/ for comments
+  [params.utterances]
+    use_utterances = false
+    repo_name = ""
+    issue_term = "title" # url, pathname, or title
+    theme = "boxy-light"
+    label = "comments :crystal_ball:"
+
+  # Social icons may appear on homepage and in site header or footer
+  # Configure show/hide above - add as many as you like below
+  # Icon pack "fab" includes brand icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
+  # Icon pack "fas" includes solid icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
+  # Icon pack "far" includes regular icons, see: https://fontawesome.com/icons?d=gallery&s=regular&m=free
+  [[params.social]]
+      icon      = "twitter" # icon name without the 'fa-'
+      icon_pack = "fab"
+      url       = "https://twitter.com/_jwinget"
+  [[params.social]]
+      icon      = "gitlab" # icon name without the 'fa-'
+      icon_pack = "fab"
+      url       = "https://gitlab.com/jrwinget"
+  [[params.social]]
+      icon      = "osf" # icon name without the 'fa-'
+      icon_pack = "ai"
+      url       = "https://osf.io/x3gve/"
+  [[params.social]]
+      icon      = "impactstory" # icon name without the 'fa-'
+      icon_pack = "ai"
+      url       = "https://profiles.impactstory.org/u/0000-0002-3783-4354"
+  [[params.social]]
+      icon      = "orcid" # icon name without the 'fa-'
+      icon_pack = "ai"
+      url       = "https://orcid.org/0000-0002-3783-4354"
+  [[params.social]]
+      icon      = "google-scholar" # icon name without the 'fa-'
+      icon_pack = "ai"
+      url       = "https://scholar.google.com/citations?user=UbgwtEwAAAAJ=en"
+
 [taxonomies]
-  tag = "tags"
   category = "categories"
-  publication_type = "publication_types"
-  author = "authors"
+  series = "series"
+  tag = "tags"
+
+[menu]
+  # Configure header
+  [[menu.header]]
+    name = "Blog"
+    title = "Blog"
+    url = "/blog/"
+    weight = 1
+  [[menu.header]]
+    name = "Research"
+    title = "Research Areas"
+    url = "/research/"
+    weight = 2
+  [[menu.header]]
+    name = "Publications"
+    title = "Publications"
+    url = "/publications/"
+    weight = 3
+  [[menu.header]]
+    name = "Teaching"
+    title = "Teaching"
+    url = "/teaching/"
+    weight = 4
+  [[menu.header]]
+    name = "Consulting"
+    title = "Consulting"
+    url = "/consulting/"
+    weight = 5
+  [[menu.header]]
+    name = "CV"
+    title = "CV"
+    url = "https://drive.google.com/file/d/1XJ70z0p7m1-sobiAbGyuxug6UrhF7U8U/preview"
+    weight = 6
+
+  # Configure footer
+  [[menu.footer]]
+    name = "License"
+    title = "License"
+    url = "/license/"
+    weight = 1
+  [[menu.footer]]
+    name = "Contact"
+    title = "Contact form"
+    url = "/contact/"
+    weight = 2
+  [[menu.footer]]
+    name = "RSS"
+    title = "RSS"
+    url = "/blog/index.xml"
+    weight = 3
+
+# see https://gohugo.io/about/hugo-and-gdpr/
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    disable = false
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.instagram]
+    disable = false
+    simple = true
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = false
+  [privacy.vimeo]
+    disable = false
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true

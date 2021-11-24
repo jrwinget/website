@@ -1,27 +1,21 @@
-+++
-title = "Teaching"
+---
+title: Teaching
+description: |
+  I am currently a full-time instructor at [Loyola University Chicago](https://www.luc.edu/), where I teach various psychological and quantitative undergraduate courses. <br> Please, see below for more details.
+author: "Jeremy R. Winget"
+show_post_thumbnail: false
+thumbnail_left: false
+show_author_byline: false
+show_post_date: false
+# for listing page layout
+layout: list # list, list-sidebar, list-grid
 
-date = 2018-09-09T00:00:00
-lastmod = 2018-09-09T00:00:00
+# set up common front matter for all pages inside blog/
+cascade:
+  author: "Jeremy R. Winget"
+  show_author_byline: false
+  show_post_date: false
+  show_comments: true # see site config to choose Disqus or Utterances
+---
 
-draft = false  # Is this a draft? true/false
-toc = true  # Show table of contents? true/false
-type = "docs"  # Do not modify.
-
-# Add menu entry to sidebar.
-[menu.teaching]
-  name = "Overview"
-  weight = 1
-+++
-
-I am currently a full-time instructor at [Loyola University Chicago](https://www.luc.edu/), where I teach the following courses:
-
-* PSYC 100: Psychological Perspectives on the Experiences of Globalization
-* PSYC 280: Judgment and Decision Making
-* PSYC 304: Statistics
-* PSYC 306: Research Methods
-* PSYC 360: Understanding Prejudice
-
-I also have training in teaching online courses and have interests in teaching the following:
-
-Social psychology, Attitudes, Group dynamics, Psychology and law, Industrial/Organizational psychology, Cognitive psychology
+** No content below YAML for the consulting _index. This file provides front matter for the listing page layout and sidebar content. It is also a branch bundle, and all settings under `cascade` provide front matter for all pages inside consulting/. You may still override any of these by changing them in a page's front matter.**
