@@ -5,7 +5,8 @@ aliases:
 title: First post!
 authors: [jeremy]
 date: '2018-02-07'
-tags: ["R Markdown", "statistics", "data viz", "methods"]
+layout: single-sidebar
+tags: ["R Markdown", "statistics", "data viz", "methods", "R"]
 categories: ["Blog"]
 output:
   blogdown::html_page:
@@ -32,6 +33,18 @@ First, let's take a look at the structure of the data:
 ```r
 library(ggplot2)
 str(mpg)
+tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+ $ manufacturer: chr [1:234] "audi" "audi" "audi" "audi" ...
+ $ model       : chr [1:234] "a4" "a4" "a4" "a4" ...
+ $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+ $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+ $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+ $ trans       : chr [1:234] "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...
+ $ drv         : chr [1:234] "f" "f" "f" "f" ...
+ $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+ $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+ $ fl          : chr [1:234] "p" "p" "p" "p" ...
+ $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...
 ```
 
 Among other things, this tells us there are a 234 observations of 11 different variables. Most of these variables are fairly intuitive by their names, but for our purposes, I will only focus on three of them: ```displ```, ```hwy```, ```cyl```. These are the cars' engine displacement (in litres), highway miles per gallon, and number of cylinders.
@@ -46,7 +59,10 @@ library(ggplot2)
 ggplot(mpg, aes(displ, hwy)) +
   geom_point(aes(col = factor(cyl))) +
   geom_smooth(method = lm, aes(col = factor(cyl)))
+`geom_smooth()` using formula 'y ~ x'
 ```
+
+<img src="{{< blogdown/postref >}}index.en_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 And, that's all there is to it! While it may seem pretty straightforward, this actually took me a few days to create when I first started coding in R. Indeed, one's first ```ggplot``` seems like quiet the achievement in the moment! 
 

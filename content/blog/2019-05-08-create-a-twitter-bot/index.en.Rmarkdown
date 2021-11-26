@@ -5,6 +5,7 @@ aliases:
 title: "How to create a Twitter bot using R"
 authors: [jeremy]
 date: '2019-05-08'
+layout: single-sidebar
 tags: ["how to", "R"]
 categories: ["Blog"]
 output:
@@ -15,7 +16,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+knitr::opts_chunk$set(collapse = TRUE, comment = NA, eval = FALSE)
 ```
 
 Last week, I decided to kill an afternoon by creating a [Twitter bot](https://twitter.com/rathrgeneratr). Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).

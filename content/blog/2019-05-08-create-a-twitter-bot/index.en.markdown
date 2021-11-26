@@ -5,6 +5,7 @@ aliases:
 title: "How to create a Twitter bot using R"
 authors: [jeremy]
 date: '2019-05-08'
+layout: single-sidebar
 tags: ["how to", "R"]
 categories: ["Blog"]
 output:

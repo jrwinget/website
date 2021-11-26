@@ -5,7 +5,8 @@ aliases:
 title: "EDA: Chicago red light camera violations"
 authors: [jeremy]
 date: '2019-04-29'
-tags: ["data wrangling", "data viz", "EDA"]
+layout: single-sidebar
+tags: ["data wrangling", "data viz", "EDA", "R"]
 categories: ["Blog"]
 output:
   blogdown::html_page:
@@ -15,7 +16,7 @@ output:
 ---
 
 ```{r include = FALSE}
-knitr::opts_chunk$set(eval = FALSE, collapse = TRUE, comment = NA, tidy = FALSE)
+knitr::opts_chunk$set(collapse = TRUE, comment = NA)
 ```
 
 # Chicago red light camera violations

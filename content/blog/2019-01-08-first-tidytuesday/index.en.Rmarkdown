@@ -5,7 +5,8 @@ aliases:
 title: First TidyTuesday submission
 authors: [jeremy]
 date: '2019-01-08'
-tags: ["TidyTuesday", "data wrangling", "data viz"]
+layout: single-sidebar
+tags: ["TidyTuesday", "data wrangling", "data viz", "R"]
 categories: ["Blog"]
 output:
   blogdown::html_page:
@@ -21,7 +22,7 @@ In this post, I write about my **first** [#tidytuesday](https://github.com/rford
 Special thanks to [Isabella Ghement](https://twitter.com/IsabellaGhement) for providing [a few tips](https://twitter.com/IsabellaGhement/status/1082831866523086849) on how to improve the original graphs!
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+knitr::opts_chunk$set(collapse = TRUE, comment = NA, warning = FALSE)
 ```
 
 First, load the required packages and data:
