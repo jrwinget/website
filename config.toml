@@ -146,7 +146,7 @@ enableEmoji = true
   [[menu.header]]
     name = "CV"
     title = "CV"
-    url = "https://drive.google.com/file/d/1XJ70z0p7m1-sobiAbGyuxug6UrhF7U8U/preview"
+    url = "https://drive.google.com/file/d/1UxuhcSTwkqxdK2JSJfeBnRfc5l9tUG6s/preview"
     weight = 6
 
   # Configure footer
