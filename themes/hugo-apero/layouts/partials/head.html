@@ -16,5 +16,4 @@
   <!-- headroom.js -->
   {{ $mainJs := resources.Get "js/main.js" | js.Build "main.js" | minify | fingerprint }}
   <script src="{{ $mainJs.RelPermalink }}" type="text/javascript"></script> 
-  <script defer data-domain="jrwinget.com" src="https://plausible.io/js/plausible.js"></script> 
 </head>
