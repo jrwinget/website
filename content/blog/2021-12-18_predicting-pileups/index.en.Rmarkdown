@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(collapse = TRUE, comment = NA, cache = TRUE)
 ```
 
-Wouldn't it be great to know the chances of being injured or having your car totaled in a car accident *before* ever being involved in the accident? Perhaps if you live in a less densely populated area, this question isn't so interesting to you. But if you live in a big city like Chicago, you might be a little more concerned about this. So in this post, we'll use machine learning to predict which traffic crashes in Chicago, IL, result in injuries and/or the vehicle being towed based on situational features (e.g., posted speed limit, lighting conditions, road surface condition, etc.) that are likely to be known before the crash occured.
+Wouldn't it be great to know the chances of being injured or having your car totaled in a car accident *before* ever being involved in the accident? Perhaps if you live in a less densely populated area, this question isn't so interesting to you. But if you live in a big city like Chicago, you might be a little more concerned about this. By identifying factors that predict these bad accidents, we might be able to develop low cost interventions or redesign the environment to reduce the frequency of these types of accidents, which can translate to lives and money saved. So in this post, we'll use machine learning to predict which traffic crashes in Chicago, IL, result in injuries and/or the vehicle being towed based on situational features (e.g., posted speed limit, lighting conditions, road surface condition, etc.) that are likely known before the crash occurred.
 
 [Traffic crash](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if) data were imported from the [Chicago Data Portal](https://data.cityofchicago.org/) using the [RSocrata](https://github.com/Chicago/RSocrata) package. The City of Chicago also has data sets related to the [vehicles](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vehicles/68nd-jvt3) and [people](https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d) involved in these crashes, but to keep things simple for now, let's focus on a few situational factors related to the crash, all of which can be found in the main data set.
 
@@ -637,3 +637,5 @@ last_rf_fit %>%
 ```
 
 The results from the validation set and test set performance statistics are very close, so we can be reasonably confident the random forest model with the selected features and hyperparameters would perform well when predicting new data.
+
+> Special thanks to [Drew Triplett](https://www.linkedin.com/in/atriplett) for his helpful comments on an earlier draft of this post!
