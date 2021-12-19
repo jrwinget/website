@@ -8,6 +8,7 @@ date: '2018-02-07'
 layout: single-sidebar
 tags: ["R Markdown", "statistics", "data viz", "methods", "R"]
 categories: ["Blog"]
+summary: 'My first blog post! Allow me to introduce myself...'
 output:
   blogdown::html_page:
     toc: true

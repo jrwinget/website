@@ -8,6 +8,7 @@ date: '2019-04-29'
 layout: single-sidebar
 tags: ["data wrangling", "data viz", "EDA", "R"]
 categories: ["Blog"]
+summary: 'An exploratory data analysis of red light traffic camera violations in Chicago, IL.'
 output:
   blogdown::html_page:
     toc: true

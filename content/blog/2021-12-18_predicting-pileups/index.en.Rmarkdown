@@ -8,6 +8,7 @@ date: '2021-12-18'
 layout: single-sidebar
 categories: ["Blog"]
 tags: ["machine learning", "classification", "prediction", "R", "logistic regression", "random forrest"]
+summary: 'A comparative model analysis of the factors that lead to severe traffic collisions in Chicago, IL.'
 output:
   blogdown::html_page:
     toc: true
@@ -19,7 +20,7 @@ output:
 knitr::opts_chunk$set(collapse = TRUE, comment = NA, cache = TRUE)
 ```
 
-Wouldn't it be great to know the chances of being injured or having your car totaled in a car accident *before* ever being involved in the accident? Perhaps if you live in a less densely populated area, this question isn't so interesting to you. But if you live in a big city like Chicago, you might be a little more concerned about this. By identifying factors that predict these bad accidents, we might be able to develop low cost interventions or redesign the environment to reduce the frequency of these types of accidents, which can translate to lives and money saved. So in this post, we'll use machine learning to predict which traffic crashes in Chicago, IL, result in injuries and/or the vehicle being towed based on situational features (e.g., posted speed limit, lighting conditions, road surface condition, etc.) that are likely known before the crash occurred.
+Wouldn't it be great to know the chances of being injured or having your car totaled in a car accident *before* ever being involved in the accident? If you live in a less densely populated area, this question might not be very interesting. But if you live in a big city, like Chicago, you might be a little more concerned about this. By identifying factors that predict these bad accidents, we might be able to develop low cost interventions or redesign the environment to reduce the frequency of these types of accidents, which can translate to lives and money saved. So in this post, we'll use machine learning to predict which traffic crashes in Chicago, IL, result in injuries and/or the vehicle being towed based on situational features (e.g., posted speed limit, lighting conditions, road surface condition, etc.) that are likely known before the crash occurred.
 
 [Traffic crash](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if) data were imported from the [Chicago Data Portal](https://data.cityofchicago.org/) using the [RSocrata](https://github.com/Chicago/RSocrata) package. The City of Chicago also has data sets related to the [vehicles](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vehicles/68nd-jvt3) and [people](https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d) involved in these crashes, but to keep things simple for now, let's focus on a few situational factors related to the crash, all of which can be found in the main data set.
 
@@ -262,7 +263,7 @@ Recall that we already partitioned our data set into a *training set* and *test 
 
 k-fold cross validation randomly allocates the `r dim(crashes)[1]` observations in the training set to 5 groups of roughly equal size, called "folds". For the first iteration of resampling, the first fold is held out for the purpose of measuring performance. The other 80% of the data are used to fit the model. This model, trained on the analysis set, is applied to the assessment set to generate predictions. Then, performance statistics are computed based on those predictions.
 
-In this case, 5-fold cross validation moves iteratively through the folds and leaves a different 20% out each time for model assessment. At the end of this process, there are 5 sets of performance statistics that were created on 5 data sets that were not used in the modeling process. While 5 models were created, these are not used further; we do not keep the models themselves trained on these folds because their only purpose is calculating performance metrics. The final resampling estimates for the model are the averages of the performance statistics replicates.
+In this case, 5-fold cross validation iteratively moves through the folds and leaves a different 20% out each time for model assessment. At the end of this process, there are 5 sets of performance statistics that were created on 5 data sets that were not used in the modeling process. While 5 models were created, these are not used further; we do not keep the models themselves trained on these folds because their only purpose is calculating performance metrics. The final resampling estimates for the model are the averages of the performance statistics replicates.
 
 ```{r}
 crashes_vfold <- vfold_cv(crash_train, v = 5, strata = crash_type)

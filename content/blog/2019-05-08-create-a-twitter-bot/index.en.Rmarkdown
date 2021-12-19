@@ -8,6 +8,7 @@ date: '2019-05-08'
 layout: single-sidebar
 tags: ["how to", "R"]
 categories: ["Blog"]
+summary: 'A tutorial on how to build a bot that generates random Would You Rather questions on Twitter.'
 output:
   blogdown::html_page:
     toc: true

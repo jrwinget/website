@@ -8,6 +8,7 @@ date: '2019-01-08'
 layout: single-sidebar
 tags: ["TidyTuesday", "data wrangling", "data viz", "R"]
 categories: ["Blog"]
+summary: 'A walkthrough of my first #TidyTuesday contribution.'
 output:
   blogdown::html_page:
     toc: true
