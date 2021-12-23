@@ -15,7 +15,7 @@ summary: 'A book chapter discussing why groups tend to behave more unethically c
 featured: no
 image:
   caption: '[Photo by R. Stevens](https://crestresearch.ac.uk/comment/culture-deception-detection/)'
-  focal_point: ''
+  focal_point: 'Smart'
   preview_only: no
 projects: []
 links:

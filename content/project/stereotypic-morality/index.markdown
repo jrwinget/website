@@ -15,7 +15,7 @@ summary: 'An experiment demonstrating the effects of group membership on the per
 featured: no
 image:
   caption: '[Photo commissioned by Adam Thomas and is released for public use with attribution to the artist, Aprilia Muktirina.](https://commons.wikimedia.org/wiki/File:An_illustration_of_Moral_foundations_Theory_created_by_Aprilia_Muktirina.jpg)'
-  focal_point: ''
+  focal_point: 'Smart'
   preview_only: no
 projects: []
 links:

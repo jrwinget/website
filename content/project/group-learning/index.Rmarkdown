@@ -14,7 +14,7 @@ summary: 'A book chapter summarizing the group decision making literature, descr
 featured: no
 image:
   caption: '[Photo by Kimberly Farmer on Unsplash](https://unsplash.com/photos/lUaaKCUANVI)'
-  focal_point: ''
+  focal_point: 'Smart'
   preview_only: no
 projects: []
 links:

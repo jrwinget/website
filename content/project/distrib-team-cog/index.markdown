@@ -15,7 +15,7 @@ summary: 'A book chapter summarizing the group decision making literature, while
 featured: no
 image:
   caption: '[Photo on Pixabay](https://pixabay.com/vectors/group-discussion-people-1962592/)'
-  focal_point: ''
+  focal_point: 'Smart'
   preview_only: no
 projects: []
 links:

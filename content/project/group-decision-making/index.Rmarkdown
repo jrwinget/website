@@ -15,7 +15,7 @@ summary: 'A book chapter summarizing the current state of the field concerning g
 featured: no
 image:
   caption: '[Photo by Annie Spratt on Unsplash](https://unsplash.com/photos/QckxruozjRg)'
-  focal_point: ''
+  focal_point: 'Smart'
   preview_only: no
 projects: []
 links:
