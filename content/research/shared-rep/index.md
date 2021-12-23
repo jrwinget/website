@@ -4,7 +4,7 @@ summary: How does being a member of a group alter people's judgment? How might i
 abstract: ""
 date: "2016-04-27T00:00:00Z"
 image:
-  caption: 
+  caption: '[Photo on Pixabay](https://pixabay.com/illustrations/team-work-building-puzzle-pieces-3738261/)'
   focal_point: 
 
 categories:

@@ -1,8 +1,7 @@
 ---
 title: Blog
 description: |
-  A blog about data and science. I mainly blog about #rstats and
-  trying to make complex ideas simple.
+  A blog about data and science. I mainly blog about #rstats and trying to make complex ideas simple.
 author: "Jeremy R. Winget"
 show_post_thumbnail: true
 thumbnail_left: false
@@ -15,7 +14,7 @@ layout: list-sidebar # list, list-sidebar, list-grid
 sidebar: 
   title: Blog
   description: |
-    This blog is my [digital garden](https://nesslabs.com/digital-garden-set-up), somewhere between a notepad and a blog. 
+    This is my [digital garden](https://nesslabs.com/digital-garden-set-up), somewhere between a notepad and a blog. 
   author: "Jeremy R. Winget"
   text_link_label: Subscribe via RSS
   text_link_url: /index.xml
@@ -29,6 +28,8 @@ cascade:
   show_comments: true # see site config to choose Disqus or Utterances
   # for single-sidebar layout
   sidebar:
+    image:
+      caption: '[]()'
     text_link_label: View recent posts
     text_link_url: /blog/
     show_sidebar_adunit: false # show ad container

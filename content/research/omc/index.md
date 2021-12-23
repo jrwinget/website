@@ -4,7 +4,7 @@ summary: How might information sharing within groups contribute to polarization?
 abstract: ""
 date: "2016-04-27T00:00:00Z"
 image:
-  caption: 
+  caption: '[Photo by Brett Jordan on Unsplash](https://unsplash.com/photos/uPWvYb07JXs)'
   focal_point: 
 
 categories:

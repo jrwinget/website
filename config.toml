@@ -38,7 +38,7 @@ enableEmoji = true
   description = "Personal website and portfolio of Dr. Jeremy R. Winget"
   favicon = "/img/favicon.ico"
   logo = "/img/logo.png"
-  mainSections = ["blog", "publications", "talk"]
+  mainSections = ["blog", "project", "talk"]
   navallcaps = true
   # show/hide social icons in site header & footer
   # configure social icons and links below in [[params.social]]
@@ -129,25 +129,20 @@ enableEmoji = true
     url = "/research/"
     weight = 2
   [[menu.header]]
-    name = "Publications"
-    title = "Publications"
-    url = "/publications/"
+    name = "Projects"
+    title = "Projects"
+    url = "/project/"
     weight = 3
-  [[menu.header]]
-    name = "Teaching"
-    title = "Teaching"
-    url = "/teaching/"
-    weight = 4
   [[menu.header]]
     name = "Consulting"
     title = "Consulting"
     url = "/consulting/"
-    weight = 5
+    weight = 4
   [[menu.header]]
     name = "CV"
     title = "CV"
     url = "https://drive.google.com/file/d/1UxuhcSTwkqxdK2JSJfeBnRfc5l9tUG6s/preview"
-    weight = 6
+    weight = 5
 
   # Configure footer
   [[menu.footer]]
@@ -157,7 +152,7 @@ enableEmoji = true
     weight = 1
   [[menu.footer]]
     name = "Contact"
-    title = "Contact form"
+    title = "Contact Form"
     url = "/contact/"
     weight = 2
   [[menu.footer]]

@@ -9,6 +9,8 @@ layout: single-sidebar
 categories: ["Blog"]
 tags: ["machine learning", "classification", "prediction", "R", "logistic regression", "random forrest"]
 summary: 'A comparative model analysis of the factors that lead to severe traffic collisions in Chicago, IL.'
+image:
+  caption: '[Photo from Pixabay](https://pixabay.com/vectors/accident-car-collision-crash-151668/)'
 output:
   blogdown::html_page:
     toc: true

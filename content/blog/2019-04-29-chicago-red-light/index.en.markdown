@@ -9,6 +9,8 @@ layout: single-sidebar
 tags: ["data wrangling", "data viz", "EDA", "R"]
 categories: ["Blog"]
 summary: 'An exploratory data analysis of red light traffic camera violations in Chicago, IL.'
+image:
+  caption: '[Photo from Pixabay](https://pixabay.com/photos/jam-communication-red-light-cars-2575843/)'
 output:
   blogdown::html_page:
     toc: true

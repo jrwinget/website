@@ -1,7 +1,7 @@
 ---
 aliases: 
   - /blog/chicago-red-light
-  - /blog/2018-04-29-chicago-red-light
+  - /blog/2019-04-29-chicago-red-light
 title: "EDA: Chicago red light camera violations"
 authors: [jeremy]
 date: '2019-04-29'
@@ -9,6 +9,8 @@ layout: single-sidebar
 tags: ["data wrangling", "data viz", "EDA", "R"]
 categories: ["Blog"]
 summary: 'An exploratory data analysis of red light traffic camera violations in Chicago, IL.'
+image:
+  caption: '[Photo from Pixabay](https://pixabay.com/photos/jam-communication-red-light-cars-2575843/)'
 output:
   blogdown::html_page:
     toc: true

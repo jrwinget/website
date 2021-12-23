@@ -4,7 +4,7 @@ summary: What conditions lead to optimal group decision performance? What are pr
 abstract: ""
 date: "2016-04-27T00:00:00Z"
 image:
-  caption: 
+  caption: '[Photo by Elizabeth Virginia Ramsey from NC State University Libraries](https://www.lib.ncsu.edu/workshops/introduction-agents-based-modelling-talk)'
   focal_point: 
 
 categories:

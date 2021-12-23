@@ -9,6 +9,8 @@ layout: single-sidebar
 tags: ["R Markdown", "statistics", "data viz", "methods", "R"]
 categories: ["Blog"]
 summary: 'My first blog post! Allow me to introduce myself...'
+image:
+  caption: '[Photo by Dwayne Bent on Flickr](https://www.flickr.com/photos/zengei/7317420838)'
 output:
   blogdown::html_page:
     toc: true

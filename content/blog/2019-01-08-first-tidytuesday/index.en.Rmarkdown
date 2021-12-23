@@ -9,6 +9,8 @@ layout: single-sidebar
 tags: ["TidyTuesday", "data wrangling", "data viz", "R"]
 categories: ["Blog"]
 summary: 'A walkthrough of my first #TidyTuesday contribution.'
+image:
+  caption: '[Photo from TidyTuesday](https://github.com/rfordatascience/tidytuesday)'
 output:
   blogdown::html_page:
     toc: true

@@ -9,6 +9,8 @@ layout: single-sidebar
 tags: ["how to", "R"]
 categories: ["Blog"]
 summary: 'A tutorial on how to build a bot that generates random Would You Rather questions on Twitter.'
+image:
+  caption: '[Photo from Pixabay](https://pixabay.com/vectors/chatbot-bot-chat-robot-talk-6626193/)'
 output:
   blogdown::html_page:
     toc: true
