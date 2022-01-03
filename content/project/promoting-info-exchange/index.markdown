@@ -33,9 +33,10 @@ links:
   icon_pack: fas
   name: Project
   url: https://osf.io/sehmv/
-#- icon: columns
-#  icon_pack: fas
-#  name: Confrence
+- icon: film
+  icon_pack: fas
+  name: Video
+  url: https://www.youtube.com/watch?v=-vsXBZQQt6c
 ---
 
 ## Abstract
