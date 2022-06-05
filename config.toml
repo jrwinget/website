@@ -133,11 +133,6 @@ enableEmoji = true
     title = "Projects"
     url = "/project/"
     weight = 3
-  [[menu.header]]
-    name = "CV"
-    title = "CV"
-    url = "https://drive.google.com/file/d/1UxuhcSTwkqxdK2JSJfeBnRfc5l9tUG6s/preview"
-    weight = 4
 
   # Configure footer
   [[menu.footer]]
