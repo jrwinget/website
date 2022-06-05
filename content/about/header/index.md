@@ -7,4 +7,4 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-I'm a full-time instructor and researcher, who uses advanced quantitative methods to improve how individuals and groups make judgments and decisions. I am also a part-time consultant, specializing in statistics and research methods, as well an author and invited speaker.
+I'm a senior research analyst at SKIM, and I use advanced quantitative methods to understand and improve how individuals and groups make judgments and decisions. I am also an author and invited speaker, as well as a former academic and consultant, with expertise in decision making, statistics, and research methods.

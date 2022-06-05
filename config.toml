@@ -134,15 +134,10 @@ enableEmoji = true
     url = "/project/"
     weight = 3
   [[menu.header]]
-    name = "Consulting"
-    title = "Consulting"
-    url = "/consulting/"
-    weight = 4
-  [[menu.header]]
     name = "CV"
     title = "CV"
     url = "https://drive.google.com/file/d/1UxuhcSTwkqxdK2JSJfeBnRfc5l9tUG6s/preview"
-    weight = 5
+    weight = 4
 
   # Configure footer
   [[menu.footer]]

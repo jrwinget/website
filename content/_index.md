@@ -1,7 +1,7 @@
 ---
 title: "Jeremy R. Winget, Ph.D."
-subtitle: "Instructor of Psychology & Quantitative Methods"
-description: "I am a behavioral scientist, computational modeler, and award-winning educator. My work focuses on improving individual and group decision-making with mixed methods (e.g., experimentation, agent-based models, etc.). I am also passionate about data science and its role in developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun."
+subtitle: "Senior Market Research Analyst"
+description: "I am a senior analyst, behavioral scientist, and well-versed educator. My work focuses on understanding and improving individual and group decision-making with mixed methods (e.g., experimentation, agent-based models, surveys, etc.). I am also passionate about using data science to developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun."
 images:
   - img/home.jpeg
 image_left: false
