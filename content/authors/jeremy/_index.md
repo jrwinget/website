@@ -31,15 +31,15 @@ interests:
 - Machine Learning
 
 organizations:
-- name: Loyola University Chicago
-  url: https://www.luc.edu/psychology/people/faculty/facultystaff/jeremywinget/
+- name: SKIM
+  url: https://skimgroup.com/
   
-role: Instructor of Psychology & Quantitative Methods
+role: Senior Market Research Analyst
 
 social:
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/_jwinget
+  link: https://twitter.com/_jrwinget
 - icon: gitlab
   icon_pack: fab
   link: https://gitlab.com/jrwinget
@@ -57,4 +57,4 @@ social:
   link: https://scholar.google.com/citations?user=UbgwtEwAAAAJ
 ---
 
-I am a PhD data scientist and professional educator at RStudio. I am an invited [speaker](/talks), [award-winning educator](/teaching), and author of various [journal articles and book chapters](/publication). I love [creative problem solving and using unique platforms](/projects) for sharing knowledge and data-driven insights. I am known for being a compassionate leader, enthusiastic collaborator, and for identifying novel insights to challenging problems.
+I am a senior analyst, computational social scientist, and educator. My work focuses on understanding and improving individual and group decision-making with mixed methods (e.g., experimentation, agent-based models, surveys, etc.). I am also passionate about using data science to developing insights into complex and challenging problems. I hope to one day build tools to make data analysis easier, open, and fun.
