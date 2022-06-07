@@ -48,7 +48,7 @@ enableEmoji = true
   # Place image file in `static` folder and specify image name here.
   #sharing_image = "/img/papillons.jpg"
   # Twitter username (without @). Used when a visitor shares your site on Twitter.
-  twitter = "_jwinget"
+  twitter = "_jrwinget"
 
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
