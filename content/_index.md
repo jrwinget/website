@@ -1,7 +1,10 @@
 ---
 title: "Jeremy R. Winget, Ph.D."
-subtitle: "Senior Market Research Analyst"
-description: "As a senior analyst, computational social scientist, and educator, my research focuses on understanding and improving decision making at the individual and group level using a combination of methods such as experimentation, agent-based modeling, and surveys. I'm also passionate about using data science to gain insights into complex problems and developing tools to make data analysis more accessible and enjoyable."
+subtitle: "Full Stack Developer | AI Engineer | Computational Social Scientist"
+description: "
+  I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.
+"
+
 images:
   - img/home.jpeg
 image_left: false
