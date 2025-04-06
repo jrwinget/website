@@ -7,4 +7,4 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-I'm a senior research analyst at SKIM, and I use advanced quantitative methods to understand and improve how individuals and groups make judgments and decisions. I am also an author and invited speaker, as well as a former academic and consultant, with expertise in decision making, statistics, and research methods.
+I’m driven by the belief that powerful, accessible technology can—and should—serve as a tool for social equity and informed decision-making. My journey began with exploring group dynamics, decision processes, and agent-based modeling in computational social science, deeply inspired by principles of open science and the fight to democratize access to knowledge. Today, I channel that same passion into building data-driven applications that empower individuals and organizations alike. By combining technical rigor with social insight, I aim not only to create advanced solutions but to advocate for transparency, challenge unjust systems, and continuously speak truth to power.
