@@ -1,7 +1,7 @@
 ---
 title: Talks & Workshops
 description: |
-  Events I have been invited to present at, shared along with slides, videos, and other linkable resources.
+  I regularly share insights at conferences, workshops, and invited talks, exploring how computational modeling, AI, and technology in general intersect with group dynamics, decision-making, and social equity. Here, you'll find presentations I've delivered, along with slides, videos, and additional resources to explore further.
 author: "Jeremy R. Winget"
 show_post_thumbnail: true
 thumbnail_left: false
@@ -20,7 +20,7 @@ cascade:
   show_comments: false # see site config to choose Disqus or Utterances
   # for single-sidebar layout
   sidebar:
-    text_link_label: View recent events
+    text_link_label: Explore recent presentations
     text_link_url: /talk/
     show_sidebar_adunit: false # show ad container
 ---

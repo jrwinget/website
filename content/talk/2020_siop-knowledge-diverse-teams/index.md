@@ -9,7 +9,7 @@ url_slides: https://osf.io/k34ct/
 image:
   caption:
   focal_point:
-location: Virtual confrence
+location: Virtual conference
 math: true
 selected: true
 title: Process-oriented model of integration in knowledge-diverse teams
