@@ -8,16 +8,17 @@ googleAnalytics = ""
 disqusShortname = "jeremyrwinget" # see params.utterances to use utterances instead of Disqus
 metaDataFormat = "yaml"
 footnoteReturnLinkContents = "&#8617;" # ↩
-# set deliberately low for testing choose your preffered number based on the blog layout you've chosen
-paginate = 5
 preserveTaxonomyNames = true
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+ignoreLogs = ['warning-frontmatter-params-overrides']
 enableEmoji = true
 
-# Permalinks
+[pagination]
+pagerSize = 5
+
 [permalinks]
   blog = "/blog/:year-:month-:slug/"
-  talk = "/talk/:filename/"
+  talk = "/talk/:contentbasename/"
 
 [markup]
   defaultMarkdownHandler = "goldmark"
@@ -87,24 +88,28 @@ enableEmoji = true
   # Icon pack "fas" includes solid icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
   # Icon pack "far" includes regular icons, see: https://fontawesome.com/icons?d=gallery&s=regular&m=free
   [[params.social]]
-      icon      = "linkedin" # icon name without the 'fa-'
-      icon_pack = "fab"
-      url       = "https://www.linkedin.com/in/jrwinget/"
-  [[params.social]]
       icon      = "github" # icon name without the 'fa-'
       icon_pack = "fab"
       url       = "https://github.com/jrwinget"
   [[params.social]]
-      icon      = "osf" # icon name without the 'fa-'
-      icon_pack = "ai"
+    icon      = "bluesky" # or "square-bluesky" for square version
+    icon_pack = "fab"
+    url       = "https://bsky.app/profile/jrwinget.bsky.social"
+  [[params.social]]
+      icon      = "linkedin" # icon name without the 'fa-'
+      icon_pack = "fab"
+      url       = "https://www.linkedin.com/in/jrwinget/"
+  [[params.social]]
+      icon      = "atom" # icon name without the 'fa-'
+      icon_pack = "fas"
       url       = "https://osf.io/x3gve/"
   [[params.social]]
       icon      = "orcid" # icon name without the 'fa-'
-      icon_pack = "ai"
+      icon_pack = "fab"
       url       = "https://orcid.org/0000-0002-3783-4354"
   [[params.social]]
       icon      = "google-scholar" # icon name without the 'fa-'
-      icon_pack = "ai"
+      icon_pack = "fab"
       url       = "https://scholar.google.com/citations?user=UbgwtEwAAAAJ=en"
 
 [taxonomies]
@@ -158,7 +163,7 @@ enableEmoji = true
   [privacy.instagram]
     disable = false
     simple = true
-  [privacy.twitter]
+  [privacy.x]
     disable = false
     enableDNT = true
     simple = false

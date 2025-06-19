@@ -1,12 +1,9 @@
 ---
-title: "About me"
+title: "About"
 description: |
-  About Jeremy R. Winget.
+  Learn more about Jeremy R. Winget
 show_header: true
 sidebar_left: false
-# Keep this! Do not edit.
-cascade:
-  headless: true
 ---
 
 ** index doesn't contain a body, just front matter above.
