@@ -46,8 +46,7 @@ These functions make it easier to move from raw telemetry data to structured BID
 
 Here's what a telemetry-informed BID pipeline can look like in **0.3.1**:
 
-
-``` r
+```{r, eval=FALSE}
 library(bidux)
 library(dplyr)
 
@@ -100,8 +99,7 @@ We've updated the **Getting Started** vignette with new telemetry examples and c
 
 You can install **bidux 0.3.1** from CRAN today:
 
-
-``` r
+```{r, eval=FALSE}
 install.packages("bidux")
 ```
 
