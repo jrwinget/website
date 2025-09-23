@@ -1,0 +1,45 @@
+---
+title: "About Me"
+number_featured: 1 # pulling from mainSections in config.toml
+use_featured: false # if false, use most recent by date
+number_categories: 5 # set to zero to exclude
+show_intro: true
+show_outro: true
+outro: |
+  <i class="fas fa-ghost pr2"></i>Thank you for visiting!
+---
+
+## Hello! Welcome.
+
+I'm driven by the belief that powerful, accessible technology can, **and should**, serve as a tool for social equity and informed decision-making. My journey began with exploring group dynamics, decision processes, and agent-based modeling in computational social science, deeply inspired by principles of open science and the fight to democratize access to knowledge. Today, I channel that same passion into building data-driven applications that empower individuals and organizations alike. By combining technical rigor with social insight, I aim not only to create advanced solutions but to advocate for transparency, challenge unjust systems, and continuously speak truth to power.
+
+
+
+## Lately
+
+I've been focused on developing innovative AI-driven tools and exploring how computational methods can shed light on complex social dynamics. Below, you'll find highlights from my latest blog posts, research projects, and recent talks, each aiming to bridge advanced analytics with meaningful social impact.
+
+
+<!-- My work covers both the individual level (the immunology, virology, microbiology scale) and the population level (the epidemiology, ecology, evolution scale).  -->
+
+Descriptions of some current research projects can be found [on my research group website](https://handelgroup.uga.edu/). Slides for recent talks and presentations are located on this website and [can be found here](presentations.qmd).
+
+
+### Previous positions
+
+I started in 2009 as Assistant Professor in the Department of Epidemiology and Biostatistics at UGA, was promoted to Associate Professor in 2015 and to Full Professor in 2021.
+
+From 2004 - 2009, I was a Postdoctoral Fellow in the [Department of Biology](http://www.biology.emory.edu/)
+at [Emory University](http://www.emory.edu/) in the group of [Rustom Antia](http://www.biology.emory.edu/Antia/). During my Postdoc I made the transition from physics to infectious disease modeling.
+
+From 1999 - 2004, I did a PhD in theoretical physics at the [Center for Nonlinear Science](https://cns.gatech.edu/) and
+[School of Physics](https://www.physics.gatech.edu/) at the [Georgia Institute of Technology](https://www.gatech.edu/).
+I worked with [Roman Grigoriev](https://cns.gatech.edu/~roman/) on the topic of localized control of spatially extended, nonlinear dynamical systems.
+
+I grew up in Germany and started my undergrad studies in 1996 at the [University of Stuttgart](https://www.uni-stuttgart.de/en/), in [Physics](https://www.f08.uni-stuttgart.de/en/physics/). I received my B.S. (or what could be considered the German equivalent) in 1999, after which I moved to the U.S.
+
+
+### Additional, completely irrelevant information
+
+My current [Erdős number](http://en.wikipedia.org/wiki/Erd%C5%91s_number) is (as far as I'm aware) __4__.
+(Paul Erdős -> Ernst Gabor Straus -> Raymond M. Redheffer -> Sergei S. Pilyugin -> Andreas Handel).
