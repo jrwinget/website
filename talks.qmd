@@ -1,7 +1,7 @@
 ---
-title: "Blog"
+title: "Talks"
 listing:
-  contents: blog
+  contents: talks
   sort: "date desc"
   type: default
   categories: true
@@ -11,10 +11,11 @@ listing:
     - title
     - subtitle
     - date
-    - reading-time
-    - description
+    - location
+    - event
     - image
     - image-alt
     - categories
 page-layout: full
+title-block-banner: false
 ---

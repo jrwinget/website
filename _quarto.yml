@@ -31,7 +31,7 @@ website:
   cookie-consent: true
   search: true
   navbar:
-    background: "##f2e9dc"
+    background: "#f2e9dc"
     logo: /files/logo.png
     left:
       - href: index.qmd
@@ -48,17 +48,15 @@ website:
     left: |
       {{< fa regular copyright >}} 2025 Jeremy R. Winget<br>
       All content licensed under {{< fa brands creative-commons >}}
-      {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-sa >}} {{< fa brands creative-commons-nc >}} [(CC BY-NC-SA 4.0)](http://creativecommons.org/licenses/by-nc-sa/4.0/)<br>
-      Opinions are my own and do not represent my employer
+      {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-sa >}} {{< fa brands creative-commons-nc >}} [(CC BY-NC-SA 4.0)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
     right: |
       Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
       [Source at {{< fa brands github >}} GitHub](https://github.com/jrwinget/website)
 format:
   html:
-    include-after-body: files/webex.js
     code-fold: false
-    #embed-resources: true
-    #self-contained: true
+    embed-resources: true
+    self-contained: true
     theme:
       light: [matria, assets/main.scss]
       dark: [slate, assets/main.scss]

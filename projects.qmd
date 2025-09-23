@@ -1,0 +1,12 @@
+---
+title: "Publications"
+listing:
+  contents: publications
+  sort: "title"
+  type: default
+  image-align: left
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
+---

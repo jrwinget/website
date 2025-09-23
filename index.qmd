@@ -20,7 +20,6 @@ about:
       href: https://orcid.org/0000-0002-3783-4354
     - text: "Google Scholar {{< fa brands google-scholar >}}"
       href: https://scholar.google.com/citations?user=UbgwtEwAAAAJ=en
-comments: false
 ---
 
 <!-- # see here for the icon setup  -->
