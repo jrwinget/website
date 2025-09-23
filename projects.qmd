@@ -1,8 +1,8 @@
 ---
-title: "Publications"
+title: "Projects"
 listing:
-  contents: publications
-  sort: "title"
+  contents: "projects/*/index.md"
+  sort: "date desc"
   type: default
   image-align: left
   categories: true

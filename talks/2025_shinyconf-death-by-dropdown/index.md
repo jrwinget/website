@@ -4,14 +4,12 @@ abstract: "Imagine opening a dashboard and being greeted with an endless series 
 abstract_short: ""
 date: 2025-04-10T09:00:00
 event: ShinyConf 2025
-event_url: https://www.shinyconf.com/
-url_slides: https://github.com/jrwinget/bid-framework/tree/main/conference-materials/2025_shiny-conf
-image:
-  caption:
-  focal_point:
+# event_url: https://www.shinyconf.com/
+# url_slides: https://github.com/jrwinget/bid-framework/tree/main/conference-materials/2025_shiny-conf
+image: ""
 location: Virtual conference
-math: true
-selected: true
+# math: true
+# selected: true
 title: Death By Dropdown? A Developer's Guide To Building Dashboards That Won't Fry Your Client's Brain
   
 tags: [UI/UX, Shiny, design, decision-making]

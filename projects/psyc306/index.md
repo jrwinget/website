@@ -3,16 +3,14 @@ title: PSYC 306 - Research Methods
 date: 2021-08-30
 authors: Jeremy R. Winget
 summary: An undergraduate-level course on the fundamentals of research methods in the social sciences.
-external_link: ""
-image:
-  caption: '[Research Scene Vector.svg](https://commons.wikimedia.org/wiki/File:Research_Scene_Vector.svg##) from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page) by [Videoplasty.com](https://videoplasty.com/), [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)'
-  focal_point: Smart
+# external_link: ""
+image: ""
 
-links:
-- icon: images
-  icon_pack: fas
-  name: Materials
-  url: https://osf.io/6v2ad/
+# links:
+# - icon: images
+#   icon_pack: fas
+#   name: Materials
+#   url: https://osf.io/6v2ad/
 
 categories:
 - Education

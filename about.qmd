@@ -1,10 +1,53 @@
 ---
 title: "About"
-description: |
-  Learn more about Jeremy R. Winget
-show_header: true
-sidebar_left: false
+description: "Learn more about Jeremy R. Winget"
+sidebar:
+  - title: "{{< fa user >}} Profile"
+    contents:
+      - "![Jeremy R. Winget](./assets/img/avatar.jpg){width=150px style='border-radius: 50%; margin-bottom: 1rem;'}"
+      - "**Jeremy R. Winget, Ph.D.**"
+      - "*Developer | AI Engineer | Computational Social Scientist*"
+  - title: "{{< fa link >}} Connect"
+    contents:
+      - "[{{< fa brands github >}} GitHub](https://github.com/jrwinget)"
+      - "[{{< fa brands linkedin >}} LinkedIn](https://linkedin.com/in/jrwinget)"
+      - "[{{< fa brands mastodon >}} Bluesky](https://bsky.app/profile/jrwinget.com)"
+  - title: "{{< fa heart >}} Interested in"
+    contents:
+      - "Computational social science"
+      - "Data visualization"
+      - "Statistical modeling"
+      - "R programming"
+      - "User experience research"
 ---
 
-** index doesn't contain a body, just front matter above.
-See the header / main / sidebar folders to edit the index.md files **
+## Mission
+
+I am a computational social scientist and developer passionate about using data science to understand human behavior and improve decision-making. My work bridges psychology, statistics, and technology to create tools and insights that make complex information more accessible and actionable.
+
+## Lately
+
+Here's what I've been working on recently:
+
+### Recent Blog Posts
+- Modern telemetry workflows
+- Data visualization best practices
+- Statistical modeling techniques
+
+### Current Projects
+- Building analytics dashboards
+- Research on decision-making
+- Open source R packages
+
+### Recent Talks
+- "Death by Dropdown" at ShinyConf 2025
+- Data visualization workshops
+- R user group presentations
+
+## Background
+
+With a Ph.D. in Psychology and extensive experience in data science and software development, I specialize in:
+
+- **Research & Analytics**: Designing studies, analyzing complex datasets, and translating findings into actionable insights
+- **Software Development**: Building web applications, dashboards, and data tools using R, Python, and modern web technologies
+- **Teaching & Training**: Developing educational content and leading workshops on statistics, programming, and data visualization

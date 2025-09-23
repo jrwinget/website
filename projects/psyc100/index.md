@@ -1,18 +1,16 @@
 ---
 title: PSYC 100 - Psychological Perspectives on the Experiences of Globalization
 date: 2021-08-30
-authors: [jeremy]
+author: "Jeremy R. Winget"
 summary: An undergraduate-level course on understanding issues related to globalization through psychological theory and research.
-external_link: ""
-image:
-  caption: '[Photo on Pixabay](https://pixabay.com/illustrations/earth-globalisation-network-3866609/)'
-  focal_point: Smart
+# external_link: ""
+image: ""
 
-links:
-- icon: images
-  icon_pack: fas
-  name: Materials
-  url: https://osf.io/3hsqj/
+# links:
+# - icon: images
+#   icon_pack: fas
+#   name: Materials
+#   url: https://osf.io/3hsqj/
 
 categories:
 - Education

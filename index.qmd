@@ -2,7 +2,7 @@
 title: ""
 about:
   template: trestles
-  image: img/avatar.jpg
+  image: assets/img/avatar.jpg
   links:
     - icon: github
       text: Github
@@ -25,12 +25,5 @@ about:
 <!-- # see here for the icon setup  -->
 <!-- # https://forum.posit.co/t/overwriting-bootstrap-icons-in-quarto/195804/2 -->
 
-```{r, echo=FALSE, eval = TRUE}
-# lines to insert to a netlify _redirect file
-redirects <- paste0("/talk /presentations \n/talks /presentations \n/post /posts")
-
-# write the _redirect file
-writeLines(redirects, here::here("_site", "_redirects"))
-```
 
 I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.

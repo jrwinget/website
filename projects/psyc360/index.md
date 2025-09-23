@@ -1,18 +1,16 @@
 ---
 title: PSYC 360 - Understanding Prejudice
 date: 2021-08-30
-authors: [jeremy]
+author: "Jeremy R. Winget"
 summary: An undergraduate-level course that focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations.
-external_link: ""
-image:
-  caption: '[Photo by Nick Youngson on Alpha Stock Images](https://www.picserver.org/photo/28503/Discrimination.html)'
-  focal_point: Smart
+# external_link: ""
+image: ""
 
-links:
-- icon: images
-  icon_pack: fas
-  name: Materials
-  url: https://osf.io/8efkx/
+# links:
+# - icon: images
+#   icon_pack: fas
+#   name: Materials
+#   url: https://osf.io/8efkx/
 
 categories:
 - Education

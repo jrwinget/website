@@ -19,20 +19,18 @@ editor:
   markdown:
     wrap: sentence
 engine: knitr
-filters:
-  - include-code-files
 
 website:
   title: "Jeremy R. Winget, PhD"
   site-url: "https://www.jrwinget.com"
   repo-url: https://github.com/jrwinget/website
   description: "Jeremy R. Winget's personal website and blog."
-  favicon: /assets/logo.png
+  favicon: /assets/img/logo.png
   cookie-consent: true
   search: true
   navbar:
     background: "#f2e9dc"
-    logo: /files/logo.png
+    logo: /assets/img/logo.png
     left:
       - href: index.qmd
         text: Home
@@ -42,6 +40,8 @@ website:
         text: Blog
       - href: projects.qmd
         text: Projects
+      - href: talks.qmd
+        text: Talks
       - href: publications.qmd
         text: Publications
   page-footer:
@@ -58,7 +58,7 @@ format:
     embed-resources: true
     self-contained: true
     theme:
-      light: [matria, assets/main.scss]
+      light: [flatly, assets/main.scss]
       dark: [slate, assets/main.scss]
     css: assets/styles.css
     toc: true

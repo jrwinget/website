@@ -1,18 +1,16 @@
 ---
 title: PSYC 280 - Judgment and Decision Making
 date: 2021-08-30
-authors: [jeremy]
+author: "Jeremy R. Winget"
 summary: An undergraduate-level course on understanding issues related to globalization through psychological theory and research.
-external_link: ""
-image:
-  caption: '[Photo by Vladislav Babienko on Unsplash](https://unsplash.com/photos/KTpSVEcU0XU)'
-  focal_point: Smart
+# external_link: ""
+image: ""
 
-links:
-- icon: images
-  icon_pack: fas
-  name: Materials
-  url: https://osf.io/dse74/
+# links:
+# - icon: images
+#   icon_pack: fas
+#   name: Materials
+#   url: https://osf.io/dse74/
 
 categories:
 - Education

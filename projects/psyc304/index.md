@@ -1,18 +1,16 @@
 ---
 title: PSYC 304 - Statistics
 date: 2021-01-18
-authors: [jeremy]
+author: "Jeremy R. Winget"
 summary: An undergraduate-level course on the fundamentals of statistics and hypothesis testing.
-external_link: ""
-image:
-  caption: '[Photo on Pixabay](https://pixabay.com/vectors/graphic-progress-diagram-1714230/)'
-  focal_point: Smart
+# external_link: ""
+image: ""
 
-links:
-- icon: images
-  icon_pack: fas
-  name: Materials
-  url: https://osf.io/dc5mp/
+# links:
+# - icon: images
+#   icon_pack: fas
+#   name: Materials
+#   url: https://osf.io/dc5mp/
 
 categories:
 - Education

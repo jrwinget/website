@@ -1,0 +1,15 @@
+{
+  "hash": "a2e7c8c67b7aeaa4e5d38c8897f04b71",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"\"\nabout:\n  template: trestles\n  image: img/avatar.jpg\n  links:\n    - icon: github\n      text: Github\n      href: https://github.com/jrwinget\n    - text: \"Bluesky {{< fa brands bluesky >}}\"\n      icon: fa-brands fa-bluesky\n      href: https://bsky.app/profile/jrwinget.bsky.social\n    - icon: linkedin\n      text: LinkedIn\n      href: https://www.linkedin.com/in/jrwinget/\n    - icon: osf\n      text: OSF\n      href: https://osf.io/x3gve/\n    - text: \"ORCID {{< fa brands orcid >}}\"\n      href: https://orcid.org/0000-0002-3783-4354\n    - text: \"Google Scholar {{< fa brands google-scholar >}}\"\n      href: https://scholar.google.com/citations?user=UbgwtEwAAAAJ=en\n---\n\n<!-- # see here for the icon setup  -->\n<!-- # https://forum.posit.co/t/overwriting-bootstrap-icons-in-quarto/195804/2 -->\n\n\n::: {.cell}\n\n:::\n\n\nI build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
