@@ -1,0 +1,16 @@
+---
+title: ""
+toc: false
+about:
+  template: solana
+  image: assets/img/home.png
+  image-width: 400px
+---
+
+# Jeremy R. Winget, Ph.D.
+
+## Full Stack Engineer | Computational Scientist | he/him
+
+I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights, creating solutions informed by evidence and designed to be meaningful and accessible for everyone.
+
+[ABOUT ME →](about.qmd){.about-link}

@@ -1,0 +1,84 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "*.Rmd"
+    - "*.md"
+    - "!README.md"
+    - "!LICENSE.md"
+    - "!renv/"
+  resources:
+    - "assets/"
+    - "_redirects"
+execute:
+  freeze: auto # re-render when source changes
+  echo: true # show source code in output
+  output: true # show results code execution
+  cache: false # don't cache code junks by default
+description-meta: "Jeremy R. Winget's personal website and blog"
+editor:
+  markdown:
+    wrap: sentence
+engine: knitr
+
+website:
+  title: "Jeremy R. Winget, PhD"
+  site-url: "https://www.jrwinget.com"
+  repo-url: https://github.com/jrwinget/website
+  description: "Jeremy R. Winget's personal website and blog."
+  favicon: /assets/img/logo.png
+  cookie-consent: true
+  search: true
+  open-graph: true
+  twitter-card: true
+  navbar:
+    background: "#f2e9dc"
+    logo: /assets/img/logo.png
+    title: false
+    left:
+      - href: blog.qmd
+        text: Blog
+      - href: research.qmd
+        text: Research
+      - text: Projects
+        menu:
+          - href: software.qmd
+            text: Software
+          - href: talks.qmd
+            text: Talks
+          - href: courses.qmd
+            text: Courses
+    right:
+      - icon: github
+        href: https://github.com/jrwinget
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/jrwinget/
+        aria-label: LinkedIn
+      - text: "{{< fa brands bluesky >}}"
+        href: https://bsky.app/profile/jrwinget.com
+        aria-label: Bluesky
+      - text: "{{< fa envelope >}}"
+        href: mailto:contact@jrwinget.com
+        aria-label: Email
+  page-footer:
+    left: |
+      {{< fa regular copyright >}} 2025 Jeremy R. Winget<br>
+      Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)
+    right: |
+      [License](http://creativecommons.org/licenses/by-nc-sa/4.0/) | [Contact](mailto:contact@jrwinget.com) | [RSS](/blog.xml)
+format:
+  html:
+    code-fold: show
+    code-overflow: scroll
+    code-line-numbers: true
+    embed-resources: true
+    self-contained: true
+    theme: [flatly, assets/main.scss]
+    css: assets/styles.css
+    toc: true
+    comments:
+      utterances:
+        repo: jrwinget/website
+        theme: github-light
+        issue-term: pathname

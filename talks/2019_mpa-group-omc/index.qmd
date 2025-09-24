@@ -1,0 +1,15 @@
+---
+title: "Open-minded group cognition"
+date: "2019-04-11"
+date-format: "MMMM D, YYYY"
+authors: "Jeremy R. Winget"
+event: "Ninety-first Annual Meeting of the Midwestern Psychological Association"
+location: "Chicago, Illinois"
+categories: ["Presentations", "Research", "Psychology"]
+tags: ["open-minded-cognition", "social-norms", "information-processing", "group-dynamics", "conference-talk", "social-psychology"]
+abstract: "The situational merit standard hypothesis states social norms dictate when open-minded condition (OMC) is appropriate. One context we expect normatively less open-mindedness are those involving group interactions."
+---
+
+In one study, we manipulated target group membership and measured OMC. In a second study, we manipulated open-minded norms within a group and measured OMC.
+
+This research examines how social contexts and group dynamics influence our willingness to consider alternative perspectives and information.

@@ -3,8 +3,6 @@
 .RData
 .Ruserdata
 .Rprofile
+.Renviron
 .DS_Store
-.hugo_build.lock
-Thumbs.db
-/public/
-/resources/
+/.quarto/

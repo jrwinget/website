@@ -1,0 +1,8 @@
+/* minimal additional css - main styling in main.scss */
+
+/* utility classes for dynamic content sections */
+.see-all-link {
+  font-weight: 500;
+  margin-top: 0.5rem;
+  display: inline-block;
+}

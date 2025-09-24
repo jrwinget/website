@@ -1,0 +1,21 @@
+---
+title: "Courses"
+listing:
+  contents: "courses/*/index.qmd"
+  include:
+    categories: "Education"
+  sort: "date desc"
+  type: default
+  image-align: left
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields:
+    - title
+    - subtitle
+    - date
+    - image
+    - categories
+    - description
+page-layout: full
+---

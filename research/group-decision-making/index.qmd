@@ -1,0 +1,24 @@
+---
+title: "Group decision-making"
+date: "2019-03-26"
+date-format: "MMMM D, YYYY"
+subtitle: "A book chapter summarizing the current state of the field concerning group decision making"
+author: "R. S. Tindale & J. R. Winget"
+categories: ["Research", "Psychology"]
+tags: ["social-psychology", "group-dynamics", "decision-making", "information-processing", "consensus", "aggregation", "book-chapter"]
+description: "Comprehensive review of group decision-making strategies organized by degree of interaction and final decision processes."
+publication: "The Oxford Research Encyclopedia of Psychology"
+---
+
+## Abstract
+
+Group decisions are ubiquitous in everyday life. Even when decisions are made individually, decision-makers often receive advice or suggestions from others. Thus, decisions are often social in nature and involve multiple group members. This entry summarizes the current state of the field concerning the various ways in which groups make decisions.
+
+The literature is conceptualized as falling along two dimensions: how much interaction or information exchange is allowed among the group members and how the final decision is made. On one end, group decisions can be made simply by aggregating member preferences or judgments without any interaction among members and where members have no control or say in the final judgment. One the other end, groups decisions can involve extensive member interaction and information exchanges and the final decision is reached by group consensus.
+
+In between these two endpoints, various other strategies are also possible, including prediction markets, Delphi groups, and judge-advisor systems. The entry first describes each type of decision making strategy and then discusses relevant research literature. Each section explores how different group decision strategies influence both the quality of the decisions and the processes through which they are reached. The entry ends with a discussion of what aspects of group decision making seem most important for leading to quality group decisions.
+
+## Links
+
+- [{{< fa doi >}} Publication](https://doi.org/10.1093/acrefore/9780190236557.013.262)
+- [{{< fa file-pdf >}} Preprint](https://psyarxiv.com/kq2ft)

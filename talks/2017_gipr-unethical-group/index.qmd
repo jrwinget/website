@@ -1,0 +1,15 @@
+---
+title: "Do groups make less ethical decisions than individuals?"
+date: "2017-06-27"
+date-format: "MMMM D, YYYY"
+authors: "Jeremy R. Winget"
+event: "Center for Group Research and Group Processes and Intergroup Relations Anniversary Conference"
+location: "Canterbury, United Kingdom"
+categories: ["Presentations", "Research", "Psychology"]
+tags: ["ethics", "decision-making", "group-dynamics", "moral-reasoning", "ethical-judgment", "conference-talk", "social-psychology"]
+abstract: "An examination of ethical decision-making differences between individual and group contexts."
+---
+
+This presentation explores whether groups are more or less likely than individuals to make ethical decisions, examining the psychological and social mechanisms that influence moral reasoning in collaborative versus individual settings.
+
+The research contributes to our understanding of how group dynamics affect ethical judgment and decision-making processes.

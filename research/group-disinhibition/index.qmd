@@ -1,0 +1,26 @@
+---
+title: "Discharged in D.C.: The role of disinhibition in the behavior of insurrection group members"
+date: "2022-03-03"
+date-format: "MMMM D, YYYY"
+subtitle: "A theory paper summarizing the role of motivational systems in group members' behavior during the January 6th, 2021 attack on the US Capitol building"
+author: "J. R. Winget & E. S. Park"
+categories: ["Research", "Psychology"]
+tags: ["social-psychology", "group-dynamics", "political-psychology", "collective-behavior", "motivational-systems", "theory-paper"]
+description: "Theory paper using motivational systems theory to explain group disinhibition in the January 6, 2021 insurrection."
+publication: "Group Dynamics: Theory, Research, and Practice"
+---
+
+## Abstract
+
+**Objective:** We use the motivational systems theory of group involvement to explain aspects of the insurrection that occurred on January 6, 2021.
+
+**Method:** Drawing from existing literature, we explain why group involvement is likely to induce perceptions of "safety in numbers" and "strength in numbers." We further describe why these states are theorized to intensify group members' perceived sense of entitlement and their subsequent desires to attain power, status, and resources.
+
+**Results:** The motivational systems theory of group involvement framework explains how group membership and interaction can reduce inhibitions and avoidance motivation, while simultaneously intensifying motivational tendencies associated with an approach orientation.
+
+**Conclusions:** This theory paper explains why people in groups are more likely than individuals to be disinhibited during their pursuit of power and pleasure, leading members of insurrectionist groups to be especially impulsive, reckless, and violent.
+
+## Links
+
+- [{{< fa doi >}} Publication](https://doi.org/10.1037/gdn0000182)
+- [{{< fa file-pdf >}} Preprint](https://psyarxiv.com/z8kj4/)

@@ -1,0 +1,74 @@
+---
+title: "Hello! Welcome."
+description: "Learn more about Jeremy R. Winget"
+page-layout: article
+listing:
+  - id: recent-blogs
+    contents: "blog/*/index.qmd"
+    max-items: 1
+    sort: "date desc"
+    type: default
+    fields: [title, subtitle, date]
+  - id: recent-projects
+    contents:
+      - "software/*/index.qmd"
+      - "research/*/index.qmd"
+    max-items: 2
+    sort: "date desc"
+    type: default
+    fields: [title, subtitle, date]
+  - id: recent-talks
+    contents:
+      - "talks/*/index.qmd"
+      - "courses/*/index.qmd"
+    max-items: 2
+    sort: "date desc"
+    type: default
+    fields: [title, event, date]
+sidebar:
+  - title: "{{< fa user >}} Profile"
+    contents:
+      - "![Jeremy R. Winget](./assets/img/avatar.jpg){width=150px style='border-radius: 50%; margin-bottom: 1rem;'}"
+      - "**Jeremy R. Winget, Ph.D.**"
+      - "*Full Stack Engineer | Computational Scientist | he/him*"
+      - ""
+      - "*I'm driven by the belief that powerful, accessible technology can, **and should**, serve as a tool for social equity and informed decision-making.*"
+  - title: "{{< fa heart >}} Research Interests"
+    contents:
+      - "Software engineering & development"
+      - "Group & team dynamics"
+      - "Information processing & decision-making"
+      - "Computational social science"
+      - "AI/ML/NLP"
+  - title: "{{< fa info-circle >}} Site Info"
+    contents:
+      - "{{< fa regular copyright >}} 2025 Jeremy R. Winget"
+      - "Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)"
+      - "[Source on {{< fa brands github >}} GitHub](https://github.com/jrwinget/website)"
+---
+
+I'm driven by the belief that powerful, accessible technology can, **and should**, serve as a tool for social equity and informed decision-making. My journey began with exploring group dynamics, decision processes, and agent-based modeling in computational social science, deeply inspired by principles of open science and the fight to democratize access to knowledge. Today, I channel that same passion into building data-driven applications that empower individuals and organizations alike. By combining technical rigor with social insight, I aim not only to create advanced solutions but to advocate for transparency, challenge unjust systems, and continuously speak truth to power.
+
+## Lately...
+
+### Musings
+
+::: {#recent-blogs}
+:::
+
+[See all posts →](blog.html)
+
+### Work
+
+::: {#recent-projects}
+:::
+
+[See all software →](software.html)
+[See all research →](research.html)
+
+### Talks
+
+::: {#recent-talks}
+:::
+
+[See all talks →](talks.html)
