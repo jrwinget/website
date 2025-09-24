@@ -1,0 +1,22 @@
+---
+title: "First TidyTuesday submission"
+subtitle: 'A walkthrough of my first #TidyTuesday contribution.'
+date: '2019-01-08'
+date-format: "MMMM D, YYYY"
+slug: first-tidytuesday
+categories: ["Blog", "R", "TidyTuesday", "data wrangling", "data viz"]
+image: featured.png
+toc: true
+citation: true
+aliases:
+  - /blog/first-tidytuesday
+  - /blog/2019-01-08-first-tidytuesday
+---
+
+This post walks through my first contribution to #TidyTuesday, a weekly data project aimed at the R ecosystem.
+
+#TidyTuesday is a great way to practice data wrangling and visualization skills with real-world datasets. Each week, a new dataset is posted along with a chart or article related to that data.
+
+::: {.callout-note}
+#TidyTuesday provides an excellent opportunity to practice R skills and connect with the R community. Check out the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday) for more information.
+:::

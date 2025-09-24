@@ -46,7 +46,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nbidux 0.3.1: Modern Telemetry Integration in the BID Framework\n\n\nThe {bidux} 0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.\n\n\n\nBlog\n\nR\n\nUI/UX\n\nbehavioral science\n\nshiny\n\nbidux\n\nBID\n\n\n\n\n\n\nSep 8, 2025\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\nFrom Friction to Flow: Designing Smarter Dashboards with {bidux}\n\n\nIntroducing {bidux}: A toolkit that helps developers design dashboards grounded in cognitive and behavioral science\n\n\n\nBlog\n\nR\n\nUI/UX\n\ncognitive load\n\nbehavioral science\n\nshiny\n\nbidux\n\nBID\n\n\n\n\n\n\nJun 19, 2025\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nPredicting pileups: Using ML to predict Chicago crash types\n\n\nA comparative model analysis of the factors that lead to severe traffic collisions in Chicago, IL.\n\n\n\nBlog\n\nR\n\nmachine learning\n\nclassification\n\nprediction\n\nlogistic regression\n\nrandom forest\n\n\n\n\n\n\nDec 18, 2021\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nHow to create a Twitter bot using R\n\n\nA tutorial on how to build a bot that generates random Would You Rather questions on Twitter.\n\n\n\nBlog\n\nR\n\ntutorial\n\nhow-to\n\nautomation\n\n\n\n\n\n\nMay 8, 2019\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nEDA: Chicago red light camera violations\n\n\nAn exploratory data analysis of red light traffic camera violations in Chicago, IL.\n\n\n\nBlog\n\nR\n\ndata wrangling\n\ndata viz\n\nEDA\n\n\n\n\n\n\nApr 29, 2019\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\nFirst TidyTuesday submission\n\n\nA walkthrough of my first #TidyTuesday contribution.\n\n\n\nBlog\n\nR\n\nTidyTuesday\n\ndata wrangling\n\ndata viz\n\n\n\n\n\n\nJan 8, 2019\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nFirst post!\n\n\nMy first blog post! Allow me to introduce myself…\n\n\n\nBlog\n\nR\n\nR Markdown\n\nstatistics\n\ndata viz\n\nmethods\n\n\n\n\n\n\nFeb 7, 2018\n\n1 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects.html",
@@ -60,7 +60,7 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "No matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBehavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development\n\n\n\nR package\n\nUI/UX\n\nbehavioral science\n\n\n\nIntroduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles.\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/psyc306/index.html",
@@ -96,5 +96,124 @@
     "title": "PSYC 360 - Understanding Prejudice",
     "section": "",
     "text": "Semesters taught:\n\nFall 2020, Fall 2021\n\n\nThis course focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations. This material considers how the person, the situation, and society shape our thoughts, feelings, and behaviors toward people from various social groups. Most psychological research on these topics focuses on race; however, we also discuss research related to gender, sexual orientation, size, and social class.\nSpecific topics include the strengths and weaknesses of explanations for the origins of stereotypes and prejudice; prejudice against people in different social groups (e.g., sexual orientation, gender, size, race); variations in racist and sexist beliefs; the effect of stereotypes on how we perceive others and interact socially; how targets of prejudice perceive prejudice, are affected by prejudice, and cope with prejudice; and the psychological processes that may change stereotypes and reduce prejudice."
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html",
+    "href": "blog/2025-09-08-modern-telemetry/index.html",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "",
+    "text": "I’m excited to announce that bidux 0.3.1 is now available on CRAN. This release brings telemetry deeper into the Behavioral Insight Design (BID) framework, strengthens stage consistency, and smooths the migration path for users moving from earlier versions."
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html#a-modern-telemetry-workflow",
+    "href": "blog/2025-09-08-modern-telemetry/index.html#a-modern-telemetry-workflow",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "A Modern Telemetry Workflow",
+    "text": "A Modern Telemetry Workflow\nTelemetry data is increasingly central to BID workflows. Until now, telemetry ingestion produced list-like objects that worked but weren’t always convenient for analysis.\nIn 0.3.1, bid_ingest_telemetry() now returns hybrid telemetry objects: they behave like lists for backward compatibility, while adding new methods such as as_tibble() and bid_flags().\nFor new projects, the preferred interface is the tidy-friendly bid_telemetry(), which returns structured tibbles (bid_issues_tbl) ready for dplyr pipelines:\nissues &lt;- bid_telemetry(\"telemetry.sqlite\")\ncritical &lt;- issues |&gt; filter(severity == \"critical\")"
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html#from-telemetry-to-bid-stages",
+    "href": "blog/2025-09-08-modern-telemetry/index.html#from-telemetry-to-bid-stages",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "From Telemetry to BID Stages",
+    "text": "From Telemetry to BID Stages\nThis release also introduces bridge functions that connect telemetry issues directly to BID stages:\n\nbid_notice_issue(): convert one issue into a Notice stage\nbid_notices(): batch process multiple issues\nbid_address(): quickly act on a set of issues\nbid_pipeline(): process the first N issues with limits\n\nThese functions make it easier to move from raw telemetry data to structured BID insights without extra glue code."
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html#a-quick-example",
+    "href": "blog/2025-09-08-modern-telemetry/index.html#a-quick-example",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "A Quick Example",
+    "text": "A Quick Example\nHere’s what a telemetry-informed BID pipeline can look like in 0.3.1:\n\nlibrary(bidux)\nlibrary(dplyr)\n\n# Ingest telemetry as tidy issues\nissues &lt;- bid_telemetry(\"telemetry.sqlite\")\n\n# Focus on the most severe issues\ncritical &lt;- issues |&gt;\n  filter(severity == \"critical\")\n\n# Turn those into BID notices\nnotices &lt;- bid_notices(critical)\n\n# Move forward through the pipeline\nstructure &lt;- bid_structure(notices, telemetry_flags = bid_flags(critical))\nvalidate  &lt;- bid_validate(structure, telemetry_refs = critical)\n\nThis pipeline takes real user behavior (via telemetry), surfaces critical issues, and carries them through to structured design recommendations and validation, all with tidy, pipeline-friendly functions."
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html#framework-stability-and-improvements",
+    "href": "blog/2025-09-08-modern-telemetry/index.html#framework-stability-and-improvements",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "Framework Stability and Improvements",
+    "text": "Framework Stability and Improvements\nAlongside telemetry, this release improves framework stability and consistency:\n\nStage order correction:\n\nBID stages now follow the canonical sequence: Interpret → Notice → Anticipate → Structure → Validate\nMigration support is built in, so older outputs remain interpretable\n\n\n\n\nUnified suggestion system:\n\nInterpret, Notice, and Validate now share consistent rules, reducing duplication and simplifying outputs\n\nStructure and validation refinements:\n\nbid_structure() can adjust recommendations using telemetry flags (e.g., avoid tabs if navigation drop-offs are detected)\nbid_validate() can link validation results back to the telemetry issues that motivated them"
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html#migration-and-deprecations",
+    "href": "blog/2025-09-08-modern-telemetry/index.html#migration-and-deprecations",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "Migration and Deprecations",
+    "text": "Migration and Deprecations\nExisting telemetry code continues to work, but now has access to the enhanced features. Looking ahead to 0.4.0:\n\nbid_ingest_telemetry() will be soft-deprecated in favor of bid_telemetry().\nLayout auto-selection in bid_structure() and layout-specific bias mitigations in bid_anticipate() will be removed in favor of concept-driven approaches."
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html#documentation-and-tests",
+    "href": "blog/2025-09-08-modern-telemetry/index.html#documentation-and-tests",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "Documentation and Tests",
+    "text": "Documentation and Tests\nWe’ve updated the Getting Started vignette with new telemetry examples and corrected stage numbering, and expanded the Telemetry Integration vignette to show the new tidy workflow. Test coverage has been broadened across new methods, bridge functions, and migration utilities."
+  },
+  {
+    "objectID": "blog/2025-09-08-modern-telemetry/index.html#install-the-latest-release",
+    "href": "blog/2025-09-08-modern-telemetry/index.html#install-the-latest-release",
+    "title": "bidux 0.3.1: Modern Telemetry Integration in the BID Framework",
+    "section": "Install the Latest Release",
+    "text": "Install the Latest Release\nYou can install bidux 0.3.1 from CRAN today:\n\ninstall.packages(\"bidux\")\n\nThis release makes working with telemetry in BID smoother, tidier, and more consistent. It strengthens the framework while keeping migration straightforward, so you can spend less time adapting code and more time focusing on insights."
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "",
+    "text": "🚀 {bidux} v0.1.0 is live on CRAN! Users don’t just see your dashboard: They interpret it, navigate it, and act (or fail to act) based on it. That’s not just design; it’s cognition. Learn more below or explore the repo: github.com/jrwinget/bidux"
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html#why-ux-is-too-often-an-afterthought",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html#why-ux-is-too-often-an-afterthought",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "Why UX Is Too Often an Afterthought",
+    "text": "Why UX Is Too Often an Afterthought\nIn data analytics and dashboard development, we often get the logic right: The data is clean, the calculations are correct, and the visualizations are technically sound. But when the dashboard goes live, something breaks.\nUsers ignore insights. Or worse, they disengage entirely.\nThis isn’t a reflection of poor technical work. It’s a sign that something deeper is missing: A bridge between how we design interfaces and how people actually think.\nMost developers aren’t trained in psychology or UX. That’s not a failing; it’s a gap in the pipeline. Users interpret our tools through human lenses: They carry cognitive limitations, rely on mental shortcuts, and make judgments shaped by emotion, context, and bias.\nTo design dashboards that not only work, but resonate, we need to design for the mind, not just the machine."
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html#a-new-starting-point-bid-bidux",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html#a-new-starting-point-bid-bidux",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "A New Starting Point: BID + {bidux}",
+    "text": "A New Starting Point: BID + {bidux}\nThe Behavior Insight Design (BID) framework offers a structured, evidence-based approach to building more intuitive, cognitively supportive dashboards. Developed at the intersection of behavioral science, data storytelling, and interface design, BID maps out five stages that reflect how users actually engage with information:\n\nEach stage helps developers reduce friction, surface insight, and support better decision-making, even without a background in psychology or UX.\nThe {bidux} R package makes this framework practical for developers. It provides a step-by-step workflow, concept dictionaries, and component suggestions that bring behavioral design directly into your Shiny development process.\nTogether, BID and {bidux} help you turn psychological friction into flow."
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html#what-makes-bid-different",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html#what-makes-bid-different",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "What Makes BID Different?",
+    "text": "What Makes BID Different?\nMost design systems focus on aesthetics or layout heuristics. BID starts earlier by asking what your user needs to think, feel, and decide at each stage of interaction.\nBID is grounded in cognitive psychology, decision science, and information processing theory. It doesn’t just tell you what to build; it explains why certain design choices succeed or fail, based on decades of empirical research.\nAnd while other frameworks often isolate usability issues or user behavior, BID treats these mechanisms as dynamically linked. For instance:\n\nHow cognitive load affects susceptibility to bias\nHow early layout decisions shape later interpretations\nHow interface design impacts individual and group coordination\n\n{bidux} brings this theory into practice, giving you the tools to identify friction points, document key decisions, and structure your dashboard with the user’s cognition in mind."
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html#the-five-bid-stages-with-bidux-examples",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html#the-five-bid-stages-with-bidux-examples",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "The Five BID Stages (with {bidux} Examples)",
+    "text": "The Five BID Stages (with {bidux} Examples)\n\n1️⃣ Interpret the User’s Needs\nGoal: Center your design around the core questions users are trying to answer.\n\nUsers don’t want every chart: They want clarity about what matters, and often more importantly, what to do about it.\n\n\nstg_interpret &lt;- bid_interpret(\n  central_question = \"Where are sales underperforming?\",\n  data_story = list(hook = \"...\", tension = \"...\", resolution = \"...\")\n)\n## Stage 1 (Interpret) completed.\n##   - Central question: Where are sales underperforming?\n##   - Your data story is almost complete (75%). Consider adding: context.\n##   - Your central question is appropriately scoped.\n##   - No user personas defined\n\nTry: Structuring the app like a narrative; defining user personas to anchor your story.\n\n\n2️⃣ Notice the Problem\nGoal: Identify where users struggle cognitively, visually, or emotionally.\n\nMost friction stems from overload: Too many filters, unclear hierarchies, or competing focal points.\n\n\n# install.packages(\"bidux\")\n# library(bidux)\n\nstg_notice &lt;- bid_notice(\n  stg_interpret,\n  problem = \"Users can't find the key metrics\",\n  evidence = \"70% of testers took &gt;30s locating the primary KPI\"\n)\n## Auto-suggested theory: Cognitive Load Theory (confidence: 90%)\n## Stage 2 (Notice) completed. (40% complete)\n##   - Problem: Users can't find the key metrics\n##   - Theory: Cognitive Load Theory (auto-suggested)\n##   - Evidence: 70% of testers took &gt;30s locating the primary KPI\n##   - Theory confidence: 90%\n##   - Next: Use bid_anticipate() for Stage 3\n\nTry: Swapping dropdowns for grouped radio buttons; surfacing KPIs higher in the layout.\n\n\n3️⃣ Anticipate User Behavior\nGoal: Account for predictable biases in how users interpret and interact with data.\n\nPeople often anchor on the first number they see, seek out confirming evidence, and interpret identical outcomes differently depending on how they’re framed\n\n\nstg_anticipate &lt;- bid_anticipate(stg_notice)\n## Stage 3 (Anticipate) completed.\n##   - Bias mitigations: 4 defined\n##   - Accessibility considerations included\n##   - Key suggestions: Anchoring mitigation: Always show reference points like previous period, budget, or industry average, Framing mitigation: Toggle between progress (65% complete) and gap (35% remaining) framing, Confirmation Bias mitigation: Include alternative views that might challenge the main narrative\n\nTry: Showing both “65% complete” and “35% remaining”; providing scenario toggles to challenge assumptions.\n\n\n4️⃣ Structure the App\nGoal: Organize layout and flow to reduce decision errors and guide attention.\n\nstg_structure &lt;- bid_structure(stg_anticipate)\n## Warning: Layout auto-selection is deprecated and will be removed in bidux\n## 0.4.0. The BID framework will focus on concept-based suggestions instead.\n## Existing code will continue to work until 0.4.0.\n## Stage 4 (Structure) completed.\n##   - Auto-selected layout: breathable\n##   - Concept groups generated: 3\n##   - Total concepts: 3\n\nTry: Grouping filters near relevant charts; using bslib::card_body(padding = 4) for visual spacing.\n\n\n5️⃣ Validate & Empower the User\nGoal: Reinforce clarity, support confidence, and enable action (individually or as a team).\n\nstg_validate &lt;- bid_validate(stg_anticipate)\n## Stage 5 (Validate) completed.\n##   - Summary panel: Dashboard provides clear summary of key insight...\n##   - Collaboration: Enable team sharing and collaborative decision-...\n##   - Next steps: 11 items defined\n##   - Consider adding user empowerment tools to enhance collaboration\n\nTry: Ending with a clear takeaway panel; adding next-step checklists or shareable reports."
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html#try-it-out",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html#try-it-out",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "Try It Out",
+    "text": "Try It Out\nExample flow:\n\nlibrary(bidux)\n\n# Align the dashboard with user goals\nworkflow &lt;- bid_interpret(central_question = \"Which products underperformed?\") |&gt;\n\n  # Identifying user friction point\n  bid_notice(\n    problem = \"Too many filters\",\n    evidence = \"Users forget the currently selected options\"\n  ) |&gt;\n\n  # Address predictable cognitive biases (leave blank for auto-suggestions)\n  bid_anticipate(\n    bias_mitigations = list(\n      anchoring = \"Include prior year as reference\",\n      confirmation_bias = \"Show competing explanations\"\n    )\n  ) |&gt;\n\n  # Design information structure\n  bid_structure() |&gt;\n\n  # Reinforce clarity and enable collaboration\n  bid_validate(summary_panel = \"Key takeaways with export\")\n## Stage 1 (Interpret) completed.\n##   - Central question: Which products underperformed?\n##   - Your data story has all key elements. Focus on making each component compelling and relevant.\n##   - Your central question is appropriately scoped.\n##   - No user personas defined \n## Auto-suggested theory: Hick's Law (confidence: 90%)\n## Stage 2 (Notice) completed. (40% complete)\n##   - Problem: Too many filters\n##   - Theory: Hick's Law (auto-suggested)\n##   - Evidence: Users forget the currently selected options\n##   - Theory confidence: 90%\n##   - Next: Use bid_anticipate() for Stage 3\n## Stage 3 (Anticipate) completed.\n##   - Bias mitigations: 3 defined\n##   - Accessibility considerations included\n##   - Key suggestions: Anchoring mitigation: Always show reference points like previous period, budget, or industry average, Confirmation_bias mitigation: Consider how this bias affects user decisions, Accessibility mitigation: Test color combinations with WebAIM's contrast checker to meet WCAG standards\n## Warning: Layout auto-selection is deprecated and will be removed in bidux\n## 0.4.0. The BID framework will focus on concept-based suggestions instead.\n## Existing code will continue to work until 0.4.0.\n## Stage 4 (Structure) completed.\n##   - Auto-selected layout: breathable\n##   - Concept groups generated: 3\n##   - Total concepts: 3\n## Stage 5 (Validate) completed.\n##   - Summary panel: Key takeaways with export\n##   - Collaboration: Enable team sharing and collaborative decision-...\n##   - Next steps: 11 items defined\n##   - Ensure summary panel includes actionable insights Consider adding user empowerment tools to enhance collaboration\n\nThen explore suggestions:\n\nbid_suggest_components(workflow, package = \"bslib\")\n## # A tibble: 8 × 7\n##   package component description bid_stage_relevance cognitive_concepts use_cases\n##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;    \n## 1 bslib   nav_panel Create tab… Stage 1,Stage 3     Cognitive Load Th… content …\n## 2 bslib   accordion Implement … Stage 1,Stage 3     Progressive Discl… FAQ sect…\n## 3 bslib   value_box Display ke… Stage 2,Stage 3,St… Visual Hierarchy,… KPI disp…\n## 4 bslib   card      Organize c… Stage 3,Stage 5     Principle of Prox… Content …\n## 5 bslib   layout_c… Create res… Stage 3             Cognitive Load Th… responsi…\n## 6 bslib   layout_c… Create fle… Stage 3             Visual Hierarchy,… precise …\n## 7 bslib   card_hea… Add header… Stage 3             Information Hiera… section …\n## 8 bslib   card_body Control ca… Stage 3             Breathable Layout… content …\n## # ℹ 1 more variable: relevance &lt;dbl&gt;"
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html#learn-more",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html#learn-more",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "Learn More",
+    "text": "Learn More\n\n📦 GitHub: jrwinget/bidux\n📚 Vignettes: introduction-to-bid, concepts-reference, getting-started\n👀 Theory paper coming soon! Watch this space"
+  },
+  {
+    "objectID": "blog/2025-06-19-from-friction-to-flow/index.html#final-thoughts",
+    "href": "blog/2025-06-19-from-friction-to-flow/index.html#final-thoughts",
+    "title": "From Friction to Flow: Designing Smarter Dashboards with {bidux}",
+    "section": "Final Thoughts",
+    "text": "Final Thoughts\nBetter dashboards aren’t just more attractive; they’re more intelligible. They reduce unnecessary decisions, anticipate user confusion, and surface what matters.\nThe BID framework gives developers a behavioral lens. {bidux} gives them the tools to act on it.\nYou don’t need a psychology degree to design with cognitive empathy, just the right questions and the right support. {bidux} helps you ask both.\nHappy designing! 🚀"
+  },
+  {
+    "objectID": "publications/bidux-framework/index.html",
+    "href": "publications/bidux-framework/index.html",
+    "title": "Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development",
+    "section": "",
+    "text": "This work introduces the Behavioral Insight Design (BID) framework, implemented in the {bidux} R package, which provides developers with evidence-based tools to create more intuitive, cognitively supportive dashboards.\nPackage: Available on CRAN as {bidux} Repository: github.com/jrwinget/bidux Framework: BID Framework Documentation"
   }
 ]

@@ -1,0 +1,22 @@
+---
+title: "First post!"
+subtitle: 'My first blog post! Allow me to introduce myself...'
+date: '2018-02-07'
+date-format: "MMMM D, YYYY"
+slug: first-post
+categories: ["Blog", "R", "R Markdown", "statistics", "data viz", "methods"]
+image: featured.png
+toc: true
+citation: true
+aliases:
+  - /blog/first-post
+  - /blog/2018-02-07-first-post
+---
+
+Welcome to my blog! This is my first post where I introduce myself and share what you can expect to find here.
+
+I'm Jeremy R. Winget, a computational social scientist passionate about using data science to understand human behavior and improve decision-making.
+
+::: {.callout-note}
+This is the beginning of my blogging journey, where I'll share insights about data science, R programming, statistics, and behavioral research.
+:::

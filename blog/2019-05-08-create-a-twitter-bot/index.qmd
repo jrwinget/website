@@ -1,0 +1,26 @@
+---
+title: "How to create a Twitter bot using R"
+subtitle: 'A tutorial on how to build a bot that generates random Would You Rather questions on Twitter.'
+date: '2019-05-08'
+date-format: "MMMM D, YYYY"
+slug: create-a-twitter-bot
+categories: ["Blog", "R", "tutorial", "how-to", "automation"]
+image: featured.png
+toc: true
+citation: true
+aliases:
+  - /blog/create-a-twitter-bot
+  - /blog/2019-05-08-create-a-twitter-bot
+---
+
+In this tutorial, I'll show you how to create a Twitter bot using R that automatically generates and posts "Would You Rather" questions.
+
+This project demonstrates how to:
+- Set up Twitter API credentials
+- Use the `rtweet` package for Twitter integration
+- Create automated content generation
+- Schedule regular posts
+
+::: {.callout-warning}
+Note: Twitter's API policies have changed significantly since this post was written. Be sure to check current API terms and conditions before implementing a Twitter bot.
+:::

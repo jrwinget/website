@@ -1,0 +1,24 @@
+---
+title: "Predicting pileups: Using ML to predict Chicago crash types"
+subtitle: 'A comparative model analysis of the factors that lead to severe traffic collisions in Chicago, IL.'
+date: '2021-12-18'
+date-format: "MMMM D, YYYY"
+slug: predicting-pileups
+categories: ["Blog", "R", "machine learning", "classification", "prediction", "logistic regression", "random forest"]
+image: featured.png
+toc: true
+citation: true
+aliases:
+  - /blog/predicting-pileups
+  - /blog/2021-12-18-predicting-pileups
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = NA, cache = TRUE)
+```
+
+Wouldn't it be great to know the chances of being injured or having your car totaled in a car accident *before* ever being involved in the accident? If you live in a less densely populated area, this question might not be very interesting. But if you live in a big city, like Chicago, you might be a little more concerned about this. By identifying factors that predict these bad accidents, we might be able to develop low cost interventions or redesign the environment to reduce the frequency of these types of accidents, which can translate to lives and money saved. So in this post, we'll use machine learning to predict which traffic crashes in Chicago, IL, result in injuries and/or the vehicle being towed based on situational features (e.g., posted speed limit, lighting conditions, road surface condition, etc.) that are likely known before the crash occurred.
+
+::: {.callout-note}
+This post demonstrates machine learning techniques applied to Chicago traffic data. The full analysis includes data preprocessing, model comparison, and feature importance analysis.
+:::
