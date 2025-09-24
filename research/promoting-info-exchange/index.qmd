@@ -1,0 +1,22 @@
+---
+title: "Promoting information exchange: Open-minded group cognition as a function of motivation and task type"
+date: "2021-07-27"
+date-format: "MMMM D, YYYY"
+subtitle: "My Ph.D. dissertation in which I propose a computational model of open-minded group cognition and test the model with an empirical experiment"
+author: "J. R. Winget"
+categories: ["Research", "Psychology"]
+tags: ["social-psychology", "group-dynamics", "decision-making", "computational-modeling", "agent-based-model", "information-processing", "dissertation"]
+description: "Ph.D. dissertation integrating open-minded cognition and group decision making literatures with agent-based modeling and empirical testing."
+publication: "Ph.D. Dissertation"
+---
+
+## Abstract
+
+Open-minded cognition is a cognitive processing style that influences the manner in which individuals select and process information. An open-minded cognitive style is marked by a willingness to consider a variety of intellectual perspectives, values, attitudes, opinions, or beliefs, even those that contradict the individual's prior opinion. However, people also process information and make decisions within groups, and their individual cognitive styles can influence how the overall group processes and shares information.
+
+Therefore, the present paper integrates the open-minded cognition and group decision making literatures, proposes and agent-based model of open-minded group cognition, and empirically tests the antecedents and consequences of open-minded group cognition. Empirical tests were generally supportive of the model; however, some possible boundary conditions were identified. Implications for theory development, practical applications, and directions for future research are discussed.
+
+## Links
+
+- [{{< fa project-diagram >}} OSF Project](https://osf.io/sehmv/)
+- [{{< fa film >}} Video Presentation](https://www.youtube.com/watch?v=-vsXBZQQt6c)

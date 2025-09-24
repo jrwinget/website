@@ -1,10 +1,13 @@
 ---
 title: "Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development"
 date: "2025-06-01"
-categories: ["Software Development", "User Experience", "Research"]
-tags: ["r", "r-package", "ui-ux", "behavioral-science", "cognitive-psychology", "dashboard-design", "bid-framework", "cran"]
-image: featured.png
+date-format: "MMMM D, YYYY"
+subtitle: "Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles"
+author: "J. R. Winget"
+categories: ["Research", "Software Development", "User Experience"]
+tags: ["r", "r-package", "ui-ux", "behavioral-science", "cognitive-psychology", "dashboard-design", "framework", "cran"]
 description: "Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles."
+image: featured.png
 ---
 
 This work introduces the Behavioral Insight Design (BID) framework, implemented in the `{bidux}` R package, which provides developers with evidence-based tools to create more intuitive, cognitively supportive dashboards.

@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="J. R. Winget">
-<meta name="dcterms.date" content="2025-06-01">
+<meta name="author" content="R. S. Tindale, J. R. Winget, &amp; V. B. Hinsz">
+<meta name="dcterms.date" content="2020-09-29">
 <meta name="description" content="Jeremy R. Winget’s personal website and blog">
 
-<title>Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development – Jeremy R. Winget, PhD</title>
+<title>Distributed cognition in teams is influenced by type of task and nature of member interactions – Jeremy R. Winget, PhD</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3870,18 +3870,12 @@ margin-top: 0.5rem;
 display: inline-block;
 }
 </style>
-<meta property="og:title" content="Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development – Jeremy R. Winget, PhD">
-<meta property="og:description" content="Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles.">
-<meta property="og:image" content="https://www.jrwinget.com/research/bid-framework/featured.png">
+<meta property="og:title" content="Distributed cognition in teams is influenced by type of task and nature of member interactions – Jeremy R. Winget, PhD">
+<meta property="og:description" content="Analysis of how task differences impact team information processing and performance in distributed cognitive environments.">
 <meta property="og:site_name" content="Jeremy R. Winget, PhD">
-<meta property="og:image:height" content="595">
-<meta property="og:image:width" content="1058">
-<meta name="twitter:title" content="Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development – Jeremy R. Winget, PhD">
-<meta name="twitter:description" content="Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles.">
-<meta name="twitter:image" content="https://www.jrwinget.com/research/bid-framework/featured.png">
-<meta name="twitter:image-height" content="595">
-<meta name="twitter:image-width" content="1058">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Distributed cognition in teams is influenced by type of task and nature of member interactions – Jeremy R. Winget, PhD">
+<meta name="twitter:description" content="Analysis of how task differences impact team information processing and performance in distributed cognitive environments.">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -3959,26 +3953,32 @@ display: inline-block;
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development</h1>
-<p class="subtitle lead">Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles</p>
+<h1 class="title">Distributed cognition in teams is influenced by type of task and nature of member interactions</h1>
+<p class="subtitle lead">A book chapter summarizing the group decision making literature, while highlighting the importance of task type for group performance</p>
   <div class="quarto-categories">
     <div class="quarto-category">Research</div>
-    <div class="quarto-category">Software Development</div>
-    <div class="quarto-category">User Experience</div>
+    <div class="quarto-category">Psychology</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles.
+    Analysis of how task differences impact team information processing and performance in distributed cognitive environments.
   </div>
 </div>
 
@@ -3988,14 +3988,14 @@ display: inline-block;
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>J. R. Winget </p>
+             <p>R. S. Tindale, J. R. Winget, &amp; V. B. Hinsz </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 1, 2025</p>
+      <p class="date">September 29, 2020</p>
     </div>
   </div>
   
@@ -4007,10 +4007,21 @@ display: inline-block;
 </header>
 
 
-<p>This work introduces the Behavioral Insight Design (BID) framework, implemented in the <code>{bidux}</code> R package, which provides developers with evidence-based tools to create more intuitive, cognitively supportive dashboards.</p>
-<p><strong>Package</strong>: Available on CRAN as <code>{bidux}</code> <strong>Repository</strong>: <a href="https://github.com/jrwinget/bidux">github.com/jrwinget/bidux</a> <strong>Framework</strong>: <a href="https://github.com/jrwinget/bid-framework">BID Framework Documentation</a></p>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>In contemporary organizations, many—if not most—teams work on cognitive or information processing tasks (Hinsz, Tindale, &amp; Vollrath, 1997). The past 50 years of research have taught us much about how information is accessed, created, attended to, and processed as teams attempt to complete various tasks.</p>
+<p>However, many of the information processing effects that have been observed are task specific, yet little research has focused specifically on tasks and how their information processing requirements differ. In this chapter, we discuss how task differences can impact how teams use and process information and how different information distribution patterns across members might impact performance.</p>
+<p>In addition, we address how constraints on the amount and type of interactions among the team members influences performance in different task domains. We hope our discussion demonstrates the importance of task differences for understanding team information processing and highlights where greater research focus will be fruitful.</p>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<ul>
+<li><a href="https://doi.org/10.1201/9780429459795"><i class="fa-solid fa-doi" aria-label="doi"></i> Publication</a></li>
+<li><a href="https://psyarxiv.com/wfy7a/"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Preprint</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
