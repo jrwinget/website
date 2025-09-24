@@ -1,7 +1,7 @@
 ---
 title: "Talks"
 listing:
-  contents: "talks/*/index.md"
+  contents: "talks/*/index.qmd"
   sort: "date desc"
   type: default
   categories: true
@@ -9,13 +9,11 @@ listing:
   filter-ui: true
   fields:
     - title
-    - subtitle
     - date
-    - location
     - event
-    - image
-    - image-alt
+    - location
     - categories
+    - abstract
 page-layout: full
 title-block-banner: false
 ---

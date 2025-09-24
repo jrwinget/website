@@ -1,12 +1,19 @@
 ---
 title: "Projects"
 listing:
-  contents: "projects/*/index.md"
+  contents: "projects/*/index.qmd"
   sort: "date desc"
   type: default
   image-align: left
   categories: true
   sort-ui: true
   filter-ui: true
+  fields:
+    - title
+    - subtitle
+    - date
+    - image
+    - categories
+    - description
 page-layout: full
 ---

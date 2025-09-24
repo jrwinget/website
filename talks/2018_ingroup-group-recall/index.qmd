@@ -1,0 +1,16 @@
+---
+title: "Group recall as a function of information redundancy and transactive memory"
+date: "2018-07-20"
+date-format: "MMMM D, YYYY"
+authors: "Jeremy R. Winget"
+event: "Thirteenth annual INGRoup conference"
+location: "Bethesda, Maryland"
+categories:
+  - Conference Talk
+  - Group Dynamics
+  - Transactive Memory
+  - Information Processing
+abstract: "Groups attempted to recall a story where the parts of the story were distributed among the group members. How much of the information was shared vs. unshared and the presence/absence of a transactive memory system were varied."
+---
+
+Both redundancy and transactive memory influenced group recall. This research explores how groups coordinate and recall distributed information, examining the interplay between information sharing patterns and memory systems in collaborative recall tasks.

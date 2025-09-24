@@ -1,0 +1,25 @@
+---
+title: "Learning R"
+date: "2019-11-25"
+date-format: "MMMM D, YYYY"
+authors: "Jeremy R. Winget"
+event: "Loyola University Chicago Social Area Research Series"
+location: "Chicago, Illinois"
+categories:
+  - Workshop
+  - R
+  - Tidyverse
+  - Statistics
+abstract: "In this workshop, I will cover an introduction to R for the psychological researcher with little to no programming experience. The content will mostly consist of what you might find in an introductory statistics class."
+---
+
+I'll first discuss some benefits of using R, how to get started in R, and provide an introduction to data manipulation and writing scripts. The workshop will also cover:
+
+- Descriptive statistics
+- Data visualization
+- Analysis of contingency tables
+- t-tests
+- ANOVAs
+- Regression
+
+I'll end with a discussion of resources to continue learning R.

@@ -1,12 +1,17 @@
 ---
 title: "Publications"
 listing:
-  contents: publications
+  contents: "publications/*/index.qmd"
   sort: "date desc"
   type: default
   image-align: left
   categories: true
   sort-ui: true
   filter-ui: true
+  fields:
+    - title
+    - date
+    - categories
+    - description
 page-layout: full
 ---

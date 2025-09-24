@@ -1,0 +1,19 @@
+---
+title: "Process-oriented model of integration in knowledge-diverse teams"
+date: "2020-06-16"
+date-format: "MMMM D, YYYY"
+authors: "Jeremy R. Winget"
+event: "Thirty-fifth Annual Society for Industrial and Organizational Psychology conference"
+location: "Virtual conference"
+categories:
+  - Conference Talk
+  - Computational Modeling
+  - Agent Based Model
+  - Cognitive Complexity
+  - Teams
+abstract: "Often, in teams where members possess diverse knowledge, integrating the unique expertise of members is critical (e.g., interdisciplinary, transdisciplinary teams). In this talk, I will present a process-oriented account of the integration of knowledge in teams when members possess predominately unique (as opposed to shared) information."
+---
+
+Within the context of an agent-based model, I outline how the configuration of personality, within teams, function to promote knowledge sharing, selection, assimilation, and ultimately, the integration of information.
+
+I will then present results from virtual experiments to highlight the utility of the model and end with a discussion of future plans to validate the model using empirical data.

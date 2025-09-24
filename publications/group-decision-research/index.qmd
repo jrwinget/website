@@ -1,0 +1,10 @@
+---
+title: "Process-oriented models of information integration in knowledge-diverse teams"
+date: "2020-06-01"
+categories: ["Research", "computational modeling", "teams"]
+description: "Agent-based modeling research on how personality configurations promote knowledge integration in diverse teams."
+---
+
+This research presents computational models examining how teams with diverse knowledge backgrounds integrate unique expertise. Using agent-based modeling approaches, the work explores how personality configurations within teams promote knowledge sharing, selection, and assimilation processes.
+
+**Presented at**: Society for Industrial and Organizational Psychology Conference, 2020
