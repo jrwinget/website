@@ -1,24 +1,54 @@
 ---
 title: "About"
 description: "Learn more about Jeremy R. Winget"
+page-layout: article
+listing:
+  - id: recent-blogs
+    contents: "blog/*/index.qmd"
+    max-items: 3
+    sort: "date desc"
+    type: default
+    fields: [title, subtitle, date]
+  - id: recent-projects
+    contents: "projects/*/index.qmd"
+    max-items: 3
+    sort: "date desc"
+    type: default
+    fields: [title, subtitle, date]
+  - id: recent-talks
+    contents: "talks/*/index.qmd"
+    max-items: 3
+    sort: "date desc"
+    type: default
+    fields: [title, event, date]
 sidebar:
   - title: "{{< fa user >}} Profile"
     contents:
       - "![Jeremy R. Winget](./assets/img/avatar.jpg){width=150px style='border-radius: 50%; margin-bottom: 1rem;'}"
       - "**Jeremy R. Winget, Ph.D.**"
       - "*Developer | AI Engineer | Computational Social Scientist*"
+      - ""
+      - "*I'm driven by the belief that powerful, accessible technology can—and should—serve as a tool for social equity and informed decision-making.*"
   - title: "{{< fa link >}} Connect"
     contents:
       - "[{{< fa brands github >}} GitHub](https://github.com/jrwinget)"
       - "[{{< fa brands linkedin >}} LinkedIn](https://linkedin.com/in/jrwinget)"
       - "[{{< fa brands mastodon >}} Bluesky](https://bsky.app/profile/jrwinget.com)"
-  - title: "{{< fa heart >}} Interested in"
+      - "[{{< fa envelope >}} Contact](mailto:jrwinget@gmail.com)"
+  - title: "{{< fa heart >}} Research Interests"
     contents:
       - "Computational social science"
-      - "Data visualization"
-      - "Statistical modeling"
-      - "R programming"
+      - "Behavioral insights & design"
+      - "Data visualization & storytelling"
+      - "Statistical modeling & analysis"
+      - "R programming & development"
       - "User experience research"
+      - "Team dynamics & decision-making"
+  - title: "{{< fa info-circle >}} Site Info"
+    contents:
+      - "{{< fa regular copyright >}} 2025 Jeremy R. Winget"
+      - "Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)"
+      - "[Source on {{< fa brands github >}} GitHub](https://github.com/jrwinget/website)"
 ---
 
 ## Mission
@@ -30,19 +60,25 @@ I am a computational social scientist and developer passionate about using data 
 Here's what I've been working on recently:
 
 ### Recent Blog Posts
-- Modern telemetry workflows
-- Data visualization best practices
-- Statistical modeling techniques
 
-### Current Projects
-- Building analytics dashboards
-- Research on decision-making
-- Open source R packages
+::: {#recent-blogs}
+:::
+
+[See all blog posts →](blog.html)
+
+### Recent Projects
+
+::: {#recent-projects}
+:::
+
+[See all projects →](projects.html)
 
 ### Recent Talks
-- "Death by Dropdown" at ShinyConf 2025
-- Data visualization workshops
-- R user group presentations
+
+::: {#recent-talks}
+:::
+
+[See all talks →](talks.html)
 
 ## Background
 
