@@ -1,26 +1,10 @@
 ---
 title: ""
+toc: false
 about:
   template: solana
   image: assets/img/avatar.jpg
   image-width: 400px
-  links:
-    - icon: github
-      text: Github
-      href: https://github.com/jrwinget
-    - text: "Bluesky {{< fa brands bluesky >}}"
-      icon: fa-brands fa-bluesky
-      href: https://bsky.app/profile/jrwinget.bsky.social
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/jrwinget/
-    - icon: osf
-      text: OSF
-      href: https://osf.io/x3gve/
-    - text: "ORCID {{< fa brands orcid >}}"
-      href: https://orcid.org/0000-0002-3783-4354
-    - text: "Google Scholar {{< fa brands google-scholar >}}"
-      href: https://scholar.google.com/citations?user=UbgwtEwAAAAJ=en
 ---
 
 # Jeremy R. Winget, Ph.D.

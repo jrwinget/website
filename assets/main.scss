@@ -159,12 +159,16 @@ a {
 // navbar refinements with animated underline hover and proper alignment
 .navbar {
   .navbar-brand {
-    font-weight: $navbar-brand-font-weight;
-    margin-right: auto; // push brand to left
+    margin-right: 1rem; // small gap between logo and nav items
   }
 
   .navbar-nav {
-    margin-left: auto; // push nav items to right
+    margin-left: auto; // push nav items to right (for social icons)
+  }
+
+  // Navigation items on the left
+  .navbar-nav.me-auto {
+    margin-left: 0; // keep left nav items close to logo
   }
 }
 
