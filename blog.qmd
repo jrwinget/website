@@ -21,16 +21,16 @@ page-layout: full
 ::: {.subscription-box}
 ## Get notified of new blog posts
 
-Stay up-to-date with my latest posts on data science, behavioral insights, and R programming.
+Stay up-to-date with my latest posts on data science, social science, and full-stack engineering.
 
 ```{=html}
 <form class="email-subscription-form" action="#" method="post">
   <div class="subscription-container">
     <input type="email"
-           name="email"
-           placeholder="Enter your email address"
-           required
-           class="email-input">
+      name="email"
+      placeholder="Enter your email address"
+      required
+      class="email-input">
     <button type="submit" class="subscribe-btn">Subscribe</button>
   </div>
   <p class="subscription-note">No spam, ever. Unsubscribe at any time.</p>
