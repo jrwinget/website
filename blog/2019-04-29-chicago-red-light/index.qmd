@@ -3,7 +3,6 @@ title: "EDA: Chicago red light camera violations"
 subtitle: 'An exploratory data analysis of red light traffic camera violations in Chicago, IL.'
 date: '2019-04-29'
 date-format: "MMMM D, YYYY"
-slug: chicago-red-light
 categories: ["Data Science"]
 tags: ["r", "data-visualization", "exploratory-data-analysis", "data-wrangling", "chicago-data", "case-study"]
 image: featured.png

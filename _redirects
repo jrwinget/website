@@ -1,6 +1,7 @@
 # Legacy redirects
-/talk /presentations
-/talks /presentations
+/talk /talks
+/publications /research
+/publication /research
 /post /posts
 
 # Blog post redirects (short slugs to full URLs)

@@ -3,7 +3,6 @@ title: "First post!"
 subtitle: 'My first blog post! Allow me to introduce myself...'
 date: '2018-02-07'
 date-format: "MMMM D, YYYY"
-slug: first-post
 categories: ["Data Science"]
 tags: ["r", "r-markdown", "statistics", "data-visualization", "introduction"]
 image: featured.png

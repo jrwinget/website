@@ -38,7 +38,7 @@ website:
     left:
       - href: blog.qmd
         text: Blog
-      - href: publications.qmd
+      - href: research.qmd
         text: Research
       - text: Projects
         menu:
@@ -59,17 +59,19 @@ website:
         href: https://bsky.app/profile/jrwinget.com
         aria-label: Bluesky
       - text: "{{< fa envelope >}}"
-        href: mailto:jrwinget@gmail.com
+        href: mailto:contact@jrwinget.com
         aria-label: Email
   page-footer:
     left: |
       {{< fa regular copyright >}} 2025 Jeremy R. Winget<br>
       Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)
     right: |
-      [License](http://creativecommons.org/licenses/by-nc-sa/4.0/) | [Contact](mailto:jrwinget@gmail.com) | [RSS](/blog.xml)
+      [License](http://creativecommons.org/licenses/by-nc-sa/4.0/) | [Contact](mailto:contact@jrwinget.com) | [RSS](/blog.xml)
 format:
   html:
-    code-fold: false
+    code-fold: show
+    code-overflow: scroll
+    code-line-numbers: true
     embed-resources: true
     self-contained: true
     theme: [flatly, assets/main.scss]

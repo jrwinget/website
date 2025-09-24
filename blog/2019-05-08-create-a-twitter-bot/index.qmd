@@ -3,7 +3,6 @@ title: "How to create a Twitter bot using R"
 subtitle: 'A tutorial on how to build a bot that generates random Would You Rather questions on Twitter.'
 date: '2019-05-08'
 date-format: "MMMM D, YYYY"
-slug: create-a-twitter-bot
 categories: ["Software Development"]
 tags: ["r", "automation", "tutorial", "api-integration", "social-media"]
 image: featured.png

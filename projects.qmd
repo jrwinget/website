@@ -1,5 +1,5 @@
 ---
-title: "Projects"
+title: "Software"
 listing:
   contents: "projects/*/index.qmd"
   sort: "date desc"

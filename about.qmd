@@ -34,7 +34,7 @@ sidebar:
       - "[{{< fa brands github >}} GitHub](https://github.com/jrwinget)"
       - "[{{< fa brands linkedin >}} LinkedIn](https://linkedin.com/in/jrwinget)"
       - "[{{< fa brands mastodon >}} Bluesky](https://bsky.app/profile/jrwinget.com)"
-      - "[{{< fa envelope >}} Contact](mailto:jrwinget@gmail.com)"
+      - "[{{< fa envelope >}} Contact](mailto:contact@jrwinget.com)"
   - title: "{{< fa heart >}} Research Interests"
     contents:
       - "Computational social science"
