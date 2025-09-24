@@ -74,11 +74,11 @@
   </url>
   <url>
     <loc>https://www.jrwinget.com/blog/2025-09-08-modern-telemetry/index.html</loc>
-    <lastmod>2025-09-24T20:34:09.246Z</lastmod>
+    <lastmod>2025-09-24T20:56:13.761Z</lastmod>
   </url>
   <url>
     <loc>https://www.jrwinget.com/blog/2025-06-19-from-friction-to-flow/index.html</loc>
-    <lastmod>2025-09-24T20:34:08.913Z</lastmod>
+    <lastmod>2025-09-24T20:55:43.919Z</lastmod>
   </url>
   <url>
     <loc>https://www.jrwinget.com/publications/bidux-framework/index.html</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://www.jrwinget.com/blog/2021-12-18-predicting-pileups/index.html</loc>
-    <lastmod>2025-09-24T20:34:09.602Z</lastmod>
+    <lastmod>2025-09-24T21:57:42.453Z</lastmod>
   </url>
   <url>
     <loc>https://www.jrwinget.com/blog/2019-04-29-chicago-red-light/index.html</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://www.jrwinget.com/blog/2018-02-07-first-post/index.html</loc>
-    <lastmod>2025-09-24T20:34:31.808Z</lastmod>
+    <lastmod>2025-09-24T20:53:37.877Z</lastmod>
   </url>
   <url>
     <loc>https://www.jrwinget.com/blog/2019-01-08-first-tidytuesday/index.html</loc>
@@ -111,5 +111,9 @@
   <url>
     <loc>https://www.jrwinget.com/blog/2019-05-08-create-a-twitter-bot/index.html</loc>
     <lastmod>2025-09-24T20:34:31.408Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jrwinget.com/projects/bidux-framework/index.html</loc>
+    <lastmod>2025-09-24T20:38:04.682Z</lastmod>
   </url>
 </urlset>

@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -3957,8 +3992,18 @@ display: inline-block;
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-what-will-the-bot-tweet" id="toc-step-1-what-will-the-bot-tweet" class="nav-link active" data-scroll-target="#step-1-what-will-the-bot-tweet">Step 1: What will the bot tweet?</a></li>
+  <li><a href="#step-2-connect-to-twitter" id="toc-step-2-connect-to-twitter" class="nav-link" data-scroll-target="#step-2-connect-to-twitter">Step 2: Connect to Twitter</a></li>
+  <li><a href="#step-3-automate-the-bot" id="toc-step-3-automate-the-bot" class="nav-link" data-scroll-target="#step-3-automate-the-bot">Step 3: Automate the bot</a></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
+  <li><a href="#potential-future-features" id="toc-potential-future-features" class="nav-link" data-scroll-target="#potential-future-features">Potential future features</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -3992,23 +4037,147 @@ display: inline-block;
 </header>
 
 
-<p>In this tutorial, I’ll show you how to create a Twitter bot using R that automatically generates and posts “Would You Rather” questions.</p>
-<p>This project demonstrates how to: - Set up Twitter API credentials - Use the <code>rtweet</code> package for Twitter integration - Create automated content generation - Schedule regular posts</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="callout-alert">
+<p>Note: Twitter’s (now X) API policies have changed significantly since this post was written. Leaving this post up for historical purposes and conceptual understanding, but be aware that the code and methods described here may no longer work with the current API.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
+<p>Last week, I decided to kill an afternoon by creating a <a href="https://twitter.com/rathrgeneratr">Twitter bot</a>. Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).</p>
+<p>This project is surprisingly easy: If you’re familiar with R (e.g., able to write a function), you shouldn’t have any trouble creating something like this. If you’re still learning how to write functions, this project is great practice!</p>
+<section id="step-1-what-will-the-bot-tweet" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-what-will-the-bot-tweet">Step 1: What will the bot tweet?</h2>
+<p>The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., <a href="https://twitter.com/WhyDoesR">WhyDoesR</a> or <a href="https://twitter.com/TwoHeadlines">TwoHeadlines</a>), so I wanted to create something simple that could get a few laughs. So, I decided to make a random “Would You Rather” generator that pits outrageous or terrible situations against one another.</p>
+<p>To do this, I set up a little “database” containing a list of the situations in a .csv file (you can view that file on the <a href="https://gitlab.com/jrwinget/rathr-generatr">GitLab repo</a> for the bot). I also wanted to add pictures to the posts, so I found 11 open source images online and stored them into a “img” directory. Once the database and image directory are created, they need to be loaded into R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>wyr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">&quot;wyr-db.csv&quot;</span>), <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pictures <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">&quot;img&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Next, the bot needs to be able to randomly select two situations from the database and combine them into a sentence. A function would be perfect for this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>would_you_rather <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  choices <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(wyr, <span class="dv">2</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  sentence <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">&quot;Would you rather {a} or {b}?&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sentence)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Note: Twitter’s API policies have changed significantly since this post was written. Be sure to check current API terms and conditions before implementing a Twitter bot.</p>
+<p>Now, the bot has a way of creating a sentence, but it still needs to actually generate one to tweet. It also needs to select a picture to tweet with the generated sentence. To create a sentence, we can use our new function and store the result in an object called “tweet”. To randomly select a picutre, we just need to sample 1 of the 11 and store the name of the file as an object called “img”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tweet <span class="ot">&lt;-</span> <span class="fu">would_you_rather</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">sample</span>(pictures, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="step-2-connect-to-twitter" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-connect-to-twitter">Step 2: Connect to Twitter</h2>
+<p>Because this bot will be tweeting from the R console, we have to register a new app with Twitter. Michael Kearney has a great <a href="https://rtweet.info/articles/auth.html">tutorial on this</a> using his <code>rtweet</code> package. Basically, load the <code>rtweet</code> package and connect to Twitter’s API using credentials stored in the environment. Once the credentials are stored, use the <code>get_tokens</code> function to fetch and load them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtweet)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>token <span class="ot">&lt;-</span> <span class="fu">get_tokens</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Now, the bot can tweet a randomized “Would You Rather” situation with the <code>post_tweet</code> function. I decided to also include a hashtag in the tweet, which is really easy to do using the <code>glue</code> package. To add the randomly selected picture to the tweet, just include the file path to that picture in the <code>media</code> argument.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tweet it</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">post_tweet</span>(<span class="at">status =</span> <span class="fu">glue</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;{tweet}</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">#wouldyourather&quot;</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">media =</span> <span class="fu">glue</span>(<span class="st">&quot;img/{img}&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I also wanted to collect all of the tweets the bot produces, so I made a log file to store them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>line <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">as.character</span>(<span class="fu">Sys.time</span>()), tweet, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(line, <span class="at">file =</span> <span class="fu">here</span>(<span class="st">&quot;wyr-tweets.log&quot;</span>), <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-automate-the-bot" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-automate-the-bot">Step 3: Automate the bot</h2>
+<p>We now have a script that will randomly generate a “Would You Rather” situation along with a randomly chosen picture. However, it would be annoying to manually operate the bot every time we wanted it to tweet. Besides, doing so would undermine the entire point of making a “bot”. So let’s have the computer do this instead.</p>
+<p>However, before the computer can understand the R script, we have to add a line of code to the top of the script (note ‘#!’ is important here):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#! /usr/bin/env Rscript</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is basically turns our script into something the computer can execute. This is good, but having the script loaded on a server would be even better because the script can run whether or not your personal computer is on. Luckily, I happened to already have a server running, so I was able to simply load everything on there and schedule a cron job. Cron jobs basically tell the computer to run a certain command at a certain time (more on cron jobs <a href="https://help.ubuntu.com/community/CronHowto">here</a>).</p>
+<p>If you’ve never scheduled a cron job before, it’s a relatively simple process (note: to use this method, you will need a Mac or Linux OS; for Windows OS, use Windows Task Scheduler). First, open the terminal and type:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crontab</span> <span class="at">-e</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This opens your personal crontab (i.e., the configuration file). In every line, you can define one command to run and its schedule. The structure of the format is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">minute</span> hour day-of-month month day-of-week command</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using an asterisk as a value represents “any”. For example, to run a command every Monday at 8am, the format would be:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> 8 <span class="pp">*</span> <span class="pp">*</span> 1 /path/to/command</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For this project, the command will tell the computer to execute the bot script we wrote in R. I chose to combine all of the files for the bot (e.g., bot script, database, pictures, etc.) into an R project on the server, so the command I created changes the working directory to the project directory (the <code>cd</code> command) and then runs the script (the <code>Rscript</code> command). I also chose to run the bot twice a day:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m h  dom mon dow    command</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> 8 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> cd ~/2019-05-02_would-you-rather-bot<span class="kw">;</span> <span class="ex">Rscript</span> bot-script.R      <span class="co"># run at 8am CST</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">15</span> 17 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> cd ~/2019-05-02_would-you-rather-bot<span class="kw">;</span> <span class="ex">Rscript</span> bot-script.R    <span class="co"># run at 5:15pm CST</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You certainly don’t <em>have</em> to run the bot on a server; servers just make things easier and more consistent in this case. If you don’t have access to a server, the process will be basically the same for running the bot on a personal computer. You’ll just need to make sure the computer is on (and awake!) at the scheduled time(s) for it to automatically tweet. Or, you can <a href="https://dunia-it.com/wake-your-linux-up-from-sleep-for-a-cron-job/">wake your linux up from sleep for a cron job</a>.</p>
+</section>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
+<p>And, that’s it! Here’s the completed script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env Rscript</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># would_you_rather_bot 0.1</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># author: jeremy r. winget</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtweet)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># authenticate</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>token <span class="ot">&lt;-</span> <span class="fu">get_tokens</span>()</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># read in data</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>wyr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">&quot;wyr-db.csv&quot;</span>), <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>pictures <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">&quot;img&quot;</span>))</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># function to generate sentence</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>would_you_rather <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  choices <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(wyr, <span class="dv">2</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">1</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">2</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  sentence <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">&quot;Would you rather {a} or {b}?&quot;</span>)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sentence)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># generate question and picture</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>tweet <span class="ot">&lt;-</span> <span class="fu">would_you_rather</span>()</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">sample</span>(pictures, <span class="dv">1</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co"># tweet it</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="fu">post_tweet</span>(<span class="at">status =</span> <span class="fu">glue</span>(</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;{tweet}</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="st">#wouldyourather&quot;</span>),</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">media =</span> <span class="fu">glue</span>(<span class="st">&quot;img/{img}&quot;</span>))</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="co"># create log entry</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>line <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">as.character</span>(<span class="fu">Sys.time</span>()), tweet, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(line, <span class="at">file =</span> <span class="fu">here</span>(<span class="st">&quot;wyr-tweets.log&quot;</span>), <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you create your own Twitter bot with R (or if this tutorial inspired any other projects), please <a href="https://twitter.com/_jwinget">share it with me</a>. I’d love to hear what you did!</p>
+</section>
+<section id="potential-future-features" class="level2">
+<h2 class="anchored" data-anchor-id="potential-future-features">Potential future features</h2>
+<p>Right now, this bot is pretty basic. I’ve had a few ideas for additional features/adjustments I may or may not end up incorporating:</p>
+<ol type="1">
+<li>I’d like to add more content to the the database. I basically just googled “Would You Rather” questions and chose some of the more outrageous ones. But, there aren’t a lot of different situations (and some are pretty lame) listed in the database, which can sometimes lead to repeated situations being tweeted. If anyone has any situations they’d like to add, feel free to submit merge request!</li>
+<li>If people like the bot and start engaging with it, I thought it’d be fun to retweet popular comments/answers. I’m not sure what that procedure would be yet, though.</li>
+<li>It might be useful to create different categories of “Would You Rather” situations (e.g., outrageous situations, relationship situations, entertainment situations, etc.). If the situations aren’t chosen from the same category, it can lead to dumb questions (like <a href="https://twitter.com/rathrgeneratr/status/1125162015293673473">this one</a>).</li>
+</ol>
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2019,
   author = {},

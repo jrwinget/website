@@ -10,7 +10,6 @@ image: featured.png
 toc: true
 citation: true
 aliases:
-  - /blog/chicago-red-light
   - /blog/2019-04-29-chicago-red-light
 ---
 

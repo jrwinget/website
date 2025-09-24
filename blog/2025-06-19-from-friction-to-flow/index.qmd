@@ -10,7 +10,6 @@ image: featured.png
 toc: true
 citation: true
 aliases:
-  - /blog/from-friction-to-flow
   - /blog/2025-06-19-from-friction-to-flow
 ---
 
