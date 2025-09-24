@@ -156,9 +156,16 @@ a {
   font-weight: $font-weight-semibold;
 }
 
-// navbar refinements with animated underline hover
-.navbar-brand {
-  font-weight: $navbar-brand-font-weight;
+// navbar refinements with animated underline hover and proper alignment
+.navbar {
+  .navbar-brand {
+    font-weight: $navbar-brand-font-weight;
+    margin-right: auto; // push brand to left
+  }
+
+  .navbar-nav {
+    margin-left: auto; // push nav items to right
+  }
 }
 
 .navbar-nav .nav-link {
@@ -210,9 +217,70 @@ code {
   }
 }
 
+// homepage styling to match current site layout
+.about-entity {
+  .about-link {
+    color: $link-color;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  .about-links {
+    .about-link {
+      font-size: 1.5rem;
+      margin: 0 0.5rem 0.5rem 0;
+
+      &:hover {
+        color: $link-hover-color;
+        transform: translateY(-2px);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+
+  h1 {
+    color: $primary;
+    font-size: 3rem;
+    font-weight: $font-weight-bold;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    color: $secondary;
+    font-size: 1.1rem;
+    font-weight: $font-weight-normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    line-height: $line-height-lg;
+    margin-bottom: 2rem;
+  }
+}
+
 // responsive typography
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.5rem; }
+
+  .about-entity h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-entity h2 {
+    font-size: 1rem;
+  }
 }

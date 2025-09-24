@@ -1,8 +1,9 @@
 ---
 title: ""
 about:
-  template: trestles
+  template: solana
   image: assets/img/avatar.jpg
+  image-width: 400px
   links:
     - icon: github
       text: Github
@@ -22,8 +23,14 @@ about:
       href: https://scholar.google.com/citations?user=UbgwtEwAAAAJ=en
 ---
 
+# Jeremy R. Winget, Ph.D.
+
+## Full Stack Developer | AI Engineer | Computational Social Scientist
+
 <!-- # see here for the icon setup  -->
 <!-- # https://forum.posit.co/t/overwriting-bootstrap-icons-in-quarto/195804/2 -->
 
 
 I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.
+
+[ABOUT ME →](about.qmd){.about-link}

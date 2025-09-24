@@ -9,9 +9,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Jeremy R. Winget, PhD",
+    "title": "Jeremy R. Winget, Ph.D.",
     "section": "",
-    "text": "I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone."
+    "text": "I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.\nABOUT ME →"
   },
   {
     "objectID": "about.html",
@@ -271,5 +271,12 @@
     "title": "Process-oriented model of integration in knowledge-diverse teams",
     "section": "",
     "text": "Within the context of an agent-based model, I outline how the configuration of personality, within teams, function to promote knowledge sharing, selection, assimilation, and ultimately, the integration of information.\nI will then present results from virtual experiments to highlight the utility of the model and end with a discussion of future plans to validate the model using empirical data."
+  },
+  {
+    "objectID": "index.html#full-stack-developer-ai-engineer-computational-social-scientist",
+    "href": "index.html#full-stack-developer-ai-engineer-computational-social-scientist",
+    "title": "Jeremy R. Winget, Ph.D.",
+    "section": "",
+    "text": "I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.\nABOUT ME →"
   }
 ]
