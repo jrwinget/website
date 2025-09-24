@@ -1,1 +1,218 @@
 /*-- scss:defaults --*/
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Roboto+Slab:wght@400;600;700&display=swap');
+
+// Design System Variables
+// ======================
+
+// Color Palette (inspired by current site but enhanced for accessibility)
+$primary: #2c3e50 !default;           // Professional blue-gray (current navbar feeling)
+$secondary: #7f8c8d !default;         // Muted gray for secondary text
+$success: #27ae60 !default;           // Subtle green for success states
+$info: #3498db !default;              // Clean blue for info states
+$warning: #f39c12 !default;           // Warm orange for warnings
+$danger: #e74c3c !default;            // Clean red for errors
+
+// Neutral palette
+$white: #ffffff !default;
+$gray-100: #f8f9fa !default;          // Very light background
+$gray-200: #f2e9dc !default;          // Current navbar background color
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000000 !default;
+
+// body and background colors - using header color as main background
+$body-bg: $gray-200 !default; // #f2e9dc - warm cream from current header
+$body-color: $gray-800 !default;
+
+// Typography
+// ==========
+$font-family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif !default;
+$font-family-serif: "Roboto Slab", Georgia, "Times New Roman", serif !default;
+$font-family-monospace: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace !default;
+
+$font-size-root: 1rem !default;
+$font-size-base: 1rem !default;
+$font-weight-lighter: 300 !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+$line-height-base: 1.6 !default;
+$line-height-sm: 1.4 !default;
+$line-height-lg: 1.8 !default;
+
+// Headings
+$headings-font-family: $font-family-sans-serif !default;
+$headings-font-weight: 600 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: $gray-900 !default;
+
+$h1-font-size: 2.5rem !default;
+$h2-font-size: 2rem !default;
+$h3-font-size: 1.75rem !default;
+$h4-font-size: 1.5rem !default;
+$h5-font-size: 1.25rem !default;
+$h6-font-size: 1rem !default;
+
+// links with coral hover color for contrast against cream background
+$link-color: $primary !default;
+$link-decoration: none !default;
+$link-hover-color: #e17055 !default; // soft coral for contrast against cream
+$link-hover-decoration: underline !default;
+
+// Spacing and layout
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4
+) !default;
+
+// Border radius
+$border-radius: 0.375rem !default;
+$border-radius-sm: 0.25rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-pill: 50rem !default;
+
+// Shadows
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
+
+// Component specific variables
+// ===========================
+
+// Navbar
+$navbar-padding-y: 0.75rem !default;
+$navbar-padding-x: 1rem !default;
+$navbar-nav-link-padding-x: 1rem !default;
+$navbar-brand-font-size: 1.25rem !default;
+$navbar-brand-font-weight: $font-weight-semibold !default;
+
+// Cards
+$card-spacer-y: 1.5rem !default;
+$card-spacer-x: 1.5rem !default;
+$card-border-width: 1px !default;
+$card-border-color: rgba($black, 0.125) !default;
+$card-border-radius: $border-radius !default;
+$card-box-shadow: $box-shadow-sm !default;
+
+// Tables
+$table-cell-padding-y: 0.75rem !default;
+$table-cell-padding-x: 0.75rem !default;
+$table-hover-bg: rgba($primary, 0.075) !default;
+
+// sidebar - adjust for new background
+$sidebar-bg: rgba($white, 0.6) !default; // semi-transparent white over cream
+$sidebar-border-color: $gray-400 !default;
+
+// code blocks - white background for maximum contrast
+$code-bg: $white !default;
+$code-color: $gray-800 !default;
+
+/*-- scss:rules --*/
+
+// typography enhancements
+body {
+  font-feature-settings: "liga" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+// improved link styling
+a {
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    transition: color 0.1s ease-in-out;
+  }
+}
+
+// listing enhancements (leveraging existing bootstrap)
+.listing-item {
+  border-radius: $border-radius;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// sidebar improvements
+.sidebar-item-container h5 {
+  color: $primary;
+  font-weight: $font-weight-semibold;
+}
+
+// navbar refinements with animated underline hover
+.navbar-brand {
+  font-weight: $navbar-brand-font-weight;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  transition: color 0.15s ease-in-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $link-hover-color;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover {
+    color: $body-color; // keep text color stable
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// code block styling
+pre, code {
+  background-color: $code-bg;
+  color: $code-color;
+  border: 1px solid $gray-300;
+}
+
+pre {
+  padding: 1rem;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-sm;
+}
+
+code {
+  padding: 0.125rem 0.25rem;
+  border-radius: $border-radius-sm;
+}
+
+// content spacing consistency
+.quarto-listing {
+  .listing-item + .listing-item {
+    margin-top: 1.5rem;
+  }
+}
+
+// responsive typography
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+}

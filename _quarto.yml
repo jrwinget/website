@@ -58,8 +58,6 @@ format:
     code-fold: false
     embed-resources: true
     self-contained: true
-    theme:
-      light: [flatly, assets/main.scss]
-      dark: [slate, assets/main.scss]
+    theme: [flatly, assets/main.scss]
     css: assets/styles.css
     toc: true
