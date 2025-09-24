@@ -3,12 +3,8 @@ title: "PSYC 280 - Judgment and Decision Making"
 date: "2021-08-30"
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on understanding judgment and decision-making through psychological theory and research."
-categories:
-  - Education
-  - Teaching
-  - Psychology
-  - Judgment
-  - Decision Making
+categories: ["Education", "Psychology"]
+tags: ["decision-making", "judgment", "undergraduate-course", "cognitive-psychology", "behavioral-economics", "reasoning", "biases", "well-being", "happiness"]
 description: "State-of-the-art discussion of research on judgment and decision-making from psychological, philosophical, and economic perspectives."
 ---
 

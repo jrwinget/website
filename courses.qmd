@@ -1,0 +1,24 @@
+---
+title: "Courses"
+description: "Educational courses and training materials developed by Jeremy R. Winget"
+listing:
+  contents: "projects/*/index.qmd"
+  include:
+    categories: "Education"
+  sort: "date desc"
+  type: default
+  image-align: left
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields:
+    - title
+    - subtitle
+    - date
+    - image
+    - categories
+    - description
+page-layout: full
+---
+
+This section contains educational courses, workshops, and training materials I've developed for teaching statistics, research methods, and data science.

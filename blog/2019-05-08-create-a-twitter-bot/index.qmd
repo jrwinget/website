@@ -4,7 +4,8 @@ subtitle: 'A tutorial on how to build a bot that generates random Would You Rath
 date: '2019-05-08'
 date-format: "MMMM D, YYYY"
 slug: create-a-twitter-bot
-categories: ["Blog", "R", "tutorial", "how-to", "automation"]
+categories: ["Software Development"]
+tags: ["r", "automation", "tutorial", "api-integration", "social-media"]
 image: featured.png
 toc: true
 citation: true

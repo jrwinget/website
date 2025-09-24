@@ -1,7 +1,8 @@
 ---
 title: "Process-oriented models of information integration in knowledge-diverse teams"
 date: "2020-06-01"
-categories: ["Research", "computational modeling", "teams"]
+categories: ["Research", "Psychology"]
+tags: ["computational-modeling", "agent-based-model", "teams", "knowledge-integration", "personality", "organizational-psychology", "siop"]
 description: "Agent-based modeling research on how personality configurations promote knowledge integration in diverse teams."
 ---
 

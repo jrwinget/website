@@ -5,12 +5,8 @@ date-format: "MMMM D, YYYY"
 authors: "Jeremy R. Winget"
 event: "Thirty-fifth Annual Society for Industrial and Organizational Psychology conference"
 location: "Virtual conference"
-categories:
-  - Conference Talk
-  - Computational Modeling
-  - Agent Based Model
-  - Cognitive Complexity
-  - Teams
+categories: ["Presentations", "Research", "Psychology"]
+tags: ["computational-modeling", "agent-based-model", "teams", "knowledge-integration", "cognitive-complexity", "personality", "conference-talk", "psychology"]
 abstract: "Often, in teams where members possess diverse knowledge, integrating the unique expertise of members is critical (e.g., interdisciplinary, transdisciplinary teams). In this talk, I will present a process-oriented account of the integration of knowledge in teams when members possess predominately unique (as opposed to shared) information."
 ---
 

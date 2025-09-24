@@ -4,10 +4,8 @@ date: "2021-08-30"
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on understanding issues related to globalization through psychological theory and research."
 image: featured.jpg
-categories:
-  - Education
-  - Teaching
-  - Psychology
+categories: ["Education", "Psychology"]
+tags: ["psychology", "globalization", "undergraduate-course", "social-psychology", "social-entrepreneurship", "global-issues", "cross-cultural"]
 description: "Exploring globalization through psychological concepts, research, and theory with real-world applications."
 ---
 

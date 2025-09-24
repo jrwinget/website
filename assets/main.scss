@@ -190,6 +190,29 @@ a {
       width: 100%;
     }
   }
+
+  // dropdown arrow styling
+  &.dropdown-toggle {
+    &::before {
+      content: '';
+      display: inline-block;
+      margin-left: 0.5rem;
+      vertical-align: 0.1em;
+      border-top: 0.3em solid;
+      border-right: 0.3em solid transparent;
+      border-bottom: 0;
+      border-left: 0.3em solid transparent;
+    }
+
+    // hide default bootstrap caret
+    &::after {
+      display: none;
+    }
+
+    &:hover::after {
+      display: none;
+    }
+  }
 }
 
 // code block styling
@@ -282,5 +305,164 @@ code {
 
   .about-entity h2 {
     font-size: 1rem;
+  }
+}
+
+// email subscription box styling
+.subscription-box {
+  background-color: rgba($white, 0.8);
+  border: 1px solid $gray-300;
+  border-radius: $border-radius;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  box-shadow: $box-shadow-sm;
+
+  h2 {
+    color: $primary;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $gray-600;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.email-subscription-form {
+  .subscription-container {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .email-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-sm;
+    font-size: 1rem;
+    min-width: 300px;
+    background-color: $white;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      min-width: 280px;
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  .subscribe-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: $primary;
+    color: $white;
+    border: none;
+    border-radius: $border-radius-sm;
+    font-size: 1rem;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  .subscription-note {
+    font-size: 0.875rem;
+    color: $gray-500;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+}
+
+// Quarto listing UI elements (filter and sort buttons)
+.quarto-listing-filter {
+  .form-control {
+    background-color: rgba($white, 0.9);
+    border-color: $gray-300;
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+    }
+  }
+}
+
+.quarto-listing-sort {
+  .form-select {
+    background-color: rgba($white, 0.9);
+    border-color: $gray-300;
+    color: $gray-800;
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+    }
+  }
+}
+
+// Fix filter and sort icon buttons
+.quarto-listing .listing-actions {
+  .btn {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white;
+
+    &:hover {
+      background-color: $link-hover-color;
+      border-color: $link-hover-color;
+      color: $white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+    }
+  }
+}
+
+// General text input styling for better contrast
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea,
+.form-control {
+  background-color: rgba($white, 0.95) !important;
+  border: 1px solid $gray-300;
+
+  &:focus {
+    background-color: $white !important;
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+}
+
+// Search input specifically
+.quarto-search input {
+  background-color: rgba($white, 0.95) !important;
+  border-color: $gray-300;
+
+  &:focus {
+    background-color: $white !important;
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
   }
 }

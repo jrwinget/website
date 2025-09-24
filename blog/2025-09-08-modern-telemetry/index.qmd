@@ -4,7 +4,8 @@ subtitle: 'The {bidux} 0.3.1 release makes telemetry analysis in BID smoother, t
 date: '2025-09-08'
 date-format: "MMMM D, YYYY"
 slug: modern-telemetry
-categories: ["Blog", "R", "UI/UX", "behavioral science", "shiny", "bidux", "BID"]
+categories: ["Software Development", "User Experience"]
+tags: ["r", "package-release", "data-analysis", "telemetry", "behavioral-science"]
 image: featured.png
 toc: true
 citation: true

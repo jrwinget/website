@@ -4,7 +4,8 @@ subtitle: 'Introducing {bidux}: A toolkit that helps developers design dashboard
 date: '2025-06-19'
 date-format: "MMMM D, YYYY"
 slug: from-friction-to-flow
-categories: ["Blog", "R", "UI/UX", "cognitive load", "behavioral science", "shiny", "bidux", "BID"]
+categories: ["Software Development", "User Experience"]
+tags: ["r", "shiny", "ui-ux", "behavioral-science", "cognitive-science", "dashboard-design", "package-release"]
 image: featured.png
 toc: true
 citation: true

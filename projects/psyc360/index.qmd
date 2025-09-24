@@ -3,13 +3,8 @@ title: "PSYC 360 - Understanding Prejudice"
 date: "2021-08-30"
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course that focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations."
-categories:
-  - Education
-  - Teaching
-  - Psychology
-  - Prejudice
-  - Discrimination
-  - Intergroup Relations
+categories: ["Education", "Psychology"]
+tags: ["prejudice", "discrimination", "intergroup-relations", "undergraduate-course", "social-psychology", "stereotypes", "racism", "sexism"]
 description: "Psychological research and theories on stereotypes, prejudice, and intergroup relations across various social groups."
 ---
 

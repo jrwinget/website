@@ -3,11 +3,8 @@ title: "PSYC 306 - Research Methods"
 date: "2021-08-30"
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on the fundamentals of research methods in the social sciences."
-categories:
-  - Education
-  - Teaching
-  - Research Methods
-  - Statistics
+categories: ["Education", "Research"]
+tags: ["research-methods", "statistics", "experimental-design", "undergraduate-course", "methodology", "data-analysis", "scientific-method", "ethics"]
 description: "Introduction to research methods and statistics used in psychological research, including experimental and non-experimental methodologies."
 ---
 

@@ -5,11 +5,8 @@ date-format: "MMMM D, YYYY"
 authors: "Jeremy R. Winget"
 event: "Ninety-first Annual Meeting of the Midwestern Psychological Association"
 location: "Chicago, Illinois"
-categories:
-  - Conference Talk
-  - Norms
-  - Information Processing
-  - Open-minded Cognition
+categories: ["Presentations", "Research", "Psychology"]
+tags: ["open-minded-cognition", "social-norms", "information-processing", "group-dynamics", "conference-talk", "social-psychology"]
 abstract: "The situational merit standard hypothesis states social norms dictate when open-minded condition (OMC) is appropriate. One context we expect normatively less open-mindedness are those involving group interactions."
 ---
 

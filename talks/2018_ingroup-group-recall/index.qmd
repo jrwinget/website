@@ -5,11 +5,8 @@ date-format: "MMMM D, YYYY"
 authors: "Jeremy R. Winget"
 event: "Thirteenth annual INGRoup conference"
 location: "Bethesda, Maryland"
-categories:
-  - Conference Talk
-  - Group Dynamics
-  - Transactive Memory
-  - Information Processing
+categories: ["Presentations", "Research", "Psychology"]
+tags: ["group-dynamics", "transactive-memory", "information-processing", "memory", "recall", "conference-talk", "cognitive-psychology"]
 abstract: "Groups attempted to recall a story where the parts of the story were distributed among the group members. How much of the information was shared vs. unshared and the presence/absence of a transactive memory system were varied."
 ---
 

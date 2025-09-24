@@ -3,10 +3,8 @@ title: "PSYC 304 - Statistics"
 date: "2021-01-18"
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on the fundamentals of statistics and hypothesis testing."
-categories:
-  - Education
-  - Teaching
-  - Statistics
+categories: ["Education", "Data Science"]
+tags: ["statistics", "undergraduate-course", "hypothesis-testing", "research-methods", "data-analysis", "statistical-inference", "descriptive-statistics"]
 description: "Conceptual understanding of statistics, research methods, and data analysis for psychology students."
 ---
 

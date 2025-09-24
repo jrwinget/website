@@ -5,12 +5,8 @@ date-format: "MMMM D, YYYY"
 authors: "Milena Eickhoff & Jeremy Winget"
 event: "ShinyConf 2025"
 location: "Virtual conference"
-categories:
-  - Conference Talk
-  - UI/UX
-  - Shiny
-  - Design
-  - Decision Making
+categories: ["Presentations", "Software Development", "User Experience"]
+tags: ["shiny", "r", "dashboard-design", "ui-ux", "behavioral-science", "cognitive-science", "data-visualization", "reactable", "echarts4r", "conference-talk"]
 abstract: "Imagine opening a dashboard and being greeted with an endless series of dropdown menus, all demanding your attention before you can even comprehend the data. This frustrating experience—what many recognize as 'death by dropdown'—leaves users disengaged, delays decision-making, and contributes to 'dashboard rot'. But it doesn't have to be this way! By shifting the focus from cramming as much data as possible on the screen to crafting a story with the data, we can guide users effortlessly to the insights they need."
 ---
 

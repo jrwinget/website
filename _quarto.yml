@@ -39,12 +39,29 @@ website:
         text: About
       - href: blog.qmd
         text: Blog
-      - href: projects.qmd
-        text: Projects
-      - href: talks.qmd
-        text: Talks
       - href: publications.qmd
-        text: Publications
+        text: Research
+      - text: Projects
+        menu:
+          - href: projects.qmd
+            text: Software
+          - href: talks.qmd
+            text: Talks
+          - href: courses.qmd
+            text: Courses
+    right:
+      - icon: github
+        href: https://github.com/jrwinget
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/jrwinget/
+        aria-label: LinkedIn
+      - text: "{{< fa brands bluesky >}}"
+        href: https://bsky.app/profile/jrwinget.com
+        aria-label: Bluesky
+      - text: "{{< fa envelope >}}"
+        href: mailto:jrwinget@gmail.com
+        aria-label: Email
   page-footer:
     left: |
       {{< fa regular copyright >}} 2025 Jeremy R. Winget<br>
@@ -59,3 +76,8 @@ format:
     theme: [flatly, assets/main.scss]
     css: assets/styles.css
     toc: true
+    comments:
+      utterances:
+        repo: jrwinget/website
+        theme: github-light
+        issue-term: pathname

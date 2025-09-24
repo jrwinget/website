@@ -5,11 +5,8 @@ date-format: "MMMM D, YYYY"
 authors: "Jeremy R. Winget"
 event: "Loyola University Chicago Social Area Research Series"
 location: "Chicago, Illinois"
-categories:
-  - Workshop
-  - R
-  - Tidyverse
-  - Statistics
+categories: ["Presentations", "Education", "Data Science"]
+tags: ["r", "tidyverse", "statistics", "data-analysis", "workshop", "tutorial", "data-visualization", "regression", "anova", "t-tests"]
 abstract: "In this workshop, I will cover an introduction to R for the psychological researcher with little to no programming experience. The content will mostly consist of what you might find in an introductory statistics class."
 ---
 
