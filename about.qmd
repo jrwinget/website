@@ -10,7 +10,7 @@ listing:
     type: default
     fields: [title, subtitle, date]
   - id: recent-projects
-    contents: "projects/*/index.qmd"
+    contents: "software/*/index.qmd"
     max-items: 3
     sort: "date desc"
     type: default
@@ -71,7 +71,7 @@ Here's what I've been working on recently:
 ::: {#recent-projects}
 :::
 
-[See all projects →](projects.html)
+[See all software →](software.html)
 
 ### Recent Talks
 

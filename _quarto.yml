@@ -42,7 +42,7 @@ website:
         text: Research
       - text: Projects
         menu:
-          - href: projects.qmd
+          - href: software.qmd
             text: Software
           - href: talks.qmd
             text: Talks

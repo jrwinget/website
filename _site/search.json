@@ -207,7 +207,7 @@
     "href": "about.html#lately",
     "title": "About",
     "section": "Lately",
-    "text": "Lately\nHere’s what I’ve been working on recently:\n\nRecent Blog Posts\n\n\n\n\n\nbidux 0.3.1: Modern Telemetry Integration in the BID Framework\n\n\nThe {bidux} 0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.\n\n\n\n\n\nSep 8, 2025\n\n\n\n\n\n\n\nFrom Friction to Flow: Designing Smarter Dashboards with {bidux}\n\n\nIntroducing {bidux}: A toolkit that helps developers design dashboards grounded in cognitive and behavioral science\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\nPredicting pileups: Using ML to predict Chicago crash types\n\n\nA comparative model analysis of the factors that lead to severe traffic collisions in Chicago, IL.\n\n\n\n\n\nDec 18, 2021\n\n\n\n\n\nNo matching items\n\nSee all blog posts →\n\n\nRecent Projects\n\n\n\n\n\nBehavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development\n\n\n\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\nPSYC 100 - Psychological Perspectives on the Experiences of Globalization\n\n\nAn undergraduate-level course on understanding issues related to globalization through psychological theory and research.\n\n\n\n\n\nAug 30, 2021\n\n\n\n\n\n\n\nPSYC 280 - Judgment and Decision Making\n\n\nAn undergraduate-level course on understanding judgment and decision-making through psychological theory and research.\n\n\n\n\n\nAug 30, 2021\n\n\n\n\n\nNo matching items\n\nSee all projects →\n\n\nRecent Talks\n\n\n\n\n\nDeath By Dropdown? A Developer’s Guide To Building Dashboards That Won’t Fry Your Client’s Brain\n\n\n\n\n\nApr 10, 2025\n\n\nShinyConf 2025\n\n\n\n\n\n\n\nProcess-oriented model of integration in knowledge-diverse teams\n\n\n\n\n\nJun 16, 2020\n\n\nThirty-fifth Annual Society for Industrial and Organizational Psychology conference\n\n\n\n\n\n\n\nLearning R\n\n\n\n\n\nNov 25, 2019\n\n\nLoyola University Chicago Social Area Research Series\n\n\n\n\n\nNo matching items\n\nSee all talks →"
+    "text": "Lately\nHere’s what I’ve been working on recently:\n\nRecent Blog Posts\n\n\n\n\n\nbidux 0.3.1: Modern Telemetry Integration in the BID Framework\n\n\nThe {bidux} 0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.\n\n\n\n\n\nSep 8, 2025\n\n\n\n\n\n\n\nFrom Friction to Flow: Designing Smarter Dashboards with {bidux}\n\n\nIntroducing {bidux}: A toolkit that helps developers design dashboards grounded in cognitive and behavioral science\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\nPredicting pileups: Using ML to predict Chicago crash types\n\n\nA comparative model analysis of the factors that lead to severe traffic collisions in Chicago, IL.\n\n\n\n\n\nDec 18, 2021\n\n\n\n\n\nNo matching items\n\nSee all blog posts →\n\n\nRecent Projects\n\n\n\n\n\nbidux: A Framework for Cognitive-Aware Dashboard Development\n\n\n\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\nNo matching items\n\nSee all software →\n\n\nRecent Talks\n\n\n\n\n\nDeath By Dropdown? A Developer’s Guide To Building Dashboards That Won’t Fry Your Client’s Brain\n\n\n\n\n\nApr 10, 2025\n\n\nShinyConf 2025\n\n\n\n\n\n\n\nProcess-oriented model of integration in knowledge-diverse teams\n\n\n\n\n\nJun 16, 2020\n\n\nThirty-fifth Annual Society for Industrial and Organizational Psychology conference\n\n\n\n\n\n\n\nLearning R\n\n\n\n\n\nNov 25, 2019\n\n\nLoyola University Chicago Social Area Research Series\n\n\n\n\n\nNo matching items\n\nSee all talks →"
   },
   {
     "objectID": "about.html#background",
@@ -431,7 +431,7 @@
     "href": "research.html",
     "title": "Research",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nProcess-oriented models of information integration in knowledge-diverse teams\n\n\n\nResearch\n\nPsychology\n\n\n\nAgent-based modeling research on how personality configurations promote knowledge integration in diverse teams.\n\n\n\n\n\nJun 1, 2020\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nBehavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development\n\n\n\nSoftware Development\n\nUser Experience\n\nResearch\n\n\n\nIntroduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles.\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\nProcess-oriented models of information integration in knowledge-diverse teams\n\n\n\nResearch\n\nPsychology\n\n\n\nAgent-based modeling research on how personality configurations promote knowledge integration in diverse teams.\n\n\n\n\n\nJun 1, 2020\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks.html",
@@ -466,14 +466,14 @@
     "href": "assets/404.html",
     "title": "Page Not Found",
     "section": "",
-    "text": "We are sorry, the page you requested cannot be found.\nThis page was recently updated, it is possible a link changed.\nThe content should still be available.\nPlease check the blog, research, talks, or software pages.\nPerhaps you can find what you are looking for."
+    "text": "Looks like this trail went cold.\nThe page you’re after has either moved or lost its name tag.\nThe content is still around, just not here.\nTry the blog, research, talks, or home pages.\nOne of them should get you back on track."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Jeremy R. Winget, Ph.D.",
     "section": "",
-    "text": "I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.\nABOUT ME →"
+    "text": "I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights, creating solutions informed by evidence and designed to be meaningful and accessible for everyone.\nABOUT ME →"
   },
   {
     "objectID": "index.html#full-stack-developer-ai-engineer-computational-social-scientist",
@@ -481,5 +481,68 @@
     "title": "Jeremy R. Winget, Ph.D.",
     "section": "",
     "text": "I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights—creating solutions informed by evidence and designed to be meaningful and accessible for everyone.\nABOUT ME →"
+  },
+  {
+    "objectID": "software/bidux/index.html",
+    "href": "software/bidux/index.html",
+    "title": "bidux: A Framework for Cognitive-Aware Dashboard Development",
+    "section": "",
+    "text": "This work introduces the Behavioral Insight Design (BID) framework, implemented in the {bidux} R package, which provides developers with evidence-based tools to create more intuitive, cognitively supportive dashboards.\nPackage: Available on CRAN as {bidux} Repository: github.com/jrwinget/bidux Framework: BID Framework Documentation"
+  },
+  {
+    "objectID": "research/bid-framework/index.html",
+    "href": "research/bid-framework/index.html",
+    "title": "Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development",
+    "section": "",
+    "text": "This work introduces the Behavioral Insight Design (BID) framework, implemented in the {bidux} R package, which provides developers with evidence-based tools to create more intuitive, cognitively supportive dashboards.\nPackage: Available on CRAN as {bidux} Repository: github.com/jrwinget/bidux Framework: BID Framework Documentation"
+  },
+  {
+    "objectID": "courses/psyc360/index.html",
+    "href": "courses/psyc360/index.html",
+    "title": "PSYC 360 - Understanding Prejudice",
+    "section": "",
+    "text": "Semesters taught: Fall 2020, Fall 2021\nThis course focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations. This material considers how the person, the situation, and society shape our thoughts, feelings, and behaviors toward people from various social groups. Most psychological research on these topics focuses on race; however, we also discuss research related to gender, sexual orientation, size, and social class.\nSpecific topics include the strengths and weaknesses of explanations for the origins of stereotypes and prejudice; prejudice against people in different social groups (e.g., sexual orientation, gender, size, race); variations in racist and sexist beliefs; the effect of stereotypes on how we perceive others and interact socially; how targets of prejudice perceive prejudice, are affected by prejudice, and cope with prejudice; and the psychological processes that may change stereotypes and reduce prejudice."
+  },
+  {
+    "objectID": "courses/psyc304/index.html",
+    "href": "courses/psyc304/index.html",
+    "title": "PSYC 304 - Statistics",
+    "section": "",
+    "text": "Semesters taught: Summer 2017, Summer 2018, Spring 2020, Spring 2021\nThis course emphasizes more of a conceptual understanding of statistics rather than a purely mathematical understanding of statistics; however, notions and formulas for all the procedures discussed will be covered as well. The goal is to gain an understanding of the concepts underpinning statistics, research methods, and data analysis to develop skills to interpret and critique empirical evidence.\nThere will be times when students will need to perform some calculations by hand. These calculations are presented in the service of a deeper understanding of the concept. Ultimately, success in this course will depend on an understanding of when and why specific statistical tools are used.\nThis course will primarily be lecture-driven, though time is also reserved for activities and applications. Examples and sample problems will be heavily emphasized. Additionally, some course time will be spent learning how to use computer programs to conduct statistical analyses."
+  },
+  {
+    "objectID": "courses/psyc100/index.html",
+    "href": "courses/psyc100/index.html",
+    "title": "PSYC 100 - Psychological Perspectives on the Experiences of Globalization",
+    "section": "",
+    "text": "Semesters taught: Fall 2021\nThis course approaches globalization from a psychological perspective. It is designed to inform students’ understanding of global issues with modern psychological concepts, research, and theory, and to teach students to see psychological issues at work in the experience of globalization.\nTo this end, it is grounded by a set of videos that provide vivid, first-person accounts of real people whose lives have been dramatically affected by and embody critical issues associated with globalization. This biographical information is then illuminated by material contained in studies and review articles chosen for their application of core psychological concepts, research, and theory to issues of behavior and development connected to the experience of globalization.\nWe will also explore social entrepreneurship as a mechanism for dealing with the various complex issues that globalization presents."
+  },
+  {
+    "objectID": "courses/psyc280/index.html",
+    "href": "courses/psyc280/index.html",
+    "title": "PSYC 280 - Judgment and Decision Making",
+    "section": "",
+    "text": "Semesters taught: Fall 2019, Fall 2020, Spring 2021, Fall 2021\nThis course presents a state-of-the-art discussion of research on judgment and decision-making. Decisions large and small are part of everyday life. Where should I go for lunch? Should I go to the gym today? Will this course make me happy? Is this a cold or the flu? Should I go to the doctor? Is this job for me? Even when we have the best information, we often don’t make the right decisions.\nThe quality of our decisions depends upon a variety of factors, many of which can be found in philosophy, psychology, and economic research. Philosophy contributes its canon of literature on inductive and deductive reasoning, and its focus on prescriptive questions about the purpose of good reasoning. Psychology offers experimental evidence of human capability in the area of judgment and decision-making, and the outlines the processes that give rise to good decisions. Economics, as the science of policy, describes the structural conditions that promote good decision-making, and tracks the utilities, costs, and benefits both to individuals and societies of those decisions.\nThe course examines the impact of psychological biases on personal decision and public policies. It also covers issues such as psychological models of deliberative versus reflective processes in decision-making, and research on happiness and well-being. A goal of this course is to improve everyday reasoning and gain an understanding of the sources of our errors in reasoning."
+  },
+  {
+    "objectID": "courses/psyc306/index.html",
+    "href": "courses/psyc306/index.html",
+    "title": "PSYC 306 - Research Methods",
+    "section": "",
+    "text": "Semesters taught: Fall 2017, Fall 2018, Summer 2019, Summer 2020, Summer 2021, Fall 2021\nThis course is designed as an introduction to research methods (and to some extent statistics) used in psychological research. While we will spend a lot of time talking about true experiments, we also discuss non-experimental methodologies (including observation, correlational research, surveys, archival research) and quasi-experimental (including person-by-treatment, natural experiments, nature and treatment, and patch-up designs).\nOther topics include an introduction to the scientific method, the philosophy of science, measurement and error, descriptive statistics, statistical inference, scientific writing, and ethical considerations in research."
+  },
+  {
+    "objectID": "index.html#full-stack-engineer-computational-social-scientist-hehim",
+    "href": "index.html#full-stack-engineer-computational-social-scientist-hehim",
+    "title": "Jeremy R. Winget, Ph.D.",
+    "section": "",
+    "text": "I build intuitive, data-driven applications that transform how people make decisions. Grounded in my PhD research on group decision-making and agent-based modeling, I leverage cutting-edge AI, machine learning, and NLP techniques to craft solutions that are both technically robust and socially impactful. Guided by my values of open science, equity, and systems thinking, I strive to bridge technical excellence with social insights, creating solutions informed by evidence and designed to be meaningful and accessible for everyone.\nABOUT ME →"
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "Software",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nbidux: A Framework for Cognitive-Aware Dashboard Development\n\n\n\n\n\n\nSoftware Development\n\nUser Experience\n\nResearch\n\n\n\nIntroduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles.\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\nNo matching items"
   }
 ]

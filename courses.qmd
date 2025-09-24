@@ -2,7 +2,7 @@
 title: "Courses"
 description: "Educational courses and training materials developed by Jeremy R. Winget"
 listing:
-  contents: "projects/*/index.qmd"
+  contents: "courses/*/index.qmd"
   include:
     categories: "Education"
   sort: "date desc"
