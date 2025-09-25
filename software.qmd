@@ -1,5 +1,6 @@
 ---
 title: "Software"
+comments: false
 listing:
   contents: "software/*/index.qmd"
   sort: "date desc"

@@ -49,3 +49,13 @@ ggplot(mpg, aes(displ, hwy)) +
 And, that's all there is to it! While it may seem pretty straightforward, this actually took me a few days to create when I first started coding in R. Indeed, one's first `ggplot` seems like quiet the achievement in the moment!
 
 If you're scratching your head after reading this post, don't worry! I plan to blog about plenty of neat things one can do in R (and in much more detail), so stay tuned!
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="jrwinget/website"
+  issue-term="pathname"
+  label="comment"
+  theme="gruvbox-dark"
+  crossorigin="anonymous"
+  async>
+</script>

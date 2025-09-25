@@ -1,6 +1,7 @@
 ---
 title: "Blog"
 toc: false
+comments: false
 listing:
   contents: "blog/*/index.qmd"
   sort: "date desc"

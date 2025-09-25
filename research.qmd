@@ -1,5 +1,6 @@
 ---
 title: "Research"
+comments: false
 listing:
   contents: "research/*/index.qmd"
   sort: "date desc"
