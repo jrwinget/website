@@ -1,6 +1,7 @@
 ---
 title: ""
 toc: false
+comments: false
 about:
   template: solana
   image: assets/img/home.png

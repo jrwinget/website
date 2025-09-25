@@ -181,3 +181,13 @@ Right now, this bot is pretty basic. I've had a few ideas for additional feature
 1. I'd like to add more content to the the database. I basically just googled "Would You Rather" questions and chose some of the more outrageous ones. But, there aren't a lot of different situations (and some are pretty lame) listed in the database, which can sometimes lead to repeated situations being tweeted. If anyone has any situations they'd like to add, feel free to submit merge request!
 2. If people like the bot and start engaging with it, I thought it'd be fun to retweet popular comments/answers. I'm not sure what that procedure would be yet, though.
 3. It might be useful to create different categories of "Would You Rather" situations (e.g., outrageous situations, relationship situations, entertainment situations, etc.). If the situations aren't chosen from the same category, it can lead to dumb questions (like [this one](https://twitter.com/rathrgeneratr/status/1125162015293673473)).
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="jrwinget/website"
+  issue-term="pathname"
+  label="comment"
+  theme="gruvbox-dark"
+  crossorigin="anonymous"
+  async>
+</script>

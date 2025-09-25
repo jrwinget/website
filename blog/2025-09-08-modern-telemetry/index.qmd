@@ -100,3 +100,13 @@ install.packages("bidux")
 ```
 
 This release makes working with telemetry in BID smoother, tidier, and more consistent. It strengthens the framework while keeping migration straightforward, so you can spend less time adapting code and more time focusing on insights.
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="jrwinget/website"
+  issue-term="pathname"
+  label="comment"
+  theme="gruvbox-dark"
+  crossorigin="anonymous"
+  async>
+</script>

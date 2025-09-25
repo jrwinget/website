@@ -1,5 +1,6 @@
 ---
 title: "Courses"
+comments: false
 listing:
   contents: "courses/*/index.qmd"
   include:
