@@ -82,3 +82,13 @@ I **strongly suspect** days like this compound: first PRs become second and thir
 Seven years later, I still leave recharged and focused. My plan is simple: Pay forward the clarity and encouragement this community gave me. Build things that make it easier for the next person to do good work.
 
 If that sounds like your kind of place, I look forward to seeing you there!
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="jrwinget/website"
+  issue-term="pathname"
+  label="comment"
+  theme="gruvbox-dark"
+  crossorigin="anonymous"
+  async>
+</script>
