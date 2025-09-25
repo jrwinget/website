@@ -511,30 +511,42 @@ code {
   }
 }
 
-// General text input styling for better contrast
-input[type="text"],
-input[type="email"],
-input[type="search"],
-textarea,
-.form-control {
-  background-color: rgba($white, 0.95) !important;
-  border: 1px solid $gray-300;
+// Enhanced form controls for better contrast on cream background
+.form-control,
+.form-select {
+  background-color: rgba($white, 0.95);
+  border-color: $gray-300;
 
   &:focus {
-    background-color: $white !important;
+    background-color: $white;
     border-color: $primary;
     box-shadow: 0 0 0 2px rgba($primary, 0.2);
   }
 }
 
-// Search input specifically
-.quarto-search input {
-  background-color: rgba($white, 0.95) !important;
+// Quarto-specific input styling
+.quarto-search .form-control,
+.quarto-listing .form-control,
+.quarto-listing .form-select {
+  background-color: rgba($white, 0.95);
   border-color: $gray-300;
 
   &:focus {
-    background-color: $white !important;
+    background-color: $white;
     border-color: $primary;
     box-shadow: 0 0 0 2px rgba($primary, 0.2);
   }
+}
+
+// Enhance existing Bootstrap float classes for better blog images
+.float-start,
+.float-left {
+  margin-right: $spacer;
+  margin-bottom: $spacer;
+}
+
+.float-end,
+.float-right {
+  margin-left: $spacer;
+  margin-bottom: $spacer;
 }
