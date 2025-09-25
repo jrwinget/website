@@ -1,0 +1,23 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/fc7d3313-bae7-412c-b93a-3a9ae8152375/deploy-status)](https://app.netlify.com/sites/jrwinget/deploys)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrwinget/website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrwinget/website/issues"
+  },
+  "homepage": "https://github.com/jrwinget/website#readme",
+  "devDependencies": {
+    "@quarto/netlify-plugin-quarto": "^0.0.5"
+  }
+}
