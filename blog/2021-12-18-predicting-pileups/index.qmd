@@ -636,13 +636,3 @@ last_rf_fit %>%
 The results from the validation set and test set performance statistics are very close, so we can be reasonably confident the random forest model with the selected features and hyperparameters would perform well when predicting new data.
 
 > Special thanks to [Drew Triplett](https://www.linkedin.com/in/atriplett) for his helpful comments on an earlier draft of this post!
-
-<script
-  src="https://utteranc.es/client.js"
-  repo="jrwinget/website"
-  issue-term="pathname"
-  label="comment"
-  theme="gruvbox-dark"
-  crossorigin="anonymous"
-  async>
-</script>

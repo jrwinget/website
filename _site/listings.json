@@ -1,0 +1,92 @@
+[
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/2025_shiny-conf/index.html",
+      "/talks/2025_posit-conf/index.html",
+      "/talks/2020_siop/index.html",
+      "/talks/2019_sars-workshop/index.html",
+      "/talks/2019_sars-talk/index.html",
+      "/talks/2019_mpa/index.html",
+      "/talks/2018_ingroup/index.html",
+      "/talks/2017_gipr/index.html"
+    ]
+  },
+  {
+    "listing": "/research.html",
+    "items": [
+      "/research/bid-framework/index.html",
+      "/research/group-disinhibition/index.html",
+      "/research/promoting-info-exchange/index.html",
+      "/research/distrib-team-cog/index.html",
+      "/research/stereotypic-morality/index.html",
+      "/research/group-deception/index.html",
+      "/research/group-decision-making/index.html",
+      "/research/group-learning/index.html"
+    ]
+  },
+  {
+    "listing": "/courses.html",
+    "items": [
+      "/courses/psyc100/index.html",
+      "/courses/psyc280/index.html",
+      "/courses/psyc306/index.html",
+      "/courses/psyc360/index.html",
+      "/courses/psyc304/index.html"
+    ]
+  },
+  {
+    "listing": "/about.html",
+    "items": [
+      "/blog/2025-09-25_posit-conf-journey/index.html",
+      "/blog/2025-09-08-modern-telemetry/index.html",
+      "/blog/2025-06-19-from-friction-to-flow/index.html",
+      "/blog/2021-12-18-predicting-pileups/index.html",
+      "/blog/2019-05-08-create-a-twitter-bot/index.html",
+      "/blog/2019-04-29-chicago-red-light/index.html",
+      "/blog/2019-01-08-first-tidytuesday/index.html",
+      "/blog/2018-02-07-first-post/index.html",
+      "/software/bidux/index.html",
+      "/research/bid-framework/index.html",
+      "/research/group-disinhibition/index.html",
+      "/research/promoting-info-exchange/index.html",
+      "/research/distrib-team-cog/index.html",
+      "/research/stereotypic-morality/index.html",
+      "/research/group-deception/index.html",
+      "/research/group-decision-making/index.html",
+      "/research/group-learning/index.html",
+      "/talks/2025_shiny-conf/index.html",
+      "/talks/2025_posit-conf/index.html",
+      "/courses/psyc100/index.html",
+      "/courses/psyc280/index.html",
+      "/courses/psyc306/index.html",
+      "/courses/psyc360/index.html",
+      "/courses/psyc304/index.html",
+      "/talks/2020_siop/index.html",
+      "/talks/2019_sars-workshop/index.html",
+      "/talks/2019_sars-talk/index.html",
+      "/talks/2019_mpa/index.html",
+      "/talks/2018_ingroup/index.html",
+      "/talks/2017_gipr/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/2025-09-25_posit-conf-journey/index.html",
+      "/blog/2025-09-08-modern-telemetry/index.html",
+      "/blog/2025-06-19-from-friction-to-flow/index.html",
+      "/blog/2021-12-18-predicting-pileups/index.html",
+      "/blog/2019-05-08-create-a-twitter-bot/index.html",
+      "/blog/2019-04-29-chicago-red-light/index.html",
+      "/blog/2019-01-08-first-tidytuesday/index.html",
+      "/blog/2018-02-07-first-post/index.html"
+    ]
+  },
+  {
+    "listing": "/software.html",
+    "items": [
+      "/software/bidux/index.html"
+    ]
+  }
+]

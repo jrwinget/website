@@ -179,13 +179,3 @@ The BID framework gives developers a behavioral lens. `{bidux}` gives them the t
 You don't need a psychology degree to design with cognitive empathy, just the right questions and the right support. `{bidux}` helps you ask both.
 
 Happy designing! 🚀
-
-<script
-  src="https://utteranc.es/client.js"
-  repo="jrwinget/website"
-  issue-term="pathname"
-  label="comment"
-  theme="gruvbox-dark"
-  crossorigin="anonymous"
-  async>
-</script>
