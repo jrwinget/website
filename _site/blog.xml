@@ -1,0 +1,9 @@
+---
+title: "Jeremy R. Winget, PhD - Blog"
+listing:
+  contents: "blog/*/index.qmd"
+  sort: "date desc"
+  type: rss
+  max-items: 20
+  categories: true
+---

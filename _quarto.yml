@@ -72,13 +72,15 @@ format:
     code-fold: show
     code-overflow: scroll
     code-line-numbers: true
-    embed-resources: true
-    self-contained: true
     theme: [flatly, assets/main.scss]
     css: assets/styles.css
     toc: true
+    include-in-header:
+      - text: |
+          <script defer data-domain="jrwinget.com" src="https://plausible.io/js/script.js"></script>
     comments:
       utterances:
         repo: jrwinget/website
-        theme: github-light
         issue-term: pathname
+        label: comment
+        theme: gruvbox-dark

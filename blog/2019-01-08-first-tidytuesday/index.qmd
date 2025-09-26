@@ -247,13 +247,3 @@ tv_rating %>%
 ```
 
 Okay, now we have some interesting patterns to interpret. Overall, it looks like even the most popular shows experienced a decline in enthusiasm the longer they aired. However, there are notable exceptions to this trend: Criminal Minds and Murdoch Mysteries have really taken off in the last few years, both receiving the highest ratings out of any of the tiles in this sample. American Horror Story appears to be making a comeback as well recently. Noticeably, these exceptions all fit the suspenseful-like dramas noted earlier. It seems, then, the most successful TV dramas are ones with intense or striking elements (e.g., crime, murder, horror, etc.). I wonder if this says anything about the culture of the viewers...lookin' at you America `r emo::ji("thinking")`
-
-<script
-  src="https://utteranc.es/client.js"
-  repo="jrwinget/website"
-  issue-term="pathname"
-  label="comment"
-  theme="gruvbox-dark"
-  crossorigin="anonymous"
-  async>
-</script>

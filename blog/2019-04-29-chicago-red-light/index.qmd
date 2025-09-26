@@ -192,13 +192,3 @@ Further questions:
 + What drove the increase in violations between 2014 and mid-2016?
 * What happened at the end of 2016/beginning of 2017?
 * Do violations occur systematically throughout the city, or are certain locations more likely to lead to higher violations?
-
-<script
-  src="https://utteranc.es/client.js"
-  repo="jrwinget/website"
-  issue-term="pathname"
-  label="comment"
-  theme="gruvbox-dark"
-  crossorigin="anonymous"
-  async>
-</script>
