@@ -7,15 +7,15 @@ listing:
   sort: "date desc"
   type: default
   categories: true
-  sort-ui: true
+  sort-ui: false
   filter-ui: true
   feed: true
   fields:
+    - image
+    - date
     - title
     - subtitle
-    - date
     - reading-time
-    - image
     - categories
 page-layout: full
 ---
@@ -28,14 +28,18 @@ Stay up-to-date with my latest posts on data science, social science, and full-s
 ```{=html}
 <form class="email-subscription-form" action="#" method="post">
   <div class="subscription-container">
+    <label for="email-input" class="visually-hidden">Email address</label>
     <input type="email"
+      id="email-input"
       name="email"
       placeholder="Enter your email address"
       required
+      aria-describedby="subscription-note"
+      aria-label="Email address for blog subscription"
       class="email-input">
     <button type="submit" class="subscribe-btn">Subscribe</button>
   </div>
-  <p class="subscription-note">No spam, ever. Unsubscribe at any time.</p>
+  <p id="subscription-note" class="subscription-note">No spam, ever. Unsubscribe at any time.</p>
 </form>
 ```
 :::

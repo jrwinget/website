@@ -9,7 +9,9 @@ image: featured.png
 toc: true
 citation: true
 aliases:
+  - /blog/2025-10-29_leaner-quieter-intuitive
   - /blog/2025-10-29-leaner-quieter-intuitive
+  - /leaner-quieter-intuitive
 ---
 
 I'm excited to announce that `{bidux}` **0.3.2** is now available on CRAN!

@@ -24,6 +24,7 @@ engine: knitr
 website:
   title: "Jeremy R. Winget, PhD"
   site-url: "https://www.jrwinget.com"
+  bread-crumbs: true
   repo-url: https://github.com/jrwinget/website
   description: "Jeremy R. Winget's personal website and blog."
   favicon: /assets/img/logo.png
@@ -61,6 +62,32 @@ website:
       - text: "{{< fa envelope >}}"
         href: mailto:contact@jrwinget.com
         aria-label: Email
+  # sidebar:
+  #   - title: "Blog"
+  #     contents:
+  #       - blog.qmd
+  #       - section: "Posts"
+  #         contents: "blog/*/index.qmd"
+  #   - title: "Research"
+  #     contents:
+  #       - research.qmd
+  #       - section: "Projects"
+  #         contents: "research/*/index.qmd"
+  #   - title: "Software"
+  #     contents:
+  #       - software.qmd
+  #       - section: "Projects"
+  #         contents: "software/*/index.qmd"
+  #   - title: "Talks"
+  #     contents:
+  #       - talks.qmd
+  #       - section: "Presentations"
+  #         contents: "talks/*/index.qmd"
+  #   - title: "Courses"
+  #     contents:
+  #       - courses.qmd
+  #       - section: "Course Materials"
+  #         contents: "courses/*/index.qmd"
   page-footer:
     left: |
       {{< fa regular copyright >}} 2025 Jeremy R. Winget<br>
