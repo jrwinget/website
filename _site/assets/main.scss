@@ -485,15 +485,15 @@ code {
       background-color: darken($primary, 10%);
     }
 
-    &:focus {
-      outline: 3px solid $primary;
-      outline-offset: 2px;
-    }
-
     &:focus-visible {
       outline: 3px solid $primary;
       outline-offset: 2px;
       box-shadow: 0 0 0 5px rgba($primary, 0.2);
+    }
+
+    &:focus {
+      outline: 3px solid $primary;
+      outline-offset: 2px;
     }
 
     @media (max-width: 768px) {
