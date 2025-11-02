@@ -6,3 +6,105 @@
   margin-top: 0.5rem;
   display: inline-block;
 }
+
+/* ============================================
+   Margin Notes & Asides
+   ============================================ */
+
+/* Quarto's column-margin class for side notes */
+.column-margin {
+  font-size: 0.9em;
+  color: #5a5a5a;
+  line-height: 1.5;
+  padding: 0.75em 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Desktop: margin notes appear in the right margin */
+@media (min-width: 992px) {
+  .column-margin {
+    /* Quarto handles positioning, we just style */
+    font-size: 0.85em;
+    padding: 0.5em 1em;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-left: 2px solid #d4a574; /* warm brown accent */
+    border-radius: 0.25em;
+  }
+}
+
+/* Mobile/Tablet: margin notes appear inline */
+@media (max-width: 991px) {
+  .column-margin {
+    display: block;
+    margin: 1.25em 0;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-left: 3px solid #d4a574; /* warm brown accent */
+    border-radius: 0.375em;
+    font-size: 0.9em;
+    color: #495057;
+  }
+}
+
+/* Alternative syntax: aside elements */
+aside,
+.aside {
+  font-size: 0.9em;
+  color: #5a5a5a;
+  line-height: 1.5;
+  padding: 0.75em 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Desktop: asides in margin */
+@media (min-width: 992px) {
+  aside,
+  .aside {
+    font-size: 0.85em;
+    padding: 0.5em 1em;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-left: 2px solid #d4a574;
+    border-radius: 0.25em;
+  }
+}
+
+/* Mobile/Tablet: asides inline */
+@media (max-width: 991px) {
+  aside,
+  .aside {
+    display: block;
+    margin: 1.25em 0;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-left: 3px solid #d4a574;
+    border-radius: 0.375em;
+    font-size: 0.9em;
+    color: #495057;
+  }
+}
+
+/* Ensure margin notes are accessible */
+.column-margin:focus,
+aside:focus,
+.aside:focus {
+  outline: 2px solid #d4a574;
+  outline-offset: 2px;
+}
+
+/* Style links within margin notes */
+.column-margin a,
+aside a,
+.aside a {
+  color: #2c3e50;
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 165, 116, 0.5);
+}
+
+.column-margin a:hover,
+aside a:hover,
+.aside a:hover {
+  color: #e17055;
+  text-decoration-color: #e17055;
+}

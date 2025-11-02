@@ -15,9 +15,9 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/blog/2025-10-31_when-groups-get-stuck/index.html",
-      "/blog/2025-10-29_leaner-quieter-intuitive/index.html",
-      "/blog/2025-09-25_posit-conf-journey/index.html",
+      "/blog/2025-10-31-when-groups-get-stuck/index.html",
+      "/blog/2025-10-29-leaner-quieter-intuitive/index.html",
+      "/blog/2025-09-25-posit-conf-journey/index.html",
       "/blog/2025-09-08-modern-telemetry/index.html",
       "/blog/2025-06-19-from-friction-to-flow/index.html",
       "/blog/2021-12-18-predicting-pileups/index.html",
@@ -30,9 +30,9 @@
   {
     "listing": "/about.html",
     "items": [
-      "/blog/2025-10-31_when-groups-get-stuck/index.html",
-      "/blog/2025-10-29_leaner-quieter-intuitive/index.html",
-      "/blog/2025-09-25_posit-conf-journey/index.html",
+      "/blog/2025-10-31-when-groups-get-stuck/index.html",
+      "/blog/2025-10-29-leaner-quieter-intuitive/index.html",
+      "/blog/2025-09-25-posit-conf-journey/index.html",
       "/blog/2025-09-08-modern-telemetry/index.html",
       "/blog/2025-06-19-from-friction-to-flow/index.html",
       "/blog/2021-12-18-predicting-pileups/index.html",

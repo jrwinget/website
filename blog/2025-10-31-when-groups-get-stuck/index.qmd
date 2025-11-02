@@ -9,7 +9,9 @@ image: featured.png
 toc: true
 citation: true
 aliases:
+  - /blog/2025-10-31_when-groups-get-stuck
   - /blog/2025-10-31-when-groups-get-stuck
+  - /when-groups-get-stuck
 ---
 
 ## A Crowd, A Crisis, and the Wrong Problem
@@ -18,7 +20,7 @@ The crowds gathered fast. Flags, chants, phone cameras, all aimed squarely at th
 
 On the surface, it looked like decisive action. Underneath, something quieter was happening: a narrowing of attention, a collapse of deliberation, and the slow suffocation of the space for dissent.
 
-![](img/broadview.png){.float-end .rounded .shadow-sm width="45%"}
+![Illustration showing a broad perspective view of multiple interconnected systems and factors, representing how collective attention can narrow and miss underlying systemic issues](img/broadview.png){.float-end .rounded .shadow-sm width="45%"}
 
 When a society starts rewarding volume over substance, when disagreement feels like betrayal, groups of every size (from governments to dev teams) begin solving the wrong problems. The visible threat becomes the total focus, while the underlying systems quietly degrade.
 
@@ -33,6 +35,10 @@ Decades of research by scholars like Ivan Steiner, James Davis, Scott Tindale, a
 [^1]: Key figures in group information processing theory and social decision schemes research
 
 In easy tasks, that works beautifully. Shared information dominates the discussion, members align, and confidence rises. But in complex tasks, where critical information is unevenly distributed, the same bias backfires. Members repeat what's already known, while unshared facts stay buried in individual minds. The group, ironically, becomes *less* intelligent than its smartest member.
+
+::: {.column-margin}
+This is the **hidden-profile problem**: when the best solution requires integrating information that no single member fully possesses, groups systematically fail unless structures force information sharing.
+:::
 
 That's why systems designed for consensus can unintentionally hide insight. They reduce friction but also filter out the unusual, the dissenting, and the diagnostic. It's the hidden-profile problem in every form, from juries to code reviews to global policy debates.
 
@@ -51,7 +57,7 @@ Most groups don't consciously suppress new information. They just drift toward w
 
 The bias runs deep: Sharedness feels safe. Familiar ideas reward us with microbursts of social approval. Each nod and "exactly!" strengthens the illusion that consensus equals truth.
 
-![](img/pluralistic-ignorance.png){.float-end .rounded .shadow-sm width="45%"}
+![Diagram showing pluralistic ignorance: multiple figures with thought bubbles where outer bubbles show agreement with the group but inner thoughts reveal private doubts, illustrating how silent agreement masks private disagreement](img/pluralistic-ignorance.png){.float-end .rounded .shadow-sm width="45%"}
 
 Pluralistic ignorance amplifies this. Everyone privately doubts the shared focus, but no one wants to be the first to say so. And so, silence masquerades as agreement. Even those who *do* see the structural issue start calibrating their language, testing the wind before speaking up.
 
@@ -66,6 +72,10 @@ This is where minority influence enters the picture. And where Tindale's work be
 Contrary to popular belief, minority influence isn't about defiance. It's about **maintenance**. Groups need dissent not because it feels good, but because it keeps the system adaptive. Minorities serve as informational scouts, probing the blind spots created by majority dynamics.
 
 When dissenters persist with clarity and evidence, they do something remarkable: They *reframe* the problem space!
+
+::: {.aside}
+Moscovici's studies showed that even a single consistent dissenter can shift the majority's private judgments, even when public positions remain unchanged.
+:::
 
 Serge Moscovici[^3] called this **conversion**, a quiet shift in others' internal representations. The surface debate might stay unchanged, but the cognitive landscape underneath reorganizes. People start *thinking differently*, even if they don't admit it out loud.
 
@@ -141,7 +151,7 @@ That's why structure matters. It lowers the *social tax* of honesty.
 
 ## Reframing What's Worth Talking About
 
-![](featured.png){.float-start .rounded .shadow-sm width="42%"}
+![Collage representing group dynamics and systems thinking, with interconnected elements and human figures engaged in dialogue about collective intelligence and decision-making](featured.png){.float-start .rounded .shadow-sm width="42%"}
 
 Imagine if our public discourse treated dissent the way high-reliability teams treat anomalies: as signals to investigate, not threats to silence. Imagine if our teams treated disagreement as a sign that the system is alive.
 

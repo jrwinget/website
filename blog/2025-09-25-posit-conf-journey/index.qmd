@@ -9,14 +9,16 @@ image: featured.png
 toc: true
 citation: true
 aliases:
+  - /blog/2025-09-25_posit-conf-journey
   - /blog/2025-09-25-posit-conf-journey
+  - /posit-conf-journey
 ---
 
 ## A Cold Chicago Winter, a Warm San Diego Welcome
 
 My first rstudio::conf was 2018 in San Diego, late January. Coming from Chicago, that felt like a small miracle. I had about six or seven months of R and the `{tidyverse}` behind me, was still studying social psychology in grad school, and had only ever done academic conferences. Walking into this one felt different; bigger stage, crisper production, and a sense that tooling and community might actually pull in the same direction.
 
-![](img/signed-hadley.png){.float-start .rounded .shadow-sm width="33%"}
+![Photograph of a signed copy of the book R for Data Science by Hadley Wickham, obtained at posit::conf 2018 in San Diego](img/signed-hadley.png){.float-start .rounded .shadow-sm width="33%"}
 
 I went with my closest friend from grad school, who'd already transitioned into data science. Everyone I met was working in ML, deep learning, or advanced quant at huge companies I'd only seen on slides. But these folks were also disarmingly kind. When I said I was a psychologist, often labeled a "soft science" in tech circles, no one waved me off. Instead, they just asked how I used R in my work. I talked about group decision making and computational modeling. People's eyes widened. They leaned in. That surprised me, and it stuck.
 
@@ -49,7 +51,7 @@ Last week, I stepped onto the posit::conf stage for the first time. Just being a
 
 I spoke about bringing these ideas to Shiny so teams can design apps that reduce cognitive friction instead of creating it, to think about cognitive engineering as much as we do performance engineering. Think fewer "data dumps" with dozens of dropdowns and more guided flows that surface the right decision at the right moment. Better products for users, fewer support tickets for teams.
 
-![](img/posit-stage.png){.float-end .rounded .shadow-sm width="65%"}
+![Speaker on stage at posit::conf 2025 presenting to an audience, speaking about behavioral science and tool design for improving user experience in software development](img/posit-stage.png){.float-end .rounded .shadow-sm width="65%"}
 
 I was anxious the whole week leading up to my talk, which isn't unusual since I often feel that way before presenting. I've spoken at other conferences, led workshops, and taught college courses, so public speaking is familiar territory. But this felt different. The moment I walked on stage and brought up my slides, the anxiety disappeared! I had *never* experienced that before. It felt like a conversation with friends who care about good tools and solid evidence. The examples landed, the audience leaned in, and the Q&A could have gone on much longer if we hadn't run out of time.
 

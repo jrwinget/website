@@ -37,7 +37,7 @@ To design dashboards that not only work, but *resonate*, we need to design for t
 
 The **Behavior Insight Design (BID)** framework offers a structured, evidence-based approach to building more intuitive, cognitively supportive dashboards. Developed at the intersection of behavioral science, data storytelling, and interface design, BID maps out five stages that reflect how users actually engage with information:
 
-![](img/bid-framework.png)
+![Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User](img/bid-framework.png)
 
 Each stage helps developers reduce friction, surface insight, and support better decision-making, even without a background in psychology or UX.
 

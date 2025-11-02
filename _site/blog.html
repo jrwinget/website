@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-71ee74d33a02bdbef5a92ebb0ec8d137.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-21081e0d2b12054fed84a2449a72a67e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f666d36e08d0a95880cc2e49e138cbd9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-date','listing-reading-time','listing-image','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-reading-time','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
@@ -157,13 +157,13 @@ window.Quarto = {
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="alternate" type="application/rss+xml" title="Jeremy R. Winget, PhD" href="blog.xml" data-external="1"><meta property="og:title" content="Blog – Jeremy R. Winget, PhD">
 <meta property="og:description" content="Jeremy R. Winget’s personal website and blog.">
-<meta property="og:image" content="https://www.jrwinget.com/blog/2025-10-31_when-groups-get-stuck/featured.png">
+<meta property="og:image" content="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/featured.png">
 <meta property="og:site_name" content="Jeremy R. Winget, PhD">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1024">
 <meta name="twitter:title" content="Blog – Jeremy R. Winget, PhD">
 <meta name="twitter:description" content="Jeremy R. Winget’s personal website and blog.">
-<meta name="twitter:image" content="https://www.jrwinget.com/blog/2025-10-31_when-groups-get-stuck/featured.png">
+<meta name="twitter:image" content="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/featured.png">
 <meta name="twitter:image-height" content="1024">
 <meta name="twitter:image-width" content="1024">
 <meta name="twitter:card" content="summary_large_image">
@@ -273,10 +273,11 @@ window.Quarto = {
 <p>Stay up-to-date with my latest posts on data science, social science, and full-stack engineering.</p>
 <form class="email-subscription-form" action="#" method="post">
   <div class="subscription-container">
-    <input type="email" name="email" placeholder="Enter your email address" required="" class="email-input">
+    <label for="email-input" class="visually-hidden">Email address</label>
+    <input type="email" id="email-input" name="email" placeholder="Enter your email address" required="" aria-describedby="subscription-note" aria-label="Email address for blog subscription" class="email-input">
     <button type="submit" class="subscribe-btn">Subscribe</button>
   </div>
-  <p class="subscription-note">No spam, ever. Unsubscribe at any time.</p>
+  <p id="subscription-note" class="subscription-note">No spam, ever. Unsubscribe at any time.</p>
 </form>
 </section>
 
@@ -285,40 +286,24 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="U29jaWFsJTIwUHN5Y2hvbG9neSUyQ0NvbGxlY3RpdmUlMjBJbnRlbGxpZ2VuY2UlMkNEZWNpc2lvbi1NYWtpbmc=" data-listing-date-sort="1761886800000" data-listing-file-modified-sort="1761931950902" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1544">
-<div class="thumbnail"><a href="./blog/2025-10-31_when-groups-get-stuck/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="0" data-categories="U29jaWFsJTIwUHN5Y2hvbG9neSUyQ0NvbGxlY3RpdmUlMjBJbnRlbGxpZ2VuY2UlMkNEZWNpc2lvbi1NYWtpbmc=" data-listing-date-sort="1761886800000" data-listing-file-modified-sort="1762116247857" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1662">
+<div class="thumbnail"><a href="./blog/2025-10-31-when-groups-get-stuck/index.html" class="no-external">
 
-<img loading="lazy" src="./blog/2025-10-31_when-groups-get-stuck/featured.png" class="thumbnail-image">
+<img loading="lazy" src="./blog/2025-10-31-when-groups-get-stuck/featured.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./blog/2025-10-31_when-groups-get-stuck/index.html" class="no-external">When Groups Get Stuck on the Wrong Problem</a>
+<a href="./blog/2025-10-31-when-groups-get-stuck/index.html" class="no-external">When Groups Get Stuck on the Wrong Problem</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./blog/2025-10-31_when-groups-get-stuck/index.html" class="no-external">Dissent, sharedness, and the design of collective intelligence</a>
+<a href="./blog/2025-10-31-when-groups-get-stuck/index.html" class="no-external">Dissent, sharedness, and the design of collective intelligence</a>
 </div>
 <div class="listing-categories">
 
@@ -331,26 +316,26 @@ window.Quarto = {
 </div>
 </div>
 <div class="metadata">
-<a href="./blog/2025-10-31_when-groups-get-stuck/index.html" class="no-external">
+<a href="./blog/2025-10-31-when-groups-get-stuck/index.html" class="no-external">
 <div class="listing-date">
 Oct 31, 2025
 </div>
-<div class="listing-reading-time">8 min</div>
+<div class="listing-reading-time">9 min</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNl" data-listing-date-sort="1761627600000" data-listing-file-modified-sort="1761757341430" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1768">
-<div class="thumbnail"><a href="./blog/2025-10-29_leaner-quieter-intuitive/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="1" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNl" data-listing-date-sort="1761627600000" data-listing-file-modified-sort="1762116247696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1768">
+<div class="thumbnail"><a href="./blog/2025-10-29-leaner-quieter-intuitive/index.html" class="no-external">
 
-<img loading="lazy" src="./blog/2025-10-29_leaner-quieter-intuitive/featured.png" class="thumbnail-image">
+<img loading="lazy" src="./blog/2025-10-29-leaner-quieter-intuitive/featured.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./blog/2025-10-29_leaner-quieter-intuitive/index.html" class="no-external">bidux 0.3.2: Leaner, Quieter, More Intuitive BID Workflows</a>
+<a href="./blog/2025-10-29-leaner-quieter-intuitive/index.html" class="no-external">bidux 0.3.2: Leaner, Quieter, More Intuitive BID Workflows</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./blog/2025-10-29_leaner-quieter-intuitive/index.html" class="no-external">The {bidux} 0.3.2 release streamlines BID workflows with intuitive flat APIs, built-in telemetry presets, and a quieter, leaner experience, helping you focus on insights rather than overhead.</a>
+<a href="./blog/2025-10-29-leaner-quieter-intuitive/index.html" class="no-external">The {bidux} 0.3.2 release streamlines BID workflows with intuitive flat APIs, built-in telemetry presets, and a quieter, leaner experience, helping you focus on insights rather than overhead.</a>
 </div>
 <div class="listing-categories">
 
@@ -361,7 +346,7 @@ Oct 31, 2025
 </div>
 </div>
 <div class="metadata">
-<a href="./blog/2025-10-29_leaner-quieter-intuitive/index.html" class="no-external">
+<a href="./blog/2025-10-29-leaner-quieter-intuitive/index.html" class="no-external">
 <div class="listing-date">
 Oct 28, 2025
 </div>
@@ -369,18 +354,18 @@ Oct 28, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNlJTJDRWR1Y2F0aW9u" data-listing-date-sort="1758776400000" data-listing-file-modified-sort="1761754886544" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1164">
-<div class="thumbnail"><a href="./blog/2025-09-25_posit-conf-journey/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="2" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNlJTJDRWR1Y2F0aW9u" data-listing-date-sort="1758776400000" data-listing-file-modified-sort="1762116247544" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1208">
+<div class="thumbnail"><a href="./blog/2025-09-25-posit-conf-journey/index.html" class="no-external">
 
-<img loading="lazy" src="./blog/2025-09-25_posit-conf-journey/featured.png" class="thumbnail-image">
+<img loading="lazy" src="./blog/2025-09-25-posit-conf-journey/featured.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./blog/2025-09-25_posit-conf-journey/index.html" class="no-external">From First-Time Attendee to Speaker: My posit::conf Journey</a>
+<a href="./blog/2025-09-25-posit-conf-journey/index.html" class="no-external">From First-Time Attendee to Speaker: My posit::conf Journey</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./blog/2025-09-25_posit-conf-journey/index.html" class="no-external">Seven years of growth, community, and bridging behavioral science with R tooling at posit::conf</a>
+<a href="./blog/2025-09-25-posit-conf-journey/index.html" class="no-external">Seven years of growth, community, and bridging behavioral science with R tooling at posit::conf</a>
 </div>
 <div class="listing-categories">
 
@@ -393,15 +378,15 @@ Oct 28, 2025
 </div>
 </div>
 <div class="metadata">
-<a href="./blog/2025-09-25_posit-conf-journey/index.html" class="no-external">
+<a href="./blog/2025-09-25-posit-conf-journey/index.html" class="no-external">
 <div class="listing-date">
 Sep 25, 2025
 </div>
-<div class="listing-reading-time">6 min</div>
+<div class="listing-reading-time">7 min</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNl" data-listing-date-sort="1757307600000" data-listing-file-modified-sort="1761754886544" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="488">
+<div class="quarto-post image-right" data-index="3" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNl" data-listing-date-sort="1757307600000" data-listing-file-modified-sort="1762116298268" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="515">
 <div class="thumbnail"><a href="./blog/2025-09-08-modern-telemetry/index.html" class="no-external">
 
 <img loading="lazy" src="./blog/2025-09-08-modern-telemetry/featured.png" class="thumbnail-image">
@@ -431,7 +416,7 @@ Sep 8, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNl" data-listing-date-sort="1750309200000" data-listing-file-modified-sort="1761754886544" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="880">
+<div class="quarto-post image-right" data-index="4" data-categories="U29mdHdhcmUlMjBEZXZlbG9wbWVudCUyQ1VzZXIlMjBFeHBlcmllbmNl" data-listing-date-sort="1750309200000" data-listing-file-modified-sort="1762116298268" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="907">
 <div class="thumbnail"><a href="./blog/2025-06-19-from-friction-to-flow/index.html" class="no-external">
 
 <img loading="lazy" src="./blog/2025-06-19-from-friction-to-flow/featured.png" class="thumbnail-image">
