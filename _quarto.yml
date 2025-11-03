@@ -56,7 +56,7 @@ website:
         href: https://www.linkedin.com/in/jrwinget/
         aria-label: LinkedIn
       - text: "{{< fa brands bluesky >}}"
-        href: https://bsky.app/profile/jrwinget.com
+        href: https://bsky.app/profile/jrwinget.bsky.social
         aria-label: Bluesky
       - text: "{{< fa envelope >}}"
         href: mailto:contact@jrwinget.com
