@@ -14,17 +14,23 @@ $info: #1f6fab !default;              // Clean blue for info states (4.52:1 cont
 $warning: #a56c00 !default;           // Warm orange for warnings (4.53:1 contrast)
 $danger: #c23d2f !default;            // Clean red for errors (4.53:1 contrast)
 
-// Neutral palette
+// Accent colors for developer-friendly touches
+$accent-warm: #d4a574 !default;       // Warm brown/tan (from margin notes)
+$accent-coral: #b44d2f !default;      // Coral for hovers (WCAG AA compliant)
+$accent-code-bg: #f8f9fa !default;    // Soft background for inline code
+$accent-highlight: rgba(212, 165, 116, 0.15) !default;  // Subtle highlight
+
+// Neutral palette - darker, richer tones
 $white: #ffffff !default;
-$gray-100: #f8f9fa !default;          // Very light background
-$gray-200: #f2e9dc !default;          // Current navbar background color
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
+$gray-100: #e8e4df !default;          // Darker than before, warm light gray
+$gray-200: #f2e9dc !default;          // Current navbar background color (keep)
+$gray-300: #d4cdc3 !default;          // Warmer, less stark
+$gray-400: #b8afa3 !default;          // Muted warm gray
+$gray-500: #8a8277 !default;          // Darker, warmer
 $gray-600: #5a6268 !default;          // Improved contrast (4.54:1)
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+$gray-700: #3d4246 !default;          // Darker for better contrast
+$gray-800: #2d3236 !default;          // Rich dark gray (like Utterances)
+$gray-900: #1c1f22 !default;          // Almost black, warm undertone
 $black: #000000 !default;
 
 // body and background colors - using header color as main background
@@ -119,9 +125,12 @@ $table-hover-bg: rgba($primary, 0.075) !default;
 $sidebar-bg: rgba($white, 0.6) !default; // semi-transparent white over cream
 $sidebar-border-color: $gray-400 !default;
 
-// code blocks - white background for maximum contrast
-$code-bg: $white !default;
-$code-color: $gray-800 !default;
+// code blocks - enhanced styling (darker theme)
+$code-bg: #fdfbf8 !default;           // Off-white with warm tint (not stark white)
+$code-color: $gray-900 !default;       // Darker text for better contrast
+$code-border: $gray-400 !default;      // Warmer border
+$inline-code-bg: #ebe7e0 !default;     // Darker inline code background
+$inline-code-color: $primary !default;
 
 /*-- scss:rules --*/
 
@@ -242,44 +251,83 @@ a {
 }
 
 // code block styling with enhanced scroll and collapse
-pre, code {
+pre {
   background-color: $code-bg;
   color: $code-color;
-  border: 1px solid $gray-300;
-}
-
-pre {
-  padding: 1rem;
+  border: 1px solid $code-border;
+  border-left: 3px solid $accent-warm; // Accent border for visual interest
+  padding: 1.25rem;
   border-radius: $border-radius;
   box-shadow: $box-shadow-sm;
   max-height: 500px; // limit height for scrolling
   overflow-y: auto;
   overflow-x: auto;
+  position: relative;
+
+  // Subtle gradient overlay at top for visual depth
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, $accent-warm, rgba($accent-warm, 0.3));
+    border-radius: $border-radius $border-radius 0 0;
+  }
 
   // Better scrollbar styling
   &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba($gray-300, 0.3);
-    border-radius: 4px;
+    background: rgba($gray-300, 0.2);
+    border-radius: 5px;
+    margin: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $gray-400;
-    border-radius: 4px;
+    background: $accent-warm;
+    border-radius: 5px;
+    border: 2px solid $code-bg;
 
     &:hover {
-      background: $gray-500;
+      background: darken($accent-warm, 10%);
     }
+  }
+
+  // Code within pre blocks
+  code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: 0.9em;
   }
 }
 
+// Inline code styling (distinct from code blocks)
 code {
-  padding: 0.125rem 0.25rem;
+  background-color: $inline-code-bg;
+  color: $inline-code-color;
+  padding: 0.2em 0.4em;
   border-radius: $border-radius-sm;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid rgba($accent-warm, 0.2);
+}
+
+// Syntax highlighting enhancements (works with Quarto's syntax themes)
+pre code {
+  .cf, .kw { color: #0077aa; font-weight: 600; } // Control flow, keywords
+  .dt { color: #d73a49; } // Data types
+  .dv, .bn, .fl { color: #005cc5; } // Numbers
+  .ch, .st { color: #22863a; } // Strings
+  .co { color: #6a737d; font-style: italic; } // Comments
+  .fu { color: #6f42c1; } // Functions
+  .op { color: #d73a49; } // Operators
 }
 
 // Code folding button styling
@@ -413,25 +461,42 @@ code {
   }
 }
 
-// email subscription box styling
+// email subscription box styling - darker, cohesive theme
 .subscription-box {
-  background-color: rgba($white, 0.8);
-  border: 1px solid $gray-300;
-  border-radius: $border-radius;
-  padding: 2rem;
-  margin: 2rem 0;
+  background: linear-gradient(135deg, rgba($gray-100, 0.95) 0%, rgba($gray-100, 0.85) 100%);
+  border: 2px solid rgba($accent-warm, 0.4);
+  border-radius: $border-radius-lg;
+  padding: 2.5rem;
+  margin: 3rem 0;
   text-align: center;
-  box-shadow: $box-shadow-sm;
+  box-shadow: 0 4px 6px rgba($black, 0.1), 0 1px 3px rgba($black, 0.08);
+  position: relative;
+  overflow: hidden;
+
+  // Subtle accent line at top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, $accent-warm, $accent-coral);
+  }
 
   h2 {
     color: $primary;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: $font-weight-semibold;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
   }
 
   p {
     color: $gray-600;
-    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.75rem;
+    line-height: $line-height-lg;
   }
 }
 
@@ -450,17 +515,27 @@ code {
   }
 
   .email-input {
-    padding: 0.75rem 1rem;
-    border: 1px solid $gray-300;
-    border-radius: $border-radius-sm;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid rgba($accent-warm, 0.4);
+    border-radius: $border-radius;
     font-size: 1rem;
-    min-width: 300px;
-    background-color: $white;
+    min-width: 320px;
+    background-color: #fdfbf8;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba($black, 0.08);
+
+    &::placeholder {
+      color: $gray-500;
+    }
+
+    &:hover {
+      border-color: rgba($accent-warm, 0.5);
+    }
 
     &:focus {
       outline: none;
-      border-color: $primary;
-      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+      border-color: $accent-warm;
+      box-shadow: 0 0 0 3px rgba($accent-warm, 0.15), 0 2px 4px rgba($black, 0.1);
     }
 
     @media (max-width: 768px) {
@@ -471,28 +546,37 @@ code {
   }
 
   .subscribe-btn {
-    padding: 0.75rem 1.5rem;
-    background-color: $primary;
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, $primary 0%, darken($primary, 5%) 100%);
     color: $white;
     border: none;
-    border-radius: $border-radius-sm;
+    border-radius: $border-radius;
     font-size: 1rem;
-    font-weight: $font-weight-medium;
+    font-weight: $font-weight-semibold;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba($primary, 0.2);
+    letter-spacing: 0.02em;
 
     &:hover {
-      background-color: darken($primary, 10%);
+      background: linear-gradient(135deg, darken($primary, 5%) 0%, darken($primary, 10%) 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba($primary, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba($primary, 0.2);
     }
 
     &:focus-visible {
-      outline: 3px solid $primary;
+      outline: 3px solid $accent-warm;
       outline-offset: 2px;
-      box-shadow: 0 0 0 5px rgba($primary, 0.2);
+      box-shadow: 0 0 0 5px rgba($accent-warm, 0.2);
     }
 
     &:focus {
-      outline: 3px solid $primary;
+      outline: 3px solid $accent-warm;
       outline-offset: 2px;
     }
 
@@ -614,4 +698,318 @@ code {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+// ==================================================
+// Callout/Alert Box Enhancements (matching subscription box style)
+// ==================================================
+
+.callout {
+  border: 2px solid;
+  border-radius: $border-radius-lg;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba($black, 0.1), 0 1px 3px rgba($black, 0.08);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle accent line at top (matching subscription box)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba($black, 0.12), 0 2px 4px rgba($black, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .callout-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    margin-top: 0.25rem;
+    font-weight: $font-weight-semibold;
+    font-size: 1.1rem;
+  }
+
+  .callout-icon {
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  // Type-specific styling with warmer backgrounds (matching subscription box)
+  &.callout-note {
+    border-color: rgba($info, 0.4);
+    background: linear-gradient(135deg, rgba($info, 0.08) 0%, rgba($gray-100, 0.9) 40%, rgba($gray-100, 0.85) 100%);
+
+    &::before {
+      background: linear-gradient(to right, $info, rgba($info, 0.6));
+    }
+
+    .callout-header {
+      color: darken($info, 8%);
+    }
+  }
+
+  &.callout-tip {
+    border-color: rgba($success, 0.4);
+    background: linear-gradient(135deg, rgba($success, 0.08) 0%, rgba($gray-100, 0.9) 40%, rgba($gray-100, 0.85) 100%);
+
+    &::before {
+      background: linear-gradient(to right, $success, rgba($success, 0.6));
+    }
+
+    .callout-header {
+      color: darken($success, 8%);
+    }
+  }
+
+  &.callout-warning {
+    border-color: rgba($warning, 0.4);
+    background: linear-gradient(135deg, rgba($warning, 0.08) 0%, rgba($gray-100, 0.9) 40%, rgba($gray-100, 0.85) 100%);
+
+    &::before {
+      background: linear-gradient(to right, $warning, rgba($warning, 0.6));
+    }
+
+    .callout-header {
+      color: darken($warning, 8%);
+    }
+  }
+
+  &.callout-important,
+  &.callout-alert {
+    border-color: rgba($danger, 0.4);
+    background: linear-gradient(135deg, rgba($danger, 0.08) 0%, rgba($gray-100, 0.9) 40%, rgba($gray-100, 0.85) 100%);
+
+    &::before {
+      background: linear-gradient(to right, $danger, rgba($danger, 0.6));
+    }
+
+    .callout-header {
+      color: darken($danger, 8%);
+    }
+  }
+
+  &.callout-caution {
+    border-color: rgba($accent-coral, 0.4);
+    background: linear-gradient(135deg, rgba($accent-coral, 0.08) 0%, rgba($gray-100, 0.9) 40%, rgba($gray-100, 0.85) 100%);
+
+    &::before {
+      background: linear-gradient(to right, $accent-coral, rgba($accent-coral, 0.6));
+    }
+
+    .callout-header {
+      color: darken($accent-coral, 8%);
+    }
+  }
+}
+
+// ==================================================
+// Table of Contents Styling
+// ==================================================
+
+.toc-active {
+  font-weight: $font-weight-semibold;
+  color: $accent-coral !important;
+  border-left-color: $accent-coral !important;
+}
+
+nav[role="doc-toc"] {
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      margin: 0.5rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid transparent;
+      transition: all 0.2s ease-in-out;
+
+      a {
+        color: $gray-700;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+        display: block;
+        padding: 0.25rem 0.5rem;
+        border-radius: $border-radius-sm;
+
+        &:hover {
+          color: $primary;
+          background-color: $accent-highlight;
+        }
+      }
+
+      &.active {
+        border-left-color: $accent-warm;
+
+        a {
+          color: $primary;
+          font-weight: $font-weight-medium;
+        }
+      }
+    }
+
+    // Nested items
+    ul {
+      margin-top: 0.25rem;
+      padding-left: 1rem;
+
+      li {
+        font-size: 0.95em;
+      }
+    }
+  }
+}
+
+// ==================================================
+// Table Styling Enhancement
+// ==================================================
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  background-color: #fdfbf8;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba($black, 0.08);
+
+  thead {
+    background: linear-gradient(135deg, $primary 0%, darken($primary, 5%) 100%);
+    color: $white;
+
+    th {
+      padding: 1rem;
+      font-weight: $font-weight-semibold;
+      text-align: left;
+      border-bottom: 2px solid $accent-warm;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $gray-300;
+      transition: background-color 0.2s ease-in-out;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: $accent-highlight;
+      }
+
+      td {
+        padding: 0.875rem 1rem;
+      }
+    }
+  }
+
+  // Striped rows option
+  &.table-striped {
+    tbody tr:nth-child(even) {
+      background-color: rgba($gray-200, 0.3);
+    }
+  }
+}
+
+// ==================================================
+// Blockquote Enhancement
+// ==================================================
+
+blockquote {
+  border-left: 4px solid $accent-warm;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: linear-gradient(to right, $accent-highlight 0%, transparent 100%);
+  border-radius: $border-radius;
+  font-style: italic;
+  color: $gray-700;
+  box-shadow: 0 2px 4px rgba($black, 0.03);
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+    color: $gray-600;
+    font-style: normal;
+
+    &::before {
+      content: '— ';
+    }
+  }
+}
+
+// ==================================================
+// Footnote Styling
+// ==================================================
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid $accent-warm;
+  font-size: 0.9em;
+  color: $gray-700;
+
+  ol {
+    padding-left: 1.5rem;
+
+    li {
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+
+      &:target {
+        background-color: $accent-highlight;
+        padding: 0.5rem;
+        margin-left: -0.5rem;
+        border-radius: $border-radius-sm;
+      }
+    }
+  }
+
+  .footnote-back {
+    color: $accent-coral;
+    text-decoration: none;
+    margin-left: 0.25rem;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      color: darken($accent-coral, 10%);
+    }
+  }
+}
+
+// ==================================================
+// Figure Captions
+// ==================================================
+
+figure {
+  margin: 2rem 0;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 6px rgba($black, 0.1);
+  }
+
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9em;
+    color: $gray-600;
+    font-style: italic;
+    text-align: center;
+    padding: 0 1rem;
+  }
 }

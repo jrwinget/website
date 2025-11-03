@@ -21,11 +21,11 @@ editor:
 engine: knitr
 
 website:
-  title: "Jeremy R. Winget, PhD"
+  title: "The Friction Point"
   site-url: "https://www.jrwinget.com"
   bread-crumbs: true
   repo-url: https://github.com/jrwinget/website
-  description: "Jeremy R. Winget's personal website and blog."
+  description: "Understanding where systems fail, and redesigning them through behavioral science and ethical innovation."
   favicon: /assets/img/logo.png
   cookie-consent: true
   search: true
@@ -89,7 +89,7 @@ website:
   #         contents: "courses/*/index.qmd"
   page-footer:
     left: |
-      {{< fa regular copyright >}} 2025 Jeremy R. Winget<br>
+      {{< fa regular copyright >}} 2025 Jeremy R. Winget • *The Friction Point*<br>
       Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)
     right: |
       [License](http://creativecommons.org/licenses/by-nc-sa/4.0/) | [Contact](mailto:contact@jrwinget.com) | [RSS](/blog.xml)
