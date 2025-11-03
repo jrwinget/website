@@ -6,4 +6,9 @@
 .Renviron
 .DS_Store
 /.quarto/
+/_site/
 /node_modules/
+*.local
+*_files/
+*.tmp
+*.log

@@ -7,14 +7,14 @@
   display: inline-block;
 }
 
-/* ============================================
-   Margin Notes & Asides
-   ============================================ */
+/* ============================================ */
+/* Margin Notes & Asides                        */
+/* ============================================ */
 
 /* Quarto's column-margin class for side notes */
 .column-margin {
   font-size: 0.9em;
-  color: #5a5a5a;
+  color: #3d4246;
   line-height: 1.5;
   padding: 0.75em 0;
   margin-top: 0.5em;
@@ -26,10 +26,14 @@
   .column-margin {
     /* Quarto handles positioning, we just style */
     font-size: 0.85em;
-    padding: 0.5em 1em;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-left: 2px solid #d4a574; /* warm brown accent */
-    border-radius: 0.25em;
+    padding: 0.875em 1.25em;
+    background-color: rgba(232, 228, 223, 0.85); /* $gray-100 with more opacity for full coverage */
+    border-left: 3px solid #d4a574; /* warm brown accent */
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ensure the box covers all text */
+    display: block;
+    width: 100%;
   }
 }
 
@@ -38,12 +42,13 @@
   .column-margin {
     display: block;
     margin: 1.25em 0;
-    padding: 1em;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-left: 3px solid #d4a574; /* warm brown accent */
-    border-radius: 0.375em;
+    padding: 1.25em;
+    background-color: rgba(232, 228, 223, 0.85); /* $gray-100 with more opacity */
+    border-left: 4px solid #d4a574; /* warm brown accent */
+    border-radius: 0.5em;
     font-size: 0.9em;
-    color: #495057;
+    color: #2d3236;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -51,7 +56,7 @@
 aside,
 .aside {
   font-size: 0.9em;
-  color: #5a5a5a;
+  color: #3d4246;
   line-height: 1.5;
   padding: 0.75em 0;
   margin-top: 0.5em;
@@ -63,10 +68,14 @@ aside,
   aside,
   .aside {
     font-size: 0.85em;
-    padding: 0.5em 1em;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-left: 2px solid #d4a574;
-    border-radius: 0.25em;
+    padding: 0.875em 1.25em;
+    background-color: rgba(232, 228, 223, 0.85); /* $gray-100 with more opacity for full coverage */
+    border-left: 3px solid #d4a574;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ensure the box covers all text */
+    display: block;
+    width: 100%;
   }
 }
 
@@ -76,12 +85,13 @@ aside,
   .aside {
     display: block;
     margin: 1.25em 0;
-    padding: 1em;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-left: 3px solid #d4a574;
-    border-radius: 0.375em;
+    padding: 1.25em;
+    background-color: rgba(232, 228, 223, 0.85); /* $gray-100 with more opacity */
+    border-left: 4px solid #d4a574;
+    border-radius: 0.5em;
     font-size: 0.9em;
-    color: #495057;
+    color: #2d3236;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -107,4 +117,65 @@ aside a:hover,
 .aside a:hover {
   color: #e17055;
   text-decoration-color: #e17055;
+}
+
+/* ============================================ */
+/* ERROR 404                                    */
+/* ============================================ */
+
+.error-404 {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-404 h2 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-404 h3 {
+  color: #d4a574;
+  font-size: 1.3rem;
+  margin: 2rem 0 1rem 0;
+  text-align: left;
+}
+
+.error-404 p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #5a6568;
+  margin-bottom: 1.5rem;
+}
+
+.error-404 ul {
+  text-align: left;
+  font-size: 1.05rem;
+  line-height: 2;
+  margin: 1rem 0 2rem 1.5rem;
+}
+
+.error-404 ul li {
+  margin-bottom: 0.75rem;
+}
+
+.error-404 a {
+  color: #2c3e50;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 165, 116, 0.4);
+  transition: all 0.2s ease;
+}
+
+.error-404 a:hover {
+  color: #b44d2f;
+  text-decoration-color: #b44d2f;
+}
+
+.error-404 hr {
+  border: none;
+  border-top: 2px solid rgba(212, 165, 116, 0.3);
+  margin: 2.5rem 0;
 }
