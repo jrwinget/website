@@ -9,7 +9,6 @@ project:
     - "!renv/"
   resources:
     - "assets/"
-    - "_redirects"
 execute:
   freeze: auto # re-render when source changes
   echo: true # show source code in output

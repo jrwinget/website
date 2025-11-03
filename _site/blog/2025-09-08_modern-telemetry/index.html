@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-10-31">
+<meta name="dcterms.date" content="2025-09-08">
 <meta name="description" content="Jeremy R. Winget’s personal website and blog">
 
-<title>When Groups Get Stuck on the Wrong Problem – Jeremy R. Winget, PhD</title>
+<title>bidux 0.3.1: Modern Telemetry Integration in the BID Framework – Jeremy R. Winget, PhD</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -96,17 +131,17 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="When Groups Get Stuck on the Wrong Problem – Jeremy R. Winget, PhD">
-<meta property="og:description" content="Dissent, sharedness, and the design of collective intelligence">
-<meta property="og:image" content="https://www.jrwinget.com/blog/2025-10-31_when-groups-get-stuck/featured.png">
+<meta property="og:title" content="bidux 0.3.1: Modern Telemetry Integration in the BID Framework – Jeremy R. Winget, PhD">
+<meta property="og:description" content="The {bidux} 0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.">
+<meta property="og:image" content="https://www.jrwinget.com/blog/2025-09-08_modern-telemetry/featured.png">
 <meta property="og:site_name" content="Jeremy R. Winget, PhD">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="twitter:title" content="When Groups Get Stuck on the Wrong Problem – Jeremy R. Winget, PhD">
-<meta name="twitter:description" content="Dissent, sharedness, and the design of collective intelligence">
-<meta name="twitter:image" content="https://www.jrwinget.com/blog/2025-10-31_when-groups-get-stuck/featured.png">
-<meta name="twitter:image-height" content="1024">
-<meta name="twitter:image-width" content="1024">
+<meta property="og:image:height" content="600">
+<meta property="og:image:width" content="518">
+<meta name="twitter:title" content="bidux 0.3.1: Modern Telemetry Integration in the BID Framework – Jeremy R. Winget, PhD">
+<meta name="twitter:description" content="The {bidux} 0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.">
+<meta name="twitter:image" content="https://www.jrwinget.com/blog/2025-09-08_modern-telemetry/featured.png">
+<meta name="twitter:image-height" content="600">
+<meta name="twitter:image-width" content="518">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -190,30 +225,26 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-crowd-a-crisis-and-the-wrong-problem" id="toc-a-crowd-a-crisis-and-the-wrong-problem" class="nav-link active" data-scroll-target="#a-crowd-a-crisis-and-the-wrong-problem">A Crowd, A Crisis, and the Wrong Problem</a></li>
-  <li><a href="#how-groups-actually-think" id="toc-how-groups-actually-think" class="nav-link" data-scroll-target="#how-groups-actually-think">How Groups Actually Think</a></li>
-  <li><a href="#the-comfort-of-shared-myopia" id="toc-the-comfort-of-shared-myopia" class="nav-link" data-scroll-target="#the-comfort-of-shared-myopia">The Comfort of Shared Myopia</a></li>
-  <li><a href="#the-minority-report" id="toc-the-minority-report" class="nav-link" data-scroll-target="#the-minority-report">The Minority Report</a></li>
-  <li><a href="#the-real-threat" id="toc-the-real-threat" class="nav-link" data-scroll-target="#the-real-threat">The Real Threat</a></li>
-  <li><a href="#why-groups-chase-the-visible-target" id="toc-why-groups-chase-the-visible-target" class="nav-link" data-scroll-target="#why-groups-chase-the-visible-target">Why Groups Chase the Visible Target</a></li>
-  <li><a href="#designing-for-dissent" id="toc-designing-for-dissent" class="nav-link" data-scroll-target="#designing-for-dissent">Designing for Dissent</a></li>
-  <li><a href="#when-the-group-turns-on-itself" id="toc-when-the-group-turns-on-itself" class="nav-link" data-scroll-target="#when-the-group-turns-on-itself">When the Group Turns on Itself</a></li>
-  <li><a href="#reframing-whats-worth-talking-about" id="toc-reframing-whats-worth-talking-about" class="nav-link" data-scroll-target="#reframing-whats-worth-talking-about">Reframing What’s Worth Talking About</a></li>
-  <li><a href="#closing-thoughts" id="toc-closing-thoughts" class="nav-link" data-scroll-target="#closing-thoughts">Closing Thoughts</a></li>
+  <li><a href="#a-modern-telemetry-workflow" id="toc-a-modern-telemetry-workflow" class="nav-link active" data-scroll-target="#a-modern-telemetry-workflow">A Modern Telemetry Workflow</a></li>
+  <li><a href="#from-telemetry-to-bid-stages" id="toc-from-telemetry-to-bid-stages" class="nav-link" data-scroll-target="#from-telemetry-to-bid-stages">From Telemetry to BID Stages</a></li>
+  <li><a href="#a-quick-example" id="toc-a-quick-example" class="nav-link" data-scroll-target="#a-quick-example">A Quick Example</a></li>
+  <li><a href="#framework-stability-and-improvements" id="toc-framework-stability-and-improvements" class="nav-link" data-scroll-target="#framework-stability-and-improvements">Framework Stability and Improvements</a></li>
+  <li><a href="#migration-and-deprecations" id="toc-migration-and-deprecations" class="nav-link" data-scroll-target="#migration-and-deprecations">Migration and Deprecations</a></li>
+  <li><a href="#documentation-and-tests" id="toc-documentation-and-tests" class="nav-link" data-scroll-target="#documentation-and-tests">Documentation and Tests</a></li>
+  <li><a href="#install-the-latest-release" id="toc-install-the-latest-release" class="nav-link" data-scroll-target="#install-the-latest-release">Install the Latest Release</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">When Groups Get Stuck on the Wrong Problem</h1>
-<p class="subtitle lead">Dissent, sharedness, and the design of collective intelligence</p>
+<h1 class="title">bidux 0.3.1: Modern Telemetry Integration in the BID Framework</h1>
+<p class="subtitle lead">The {bidux} 0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.</p>
   <div class="quarto-categories">
-    <div class="quarto-category">Social Psychology</div>
-    <div class="quarto-category">Collective Intelligence</div>
-    <div class="quarto-category">Decision-Making</div>
+    <div class="quarto-category">Software Development</div>
+    <div class="quarto-category">User Experience</div>
   </div>
   </div>
 
@@ -225,7 +256,7 @@ cookieconsent.run({
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 31, 2025</p>
+      <p class="date">September 8, 2025</p>
     </div>
   </div>
   
@@ -237,159 +268,112 @@ cookieconsent.run({
 </header>
 
 
-<section id="a-crowd-a-crisis-and-the-wrong-problem" class="level2">
-<h2 class="anchored" data-anchor-id="a-crowd-a-crisis-and-the-wrong-problem">A Crowd, A Crisis, and the Wrong Problem</h2>
-<p>The crowds gathered fast. Flags, chants, phone cameras, all aimed squarely at the latest political flashpoint. The air pulsed with conviction. Something needed to be done <em>now</em>.</p>
-<p>On the surface, it looked like decisive action. Underneath, something quieter was happening: a narrowing of attention, a collapse of deliberation, and the slow suffocation of the space for dissent.</p>
-<p><img src="img/broadview.png" class="float-end rounded shadow-sm img-fluid" style="width:45.0%" alt="Illustration showing a broad perspective view of multiple interconnected systems and factors, representing how collective attention can narrow and miss underlying systemic issues"></p>
-<p>When a society starts rewarding volume over substance, when disagreement feels like betrayal, groups of every size (from governments to dev teams) begin solving the wrong problems. The visible threat becomes the total focus, while the underlying systems quietly degrade.</p>
-<p>Protest and mobilization have always been vital forces for change. But when attention is hijacked by spectacle rather than substance, even the most righteous energy can be redirected away from root causes. Especially when those in power find it useful to change the subject.</p>
+<p>I’m excited to announce that <strong>bidux 0.3.1</strong> is now available on CRAN. This release brings telemetry deeper into the Behavioral Insight Design (BID) framework, strengthens stage consistency, and smooths the migration path for users moving from earlier versions.</p>
+<section id="a-modern-telemetry-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="a-modern-telemetry-workflow">A Modern Telemetry Workflow</h2>
+<p>Telemetry data is increasingly central to BID workflows. Until now, telemetry ingestion produced list-like objects that worked but weren’t always convenient for analysis.</p>
+<p>In <strong>0.3.1</strong>, <code>bid_ingest_telemetry()</code> now returns <strong>hybrid telemetry objects</strong>: they behave like lists for backward compatibility, while adding new methods such as <code>as_tibble()</code> and <code>bid_flags()</code>.</p>
+<p>For new projects, the preferred interface is the tidy-friendly <code>bid_telemetry()</code>, which returns structured tibbles (<code>bid_issues_tbl</code>) ready for <code>dplyr</code> pipelines:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>issues <span class="ot">&lt;-</span> <span class="fu">bid_telemetry</span>(<span class="st">"telemetry.sqlite"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>critical <span class="ot">&lt;-</span> issues <span class="sc">|&gt;</span> <span class="fu">filter</span>(severity <span class="sc">==</span> <span class="st">"critical"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="how-groups-actually-think" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="how-groups-actually-think">How Groups Actually Think</h2>
-<p>Groups aren’t irrational; they’re just wired for coordination first and accuracy second.</p>
-<p>Decades of research by scholars like Ivan Steiner, James Davis, Scott Tindale, and Verlin Hinsz<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> show groups behave less like committees of thinkers and more like <strong>information processors</strong>: limited, distributed, and biased toward what’s already shared among its members.</p>
-<p>In easy tasks, that works beautifully. Shared information dominates the discussion, members align, and confidence rises. But in complex tasks, where critical information is unevenly distributed, the same bias backfires. Members repeat what’s already known, while unshared facts stay buried in individual minds. The group, ironically, becomes <em>less</em> intelligent than its smartest member.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>This is the <strong>hidden-profile problem</strong>: when the best solution requires integrating information that no single member fully possesses, groups systematically fail unless structures force information sharing.</p>
-</div></div><p>That’s why systems designed for consensus can unintentionally hide insight. They reduce friction but also filter out the unusual, the dissenting, and the diagnostic. It’s the hidden-profile problem in every form, from juries to code reviews to global policy debates.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Richard Hackman’s rule<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><br> Performance isn’t about motivation or personality; it’s about <em>design.</em><br> Groups fail because their structures make the right conversations impossible.</p>
-</div>
-</div>
-</section>
-<section id="the-comfort-of-shared-myopia" class="level2">
-<h2 class="anchored" data-anchor-id="the-comfort-of-shared-myopia">The Comfort of Shared Myopia</h2>
-<p>Most groups don’t consciously suppress new information. They just drift toward what’s easy to agree on.</p>
-<p>The bias runs deep: Sharedness feels safe. Familiar ideas reward us with microbursts of social approval. Each nod and “exactly!” strengthens the illusion that consensus equals truth.</p>
-<p><img src="img/pluralistic-ignorance.png" class="float-end rounded shadow-sm img-fluid" style="width:45.0%" alt="Diagram showing pluralistic ignorance: multiple figures with thought bubbles where outer bubbles show agreement with the group but inner thoughts reveal private doubts, illustrating how silent agreement masks private disagreement"></p>
-<p>Pluralistic ignorance amplifies this. Everyone privately doubts the shared focus, but no one wants to be the first to say so. And so, silence masquerades as agreement. Even those who <em>do</em> see the structural issue start calibrating their language, testing the wind before speaking up.</p>
-<p>You’ve seen this in the workplace too. A dev team argues for hours about a UI color but defers a looming database overhaul. The visible topic feels more manageable, more social, more <em>presentable</em>. Under pressure to align, attention collapses to the path of least resistance.</p>
-<p>In social systems and engineering alike, the group’s collective gaze narrows exactly when it needs to widen.</p>
-</section>
-<section id="the-minority-report" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="the-minority-report">The Minority Report</h2>
-<p>This is where minority influence enters the picture. And where Tindale’s work becomes vital again.</p>
-<p>Contrary to popular belief, minority influence isn’t about defiance. It’s about <strong>maintenance</strong>. Groups need dissent not because it feels good, but because it keeps the system adaptive. Minorities serve as informational scouts, probing the blind spots created by majority dynamics.</p>
-<p>When dissenters persist with clarity and evidence, they do something remarkable: They <em>reframe</em> the problem space!</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Moscovici’s studies showed that even a single consistent dissenter can shift the majority’s private judgments, even when public positions remain unchanged.</p>
-</div></div><p>Serge Moscovici<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> called this <strong>conversion</strong>, a quiet shift in others’ internal representations. The surface debate might stay unchanged, but the cognitive landscape underneath reorganizes. People start <em>thinking differently</em>, even if they don’t admit it out loud.</p>
-<p>In political life, this can look like a single journalist or local mayor calling out creeping authoritarianism long before it trends. In software development, it’s the engineer who refuses to cut corners on testing because she’s seen what happens when systems fail silently. Different stakes, same mechanism: Dissent preserves information diversity, the lifeblood of collective intelligence.</p>
-</section>
-<section id="the-real-threat" class="level2">
-<h2 class="anchored" data-anchor-id="the-real-threat">The Real Threat</h2>
-<p>Authoritarianism thrives on the suppression of dissent not just for control, but because it <em>simplifies cognition</em>. When loyalty replaces deliberation, systems get faster…but dumber. They trade complexity for coordination, nuance for narrative.</p>
-<p>That same tradeoff happens in corporate culture when “alignment” becomes a euphemism for “agreement”. A perfectly aligned team can ship a perfectly flawed product. Everyone’s happy…until the structure breaks under the weight of the unspoken.</p>
-<p>Hackman would say the fix isn’t to exhort people to “speak up”. It’s to <strong>redesign the environment</strong> so that dissent doesn’t require heroism.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick wins for safer dissent
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="from-telemetry-to-bid-stages" class="level2">
+<h2 class="anchored" data-anchor-id="from-telemetry-to-bid-stages">From Telemetry to BID Stages</h2>
+<p>This release also introduces <strong>bridge functions</strong> that connect telemetry issues directly to BID stages:</p>
 <ul>
-<li>Structure meetings so unique information is surfaced <em>first</em>, before discussion</li>
-<li>Assign a rotating “minority advocate” in critical design reviews</li>
-<li>Value <em>diagnostic questions</em> as much as polished answers</li>
+<li><code>bid_notice_issue()</code>: convert one issue into a Notice stage</li>
+<li><code>bid_notices()</code>: batch process multiple issues</li>
+<li><code>bid_address()</code>: quickly act on a set of issues</li>
+<li><code>bid_pipeline()</code>: process the first <em>N</em> issues with limits</li>
 </ul>
-<p>These may sound procedural, but they’re moral architecture. They protect the system’s capacity for truth.</p>
-</div>
-</div>
+<p>These functions make it easier to move from raw telemetry data to structured BID insights without extra glue code.</p>
 </section>
-<section id="why-groups-chase-the-visible-target" class="level2">
-<h2 class="anchored" data-anchor-id="why-groups-chase-the-visible-target">Why Groups Chase the Visible Target</h2>
-<p>Let’s go back to that protest scene. Every chant, every viral post, every demand for “decisive action” is a bid for cognitive simplicity. People want to make sense of chaos. They want to see the problem, name it, and fix it.</p>
-<p>That impulse isn’t wrong; it’s human. Collective outrage is often the first spark of accountability. The danger comes when leaders or algorithms capture that spark and aim it somewhere safer for power.</p>
-<p>Leaders often exploit this tendency, redirecting attention to symbolic skirmishes while dismantling the systems that actually distribute power. The crowd doesn’t see the scaffolding behind the spectacle: bureaucratic hollowing, erosion of norms, loss of institutional memory. They’re staring at the storm, not the climate.</p>
-<p>You can watch this in microcosm every day inside organizations. A leadership team zeroes in on quarterly optics while ignoring crumbling infrastructure. A product team launches a glossy feature that hides the absence of documentation.</p>
-<p>When attention becomes performance, groups start mistaking <em>visibility</em> for <em>impact</em>.</p>
-<p>The cure is not cynicism; it’s <strong>redesign</strong>. Make dissent cheap. Make invisible work visible. Create conditions where the most informative signal isn’t the loudest one.</p>
-</section>
-<section id="designing-for-dissent" class="level2">
-<h2 class="anchored" data-anchor-id="designing-for-dissent">Designing for Dissent</h2>
-<p>So how do we design for dissent without creating chaos?</p>
-<p>Hackman’s decades of research give us a deceptively simple blueprint: <em>Structure, clarity, and purpose are the enabling conditions of collective intelligence.</em></p>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<section id="a-quick-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-quick-example">A Quick Example</h2>
+<p>Here’s what a telemetry-informed BID pipeline can look like in <strong>0.3.1</strong>:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(bidux)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Ingest telemetry as tidy issues</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>issues <span class="ot">&lt;-</span> <span class="fu">bid_telemetry</span>(<span class="st">"telemetry.sqlite"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># Focus on the most severe issues</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>critical <span class="ot">&lt;-</span> issues <span class="sc">|&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">filter</span>(severity <span class="sc">==</span> <span class="st">"critical"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># Turn those into BID notices</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>notices <span class="ot">&lt;-</span> <span class="fu">bid_notices</span>(critical)</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co"># Move forward through the pipeline</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>structure <span class="ot">&lt;-</span> <span class="fu">bid_structure</span>(notices, <span class="at">telemetry_flags =</span> <span class="fu">bid_flags</span>(critical))</span>
+<span id="cb2-16"><a href="#cb2-16"></a>validate  <span class="ot">&lt;-</span> <span class="fu">bid_validate</span>(structure, <span class="at">telemetry_refs =</span> critical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="callout-body-container">
-<ol type="1">
-<li><p><strong>Clarify the real task:</strong> Many coordination failures stem from misaligned problem definitions. Before debate, define what “good” looks like and who holds which pieces of information.</p></li>
-<li><p><strong>Make unique information explicit:</strong> Start meetings or decisions with a quick round of “what do you know that others might not?” It flattens status cues and seeds information diversity.</p></li>
-<li><p><strong>Institutionalize dissent:</strong> Rotate a “devil’s advocate” or “minority role.” Signal that critique is contribution, not disloyalty.</p></li>
-<li><p><strong>Reward reframing:</strong> Give airtime not only to solutions but to people who <em>redefine the problem</em> accurately.</p></li>
-<li><p><strong>Protect deliberation bandwidth:</strong> Deadlines and visibility metrics compress attention. Allocate protected time for slow, high-value thinking.</p></li>
-</ol>
-</div>
-</div>
-</div>
-<p>These are structural levers, not personality hacks. They let courage scale without burning out the people who supply it.</p>
+<p>This pipeline takes real user behavior (via telemetry), surfaces critical issues, and carries them through to <strong>structured design recommendations</strong> and <strong>validation</strong>, all with tidy, pipeline-friendly functions.</p>
 </section>
-<section id="when-the-group-turns-on-itself" class="level2">
-<h2 class="anchored" data-anchor-id="when-the-group-turns-on-itself">When the Group Turns on Itself</h2>
-<p>There’s a haunting irony in collective processes: The same cohesion that helps a group survive can make it fragile to error.</p>
-<p>As coordination improves, the social cost of dissent rises. Eventually, good people start self-silencing, assuming someone else will say what needs saying. But they don’t. And slowly, the system forgets how to self-correct. You can see this in collapsing democracies, in failing companies, in scientific replication crises, even in open-source communities.</p>
-<p>The details change, but the dynamic is identical: When sharedness becomes the goal, truth becomes a casualty.</p>
-<p>Dr.&nbsp;Cat Hicks<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> has described curiosity as a shared resource. Dissent is too. It’s how groups stay honest about what they know and what they don’t. But unlike curiosity, dissent doesn’t feel communal. It feels risky.</p>
-<p>That’s why structure matters. It lowers the <em>social tax</em> of honesty.</p>
+<section id="framework-stability-and-improvements" class="level2">
+<h2 class="anchored" data-anchor-id="framework-stability-and-improvements">Framework Stability and Improvements</h2>
+<p>Alongside telemetry, this release improves framework stability and consistency:</p>
+<ul>
+<li><strong>Stage order correction</strong>:
+<ul>
+<li>BID stages now follow the canonical sequence: <em>Interpret → Notice → Anticipate → Structure → Validate</em></li>
+<li>Migration support is built in, so older outputs remain interpretable</li>
+</ul></li>
+</ul>
+<p><img src="img/bid-framework.png" class="img-fluid" alt="Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User"></p>
+<ul>
+<li><strong>Unified suggestion system</strong>:
+<ul>
+<li>Interpret, Notice, and Validate now share consistent rules, reducing duplication and simplifying outputs</li>
+</ul></li>
+<li><strong>Structure and validation refinements</strong>:
+<ul>
+<li><code>bid_structure()</code> can adjust recommendations using telemetry flags (e.g., avoid tabs if navigation drop-offs are detected)</li>
+<li><code>bid_validate()</code> can link validation results back to the telemetry issues that motivated them</li>
+</ul></li>
+</ul>
 </section>
-<section id="reframing-whats-worth-talking-about" class="level2">
-<h2 class="anchored" data-anchor-id="reframing-whats-worth-talking-about">Reframing What’s Worth Talking About</h2>
-<p><img src="featured.png" class="float-start rounded shadow-sm img-fluid" style="width:42.0%" alt="Collage representing group dynamics and systems thinking, with interconnected elements and human figures engaged in dialogue about collective intelligence and decision-making"></p>
-<p>Imagine if our public discourse treated dissent the way high-reliability teams treat anomalies: as signals to investigate, not threats to silence. Imagine if our teams treated disagreement as a sign that the system is alive.</p>
-<p>Protest, dissent, and debate are how we remind systems that truth is still a shared project. Because dissent, at its best, is an act of stewardship.</p>
-<p>It’s the refusal to let collective attention decay into convenience. It’s not rebellion; it’s repair.</p>
-<p>So the next time you’re in a meeting, a debate, or a crowd, notice what everyone’s staring at…and what no one’s mentioning. That’s often where the real work begins.</p>
-<p><em>(And if you’re reading this on Halloween, consider it your annual reminder that sometimes the scariest thing in a group isn’t the conflict: It’s the silence.)</em></p>
+<section id="migration-and-deprecations" class="level2">
+<h2 class="anchored" data-anchor-id="migration-and-deprecations">Migration and Deprecations</h2>
+<p>Existing telemetry code continues to work, but now has access to the enhanced features. Looking ahead to <strong>0.4.0</strong>:</p>
+<ul>
+<li><code>bid_ingest_telemetry()</code> will be soft-deprecated in favor of <code>bid_telemetry()</code>.</li>
+<li>Layout auto-selection in <code>bid_structure()</code> and layout-specific bias mitigations in <code>bid_anticipate()</code> will be removed in favor of concept-driven approaches.</li>
+</ul>
 </section>
-<section id="closing-thoughts" class="level2">
-<h2 class="anchored" data-anchor-id="closing-thoughts">Closing Thoughts</h2>
-<p>When groups get stuck on the wrong problem, it’s rarely because they’re malicious or ignorant. It’s because sharedness feels safe, and dissent feels costly.</p>
-<p>But every complex system, whether a government, a research team, or a startup, depends on its ability to surface unshared truths. The question isn’t whether we’ll disagree. It’s whether we’ve designed the conditions that let disagreement matter.</p>
-<p>If democracy is a system for making collective decisions, then teams are its smallest working model. Get the micro right, and the macro starts to follow.</p>
-<p>Every movement for justice begins as minority influence. One small group insisting the system can do better.</p>
-<p>And maybe that’s the lesson tucked inside all this research. Collective intelligence doesn’t come from harmony. It comes from friction handled well.</p>
+<section id="documentation-and-tests" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-and-tests">Documentation and Tests</h2>
+<p>We’ve updated the <strong>Getting Started</strong> vignette with new telemetry examples and corrected stage numbering, and expanded the <strong>Telemetry Integration</strong> vignette to show the new tidy workflow. Test coverage has been broadened across new methods, bridge functions, and migration utilities.</p>
+</section>
+<section id="install-the-latest-release" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-latest-release">Install the Latest Release</h2>
+<p>You can install <strong>bidux 0.3.1</strong> from CRAN today:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"bidux"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>This release makes working with telemetry in BID smoother, tidier, and more consistent. It strengthens the framework while keeping migration straightforward, so you can spend less time adapting code and more time focusing on insights.</p>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Key figures in group information processing theory and social decision schemes research<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>J. Richard Hackman, pioneering researcher on team effectiveness and organizational design<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Social psychologist who developed the theory of minority influence and social representations<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Researcher studying developer experience, social dynamics in technical teams, and organizational learning<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2025,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2025,
   author = {},
-  title = {When {Groups} {Get} {Stuck} on the {Wrong} {Problem}},
-  date = {2025-10-31},
-  url = {https://www.jrwinget.com/blog/2025-10-31_when-groups-get-stuck/},
+  title = {Bidux 0.3.1: {Modern} {Telemetry} {Integration} in the {BID}
+    {Framework}},
+  date = {2025-09-08},
+  url = {https://www.jrwinget.com/blog/2025-09-08_modern-telemetry/},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-<span>“When Groups Get Stuck on the Wrong Problem.”</span> 2025. October
-31, 2025. <a href="https://www.jrwinget.com/blog/2025-10-31_when-groups-get-stuck/">https://www.jrwinget.com/blog/2025-10-31_when-groups-get-stuck/</a>.
+<span>“Bidux 0.3.1: Modern Telemetry Integration in the BID
+Framework.”</span> 2025. September 8, 2025. <a href="https://www.jrwinget.com/blog/2025-09-08_modern-telemetry/">https://www.jrwinget.com/blog/2025-09-08_modern-telemetry/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

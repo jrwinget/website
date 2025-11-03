@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-10-28">
+<meta name="dcterms.date" content="2019-05-08">
 <meta name="description" content="Jeremy R. Winget’s personal website and blog">
 
-<title>bidux 0.3.2: Leaner, Quieter, More Intuitive BID Workflows – Jeremy R. Winget, PhD</title>
+<title>How to create a Twitter bot using R – Jeremy R. Winget, PhD</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,17 +131,17 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="bidux 0.3.2: Leaner, Quieter, More Intuitive BID Workflows – Jeremy R. Winget, PhD">
-<meta property="og:description" content="The {bidux} 0.3.2 release streamlines BID workflows with intuitive flat APIs, built-in telemetry presets, and a quieter, leaner experience, helping you focus on insights rather than overhead.">
-<meta property="og:image" content="https://www.jrwinget.com/blog/2025-10-29_leaner-quieter-intuitive/featured.png">
+<meta property="og:title" content="How to create a Twitter bot using R – Jeremy R. Winget, PhD">
+<meta property="og:description" content="A tutorial on how to build a bot that generates random Would You Rather questions on Twitter.">
+<meta property="og:image" content="https://www.jrwinget.com/blog/2019-05-08_create-a-twitter-bot/featured.png">
 <meta property="og:site_name" content="Jeremy R. Winget, PhD">
-<meta property="og:image:height" content="600">
-<meta property="og:image:width" content="518">
-<meta name="twitter:title" content="bidux 0.3.2: Leaner, Quieter, More Intuitive BID Workflows – Jeremy R. Winget, PhD">
-<meta name="twitter:description" content="The {bidux} 0.3.2 release streamlines BID workflows with intuitive flat APIs, built-in telemetry presets, and a quieter, leaner experience, helping you focus on insights rather than overhead.">
-<meta name="twitter:image" content="https://www.jrwinget.com/blog/2025-10-29_leaner-quieter-intuitive/featured.png">
-<meta name="twitter:image-height" content="600">
-<meta name="twitter:image-width" content="518">
+<meta property="og:image:height" content="915">
+<meta property="og:image:width" content="1280">
+<meta name="twitter:title" content="How to create a Twitter bot using R – Jeremy R. Winget, PhD">
+<meta name="twitter:description" content="A tutorial on how to build a bot that generates random Would You Rather questions on Twitter.">
+<meta name="twitter:image" content="https://www.jrwinget.com/blog/2019-05-08_create-a-twitter-bot/featured.png">
+<meta name="twitter:image-height" content="915">
+<meta name="twitter:image-width" content="1280">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -225,14 +225,11 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#flattening-the-story-intuitive-data-stories" id="toc-flattening-the-story-intuitive-data-stories" class="nav-link active" data-scroll-target="#flattening-the-story-intuitive-data-stories">Flattening the Story: Intuitive Data Stories</a></li>
-  <li><a href="#telemetry-tuning-made-easy" id="toc-telemetry-tuning-made-easy" class="nav-link" data-scroll-target="#telemetry-tuning-made-easy">Telemetry Tuning Made Easy</a></li>
-  <li><a href="#enjoy-the-silence-quiet-mode" id="toc-enjoy-the-silence-quiet-mode" class="nav-link" data-scroll-target="#enjoy-the-silence-quiet-mode">Enjoy the Silence: Quiet Mode</a></li>
-  <li><a href="#new-s3-helpers-and-print-enhancements" id="toc-new-s3-helpers-and-print-enhancements" class="nav-link" data-scroll-target="#new-s3-helpers-and-print-enhancements">New S3 Helpers and Print Enhancements</a></li>
-  <li><a href="#under-the-hood-leaner-and-cleaner" id="toc-under-the-hood-leaner-and-cleaner" class="nav-link" data-scroll-target="#under-the-hood-leaner-and-cleaner">Under the Hood: Leaner and Cleaner</a></li>
-  <li><a href="#documentation-and-resources" id="toc-documentation-and-resources" class="nav-link" data-scroll-target="#documentation-and-resources">Documentation and Resources</a></li>
-  <li><a href="#migration-and-backward-compatibility" id="toc-migration-and-backward-compatibility" class="nav-link" data-scroll-target="#migration-and-backward-compatibility">Migration and Backward Compatibility</a></li>
-  <li><a href="#install-the-latest-release" id="toc-install-the-latest-release" class="nav-link" data-scroll-target="#install-the-latest-release">Install the Latest Release</a></li>
+  <li><a href="#step-1-what-will-the-bot-tweet" id="toc-step-1-what-will-the-bot-tweet" class="nav-link active" data-scroll-target="#step-1-what-will-the-bot-tweet">Step 1: What will the bot tweet?</a></li>
+  <li><a href="#step-2-connect-to-twitter" id="toc-step-2-connect-to-twitter" class="nav-link" data-scroll-target="#step-2-connect-to-twitter">Step 2: Connect to Twitter</a></li>
+  <li><a href="#step-3-automate-the-bot" id="toc-step-3-automate-the-bot" class="nav-link" data-scroll-target="#step-3-automate-the-bot">Step 3: Automate the bot</a></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
+  <li><a href="#potential-future-features" id="toc-potential-future-features" class="nav-link" data-scroll-target="#potential-future-features">Potential future features</a></li>
   </ul>
 </nav>
     </div>
@@ -241,11 +238,10 @@ cookieconsent.run({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">bidux 0.3.2: Leaner, Quieter, More Intuitive BID Workflows</h1>
-<p class="subtitle lead">The {bidux} 0.3.2 release streamlines BID workflows with intuitive flat APIs, built-in telemetry presets, and a quieter, leaner experience, helping you focus on insights rather than overhead.</p>
+<h1 class="title">How to create a Twitter bot using R</h1>
+<p class="subtitle lead">A tutorial on how to build a bot that generates random Would You Rather questions on Twitter.</p>
   <div class="quarto-categories">
     <div class="quarto-category">Software Development</div>
-    <div class="quarto-category">User Experience</div>
   </div>
   </div>
 
@@ -257,7 +253,7 @@ cookieconsent.run({
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 28, 2025</p>
+      <p class="date">May 8, 2019</p>
     </div>
   </div>
   
@@ -269,149 +265,194 @@ cookieconsent.run({
 </header>
 
 
-<p>I’m excited to announce that <code>{bidux}</code> <strong>0.3.2</strong> is now available on CRAN!</p>
-<p>This update is a polishing release that focuses on <strong>API ergonomics and package optimization</strong>. We’ve flattened out old complexities (goodbye nested lists!), added knobs to fine-tune telemetry with ease, and even given you a “mute button” for verbose output. All these changes maintain <strong>100% backward compatibility</strong>, so you get smoother workflows without breaking your existing code.</p>
-<section id="flattening-the-story-intuitive-data-stories" class="level2">
-<h2 class="anchored" data-anchor-id="flattening-the-story-intuitive-data-stories">Flattening the Story: Intuitive Data Stories</h2>
-<p>Crafting a BID data story in <strong>0.3.2</strong> is more intuitive. The <code>new_data_story()</code> function now uses a <strong>flat API</strong> with four straightforward arguments (<code>hook</code>, <code>context</code>, <code>tension</code>, <code>resolution</code>), instead of nesting parts of the story inside.</p>
-<p>In other words, you can directly specify the key elements of your story without the cognitive overhead of wrapping them in <code>variables</code> and <code>relationships</code> lists. This covers about 80% of use cases with a cleaner syntax:</p>
+<div class="callout-alert">
+<p>Note: Twitter’s (now X) API policies have changed significantly since this post was written. Leaving this post up for historical purposes and conceptual understanding, but be aware that the code and methods described here may no longer work with the current API.</p>
+</div>
+<p>Last week, I decided to kill an afternoon by creating a <a href="https://twitter.com/rathrgeneratr">Twitter bot</a>. Why? Mostly, I was procrastinating on revisions for a manuscript and looking for a small R project to practice my programming skills. Creating a Twitter bot seemed like a great option: Bots can follow other users, retweet content from others, or post original content, and all of this is basically controlled by a script(s).</p>
+<p>This project is surprisingly easy: If you’re familiar with R (e.g., able to write a function), you shouldn’t have any trouble creating something like this. If you’re still learning how to write functions, this project is great practice!</p>
+<section id="step-1-what-will-the-bot-tweet" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-what-will-the-bot-tweet">Step 1: What will the bot tweet?</h2>
+<p>The conceptual part of this step was the toughest for me: What content do I want the bot to tweet? I could have done something practical like automatically tweet new blog content or retweet important important information/news. But, I wanted to have fun with this. Others have made some pretty hilarious bots (e.g., <a href="https://twitter.com/WhyDoesR">WhyDoesR</a> or <a href="https://twitter.com/TwoHeadlines">TwoHeadlines</a>), so I wanted to create something simple that could get a few laughs. So, I decided to make a random “Would You Rather” generator that pits outrageous or terrible situations against one another.</p>
+<p>To do this, I set up a little “database” containing a list of the situations in a .csv file (you can view that file on the <a href="https://gitlab.com/jrwinget/rathr-generatr">GitLab repo</a> for the bot). I also wanted to add pictures to the posts, so I found 11 open source images online and stored them into a “img” directory. Once the database and image directory are created, they need to be loaded into R.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Before (nested format, now deprecated)</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>story_old <span class="ot">&lt;-</span> <span class="fu">new_data_story</span>(</span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">context =</span> <span class="st">"Dashboard usage dropped"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">variables =</span> <span class="fu">list</span>(<span class="at">hook =</span> <span class="st">"User engagement declining"</span>),</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">relationships =</span> <span class="fu">list</span>(<span class="at">resolution =</span> <span class="st">"Analyze telemetry"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># After (flat format, 0.3.2+)</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>story <span class="ot">&lt;-</span> <span class="fu">new_data_story</span>(</span>
-<span id="cb1-10"><a href="#cb1-10"></a>  <span class="at">hook =</span> <span class="st">"User engagement declining"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11"></a>  <span class="at">context =</span> <span class="st">"Dashboard usage dropped 30%"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12"></a>  <span class="at">tension =</span> <span class="st">"Unsure if UX or user needs are causing the drop"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13"></a>  <span class="at">resolution =</span> <span class="st">"Analyze telemetry for friction points"</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>wyr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"wyr-db.csv"</span>), <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>pictures <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">"img"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>The new flat syntax is not only easier to read, it’s also future-proof. The old nested format still works for now, but will trigger a deprecation warning and is slated for removal in 0.4.0.</p>
-<p>I recommend updating your code to the flat style soon. Your future self will thank you.</p>
-<p>On the bright side, all other BID functions seamlessly accept the new bid_data_story objects, and printing a story now neatly lists out the hook, context, tension, and resolution for a quick overview.</p>
-</section>
-<section id="telemetry-tuning-made-easy" class="level2">
-<h2 class="anchored" data-anchor-id="telemetry-tuning-made-easy">Telemetry Tuning Made Easy</h2>
-<p>If you’ve been ingesting telemetry data to inform your designs, <code>{bidux}</code> 0.3.2 introduces a welcome convenience: <strong>telemetry sensitivity presets</strong>.</p>
-<p>The new <code>bid_telemetry_presets()</code> function gives you pre-configured threshold sets (<code>"strict"</code>, <code>"moderate"</code>, <code>"relaxed"</code>) for flagging UX issues. This means you no longer need to hand-tweak what counts as an “unused input” or a “delay” in user interactions. Just pick a preset that fits your scenario:</p>
-<ul>
-<li><strong>Strict:</strong> Use for brand-new or mission-critical dashboards to catch even minor friction (e.g.&nbsp;flags inputs used by &lt; 2% of sessions and delays over ~20 seconds).</li>
-<li><strong>Moderate:</strong> The default balance for most applications, offering a good signal-to-noise ratio (e.g.&nbsp;flags inputs under ~5% usage, delays over ~30 seconds).</li>
-<li><strong>Relaxed:</strong> For mature, stable dashboards where only major issues merit attention (e.g.&nbsp;flags inputs under ~10% usage, delays over ~60 seconds).</li>
-</ul>
-<p>These presets let you adapt to your app’s context with one line of code. For example, a brand new internal app might start with <code>bid_telemetry_presets("strict")</code> to catch early pain points, whereas a long-running product dashboard might use <code>"relaxed"</code> to focus only on high-impact issues. Under the hood, each preset just supplies a list of threshold values to the <code>thresholds</code> argument of <code>bid_telemetry()</code>, so you retain full control if you ever need a custom tweak.</p>
-</section>
-<section id="enjoy-the-silence-quiet-mode" class="level2">
-<h2 class="anchored" data-anchor-id="enjoy-the-silence-quiet-mode">Enjoy the Silence: Quiet Mode</h2>
-<p>Do you ever feel inundated by informational messages when running BID analyses or pipelines? In 0.3.2, quiet mode is here to help.</p>
-<p>Every BID stage function (from <code>bid_interpret()</code> through <code>bid_validate()</code>) gains a new quiet parameter. Set <code>quiet = TRUE</code> and those friendly yet noisy console messages will be suppressed. This can make a huge difference when running complex pipelines or rendering Shiny apps where clean logs are gold.</p>
-<p>For example, you can wrap an entire sequence of stages in silence:</p>
+<p>Next, the bot needs to be able to randomly select two situations from the database and combine them into a sentence. A function would be perfect for this:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(bidux)</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(glue)</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># Globally turn on quiet mode for the whole workflow</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">bid_set_quiet</span>(<span class="cn">TRUE</span>)  <span class="co"># new helper to set quietness across all functions</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a>result <span class="ot">&lt;-</span> <span class="fu">bid_interpret</span>(..., <span class="at">quiet =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>  <span class="fu">bid_notice</span>(..., <span class="at">quiet =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">bid_anticipate</span>(..., <span class="at">quiet =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">bid_structure</span>(..., <span class="at">quiet =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">bid_validate</span>(..., <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3"></a>would_you_rather <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  choices <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(wyr, <span class="dv">2</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  a <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  b <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  sentence <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">"Would you rather {a} or {b}?"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">return</span>(sentence)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Rather not sprinkle <code>quiet = TRUE</code> everywhere? You can also use <code>bid_with_quiet()</code> to temporarily suppress messages within a block of code, or configure the default with <code>bid_set_quiet()</code> and <code>bid_get_quiet()</code> at a global level.</p>
-<p>Now you’re in charge of the verbosity. Run noisy when debugging, then go quiet when integrating into a polished Shiny app or R Markdown report.</p>
-<div class="float-end callout callout-style-default callout-note callout-titled" title="Shiny Developers: Leaner, Quieter Apps" width="50%">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Shiny Developers: Leaner, Quieter Apps
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you use <code>{bidux}</code> in Shiny, this release makes life easier. Removing heavy dependencies like <code>{purrr}</code> and <code>{stringr}</code> has slimmed down the package, which means lighter-weight deployments. And with the new quiet mode, you can keep your app logs clean: No more spamming the console with messages during user sessions. Focus on your users, not the chatter!</p>
-</div>
-</div>
-</section>
-<section id="new-s3-helpers-and-print-enhancements" class="level2">
-<h2 class="anchored" data-anchor-id="new-s3-helpers-and-print-enhancements">New S3 Helpers and Print Enhancements</h2>
-<p>To further modernize the API, <strong>0.3.2</strong> introduces new S3 constructors for key BID components. You can now create user personas and bias mitigation sets with dedicated functions: <code>new_user_personas()</code> and <code>new_bias_mitigations()</code>. These expect a data frame with the appropriate columns (e.g.&nbsp;name, goals, pain_points, etc. for personas) and return structured S3 objects.</p>
-<p>The benefit? <strong>Type-safe, validated objects</strong> that play nicely with BID workflows. If you’ve been using raw lists for personas or biases, these helpers provide a clear migration path to a more robust format (and they’ll warn you if required fields are missing or misformatted).</p>
-<p>Printing of BID objects also got a polish. For example, printing a <code>bid_data_story</code> now shows a tidy summary with each element on its own line, rather than a raw list dump. Likewise, <code>bid_user_personas</code> and <code>bid_bias_mitigations</code> objects print with a concise header (e.g.&nbsp;“bidux user personas (3 personas):”) followed by a tibble of the contents. This makes inspecting these objects in the console much more reader-friendly. Little quality-of-life improvements like this help you quickly verify that your inputs are set up correctly.</p>
-</section>
-<section id="under-the-hood-leaner-and-cleaner" class="level2">
-<h2 class="anchored" data-anchor-id="under-the-hood-leaner-and-cleaner">Under the Hood: Leaner and Cleaner</h2>
-<p>This release also <strong>trims some fat and cleans up behind the scenes</strong> to make the package more efficient:</p>
-<ul>
-<li><strong>Reduced dependencies:</strong> We removed unused packages <code>{purrr}</code> and <code>{stringr}</code> from our imports, opting for base R solutions. This reduces installation size and the risk of version conflicts, so your projects load a bit faster and ship with fewer baggage.</li>
-<li><strong>Better error messages:</strong> We’ve adopted the <code>glue</code> and <code>cli</code> packages for error handling. Now errors come with clearer context and suggestions (using <code>cli::cli_abort()</code> with our new <code>standard_error_msg()</code> helper). When something goes wrong, the feedback will be more informative and actionable than the old generic <code>stop()</code> messages.</li>
-<li><strong>Text normalization:</strong> Various text-processing utilities in bidux have been refined to handle whitespace and special characters more gracefully. This means more reliable matching when generating suggestions or interpreting inputs, especially in edge cases.</li>
-<li><strong>Code refactoring:</strong> We reorganized internal code into domain-specific modules (messaging, validation, stages, safe access). While invisible to you as a user, this modular structure makes bidux easier to maintain and test, which ultimately leads to more robust features.</li>
-<li><strong>Telemetry constants:</strong> All those “magic numbers” for telemetry thresholds are now named constants at the top of the telemetry module. This cleanup makes the logic more transparent and sets the stage for easier tuning (for us and adventurous contributors).</li>
-</ul>
-<p>Crucially, <strong>none of these changes break existing functionality</strong>. They either improve performance, clarity, or developer experience without altering how you call the functions. It’s all gain, no pain.</p>
-</section>
-<section id="documentation-and-resources" class="level2">
-<h2 class="anchored" data-anchor-id="documentation-and-resources">Documentation and Resources</h2>
-<p>To help you get the most out of these updates, we’ve expanded and refreshed the documentation:</p>
-<ul>
-<li><strong>New “API Modernization” vignette:</strong> A comprehensive guide for migrating from legacy list-based usage to the new S3 classes and flat APIs. This is a great starting point if you’re upgrading from an older version and want to adopt best practices (with plenty of examples for <code>data_story</code>, <code>user_personas</code>, and <code>bias_mitigations</code>).</li>
-<li><strong>Simplified “Advanced Workflows” vignette:</strong> We’ve updated our advanced examples to showcase these new features in action. This includes how to use telemetry presets in different contexts and how to utilize quiet mode in complex pipelines. If you’re pushing bidux to its limits (e.g.&nbsp;analyzing dozens of dashboards in batch), check out this vignette for patterns and tips.</li>
-<li><strong>Updated “Getting Started” vignette:</strong> New users will find the getting started guide now uses the flat <code>new_data_story()</code> and data frame-based personas from the outset. We’ve also ensured the examples reflect the current recommended usage (no outdated list formats) and highlighted the corrected BID stage ordering that was fixed in 0.3.1.</li>
-<li><strong>Function reference examples:</strong> Key functions like <code>bid_interpret()</code> now include examples demonstrating both the modern usage and how to handle legacy inputs. Our goal is to guide users toward the new approaches while still acknowledging the old way for those in transition.</li>
-</ul>
-<p>As always, the reference documentation is available and has been updated with all new parameters (like <code>quiet</code>) and functions. And behind the scenes, we bolstered test coverage for all these changes, so you can upgrade with confidence.</p>
-</section>
-<section id="migration-and-backward-compatibility" class="level2">
-<h2 class="anchored" data-anchor-id="migration-and-backward-compatibility">Migration and Backward Compatibility</h2>
-<p>Upgrading to 0.3.2 should be seamless. All your code from 0.3.1 (and even 0.3.0) will continue to run, thanks to careful backward compatibility. If you do use any now-deprecated patterns, bidux will politely prod you with warnings and guidance:</p>
-<ul>
-<li><strong>Nested data_story format:</strong> If you pass <code>variables</code> or <code>relationships</code> into <code>new_data_story()</code>, you’ll get a deprecation warning. The function will still return a valid story object (so your pipeline won’t break), but consider this your nudge to switch to the flat syntax before 0.4.0.</li>
-<li><strong>Legacy telemetry ingestion:</strong> The old <code>bid_ingest_telemetry()</code> function remains available for those who haven’t migrated to the new <code>bid_telemetry()</code> workflow. It continues to return the hybrid list-like object as before. However, we signaled in 0.3.1 that a shift toward <code>bid_telemetry()</code> is the future, and that remains true. Plan to update to the tidy tibble approach when convenient.</li>
-<li><strong>List-based personas and mitigations:</strong> You can still supply user personas as plain lists of lists, and bias mitigations as raw lists. Internally, bidux will convert or migrate these to the new S3 objects on the fly. You might see messages suggesting to use <code>new_user_personas()</code> or <code>new_bias_mitigations()</code> going forward, but your results will be the same. This gentle transition means you can adopt the new helpers at your own pace.</li>
-</ul>
-<p>In short, <strong>no breaking changes</strong> in 0.3.2. We’ve laid the groundwork for 0.4.0 deprecations but provided a smooth on-ramp.</p>
-<p>If you run into any issues while upgrading, please check the <strong>API Modernization vignette</strong> or reach out on the GitHub repo.</p>
-</section>
-<section id="install-the-latest-release" class="level2">
-<h2 class="anchored" data-anchor-id="install-the-latest-release">Install the Latest Release</h2>
-<p>You can install <code>{bidux}</code> <strong>0.3.2</strong> from CRAN today:</p>
+<p>Now, the bot has a way of creating a sentence, but it still needs to actually generate one to tweet. It also needs to select a picture to tweet with the generated sentence. To create a sentence, we can use our new function and store the result in an object called “tweet”. To randomly select a picutre, we just need to sample 1 of the 11 and store the name of the file as an object called “img”.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"bidux"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>tweet <span class="ot">&lt;-</span> <span class="fu">would_you_rather</span>()</span>
+<span id="cb3-2"><a href="#cb3-2"></a>img <span class="ot">&lt;-</span> <span class="fu">sample</span>(pictures, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>As a minor release after 0.3.1, this version focuses on refining your experience: Making the API more intuitive, reducing friction from extraneous output, and keeping the package lean and efficient.</p>
-<p>The goal is to let you spend less time wrangling the tool and more time applying <strong>Behavioral Insight Design</strong> to build better Shiny apps and dashboards. We hope these improvements make your BID workflows smoother and more enjoyable.</p>
-<p>Happy designing! 🚀</p>
+</section>
+<section id="step-2-connect-to-twitter" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-connect-to-twitter">Step 2: Connect to Twitter</h2>
+<p>Because this bot will be tweeting from the R console, we have to register a new app with Twitter. Michael Kearney has a great <a href="https://rtweet.info/articles/auth.html">tutorial on this</a> using his <code>rtweet</code> package. Basically, load the <code>rtweet</code> package and connect to Twitter’s API using credentials stored in the environment. Once the credentials are stored, use the <code>get_tokens</code> function to fetch and load them.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(rtweet)</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>token <span class="ot">&lt;-</span> <span class="fu">get_tokens</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now, the bot can tweet a randomized “Would You Rather” situation with the <code>post_tweet</code> function. I decided to also include a hashtag in the tweet, which is really easy to do using the <code>glue</code> package. To add the randomly selected picture to the tweet, just include the file path to that picture in the <code>media</code> argument.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># tweet it</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">post_tweet</span>(<span class="at">status =</span> <span class="fu">glue</span>(</span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="st">"{tweet}</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="st">#wouldyourather"</span>),</span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="at">media =</span> <span class="fu">glue</span>(<span class="st">"img/{img}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>I also wanted to collect all of the tweets the bot produces, so I made a log file to store them.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>line <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">as.character</span>(<span class="fu">Sys.time</span>()), tweet, <span class="at">sep =</span> <span class="st">" "</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">write</span>(line, <span class="at">file =</span> <span class="fu">here</span>(<span class="st">"wyr-tweets.log"</span>), <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="step-3-automate-the-bot" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-automate-the-bot">Step 3: Automate the bot</h2>
+<p>We now have a script that will randomly generate a “Would You Rather” situation along with a randomly chosen picture. However, it would be annoying to manually operate the bot every time we wanted it to tweet. Besides, doing so would undermine the entire point of making a “bot”. So let’s have the computer do this instead.</p>
+<p>However, before the computer can understand the R script, we have to add a line of code to the top of the script (note ‘#!’ is important here):</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#! /usr/bin/env Rscript</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>This is basically turns our script into something the computer can execute. This is good, but having the script loaded on a server would be even better because the script can run whether or not your personal computer is on. Luckily, I happened to already have a server running, so I was able to simply load everything on there and schedule a cron job. Cron jobs basically tell the computer to run a certain command at a certain time (more on cron jobs <a href="https://help.ubuntu.com/community/CronHowto">here</a>).</p>
+<p>If you’ve never scheduled a cron job before, it’s a relatively simple process (note: to use this method, you will need a Mac or Linux OS; for Windows OS, use Windows Task Scheduler). First, open the terminal and type:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">crontab</span> <span class="at">-e</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>This opens your personal crontab (i.e., the configuration file). In every line, you can define one command to run and its schedule. The structure of the format is:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">minute</span> hour day-of-month month day-of-week command</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Using an asterisk as a value represents “any”. For example, to run a command every Monday at 8am, the format would be:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">0</span> 8 <span class="pp">*</span> <span class="pp">*</span> 1 /path/to/command</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>For this project, the command will tell the computer to execute the bot script we wrote in R. I chose to combine all of the files for the bot (e.g., bot script, database, pictures, etc.) into an R project on the server, so the command I created changes the working directory to the project directory (the <code>cd</code> command) and then runs the script (the <code>Rscript</code> command). I also chose to run the bot twice a day:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># m h  dom mon dow    command</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="ex">0</span> 8 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> cd ~/2019-05-02_would-you-rather-bot<span class="kw">;</span> <span class="ex">Rscript</span> bot-script.R      <span class="co"># run at 8am CST</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="ex">15</span> 17 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> cd ~/2019-05-02_would-you-rather-bot<span class="kw">;</span> <span class="ex">Rscript</span> bot-script.R    <span class="co"># run at 5:15pm CST</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>You certainly don’t <em>have</em> to run the bot on a server; servers just make things easier and more consistent in this case. If you don’t have access to a server, the process will be basically the same for running the bot on a personal computer. You’ll just need to make sure the computer is on (and awake!) at the scheduled time(s) for it to automatically tweet. Or, you can <a href="https://dunia-it.com/wake-your-linux-up-from-sleep-for-a-cron-job/">wake your linux up from sleep for a cron job</a>.</p>
+</section>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
+<p>And, that’s it! Here’s the completed script:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#!/usr/bin/env Rscript</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co"># would_you_rather_bot 0.1</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># author: jeremy r. winget</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="fu">library</span>(rtweet)</span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="fu">library</span>(here)</span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="fu">library</span>(glue)</span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="co"># authenticate</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>token <span class="ot">&lt;-</span> <span class="fu">get_tokens</span>()</span>
+<span id="cb12-11"><a href="#cb12-11"></a></span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="co"># read in data</span></span>
+<span id="cb12-13"><a href="#cb12-13"></a>wyr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"wyr-db.csv"</span>), <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-14"><a href="#cb12-14"></a>pictures <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">"img"</span>))</span>
+<span id="cb12-15"><a href="#cb12-15"></a></span>
+<span id="cb12-16"><a href="#cb12-16"></a><span class="co"># function to generate sentence</span></span>
+<span id="cb12-17"><a href="#cb12-17"></a>would_you_rather <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb12-18"><a href="#cb12-18"></a>  choices <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(wyr, <span class="dv">2</span>)</span>
+<span id="cb12-19"><a href="#cb12-19"></a>  a <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">1</span>)</span>
+<span id="cb12-20"><a href="#cb12-20"></a>  b <span class="ot">&lt;-</span> <span class="fu">slice</span>(choices, <span class="dv">2</span>)</span>
+<span id="cb12-21"><a href="#cb12-21"></a>  sentence <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">"Would you rather {a} or {b}?"</span>)</span>
+<span id="cb12-22"><a href="#cb12-22"></a>  <span class="fu">return</span>(sentence)</span>
+<span id="cb12-23"><a href="#cb12-23"></a>}</span>
+<span id="cb12-24"><a href="#cb12-24"></a></span>
+<span id="cb12-25"><a href="#cb12-25"></a><span class="co"># generate question and picture</span></span>
+<span id="cb12-26"><a href="#cb12-26"></a>tweet <span class="ot">&lt;-</span> <span class="fu">would_you_rather</span>()</span>
+<span id="cb12-27"><a href="#cb12-27"></a>img <span class="ot">&lt;-</span> <span class="fu">sample</span>(pictures, <span class="dv">1</span>)</span>
+<span id="cb12-28"><a href="#cb12-28"></a></span>
+<span id="cb12-29"><a href="#cb12-29"></a><span class="co"># tweet it</span></span>
+<span id="cb12-30"><a href="#cb12-30"></a><span class="fu">post_tweet</span>(<span class="at">status =</span> <span class="fu">glue</span>(</span>
+<span id="cb12-31"><a href="#cb12-31"></a>  <span class="st">"{tweet}</span></span>
+<span id="cb12-32"><a href="#cb12-32"></a></span>
+<span id="cb12-33"><a href="#cb12-33"></a><span class="st">#wouldyourather"</span>),</span>
+<span id="cb12-34"><a href="#cb12-34"></a>  <span class="at">media =</span> <span class="fu">glue</span>(<span class="st">"img/{img}"</span>))</span>
+<span id="cb12-35"><a href="#cb12-35"></a></span>
+<span id="cb12-36"><a href="#cb12-36"></a><span class="co"># create log entry</span></span>
+<span id="cb12-37"><a href="#cb12-37"></a>line <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">as.character</span>(<span class="fu">Sys.time</span>()), tweet, <span class="at">sep =</span> <span class="st">" "</span>)</span>
+<span id="cb12-38"><a href="#cb12-38"></a><span class="fu">write</span>(line, <span class="at">file =</span> <span class="fu">here</span>(<span class="st">"wyr-tweets.log"</span>), <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>If you create your own Twitter bot with R (or if this tutorial inspired any other projects), please <a href="https://twitter.com/_jwinget">share it with me</a>. I’d love to hear what you did!</p>
+</section>
+<section id="potential-future-features" class="level2">
+<h2 class="anchored" data-anchor-id="potential-future-features">Potential future features</h2>
+<p>Right now, this bot is pretty basic. I’ve had a few ideas for additional features/adjustments I may or may not end up incorporating:</p>
+<ol type="1">
+<li>I’d like to add more content to the the database. I basically just googled “Would You Rather” questions and chose some of the more outrageous ones. But, there aren’t a lot of different situations (and some are pretty lame) listed in the database, which can sometimes lead to repeated situations being tweeted. If anyone has any situations they’d like to add, feel free to submit merge request!</li>
+<li>If people like the bot and start engaging with it, I thought it’d be fun to retweet popular comments/answers. I’m not sure what that procedure would be yet, though.</li>
+<li>It might be useful to create different categories of “Would You Rather” situations (e.g., outrageous situations, relationship situations, entertainment situations, etc.). If the situations aren’t chosen from the same category, it can lead to dumb questions (like <a href="https://twitter.com/rathrgeneratr/status/1125162015293673473">this one</a>).</li>
+</ol>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2025,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2019,
   author = {},
-  title = {Bidux 0.3.2: {Leaner,} {Quieter,} {More} {Intuitive} {BID}
-    {Workflows}},
-  date = {2025-10-28},
-  url = {https://www.jrwinget.com/blog/2025-10-29_leaner-quieter-intuitive/},
+  title = {How to Create a {Twitter} Bot Using {R}},
+  date = {2019-05-08},
+  url = {https://www.jrwinget.com/blog/2019-05-08_create-a-twitter-bot/},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-<span>“Bidux 0.3.2: Leaner, Quieter, More Intuitive BID
-Workflows.”</span> 2025. October 28, 2025. <a href="https://www.jrwinget.com/blog/2025-10-29_leaner-quieter-intuitive/">https://www.jrwinget.com/blog/2025-10-29_leaner-quieter-intuitive/</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2019" class="csl-entry quarto-appendix-citeas" role="listitem">
+<span>“How to Create a Twitter Bot Using R.”</span> 2019. May 8, 2019.
+<a href="https://www.jrwinget.com/blog/2019-05-08_create-a-twitter-bot/">https://www.jrwinget.com/blog/2019-05-08_create-a-twitter-bot/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
