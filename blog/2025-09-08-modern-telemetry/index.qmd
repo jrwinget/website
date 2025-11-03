@@ -71,7 +71,7 @@ Alongside telemetry, this release improves framework stability and consistency:
   * BID stages now follow the canonical sequence: *Interpret → Notice → Anticipate → Structure → Validate*
   * Migration support is built in, so older outputs remain interpretable
 
-![Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User](img/bid-framework.png)
+![](img/bid-framework.png){fig-alt="Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User"}
 
 * **Unified suggestion system**:
   * Interpret, Notice, and Validate now share consistent rules, reducing duplication and simplifying outputs

@@ -20,7 +20,7 @@ The crowds gathered fast. Flags, chants, phone cameras, all aimed squarely at th
 
 On the surface, it looked like decisive action. Underneath, something quieter was happening: a narrowing of attention, a collapse of deliberation, and the slow suffocation of the space for dissent.
 
-![Illustration showing a broad perspective view of multiple interconnected systems and factors, representing how collective attention can narrow and miss underlying systemic issues](img/broadview.png){.float-end .rounded .shadow-sm width="45%"}
+![](img/broadview.png){.float-end .rounded .shadow-sm width="45%" fig-alt="Illustration showing a broad perspective view of multiple interconnected systems and factors, representing how collective attention can narrow and miss underlying systemic issues"}
 
 When a society starts rewarding volume over substance, when disagreement feels like betrayal, groups of every size (from governments to dev teams) begin solving the wrong problems. The visible threat becomes the total focus, while the underlying systems quietly degrade.
 
@@ -57,7 +57,7 @@ Most groups don't consciously suppress new information. They just drift toward w
 
 The bias runs deep: Sharedness feels safe. Familiar ideas reward us with microbursts of social approval. Each nod and "exactly!" strengthens the illusion that consensus equals truth.
 
-![Diagram showing pluralistic ignorance: multiple figures with thought bubbles where outer bubbles show agreement with the group but inner thoughts reveal private doubts, illustrating how silent agreement masks private disagreement](img/pluralistic-ignorance.png){.float-end .rounded .shadow-sm width="45%"}
+![](img/pluralistic-ignorance.png){.float-end .rounded .shadow-sm width="45%" fig-alt="Diagram showing pluralistic ignorance: multiple figures with thought bubbles where outer bubbles show agreement with the group but inner thoughts reveal private doubts, illustrating how silent agreement masks private disagreement"}
 
 Pluralistic ignorance amplifies this. Everyone privately doubts the shared focus, but no one wants to be the first to say so. And so, silence masquerades as agreement. Even those who *do* see the structural issue start calibrating their language, testing the wind before speaking up.
 
@@ -151,7 +151,7 @@ That's why structure matters. It lowers the *social tax* of honesty.
 
 ## Reframing What's Worth Talking About
 
-![Collage representing group dynamics and systems thinking, with interconnected elements and human figures engaged in dialogue about collective intelligence and decision-making](featured.png){.float-start .rounded .shadow-sm width="42%"}
+![](featured.png){.float-start .rounded .shadow-sm width="42%" fig-alt="Collage representing group dynamics and systems thinking, with interconnected elements and human figures engaged in dialogue about collective intelligence and decision-making"}
 
 Imagine if our public discourse treated dissent the way high-reliability teams treat anomalies: as signals to investigate, not threats to silence. Imagine if our teams treated disagreement as a sign that the system is alive.
 

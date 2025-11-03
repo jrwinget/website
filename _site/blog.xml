@@ -23,12 +23,7 @@
 <h2 class="anchored" data-anchor-id="a-crowd-a-crisis-and-the-wrong-problem">A Crowd, A Crisis, and the Wrong Problem</h2>
 <p>The crowds gathered fast. Flags, chants, phone cameras, all aimed squarely at the latest political flashpoint. The air pulsed with conviction. Something needed to be done <em>now</em>.</p>
 <p>On the surface, it looked like decisive action. Underneath, something quieter was happening: a narrowing of attention, a collapse of deliberation, and the slow suffocation of the space for dissent.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/img/broadview.png" class="float-end rounded shadow-sm img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Illustration showing a broad perspective view of multiple interconnected systems and factors, representing how collective attention can narrow and miss underlying systemic issues</figcaption>
-</figure>
-</div>
+<p><img src="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/img/broadview.png" class="float-end rounded shadow-sm img-fluid" style="width:45.0%" alt="Illustration showing a broad perspective view of multiple interconnected systems and factors, representing how collective attention can narrow and miss underlying systemic issues"></p>
 <p>When a society starts rewarding volume over substance, when disagreement feels like betrayal, groups of every size (from governments to dev teams) begin solving the wrong problems. The visible threat becomes the total focus, while the underlying systems quietly degrade.</p>
 <p>Protest and mobilization have always been vital forces for change. But when attention is hijacked by spectacle rather than substance, even the most righteous energy can be redirected away from root causes. Especially when those in power find it useful to change the subject.</p>
 </section>
@@ -59,12 +54,7 @@ Richard Hackman’s rule<sup>2</sup>
 <h2 class="anchored" data-anchor-id="the-comfort-of-shared-myopia">The Comfort of Shared Myopia</h2>
 <p>Most groups don’t consciously suppress new information. They just drift toward what’s easy to agree on.</p>
 <p>The bias runs deep: Sharedness feels safe. Familiar ideas reward us with microbursts of social approval. Each nod and “exactly!” strengthens the illusion that consensus equals truth.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/img/pluralistic-ignorance.png" class="float-end rounded shadow-sm img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Diagram showing pluralistic ignorance: multiple figures with thought bubbles where outer bubbles show agreement with the group but inner thoughts reveal private doubts, illustrating how silent agreement masks private disagreement</figcaption>
-</figure>
-</div>
+<p><img src="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/img/pluralistic-ignorance.png" class="float-end rounded shadow-sm img-fluid" style="width:45.0%" alt="Diagram showing pluralistic ignorance: multiple figures with thought bubbles where outer bubbles show agreement with the group but inner thoughts reveal private doubts, illustrating how silent agreement masks private disagreement"></p>
 <p>Pluralistic ignorance amplifies this. Everyone privately doubts the shared focus, but no one wants to be the first to say so. And so, silence masquerades as agreement. Even those who <em>do</em> see the structural issue start calibrating their language, testing the wind before speaking up.</p>
 <p>You’ve seen this in the workplace too. A dev team argues for hours about a UI color but defers a looming database overhaul. The visible topic feels more manageable, more social, more <em>presentable</em>. Under pressure to align, attention collapses to the path of least resistance.</p>
 <p>In social systems and engineering alike, the group’s collective gaze narrows exactly when it needs to widen.</p>
@@ -145,12 +135,7 @@ Quick wins for safer dissent
 </section>
 <section id="reframing-whats-worth-talking-about" class="level2">
 <h2 class="anchored" data-anchor-id="reframing-whats-worth-talking-about">Reframing What’s Worth Talking About</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/featured.png" class="float-start rounded shadow-sm img-fluid figure-img" style="width:42.0%"></p>
-<figcaption>Collage representing group dynamics and systems thinking, with interconnected elements and human figures engaged in dialogue about collective intelligence and decision-making</figcaption>
-</figure>
-</div>
+<p><img src="https://www.jrwinget.com/blog/2025-10-31-when-groups-get-stuck/featured.png" class="float-start rounded shadow-sm img-fluid" style="width:42.0%" alt="Collage representing group dynamics and systems thinking, with interconnected elements and human figures engaged in dialogue about collective intelligence and decision-making"></p>
 <p>Imagine if our public discourse treated dissent the way high-reliability teams treat anomalies: as signals to investigate, not threats to silence. Imagine if our teams treated disagreement as a sign that the system is alive.</p>
 <p>Protest, dissent, and debate are how we remind systems that truth is still a shared project. Because dissent, at its best, is an act of stewardship.</p>
 <p>It’s the refusal to let collective attention decay into convenience. It’s not rebellion; it’s repair.</p>
@@ -466,12 +451,7 @@ Workflows.”</span> 2025. October 28, 2025. <a href="https://www.jrwinget.com/b
 <section id="a-cold-chicago-winter-a-warm-san-diego-welcome" class="level2">
 <h2 class="anchored" data-anchor-id="a-cold-chicago-winter-a-warm-san-diego-welcome">A Cold Chicago Winter, a Warm San Diego Welcome</h2>
 <p>My first rstudio::conf was 2018 in San Diego, late January. Coming from Chicago, that felt like a small miracle. I had about six or seven months of R and the <code>{tidyverse}</code> behind me, was still studying social psychology in grad school, and had only ever done academic conferences. Walking into this one felt different; bigger stage, crisper production, and a sense that tooling and community might actually pull in the same direction.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.jrwinget.com/blog/2025-09-25-posit-conf-journey/img/signed-hadley.png" class="float-start rounded shadow-sm img-fluid figure-img" style="width:33.0%"></p>
-<figcaption>Photograph of a signed copy of the book R for Data Science by Hadley Wickham, obtained at posit::conf 2018 in San Diego</figcaption>
-</figure>
-</div>
+<p><img src="https://www.jrwinget.com/blog/2025-09-25-posit-conf-journey/img/signed-hadley.png" class="float-start rounded shadow-sm img-fluid" style="width:33.0%" alt="Photograph of a signed copy of the book R for Data Science by Hadley Wickham, obtained at posit::conf 2018 in San Diego"></p>
 <p>I went with my closest friend from grad school, who’d already transitioned into data science. Everyone I met was working in ML, deep learning, or advanced quant at huge companies I’d only seen on slides. But these folks were also disarmingly kind. When I said I was a psychologist, often labeled a “soft science” in tech circles, no one waved me off. Instead, they just asked how I used R in my work. I talked about group decision making and computational modeling. People’s eyes widened. They leaned in. That surprised me, and it stuck.</p>
 <p>The talks were practical and alive: Live demos, tools I could try immediately. I left able to build my first website with <code>{blogdown}</code> (which I <em>just</em> migrated from yesterday; and this is my first post with new Quarto setup). I also met Hadley and got my copy of <em>R for Data Science</em> signed. Total fanboy moment, noted and accepted.</p>
 </section>
@@ -497,12 +477,7 @@ Workflows.”</span> 2025. October 28, 2025. <a href="https://www.jrwinget.com/b
 <h2 class="anchored" data-anchor-id="from-audience-to-speaker">From Audience to Speaker</h2>
 <p>Last week, I stepped onto the posit::conf stage for the first time. Just being accepted was an honor. Every year there are more excellent proposals than slots, so a “yes” signals the committee is trusting you to carry something useful onto that stage. And I was there to share something I care deeply about: the intersection of behavioral science and tool design.</p>
 <p>I spoke about bringing these ideas to Shiny so teams can design apps that reduce cognitive friction instead of creating it, to think about cognitive engineering as much as we do performance engineering. Think fewer “data dumps” with dozens of dropdowns and more guided flows that surface the right decision at the right moment. Better products for users, fewer support tickets for teams.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.jrwinget.com/blog/2025-09-25-posit-conf-journey/img/posit-stage.png" class="float-end rounded shadow-sm img-fluid figure-img" style="width:65.0%"></p>
-<figcaption>Speaker on stage at posit::conf 2025 presenting to an audience, speaking about behavioral science and tool design for improving user experience in software development</figcaption>
-</figure>
-</div>
+<p><img src="https://www.jrwinget.com/blog/2025-09-25-posit-conf-journey/img/posit-stage.png" class="float-end rounded shadow-sm img-fluid" style="width:65.0%" alt="Speaker on stage at posit::conf 2025 presenting to an audience, speaking about behavioral science and tool design for improving user experience in software development"></p>
 <p>I was anxious the whole week leading up to my talk, which isn’t unusual since I often feel that way before presenting. I’ve spoken at other conferences, led workshops, and taught college courses, so public speaking is familiar territory. But this felt different. The moment I walked on stage and brought up my slides, the anxiety disappeared! I had <em>never</em> experienced that before. It felt like a conversation with friends who care about good tools and solid evidence. The examples landed, the audience leaned in, and the Q&amp;A could have gone on much longer if we hadn’t run out of time.</p>
 <p>It was easily the most fun I’ve ever had giving a talk; truly an experience I’ll carry with me for a long time. The best part might have been the hallway follow-ups: quick notebook sketches, a few “this changes how I think about building dashboards” epiphanies, and two separate chats about adapting the ideas for decision-making research.</p>
 <p>I’m so grateful to the Posit team for creating conditions where growth is possible, and to this polyglot community for making it feel like home. The spirit that met me in 2018 is still doing profound, durable work.</p>
@@ -691,12 +666,7 @@ font-style: inherit;">telemetry_refs =</span> critical)</span></code></pre></div
 <li>Migration support is built in, so older outputs remain interpretable</li>
 </ul></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.jrwinget.com/blog/2025-09-08-modern-telemetry/img/bid-framework.png" class="img-fluid figure-img"></p>
-<figcaption>Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User</figcaption>
-</figure>
-</div>
+<p><img src="https://www.jrwinget.com/blog/2025-09-08-modern-telemetry/img/bid-framework.png" class="img-fluid" alt="Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User"></p>
 <ul>
 <li><strong>Unified suggestion system</strong>:
 <ul>
@@ -779,12 +749,7 @@ Framework.”</span> 2025. September 8, 2025. <a href="https://www.jrwinget.com/
 <section id="a-new-starting-point-bid-bidux" class="level2">
 <h2 class="anchored" data-anchor-id="a-new-starting-point-bid-bidux">A New Starting Point: BID + <code>{bidux}</code></h2>
 <p>The <strong>Behavior Insight Design (BID)</strong> framework offers a structured, evidence-based approach to building more intuitive, cognitively supportive dashboards. Developed at the intersection of behavioral science, data storytelling, and interface design, BID maps out five stages that reflect how users actually engage with information:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.jrwinget.com/blog/2025-06-19-from-friction-to-flow/img/bid-framework.png" class="img-fluid figure-img"></p>
-<figcaption>Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User</figcaption>
-</figure>
-</div>
+<p><img src="https://www.jrwinget.com/blog/2025-06-19-from-friction-to-flow/img/bid-framework.png" class="img-fluid" alt="Behavioral Insight Design (BID) framework diagram showing five sequential stages: Interpret User Needs, Notice the Problem, Anticipate User Behavior, Structure the App, and Validate and Empower the User"></p>
 <p>Each stage helps developers reduce friction, surface insight, and support better decision-making, even without a background in psychology or UX.</p>
 <p>The <code>{bidux}</code> R package makes this framework practical for developers. It provides a step-by-step workflow, concept dictionaries, and component suggestions that bring behavioral design directly into your Shiny development process.</p>
 <p>Together, BID and <code>{bidux}</code> help you turn psychological friction into flow.</p>
