@@ -104,6 +104,10 @@ format:
     include-in-header:
       - text: |
           <script defer data-domain="jrwinget.com" src="https://plausible.io/js/script.js"></script>
+          <a href="#quarto-content" class="skip-to-main">Skip to main content</a>
+    include-after-body:
+      - text: |
+          <script src="/assets/ui-enhancements.js"></script>
     comments:
       utterances:
         repo: jrwinget/website
