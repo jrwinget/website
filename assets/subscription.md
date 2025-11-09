@@ -13,6 +13,6 @@ Thanks for subscribing to *The Friction Point*. You'll receive email notificatio
 
 Keep an eye on your inbox for updates on data science, social science, and full-stack engineering.
 
-[← Back to Blog](/blog.qmd){.btn .btn-primary style="margin-top: 1.5rem;"}
+[← Back to Blog](/blog.html){.btn .btn-primary style="margin-top: 1.5rem;"}
 
 :::
