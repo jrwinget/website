@@ -26,7 +26,7 @@ page-layout: full
 Stay up-to-date with my latest posts on data science, social science, and full-stack engineering.
 
 ```{=html}
-<form class="email-subscription-form" name="blog-subscription" method="POST" netlify netlify-honeypot="bot-field" action="/assets/subscription.html">
+<form class="email-subscription-form" name="blog-subscription" method="POST" netlify netlify-honeypot="bot-field" action="/subscription-success.html">
   <input type="hidden" name="form-name" value="blog-subscription">
   <p style="display: none;">
     <label>Don't fill this out if you're human: <input name="bot-field"></label>

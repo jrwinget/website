@@ -128,6 +128,16 @@ img[loading="lazy"].loaded {
   opacity: 1;
 }
 
+/* Enhanced focus indicators when using keyboard navigation */
+body.keyboard-nav *:focus {
+  outline: 3px solid #d4a574 !important;
+  outline-offset: 3px !important;
+}
+
+body.keyboard-nav *:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* utility classes for dynamic content sections */
 .see-all-link {
   font-weight: 500;
