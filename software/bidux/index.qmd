@@ -7,8 +7,27 @@ image: featured.png
 description: "Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles."
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+yaml_file <- here::here("_data", "repos", "bidux.yml")
+repo_data <- NULL
+
+if (file.exists(yaml_file)) repo_data <- yaml::read_yaml(yaml_file)
+```
+
+::: {.badges style="margin: 1.5rem 0; text-align: center;"}
+[![GitHub Stars](https://img.shields.io/github/stars/jrwinget/bidux?style=flat&logo=github)](https://github.com/jrwinget/bidux/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/jrwinget/bidux?style=flat)](https://github.com/jrwinget/bidux/commits)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/bidux)](https://cranlogs.r-pkg.org/badges/grand-total/bidux)
+:::
+
 This work introduces the Behavioral Insight Design (BID) framework, implemented in the `{bidux}` R package, which provides developers with evidence-based tools to create more intuitive, cognitively supportive dashboards.
 
-**Package**: Available on CRAN as `{bidux}`
-**Repository**: [github.com/jrwinget/bidux](https://github.com/jrwinget/bidux)
-**Framework**: [BID Framework Documentation](https://github.com/jrwinget/bid-framework)
+## Links
+
+::: {.software-links style="margin: 1.5rem 0;"}
+- **CRAN Package**: [cran.r-project.org/package/bidux](https://cran.r-project.org/package/bidux)
+- **GitHub Repository**: [github.com/jrwinget/bidux](https://github.com/jrwinget/bidux)
+- **BID Framework**: [github.com/jrwinget/bid-framework](https://github.com/jrwinget/bid-framework)
+:::
