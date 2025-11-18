@@ -99,8 +99,8 @@
   // Lazy Loading Images
   // ============================================
   function initLazyLoading() {
-    // Add loading="lazy" to all images that don't have it
-    const images = document.querySelectorAll('img:not([loading])');
+    // Add loading="lazy" to all images that don't have it (except navbar logo and above-the-fold images)
+    const images = document.querySelectorAll('img:not([loading]):not(.navbar-brand img):not([data-no-lazy])');
     images.forEach(img => {
       img.setAttribute('loading', 'lazy');
     });
@@ -150,19 +150,32 @@
     const currentDomain = window.location.hostname;
 
     links.forEach(link => {
-      const linkDomain = new URL(link.href).hostname;
+      try {
+        const linkDomain = new URL(link.href).hostname;
 
-      // Check if link is external
-      if (linkDomain !== currentDomain) {
-        // Add external link indicator
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+        // Check if link is external
+        if (linkDomain !== currentDomain) {
+          // Only modify if not already configured
+          if (!link.hasAttribute('target')) {
+            link.setAttribute('target', '_blank');
+          }
 
-        // Add screen reader text
-        const srText = document.createElement('span');
-        srText.className = 'visually-hidden';
-        srText.textContent = ' (opens in new tab)';
-        link.appendChild(srText);
+          if (!link.hasAttribute('rel')) {
+            link.setAttribute('rel', 'noopener noreferrer');
+          }
+
+          // Add screen reader text only if not already present
+          const existingSrText = link.querySelector('.visually-hidden');
+          if (!existingSrText) {
+            const srText = document.createElement('span');
+            srText.className = 'visually-hidden';
+            srText.textContent = ' (opens in new tab)';
+            link.appendChild(srText);
+          }
+        }
+      } catch (e) {
+        // Skip malformed URLs or non-HTTP protocols (mailto:, tel:, etc.)
+        return;
       }
     });
   }

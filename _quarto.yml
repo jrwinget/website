@@ -107,7 +107,7 @@ format:
           <a href="#quarto-content" class="skip-to-main">Skip to main content</a>
     include-after-body:
       - text: |
-          <script src="/assets/ui-enhancements.js"></script>
+          <script src="assets/ui-enhancements.js"></script>
     comments:
       utterances:
         repo: jrwinget/website
