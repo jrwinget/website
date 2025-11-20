@@ -1013,3 +1013,133 @@ figure {
     padding: 0 1rem;
   }
 }
+
+// ==================================================
+// Hex Logo Wall (Software Page)
+// ==================================================
+
+.hex-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+
+  // Responsive breakpoints
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.hex-item {
+  position: relative;
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1 / 1.1547; // Hexagon aspect ratio (width:height = 1:√3/1.5)
+  transition: transform 0.3s ease, filter 0.3s ease;
+
+  &:hover,
+  &:focus-within {
+    transform: scale(1.15);
+    z-index: 10;
+  }
+
+  // Reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover,
+    &:focus-within {
+      transform: none;
+      filter: brightness(1.1);
+    }
+  }
+}
+
+.hex-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  outline: none;
+
+  &:focus-visible {
+    .hex-image {
+      outline: 3px solid $accent-coral;
+      outline-offset: 4px;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.hex-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba($black, 0.15));
+  transition: filter 0.3s ease;
+
+  .hex-item:hover &,
+  .hex-item:focus-within & {
+    filter: drop-shadow(0 8px 16px rgba($black, 0.25));
+  }
+}
+
+.hex-title {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  font-weight: $font-weight-medium;
+  color: $gray-700;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  .hex-item:hover &,
+  .hex-item:focus-within & {
+    opacity: 1;
+  }
+
+  // Always show on mobile for better UX
+  @media (max-width: 575px) {
+    opacity: 1;
+    position: static;
+    transform: none;
+    margin-top: 0.5rem;
+  }
+}
+
+.hex-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $accent-warm, $accent-coral);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
+  span {
+    font-size: 3rem;
+    font-weight: $font-weight-bold;
+    color: $white;
+    text-transform: uppercase;
+  }
+}
