@@ -2,6 +2,7 @@
 title: "First TidyTuesday submission"
 subtitle: 'A walkthrough of my first #TidyTuesday contribution.'
 date: '2019-01-08'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Data Science", "Education & Community"]
 tags: ["r", "data-visualization", "data-analysis", "tidytuesday", "community-challenge"]

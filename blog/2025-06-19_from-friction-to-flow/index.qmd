@@ -2,6 +2,7 @@
 title: "From Friction to Flow: Designing Smarter Dashboards with `{bidux}`"
 subtitle: 'Introducing `{bidux}`: A toolkit that helps developers design dashboards grounded in cognitive and behavioral science'
 date: '2025-06-19'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Software Development", "User Experience"]
 tags: ["r", "shiny", "behavioral-science", "user-experience", "dashboard-design", "package-release"]

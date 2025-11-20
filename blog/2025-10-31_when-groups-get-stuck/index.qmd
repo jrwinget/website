@@ -2,6 +2,7 @@
 title: "When Groups Get Stuck on the Wrong Problem"
 subtitle: "Dissent, sharedness, and the design of collective intelligence"
 date: "2025-10-31"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Behavioral Science"]
 tags: ["group-dynamics", "decision-making", "collective-intelligence", "leadership", "organizational-behavior"]

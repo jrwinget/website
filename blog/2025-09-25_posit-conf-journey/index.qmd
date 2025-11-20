@@ -2,6 +2,7 @@
 title: "From First-Time Attendee to Speaker: My posit::conf Journey"
 subtitle: "Seven years of growth, community, and bridging behavioral science with R tooling at posit::conf"
 date: '2025-09-25'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Education & Community", "Behavioral Science"]
 tags: ["r", "shiny", "posit-conf", "behavioral-science", "community", "open-science", "conference-talk"]

@@ -2,6 +2,7 @@
 title: "`{bidux}` v0.3.1: Modern Telemetry Integration in the BID Framework"
 subtitle: 'The `{bidux}` v0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.'
 date: '2025-09-08'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Software Development", "User Experience"]
 tags: ["r", "package-release", "data-analysis", "telemetry", "behavioral-science"]

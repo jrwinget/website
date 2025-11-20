@@ -2,6 +2,7 @@
 title: "`{bidux}` v0.3.2: Leaner, Quieter, More Intuitive BID Workflows"
 subtitle: 'The `{bidux}` v0.3.2 release streamlines BID workflows with intuitive flat APIs, built-in telemetry presets, and a quieter, leaner experience, helping you focus on insights rather than overhead.'
 date: '2025-10-28'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Software Development", "User Experience"]
 tags: ["r", "shiny", "package-release", "behavioral-science", "user-experience"]

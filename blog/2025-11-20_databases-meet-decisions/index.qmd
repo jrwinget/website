@@ -2,6 +2,7 @@
 title: "`{bidux}` v0.3.3: Where Databases Meet Quick Decisions"
 subtitle: 'The latest `{bidux}` release bridges the gap between your production data and rapid UX improvements, because sometimes the best insight is the one you can act on today.'
 date: '2025-11-20'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Software Development", "User Experience"]
 tags: ["r", "shiny", "package-release", "database", "behavioral-science", "user-experience"]

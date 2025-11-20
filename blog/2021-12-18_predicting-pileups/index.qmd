@@ -2,6 +2,7 @@
 title: "Predicting pileups: Using ML to predict Chicago crash types"
 subtitle: 'A comparative model analysis of the factors that lead to severe traffic collisions in Chicago, IL.'
 date: '2021-12-18'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Data Science"]
 tags: ["r", "machine-learning", "classification", "data-analysis", "case-study"]

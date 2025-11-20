@@ -2,6 +2,7 @@
 title: "First post!"
 subtitle: 'My first blog post! Allow me to introduce myself...'
 date: '2018-02-07'
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 categories: ["Data Science"]
 tags: ["r", "data-visualization", "statistics", "introduction"]
