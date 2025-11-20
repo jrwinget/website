@@ -4,17 +4,9 @@ comments: false
 listing:
   contents: "software/*/index.qmd"
   sort: "date desc"
-  type: default
-  image-align: left
-  categories: true
-  sort-ui: true
-  filter-ui: true
-  fields:
-    - title
-    - subtitle
-    - date
-    - image
-    - categories
-    - description
+  type: custom
+  template: software/_listing.ejs
 page-layout: full
 ---
+
+Software and tools I've developed for research and data science.
