@@ -4,7 +4,7 @@ subtitle: 'An exploratory data analysis of red light traffic camera violations i
 date: '2019-04-29'
 date-format: "MMMM D, YYYY"
 categories: ["Data Science"]
-tags: ["r", "data-visualization", "exploratory-data-analysis", "data-wrangling", "chicago-data", "case-study"]
+tags: ["r", "data-visualization", "data-analysis", "case-study"]
 image: featured.png
 toc: true
 citation: true

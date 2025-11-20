@@ -4,7 +4,7 @@ subtitle: 'My first blog post! Allow me to introduce myself...'
 date: '2018-02-07'
 date-format: "MMMM D, YYYY"
 categories: ["Data Science"]
-tags: ["r", "r-markdown", "statistics", "data-visualization", "introduction"]
+tags: ["r", "data-visualization", "statistics", "introduction"]
 image: featured.png
 toc: true
 citation: true

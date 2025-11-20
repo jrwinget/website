@@ -1,6 +1,6 @@
 ---
-title: "bidux 0.3.1: Modern Telemetry Integration in the BID Framework"
-subtitle: 'The {bidux} 0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.'
+title: "`{bidux}` v0.3.1: Modern Telemetry Integration in the BID Framework"
+subtitle: 'The `{bidux}` v0.3.1 release makes telemetry analysis in BID smoother, tidier, and more consistent; from raw issues to validated insights.'
 date: '2025-09-08'
 date-format: "MMMM D, YYYY"
 categories: ["Software Development", "User Experience"]
@@ -12,13 +12,13 @@ aliases:
   - /blog/modern-telemetry
 ---
 
-I'm excited to announce that **bidux 0.3.1** is now available on CRAN. This release brings telemetry deeper into the Behavioral Insight Design (BID) framework, strengthens stage consistency, and smooths the migration path for users moving from earlier versions.
+I'm excited to announce that **bidux v0.3.1** is now available on CRAN. This release brings telemetry deeper into the Behavioral Insight Design (BID) framework, strengthens stage consistency, and smooths the migration path for users moving from earlier versions.
 
 ## A Modern Telemetry Workflow
 
 Telemetry data is increasingly central to BID workflows. Until now, telemetry ingestion produced list-like objects that worked but weren't always convenient for analysis.
 
-In **0.3.1**, `bid_ingest_telemetry()` now returns **hybrid telemetry objects**: they behave like lists for backward compatibility, while adding new methods such as `as_tibble()` and `bid_flags()`.
+In **v0.3.1**, `bid_ingest_telemetry()` now returns **hybrid telemetry objects**: they behave like lists for backward compatibility, while adding new methods such as `as_tibble()` and `bid_flags()`.
 
 For new projects, the preferred interface is the tidy-friendly `bid_telemetry()`, which returns structured tibbles (`bid_issues_tbl`) ready for `dplyr` pipelines:
 
@@ -40,7 +40,7 @@ These functions make it easier to move from raw telemetry data to structured BID
 
 ## A Quick Example
 
-Here's what a telemetry-informed BID pipeline can look like in **0.3.1**:
+Here's what a telemetry-informed BID pipeline can look like in **v0.3.1**:
 
 ```{r, eval=FALSE}
 library(bidux)
@@ -93,7 +93,7 @@ We've updated the **Getting Started** vignette with new telemetry examples and c
 
 ## Install the Latest Release
 
-You can install **bidux 0.3.1** from CRAN today:
+You can install **bidux v0.3.1** from CRAN today:
 
 ```{r, eval=FALSE}
 install.packages("bidux")

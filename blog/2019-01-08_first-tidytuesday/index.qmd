@@ -3,8 +3,8 @@ title: "First TidyTuesday submission"
 subtitle: 'A walkthrough of my first #TidyTuesday contribution.'
 date: '2019-01-08'
 date-format: "MMMM D, YYYY"
-categories: ["Data Science"]
-tags: ["r", "tidytuesday", "data-visualization", "data-wrangling", "community-challenge"]
+categories: ["Data Science", "Education & Community"]
+tags: ["r", "data-visualization", "data-analysis", "tidytuesday", "community-challenge"]
 image: featured.png
 toc: true
 citation: true

@@ -3,8 +3,8 @@ title: "When Groups Get Stuck on the Wrong Problem"
 subtitle: "Dissent, sharedness, and the design of collective intelligence"
 date: "2025-10-31"
 date-format: "MMMM D, YYYY"
-categories: ["Social Psychology", "Collective Intelligence", "Decision-Making"]
-tags: ["minority influence", "group processes", "psychology", "collective intelligence", "leadership", "team design", "pluralistic ignorance", "coordination"]
+categories: ["Behavioral Science"]
+tags: ["group-dynamics", "decision-making", "collective-intelligence", "leadership", "organizational-behavior"]
 image: featured.png
 toc: true
 citation: true
