@@ -1,15 +1,14 @@
 ---
-title: "PSYC 100 - Psychological Perspectives on the Experiences of Globalization"
+title: "PSYC 100: Psychological Perspectives on the Experiences of Globalization"
 date: "2021-08-30"
-date-format: "MMMM D, YYYY"
+date-modified: last-modified
+date-format: "MM DD, YYYY"
 subtitle: "An undergraduate-level course on understanding issues related to globalization through psychological theory and research."
-image: featured.jpg
-categories: ["Education", "Psychology"]
-tags: ["psychology", "globalization", "undergraduate-course", "social-psychology", "social-entrepreneurship", "global-issues", "cross-cultural"]
+image: featured.png
+categories: ["Education & Community", "Behavioral Science"]
+tags: ["psychology", "social-psychology", "globalization", "cross-cultural"]
 description: "Exploring globalization through psychological concepts, research, and theory with real-world applications."
 ---
-
-**Semesters taught:** *Fall 2021*
 
 This course approaches globalization from a psychological perspective. It is designed to inform students' understanding of global issues with modern psychological concepts, research, and theory, and to teach students to see psychological issues at work in the experience of globalization.
 

@@ -1,0 +1,17 @@
+<div class="hex-wall">
+{{#listing}}
+  <div class="hex-item">
+    <a href="{{url}}" class="hex-link" aria-label="{{title}}">
+      {{#image}}
+        <img src="{{image}}" alt="{{title}} hex logo" class="hex-image" loading="lazy">
+      {{/image}}
+      {{^image}}
+        <div class="hex-placeholder" aria-hidden="true">
+          <span>{{title_first_letter}}</span>
+        </div>
+      {{/image}}
+      <span class="hex-title">{{title_no_colon}}</span>
+    </a>
+  </div>
+{{/listing}}
+</div>

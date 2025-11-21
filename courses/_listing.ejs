@@ -1,0 +1,10 @@
+<div class="hex-wall">
+<% for (const item of items) { %>
+<div class="hex-item">
+<a href="<%- item.path %>" class="hex-link">
+<img src="<%- item.image %>" alt="<%= item.title %>" class="hex-image">
+<span class="hex-title"><%- item.title %></span>
+</a>
+</div>
+<% } %>
+</div>
