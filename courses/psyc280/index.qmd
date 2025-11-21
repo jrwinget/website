@@ -2,7 +2,7 @@
 title: "PSYC 280: Judgment and Decision Making"
 date: "2019-08-26"
 date-modified: last-modified
-date-format: "MM DD, YYYY"
+date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on understanding judgment and decision-making through psychological theory and research."
 image: featured.png
 categories: ["Education & Community", "Behavioral Science"]

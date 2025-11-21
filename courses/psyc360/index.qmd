@@ -2,7 +2,7 @@
 title: "PSYC 360: Understanding Prejudice"
 date: "2020-08-24"
 date-modified: last-modified
-date-format: "MM DD, YYYY"
+date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course that focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations."
 image: featured.png
 categories: ["Education & Community", "Behavioral Science"]

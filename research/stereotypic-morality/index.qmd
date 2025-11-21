@@ -1,6 +1,7 @@
 ---
 title: "Stereotypic morality: The effects of group membership on moral foundations"
 date: "2020-08-01"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "An experiment demonstrating the effects of group membership on the perception of moral foundations"
 author: "J. R. Winget & R. S. Tindale"

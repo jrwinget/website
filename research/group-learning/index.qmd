@@ -1,6 +1,7 @@
 ---
 title: "Learning while deciding in groups"
 date: "2017-06-15"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "A book chapter summarizing the group decision making literature, describing when and how group decision making facilitates learning"
 author: "R. S. Tindale & J. R. Winget"

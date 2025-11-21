@@ -1,6 +1,7 @@
 ---
 title: "Distributed cognition in teams is influenced by type of task and nature of member interactions"
 date: "2020-09-29"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "A book chapter summarizing the group decision making literature, while highlighting the importance of task type for group performance"
 author: "R. S. Tindale, J. R. Winget, & V. B. Hinsz"

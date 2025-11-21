@@ -2,7 +2,7 @@
 title: "PSYC 100: Psychological Perspectives on the Experiences of Globalization"
 date: "2021-08-30"
 date-modified: last-modified
-date-format: "MM DD, YYYY"
+date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on understanding issues related to globalization through psychological theory and research."
 image: featured.png
 categories: ["Education & Community", "Behavioral Science"]

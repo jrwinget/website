@@ -2,7 +2,7 @@
 title: "PSYC 306: Research Methods"
 date: "2019-05-21"
 date-modified: last-modified
-date-format: "MM DD, YYYY"
+date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on the fundamentals of research methods in the social sciences."
 image: featured.png
 categories: ["Education & Community", "Data Science"]
