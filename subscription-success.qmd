@@ -9,9 +9,11 @@ page-layout: full
 
 ## You're all set!
 
-Thanks for subscribing to *The Friction Point*. You'll receive email notifications when new posts are published.
+Thanks for subscribing to *The Friction Point*. You'll automatically receive email notifications when new posts are published.
 
 Keep an eye on your inbox for updates on data science, social science, and full-stack engineering.
+
+You can unsubscribe at any time using the link at the bottom of any email.
 
 [← Back to Blog](/blog.html){.btn .btn-primary style="margin-top: 1.5rem;"}
 

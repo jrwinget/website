@@ -317,3 +317,92 @@ aside a:hover,
   border-top: 2px solid rgba(212, 165, 116, 0.3);
   margin: 2.5rem 0;
 }
+
+/* ============================================ */
+/* Subscription Form (Margin Header)           */
+/* ============================================ */
+
+/* Subscription box styling for margin area */
+.margin-subscription-box {
+  background-color: #faf8f5;
+  border: 1px solid #e8e4de;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.margin-subscription-box h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  line-height: 1.3;
+}
+
+.margin-subscription-box p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.subscription-placeholder {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px dashed #d0ccc5;
+  border-radius: 4px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* MailerLite form styling overrides */
+/* Customize these after adding the MailerLite embed code */
+.margin-subscription-box .ml-embedded input[type="email"],
+.margin-subscription-box .ml-form-embedContent input[type="email"] {
+  width: 100%;
+  padding: 0.625rem;
+  border: 1px solid #d0ccc5;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  font-family: inherit;
+}
+
+.margin-subscription-box .ml-embedded button[type="submit"],
+.margin-subscription-box .ml-form-embedContent button[type="submit"] {
+  width: 100%;
+  padding: 0.625rem 1.25rem;
+  background-color: #6b5d54;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.margin-subscription-box .ml-embedded button[type="submit"]:hover,
+.margin-subscription-box .ml-form-embedContent button[type="submit"]:hover {
+  background-color: #5a4d45;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 991px) {
+  .margin-subscription-box {
+    padding: 1.25rem;
+  }
+
+  .margin-subscription-box h3 {
+    font-size: 1rem;
+  }
+
+  .margin-subscription-box p {
+    font-size: 0.85rem;
+  }
+}
