@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <div class="subscription-box">
+        <h2>Get notified of new blog posts</h2>
+        <p>Stay up-to-date with my latest posts on full-stack engineering, infrastructure, and behavioral science.</p>
+        <form class="email-subscription-form" name="blog-subscription" method="POST" netlify netlify-honeypot="bot-field"
+            action="/subscription-success.html">
+            <input type="hidden" name="form-name" value="blog-subscription">
+            <p style="display: none;">
+                <label>Don't fill this out if you're human: <input name="bot-field"></label>
+            </p>
+            <div class="subscription-container">
+                <label for="email-input" class="visually-hidden">Email address</label>
+                <input type="email" id="email-input" name="email" placeholder="Enter your email address" required
+                    aria-describedby="subscription-note" aria-label="Email address for blog subscription" class="email-input">
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </div>
+            <p id="subscription-note" class="subscription-note">No spam, ever. Unsubscribe at any time.</p>
+        </form>
+    </div>
+</html>

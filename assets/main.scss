@@ -70,9 +70,9 @@ $h5-font-size: 1.25rem !default;
 $h6-font-size: 1rem !default;
 
 // links with accessible hover color for contrast against cream background
-$link-color: $primary !default;
+$link-color: $accent-coral !default; // coral for visibility (4.51:1 contrast)
 $link-decoration: none !default;
-$link-hover-color: #b44d2f !default; // darker coral for WCAG AA compliance (4.51:1 contrast)
+$link-hover-color: $primary !default; // blue-gray on hover
 $link-hover-decoration: underline !default;
 
 // Spacing and layout
