@@ -31,7 +31,6 @@ website:
   search: true
   open-graph: true
   twitter-card: true
-  margin-header: _margin-header.qmd
   navbar:
     background: "#f2e9dc"
     logo: /assets/img/logo.png
