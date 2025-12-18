@@ -1,6 +1,7 @@
 ---
 title: "Behavioral Insight Design (BID): A Framework for Cognitive-Aware Dashboard Development"
 date: "2025-06-01"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "Introduction of the BID framework and bidux R package for designing dashboards with cognitive psychology principles"
 author: "J. R. Winget"

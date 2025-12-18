@@ -1,14 +1,14 @@
 ---
-title: "PSYC 280 - Judgment and Decision Making"
-date: "2021-08-30"
+title: "PSYC 280: Judgment and Decision Making"
+date: "2019-08-26"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on understanding judgment and decision-making through psychological theory and research."
-categories: ["Education", "Psychology"]
-tags: ["decision-making", "judgment", "undergraduate-course", "cognitive-psychology", "behavioral-economics", "reasoning", "biases", "well-being", "happiness"]
+image: featured.png
+categories: ["Education & Community", "Behavioral Science"]
+tags: ["psychology", "cognitive-psychology", "decision-making", "behavioral-economics"]
 description: "State-of-the-art discussion of research on judgment and decision-making from psychological, philosophical, and economic perspectives."
 ---
-
-**Semesters taught:** *Fall 2019, Fall 2020, Spring 2021, Fall 2021*
 
 This course presents a state-of-the-art discussion of research on judgment and decision-making. Decisions large and small are part of everyday life. Where should I go for lunch? Should I go to the gym today? Will this course make me happy? Is this a cold or the flu? Should I go to the doctor? Is this job for me? Even when we have the best information, we often don't make the right decisions.
 

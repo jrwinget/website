@@ -1,14 +1,14 @@
 ---
-title: "PSYC 306 - Research Methods"
-date: "2021-08-30"
+title: "PSYC 306: Research Methods"
+date: "2019-05-21"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on the fundamentals of research methods in the social sciences."
-categories: ["Education", "Research"]
-tags: ["research-methods", "statistics", "experimental-design", "undergraduate-course", "methodology", "data-analysis", "scientific-method", "ethics"]
+image: featured.png
+categories: ["Education & Community", "Data Science"]
+tags: ["research-methods", "experimental-design", "statistics", "methodology"]
 description: "Introduction to research methods and statistics used in psychological research, including experimental and non-experimental methodologies."
 ---
-
-**Semesters taught:** *Fall 2017, Fall 2018, Summer 2019, Summer 2020, Summer 2021, Fall 2021*
 
 This course is designed as an introduction to research methods (and to some extent statistics) used in psychological research. While we will spend a lot of time talking about true experiments, we also discuss non-experimental methodologies (including observation, correlational research, surveys, archival research) and quasi-experimental (including person-by-treatment, natural experiments, nature and treatment, and patch-up designs).
 

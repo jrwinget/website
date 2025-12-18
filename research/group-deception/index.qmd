@@ -1,6 +1,7 @@
 ---
 title: "Deceptive communication in group contexts"
 date: "2019-04-30"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "A book chapter discussing why groups tend to behave more unethically compared to individuals in the same situations"
 author: "J. R. Winget & R. S. Tindale"

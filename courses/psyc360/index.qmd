@@ -1,14 +1,14 @@
 ---
-title: "PSYC 360 - Understanding Prejudice"
-date: "2021-08-30"
+title: "PSYC 360: Understanding Prejudice"
+date: "2020-08-24"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course that focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations."
-categories: ["Education", "Psychology"]
-tags: ["prejudice", "discrimination", "intergroup-relations", "undergraduate-course", "social-psychology", "stereotypes", "racism", "sexism"]
+image: featured.png
+categories: ["Education & Community", "Behavioral Science"]
+tags: ["psychology", "social-psychology", "prejudice", "intergroup-relations"]
 description: "Psychological research and theories on stereotypes, prejudice, and intergroup relations across various social groups."
 ---
-
-**Semesters taught:** *Fall 2020, Fall 2021*
 
 This course focuses on psychological research and theories that increase our understanding of stereotypes, prejudice, and intergroup relations. This material considers how the person, the situation, and society shape our thoughts, feelings, and behaviors toward people from various social groups. Most psychological research on these topics focuses on race; however, we also discuss research related to gender, sexual orientation, size, and social class.
 

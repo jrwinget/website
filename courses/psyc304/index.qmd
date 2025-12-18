@@ -1,14 +1,14 @@
 ---
-title: "PSYC 304 - Statistics"
-date: "2021-01-18"
+title: "PSYC 304: Statistics"
+date: "2017-07-05"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "An undergraduate-level course on the fundamentals of statistics and hypothesis testing."
-categories: ["Education", "Data Science"]
-tags: ["statistics", "undergraduate-course", "hypothesis-testing", "research-methods", "data-analysis", "statistical-inference", "descriptive-statistics"]
+image: featured.png
+categories: ["Education & Community", "Data Science"]
+tags: ["statistics", "data-analysis", "research-methods"]
 description: "Conceptual understanding of statistics, research methods, and data analysis for psychology students."
 ---
-
-**Semesters taught:** *Summer 2017, Summer 2018, Spring 2020, Spring 2021*
 
 This course emphasizes more of a conceptual understanding of statistics rather than a purely mathematical understanding of statistics; however, notions and formulas for all the procedures discussed will be covered as well. The goal is to gain an understanding of the concepts underpinning statistics, research methods, and data analysis to develop skills to interpret and critique empirical evidence.
 

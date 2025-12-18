@@ -1,6 +1,7 @@
 ---
 title: "Group decision-making"
 date: "2019-03-26"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "A book chapter summarizing the current state of the field concerning group decision making"
 author: "R. S. Tindale & J. R. Winget"

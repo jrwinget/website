@@ -1,0 +1,197 @@
+---
+title: "What Is Cognitive Engineering? Building Technology for Human Minds"
+subtitle: "Why your technology fails its users (including you), and what we can do about it"
+date: '2025-12-18'
+date-modified: last-modified
+date-format: "MMMM D, YYYY"
+categories: ["Cognitive Engineering", "Software Development"]
+tags: ["behavioral-science", "devx", "ux", "culture", "group-dynamics", "decision-making", "performance"]
+image: featured.png
+toc: true
+citation: true
+aliases:
+  - /blog/cognitive-engineering
+---
+
+## The Incident That Should Change Everything
+
+Last month, a routine [Cloudflare configuration update](https://blog.cloudflare.com/18-november-2025-outage/) took down a large portion of the internet. ChatGPT, Uber, government websites, and countless downstream services went dark. The cause was mundane: a Bot Management configuration file grew too large and triggered a latent failure mode.
+
+A month earlier, AWS `us-east-1` suffered a cascading outage when [internal DNS couldn't resolve DynamoDB endpoints](https://cyberpress.org/amazon-aws-internet-outage/). The circular dependency was documented, but the engineers who understood it weren't in the room when the architecture was designed, and the monitoring systems were watching the wrong signals.
+
+These incidents weren't failures of skill, effort, or intent. Talented engineers were doing their jobs under pressure. What failed was something more fundamental: The systems exceeded the cognitive capacity of the humans responsible for operating them safely.
+
+We've become remarkably good at optimizing systems for machines while systematically overlooking the cognitive needs of the people who build, maintain, and use them. We measure deployment frequency without tracking decision fatigue. We monitor uptime while cognitive debt accumulates invisibly until systems collapse under its weight.
+
+::: {.column-margin}
+**Cognitive debt** accumulates like technical debt: Quietly, compounding, and often invisible until failure.
+:::
+
+Depending how one measures "a decision", the average developer easily makes hundreds to thousands of cognitive decisions per day. Software development is fundamentally a continuous, complex, and iterative decision-making process. These decisions range widely in scope and impact, from high-level architectural choices to low-level implementation details.
+
+But each decision draws from a finite reservoir of attention and judgment. By mid-afternoon, that reservoir is depleted. By Friday, many teams are operating in deficit. Yet we design systems as if attention were infinite, memory perfect, and judgment immune to degradation.
+
+There's a better path forward, and it's grounded in research from cognitive science, organizational psychology, and human factors engineering.
+
+## What Is Cognitive Engineering?
+
+Cognitive engineering places human cognition at the center of system design. It treats attention, memory, judgment, and coordination as first-order constraints that shape everything from CI/CD pipelines to incident response procedures.
+
+This goes well beyond traditional notions of "user experience". Cognitive engineering recognizes that every technology exists within a **distributed cognitive system** composed of human minds, software, infrastructure, and teams. Performance emerges from how well these elements support one another.
+
+::: {.callout-note icon=false appearance="simple"}
+## The Distributed Cognitive System
+Every system includes:
+
+- **Human minds** with finite attention and imperfect memory
+- **Software and infrastructure** whose complexity must be understood and recalled
+- **Teams** that process information collectively, with predictable biases
+- **Interfaces** that impose cognitive demands on operators and users
+
+When any element fails, the system breaks at its most vulnerable point: People
+:::
+
+When we neglect the cognitive aspects of this system, the consequences are predictable. Developers burn out. Projects fail despite technical correctness. Systems function in theory but falter in practice.
+
+Organizations that take cognition seriously see measurable results. When Microsoft's dev division [implemented cognitive load budgeting](https://www.microsoft.com/en-us/research/publication/the-influence-of-organizational-structure-on-software-quality/), production incidents dropped by nearly half. When Etsy [redesigned their deployment pipeline around cognitive principles](https://www.simform.com/blog/etsy-devops-case-study), deployment frequency increased while errors fell dramatically. Supporting developer cognition and improving business outcomes turn out to be the same work.
+
+## Cognition Lives Everywhere (And We're Bad at Seeing It)
+
+### Your Infrastructure Has a Psychology Problem
+
+Ask any SRE what causes most outages and you'll often hear "human error". While this diagnosis might technically be true, it obscures a deeper truth. What we label as human error is frequently the consequence of systems that demand more cognitive resources than people can reliably provide.
+
+::: {.aside}
+What we call **human error** is often system design wearing a clever disguise.
+:::
+
+In the Cloudflare incident, the system provided little cognitive support. There were no escalating warnings as configuration size approached limits. No validation that forced a pause. No accessible mental model of how configuration changes propagated through the proxy layer. The operator was left to notice something the system could've surfaced automatically.
+
+The AWS incident followed similar logic. The circular dependency existed in documentation, but documentation and working memory are very different things. During an incident (especially urgent high-stakes ones), people can only act on what they can actively hold in mind.
+
+The [Google SRE handbook](https://sre.google/sre-book/eliminating-toil/) addresses part of this problem through the concept of eliminating toil. But toil isn't just repetitive work. It includes anything that unnecessarily drains cognitive resources: dashboards that require mental gymnastics, alerts that cry wolf, runbooks that assume perfect recall under stress, or deployment processes that require holding multiple interdependent concepts in mind at once.
+
+### Developers Are Users Too
+
+Developer environments impose cognitive demands just as real as those faced by end users. Research by [Hicks, Lee, and Ramsey](https://www.drcathicks.com/developer-thriving) on developer thriving shows when cognitive work goes unrecognized, people disengage and leave.
+
+They identify four factors that shape whether developers thrive:
+
+- **Learning culture**: Can people admit uncertainty safely?
+- **Agency**: Can they influence how success is defined?
+- **Belonging**: Are their contributions welcomed and built upon?
+- **Self-efficacy**: Does the environment increase confidence over time?
+
+Think **LABS**.
+
+Teams that create strong cognitive support across these dimensions ship faster, break less, and retain people longer. Measurement infrastructure plays a key role here. When it's designed well, it makes invisible cognitive contributions visible, benefiting both equity and performance.
+
+
+### When Teams Become Less Than the Sum of Their Parts
+
+Groups have the potential to outperform individuals, yet research shows they often fail to do so in systematic ways. One of the more robust group biases is the [tendency to focus on shared information](https://www.uni-muenster.de/imperia/md/content/psyifp/aeechterhoff/vorlesungkommunikation/stasser_titus_unsharedinfogroupdisc_jpsp1985.pdf) (the information everyone already knows) while overlooking unique insights held by individual members. The problem worsens when teams [converge prematurely on problem definitions](https://d1wqtxts1xzle7.cloudfront.net/42226885/Biased_information_search_in_group_decis20160206-14055-1fruvn2-libre.pdf?1454789622=&response-content-disposition=inline%3B+filename%3DBiased_information_search_in_group_decis.pdf). Once a framing becomes dominant, contradictory information gets filtered out rather than integrated.
+
+Research by [Hinsz, Tindale, and Vollrath](https://www.researchgate.net/profile/Verlin-Hinsz/publication/247408619_The_emerging_conceptualization_of_groups_as_information_processes/links/55563bd408ae6fd2d82360d0/The-emerging-conceptualization-of-groups-as-information-processes.pdf) shows what separates effective groups from dysfunctional ones: strong shared mental models. These are things like creating a common understanding of the problem space, clarity about who knows what, and explicit decision processes. In other words, high-performing teams invest in cognitive infrastructure.
+
+When this infrastructure is missing, architectural meetings follow a familiar pattern. The senior engineer who knows the database will buckle assumes others already see the risk. The junior engineer who noticed an edge case doubts themselves. The product manager with critical customer context stays quiet because the discussion feels "technical". Each person minimizes individual risk, and the collective intelligence of the group collapses.
+
+## The Science of Not Undermining Yourself
+
+### Small Signals, Large Effects
+
+Belonging in technical teams doesn't emerge from grand gestures. Research on microinclusions by [Muragishi and colleagues](https://www.greggmuragishi.com/uploads/5/7/1/5/57150559/microinclusions_muragishi_et_al_2024.pdf) shows small, consistent signals that recognize cognitive contributions have an enormous impact.
+
+A simple "Building on what Jane said…" costs seconds and nothing else. Teams that practice these behaviors see dramatically higher retention and engagement. These effects occur because microinclusions increase cognitive visibility. They make mental work legible to others.
+
+In environments where work happens inside people's heads, recognition becomes infrastructure.
+
+### The Measurement Trap (And How to Avoid It)
+
+Most teams measure what's convenient rather than what's meaningful. Lines of code tell us little. Story points are easily gamed. Even deployment frequency is ambiguous without context.
+
+As [Lee, Ramsey, and Hicks](https://arxiv.org/abs/2305.11030) note, effective measurement requires triangulation. Using multiple indicators helps to converge on the same underlying reality.
+
+::: {.callout-tip icon=false}
+## Triangulating Truth
+Instead of relying on single metrics, try combining:
+
+- **Cycle time** (speed)
+- **Code review discussion quality** (engagement)
+- **Developer confidence scores** (sustainability)
+
+Together, they reveal whether you're seeing fast delivery with engaged developers or a death knell of inevitable collapse
+:::
+
+Measure capabilities, not just outputs. Measure systems, not individuals. Measure to enable learning, not judgment.
+
+## A Three-Step Starting Point
+
+Large-scale transformation can wait. Start with these concrete practices.
+
+### 1. Implement a Cognitive Load Budget
+
+You already manage error budgets. Apply the same thinking to cognitive resources.
+
+During planning:
+
+- Assign cognitive weight to tasks on a simple scale
+- Establish realistic team capacity
+- Stop adding work when the budget is reached
+
+Teams experimenting with this approach often see velocity increase, not decrease. Fewer tasks completed with full cognitive resources outperform many tasks completed in a depleted state.
+
+### 2. Add a Cognitive Review Lens
+
+Before approving a change, ask:
+
+- Could someone understand this at 3 a.m. during an incident?
+- How many concepts must be held simultaneously to modify it?
+- Does this reduce or increase cognitive load for the next person?
+
+### 3. Make Cognitive Work Visible
+
+In meetings and reviews:
+
+- Explicitly build on others' contributions
+- Direct questions to those with relevant expertise
+- Acknowledge insights publicly
+
+These small behaviors create the conditions for collective intelligence.
+
+## The Technology We Deserve
+
+::: {.callout-note icon=false appearance="simple"}
+## Richard Hackman's principle
+*The best leaders are those who create conditions for others to succeed.<br>*
+*— Paraphrased from *Leading Teams: Setting the Stage for Great Performances*, [J. Richard Hackman](https://books.google.com/books?hl=en&lr=&id=snfoCQAAQBAJ&oi=fnd&pg=PR5&dq=Leading+Teams:+Setting+the+Stage+for+Great+Performances&ots=SCn5qDTc-g)*
+
+The same principle applies to systems: The most effective technology amplifies human cognitive capabilities rather than demanding superhuman ones.
+:::
+
+Cognitive engineering offers a path toward building technology that amplifies human capabilities rather than demanding superhuman ones. It means designing systems that respect how minds actually work, including their strengths and their limits.
+
+We're at an inflection point. Systems are growing more complex. AI is entering workflows. Cognitive demands are increasing, not decreasing. We can continue treating human cognition as peripheral, or we can recognize it as the critical infrastructure it's always been.
+
+## Introducing the Cognitive Engineering Field Guide
+
+This post outlines what becomes possible when we design with cognition in mind. To go deeper, we're creating the **Cognitive Engineering Field Guide**, a living, open-source manual for building human-aligned systems.
+
+The guide translates decades of research into practical tools covering infrastructure design, team dynamics, measurement, and AI collaboration. It's open science meeting open source, built as a community resource.
+
+The first chapters launch next month, beginning with Foundations, Infrastructure, Teams, and Measurement.
+
+## The Choice Is Yours
+
+Every system embodies assumptions about whose cognition matters. Every process either supports or undermines the minds executing it.
+
+Cloudflare and AWS didn't plan to take down the internet. They had capable engineers, sophisticated systems, and detailed runbooks. What they lacked was systematic attention to cognitive engineering.
+
+The research is clear. The economics are compelling. The path forward is available.
+
+What will you build tomorrow?
+
+---
+
+*The **Cognitive Engineering Field Guide** launches early 2026! [Subscribe](/blog.html) for updates and early access to chapters as they're released.*
+
+*Have a story about cognitive engineering in practice? I'm actively collecting case studies for the Guide and would love to hear from you! [Share your experience](mailto:contact@jrwinget.com) and help build this resource together.*

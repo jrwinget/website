@@ -70,9 +70,9 @@ $h5-font-size: 1.25rem !default;
 $h6-font-size: 1rem !default;
 
 // links with accessible hover color for contrast against cream background
-$link-color: $primary !default;
+$link-color: $accent-coral !default; // coral for visibility (4.51:1 contrast)
 $link-decoration: none !default;
-$link-hover-color: #b44d2f !default; // darker coral for WCAG AA compliance (4.51:1 contrast)
+$link-hover-color: $primary !default; // blue-gray on hover
 $link-hover-decoration: underline !default;
 
 // Spacing and layout
@@ -1020,40 +1020,48 @@ figure {
 
 .hex-wall {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
-  padding: 2rem 0;
+  grid-template-columns: repeat(4, 150px);
+  justify-content: center;
+  padding: 3rem 0 6rem 0;
   max-width: 900px;
   margin: 0 auto;
+  gap: 0;
+  grid-auto-rows: 130px;
 
-  // Responsive breakpoints
-  @media (min-width: 576px) {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 2rem;
-  }
-
+  // Responsive sizing
   @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  }
-
-  @media (min-width: 992px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(4, 170px);
+    grid-auto-rows: 145px;
   }
 }
 
 .hex-item {
   position: relative;
-  width: 100%;
-  max-width: 180px;
-  aspect-ratio: 1 / 1.1547; // Hexagon aspect ratio (width:height = 1:√3/1.5)
+  width: 150px;
+  height: 173px;
   transition: transform 0.3s ease, filter 0.3s ease;
+  margin: 0 -12px;
+
+  // Second row (items 5-7): offset right and span to create 3-hex row
+  &:nth-child(n+5):nth-child(-n+7) {
+    margin-left: 63px;
+  }
 
   &:hover,
   &:focus-within {
     transform: scale(1.15);
     z-index: 10;
+  }
+
+  // Responsive sizing
+  @media (min-width: 768px) {
+    width: 170px;
+    height: 196px;
+    margin: 0 -13px;
+
+    &:nth-child(n+5):nth-child(-n+7) {
+      margin-left: 72px;
+    }
   }
 
   // Reduced motion preference
@@ -1102,7 +1110,7 @@ figure {
 
 .hex-title {
   position: absolute;
-  bottom: -1.5rem;
+  bottom: -2.5rem;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.85rem;
@@ -1112,6 +1120,8 @@ figure {
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.3s ease;
+  width: max-content;
+  max-width: 200px;
 
   .hex-item:hover &,
   .hex-item:focus-within & {

@@ -1,6 +1,7 @@
 ---
 title: "Discharged in D.C.: The role of disinhibition in the behavior of insurrection group members"
 date: "2022-03-03"
+date-modified: last-modified
 date-format: "MMMM D, YYYY"
 subtitle: "A theory paper summarizing the role of motivational systems in group members' behavior during the January 6th, 2021 attack on the US Capitol building"
 author: "J. R. Winget & E. S. Park"

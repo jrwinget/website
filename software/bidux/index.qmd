@@ -1,6 +1,7 @@
 ---
 title: "bidux: A Framework for Cognitive-Aware Dashboard Development"
 date: "2025-06-01"
+date-format: "MMMM D, YYYY"
 categories: ["Software Development", "User Experience", "Research"]
 tags: ["r", "r-package", "ui-ux", "behavioral-science", "cognitive-psychology", "dashboard-design", "bid-framework", "cran"]
 image: featured.png
