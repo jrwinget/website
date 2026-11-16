@@ -1,5 +1,10 @@
 [build]
   publish = "_site"
+  # Build for the production context only. Deploy previews and branch
+  # deploys exit early here and are skipped, as defence in depth. The
+  # primary control is the Netlify UI: Deploy Previews set to None and
+  # branch deploys set to the production branch only.
+  ignore = "[ \"$CONTEXT\" != \"production\" ]"
 
 [[plugins]]
   package = "@quarto/netlify-plugin-quarto"
